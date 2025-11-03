@@ -73,37 +73,37 @@ export default function OptimizedImage({
 // Predefined image configurations for SERVE website
 export const SERVE_IMAGES = {
   hero: {
-    src: '/pics/hero-care.jpg',
+    src: '/pics/hero-care.svg',
     alt: 'SERVE charity providing compassionate care services to older people and adults with disabilities',
     width: 1200,
     height: 600
   },
   personalCare: {
-    src: '/pics/personal-care.jpg',
+    src: '/pics/personal-care.svg',
     alt: 'Personal care services - helping with daily activities at home',
     width: 600,
     height: 400
   },
   dayCare: {
-    src: '/pics/day-care.jpg',
+    src: '/pics/day-care.svg',
     alt: 'Ron Manning Day and Activity Centre - social activities and meals',
     width: 600,
     height: 400
   },
   transport: {
-    src: '/pics/transport.jpg',
+    src: '/pics/transport.svg',
     alt: 'Community transport service - medical appointments and family visits',
     width: 600,
     height: 400
   },
   befriending: {
-    src: '/pics/befriending.jpg',
+    src: '/pics/befriending.svg',
     alt: 'Befriending service - companionship and social support',
     width: 600,
     height: 400
   },
   volunteers: {
-    src: '/pics/volunteers.jpg',
+    src: '/pics/volunteers.svg',
     alt: 'SERVE volunteers making a difference in the community',
     width: 600,
     height: 400

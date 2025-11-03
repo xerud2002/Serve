@@ -9,6 +9,7 @@ import {
   UserGroupIcon
 } from '@heroicons/react/24/outline'
 import NewsletterSignup from './NewsletterSignup'
+import { ARIA_LABELS } from '@/lib/accessibility'
 
 export default function Footer() {
   return (
@@ -70,29 +71,53 @@ export default function Footer() {
             </div>
             {/* Social Media */}
             <div>
-              <h4 className="text-lg font-semibold mb-4 text-gray-200">Follow Us</h4>
-              <div className="flex space-x-4">
+              <h4 className="text-lg font-semibold mb-6 text-gray-200 flex items-center">
+                <svg className="w-5 h-5 mr-2 text-serve-blue-400" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/>
+                </svg>
+                Follow SERVE
+              </h4>
+              <div className="flex flex-col space-y-4">
                 <a
                   href="https://www.facebook.com/SERVE234/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-gray-800 hover:bg-serve-blue-600 p-3 rounded-xl transition-all duration-300 transform hover:scale-110 border border-gray-700 hover:border-serve-blue-500"
-                  aria-label="Facebook (opens in new window)"
+                  className="group relative overflow-hidden flex items-center p-5 bg-gradient-to-r from-serve-blue-600/90 to-serve-blue-700/90 hover:from-serve-blue-500 hover:to-serve-blue-600 rounded-2xl border border-serve-blue-400/30 hover:border-serve-blue-300/60 shadow-lg hover:shadow-serve-blue-500/25 transform hover:scale-[1.02] transition-all duration-300"
+                  aria-label={ARIA_LABELS.facebook}
                 >
-                  <svg className="h-6 w-6 text-serve-blue-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                  </svg>
+                  <div className="relative z-10 flex items-center w-full">
+                    <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                      <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.90 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-lg">Facebook</div>
+                      <div className="text-blue-100 text-sm">Latest news & community updates</div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
+                
                 <a
                   href="https://www.linkedin.com/company/serve-nvca/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="group bg-gray-800 hover:bg-serve-red-600 p-3 rounded-xl transition-all duration-300 transform hover:scale-110 border border-gray-700 hover:border-serve-red-500"
-                  aria-label="LinkedIn (opens in new window)"
+                  className="group relative overflow-hidden flex items-center p-5 bg-gradient-to-r from-serve-red-600/90 to-serve-red-700/90 hover:from-serve-red-500 hover:to-serve-red-600 rounded-2xl border border-serve-red-400/30 hover:border-serve-red-300/60 shadow-lg hover:shadow-serve-red-500/25 transform hover:scale-[1.02] transition-all duration-300"
+                  aria-label={ARIA_LABELS.linkedin}
                 >
-                  <svg className="h-6 w-6 text-serve-red-400 group-hover:text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                    <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
-                  </svg>
+                  <div className="relative z-10 flex items-center w-full">
+                    <div className="bg-white/20 backdrop-blur-sm p-3 rounded-xl mr-4 group-hover:bg-white/30 transition-colors duration-300">
+                      <svg className="h-6 w-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <div className="text-white font-semibold text-lg">LinkedIn</div>
+                      <div className="text-red-100 text-sm">Professional network & careers</div>
+                    </div>
+                  </div>
+                  <div className="absolute inset-0 bg-gradient-to-r from-white/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </a>
               </div>
             </div>

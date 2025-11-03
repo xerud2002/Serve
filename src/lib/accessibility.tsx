@@ -13,8 +13,8 @@ export const ARIA_LABELS = {
   formSuccess: 'Form submitted successfully',
   
   // Social media
-  facebook: 'Visit SERVE Facebook page (opens in new window)',
-  linkedin: 'Visit SERVE LinkedIn page (opens in new window)',
+  facebook: 'Visit SERVE on Facebook',
+  linkedin: 'Connect with SERVE on LinkedIn',
   
   // Contact
   phoneNumber: 'Call SERVE at 01933 315555',
@@ -27,7 +27,6 @@ export const ARIA_LABELS = {
   newsletterSignup: 'Subscribe to SERVE newsletter',
   
   // General
-  externalLink: 'Opens in new window',
   loading: 'Loading...',
   close: 'Close',
   search: 'Search',
@@ -65,10 +64,9 @@ export function ExternalLink({
       target="_blank"
       rel="noopener noreferrer"
       className={`${className} ${FOCUS_STYLES.link}`}
-      aria-label={ariaLabel || `${children} ${ARIA_LABELS.externalLink}`}
+      aria-label={ariaLabel}
     >
       {children}
-      <ScreenReaderOnly> (opens in new window)</ScreenReaderOnly>
     </a>
   )
 }

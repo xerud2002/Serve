@@ -83,8 +83,23 @@ export default function About() {
             </a>
           </div>
           
-          {/* Mission & Vision */}
+          {/* Image and Mission & Vision */}
           <div className="bg-white rounded-3xl p-8 shadow-xl border border-gray-100">
+            {/* Award Image */}
+            <div className="relative h-48 rounded-2xl overflow-hidden mb-8">
+              <OptimizedImage
+                {...SERVE_IMAGES.award}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent" />
+              <div className="absolute bottom-4 left-4 text-white">
+                <div className="text-sm font-semibold">Great British Care Awards 2024</div>
+                <div className="text-xs opacity-90">Best Homecare Team, East Midlands</div>
+              </div>
+            </div>
+            
             <h3 className="text-3xl font-bold text-gray-900 mb-8 text-center">Our Mission & Vision</h3>
             
             <div className="space-y-8">
