@@ -137,7 +137,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         left: 0, 
         right: 0, 
         bottom: 0,
-        backgroundColor: 'rgba(255, 0, 0, 0.8)', // Red background for testing
+        backgroundColor: 'rgba(0, 0, 0, 0.75)', // Red background for testing
         zIndex: 99999
       }}
       onClick={(e) => {
@@ -149,22 +149,162 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
       }}
     >
       <div 
-        className="bg-blue-500 rounded-2xl shadow-2xl w-96 h-96 relative mx-auto p-8"
+        className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative mx-auto"
         onClick={(e) => e.stopPropagation()}
         style={{ zIndex: 100000 }}
       >
-        <h1 className="text-white text-2xl font-bold">TEST MODAL - STEP {step}</h1>
-        <p className="text-white mt-4">If you can see this red background and blue box, the modal is working!</p>
-        <button 
-          onClick={(e) => {
-            e.preventDefault()
-            console.log('Test close button clicked')
-            handleClose()
-          }}
-          className="bg-white text-blue-500 px-6 py-3 rounded mt-6 font-bold"
-        >
-          CLOSE TEST MODAL
-        </button>
+        {/* Header */}
+        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
+          <div>
+            <h2 className="text-2xl font-bold text-gray-900">Book Home Care Assessment</h2>
+            <p className="text-gray-600 mt-1">Professional care evaluation at your home</p>
+          </div>
+          <button
+            onClick={(e) => {
+              e.preventDefault()
+              console.log('Close button clicked')
+              handleClose()
+            }}
+            className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-lg transition-colors font-medium"
+          >
+            Close
+          </button>
+        </div>
+
+        {/* Simple Form Content */}
+        <div className="p-6">
+          {step === 1 && (
+            <form onSubmit={handleSubmitDetails} className="space-y-6">
+              <div className="bg-blue-50 p-4 rounded-lg mb-6">
+                <h3 className="font-semibold text-blue-900 mb-2">Assessment Fee: £25</h3>
+                <p className="text-sm text-blue-800">
+                  This fee will be <strong>fully refunded</strong> if you proceed with our care package after the assessment.
+                </p>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                    Full Name *
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    required
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="Enter your full name"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                    Phone Number *
+                  </label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    name="phone"
+                    required
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="01933 315555"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                    Email Address *
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    required
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+                    placeholder="your.email@example.com"
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-2">
+                    Preferred Date *
+                  </label>
+                  <select
+                    id="preferredDate"
+                    name="preferredDate"
+                    required
+                    value={formData.preferredDate}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-blue-500 bg-white"
+                  >
+                    <option value="">Select a date</option>
+                    {availableDates.map((date, index) => (
+                      <option key={index} value={date.toISOString().split('T')[0]}>
+                        {date.toLocaleDateString('en-GB', { 
+                          weekday: 'long', 
+                          year: 'numeric', 
+                          month: 'long', 
+                          day: 'numeric' 
+                        })}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              </div>
+
+              <button
+                type="submit"
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center"
+              >
+                <CalendarIcon className="w-5 h-5 mr-2" />
+                Proceed to Payment
+              </button>
+            </form>
+          )}
+
+          {step === 2 && (
+            <div className="text-center space-y-6">
+              <h3 className="text-xl font-bold text-gray-900">Payment Step</h3>
+              <p className="text-gray-600">Payment processing would go here...</p>
+              <div className="flex space-x-4">
+                <button
+                  onClick={() => setStep(1)}
+                  className="flex-1 bg-gray-200 hover:bg-gray-300 text-gray-800 font-semibold py-4 px-6 rounded-lg transition-colors"
+                >
+                  Back
+                </button>
+                <button
+                  onClick={handlePayment}
+                  className="flex-1 bg-green-600 hover:bg-green-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors"
+                >
+                  Pay £25.00
+                </button>
+              </div>
+            </div>
+          )}
+
+          {step === 3 && (
+            <div className="text-center space-y-6">
+              <div className="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto">
+                <CheckCircleIcon className="w-12 h-12 text-green-600" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Assessment Booked!</h3>
+              <p className="text-gray-600">Your home care assessment has been successfully scheduled.</p>
+              <button
+                onClick={handleClose}
+                className="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors"
+              >
+                Close
+              </button>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   )
