@@ -49,7 +49,7 @@ export default function Hero() {
           </p>
           
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
             <a
               href="/contact"
               className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-10 py-5 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-flex items-center"
@@ -71,6 +71,27 @@ export default function Hero() {
               </svg>
               Volunteer With Us
             </a>
+          </div>
+
+          {/* Assessment Information */}
+          <div className="mb-16">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 max-w-md mx-auto">
+              <div className="flex items-center justify-center mb-3">
+                <svg className="w-6 h-6 mr-2 text-serve-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                <h3 className="text-xl font-semibold text-white">Home Care Assessment</h3>
+              </div>
+              <p className="text-blue-100 mb-4 text-center">
+                Start your care journey with a professional assessment
+              </p>
+              <div className="bg-serve-green-500/20 rounded-lg p-4 text-center">
+                <div className="text-2xl font-bold text-serve-green-200 mb-1">£25</div>
+                <div className="text-serve-green-100 text-sm">
+                  <strong>Fully Refundable</strong> when you start care
+                </div>
+              </div>
+            </div>
           </div>
           
           {/* Stats */}

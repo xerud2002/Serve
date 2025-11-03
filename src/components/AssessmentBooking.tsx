@@ -500,9 +500,6 @@ export function AssessmentBookingButton() {
       >
         <CalendarIcon className="w-6 h-6 mr-3" />
         Book Home Care Assessment
-        <span className="ml-3 bg-white bg-opacity-20 px-2 py-1 rounded-lg text-sm">
-          £25 (Refundable)
-        </span>
       </button>
       
       <AssessmentBooking 
