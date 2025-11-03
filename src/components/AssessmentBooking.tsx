@@ -148,16 +148,22 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
           <div className="p-8">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-6">
-              <div className="bg-serve-blue-50 p-4 rounded-lg mb-6">
-                <h3 className="font-semibold text-serve-blue-900 mb-2">Assessment Fee: £25</h3>
-                <p className="text-sm text-serve-blue-800">
-                  This fee will be <strong>fully refunded</strong> if you proceed with our care package after the assessment.
+              <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
+                <div className="flex items-center mb-3">
+                  <div className="w-8 h-8 bg-serve-blue-600 rounded-full flex items-center justify-center mr-3">
+                    <span className="text-white font-bold text-sm">£</span>
+                  </div>
+                  <h3 className="text-xl font-bold text-serve-blue-900">Assessment Fee: £25</h3>
+                </div>
+                <p className="text-serve-blue-800 leading-relaxed">
+                  This fee will be <strong>100% refunded</strong> when you start your care package after the assessment. 
+                  It ensures committed appointments and covers our assessor's travel costs.
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div className="space-y-2">
+                  <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
                     Full Name *
                   </label>
                   <input
@@ -167,12 +173,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.name}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    placeholder="Enter your full name"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-2">
                     Phone Number *
                   </label>
                   <input
@@ -182,12 +189,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.phone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    placeholder="01933 315555"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
                     Email Address *
                   </label>
                   <input
@@ -197,12 +205,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.email}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    placeholder="your.email@example.com"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="emergencyContact" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-800 mb-2">
                     Emergency Contact Name *
                   </label>
                   <input
@@ -212,12 +221,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.emergencyContact}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    placeholder="Contact person's name"
                   />
                 </div>
 
-                <div className="md:col-span-2">
-                  <label htmlFor="address" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="lg:col-span-2 space-y-2">
+                  <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-2">
                     Home Address *
                   </label>
                   <input
@@ -228,12 +238,12 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     value={formData.address}
                     onChange={handleInputChange}
                     placeholder="Street address, city, postcode"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="emergencyPhone" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="emergencyPhone" className="block text-sm font-semibold text-gray-800 mb-2">
                     Emergency Contact Phone *
                   </label>
                   <input
@@ -243,12 +253,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.emergencyPhone}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    placeholder="Emergency contact phone"
                   />
                 </div>
 
-                <div>
-                  <label htmlFor="preferredDate" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-800 mb-2">
                     Preferred Date *
                   </label>
                   <select
@@ -257,7 +268,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.preferredDate}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white"
                   >
                     <option value="">Select a date</option>
                     {availableDates.map((date, index) => (
@@ -273,8 +284,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                   </select>
                 </div>
 
-                <div>
-                  <label htmlFor="preferredTime" className="block text-sm font-medium text-gray-700 mb-2">
+                <div className="space-y-2">
+                  <label htmlFor="preferredTime" className="block text-sm font-semibold text-gray-800 mb-2">
                     Preferred Time *
                   </label>
                   <select
@@ -283,7 +294,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     required
                     value={formData.preferredTime}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white"
                   >
                     <option value="">Select a time</option>
                     {availableTimes.map((time, index) => (
@@ -295,8 +306,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                 </div>
               </div>
 
-              <div>
-                <label htmlFor="careNeeds" className="block text-sm font-medium text-gray-700 mb-2">
+              <div className="lg:col-span-2 space-y-2">
+                <label htmlFor="careNeeds" className="block text-sm font-semibold text-gray-800 mb-2">
                   Brief Description of Care Needs
                 </label>
                 <textarea
@@ -305,18 +316,23 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                   rows={4}
                   value={formData.careNeeds}
                   onChange={handleInputChange}
-                  placeholder="Please describe the type of care support you're looking for..."
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500"
+                  placeholder="Please describe the type of care support you're looking for (e.g., personal care, domestic help, companionship)..."
+                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 resize-none"
                 />
               </div>
 
-              <button
-                type="submit"
-                className="w-full bg-serve-blue-600 hover:bg-serve-blue-700 text-white font-semibold py-4 px-6 rounded-lg transition-colors flex items-center justify-center"
-              >
-                <CalendarIcon className="w-5 h-5 mr-2" />
-                Proceed to Payment
-              </button>
+              <div className="lg:col-span-2 pt-4">
+                <button
+                  type="submit"
+                  className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 text-white font-bold py-5 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                >
+                  <CalendarIcon className="w-6 h-6 mr-3" />
+                  Proceed to Payment
+                  <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                  </svg>
+                </button>
+              </div>
             </form>
           )}
 
@@ -497,6 +513,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
               </button>
             </div>
           )}
+          </div>
         </div>
       </div>
     </div>
