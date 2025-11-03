@@ -14,12 +14,11 @@ import {
   StarIcon,
   ShieldCheckIcon
 } from '@heroicons/react/24/outline'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
-export const metadata: Metadata = {
-  title: 'Our Services - SERVE | Award-Winning Care Services in Northamptonshire',
-  description: 'Discover SERVE\'s comprehensive care services: Personal & Domestic Care, Day Care, Community Transport, Befriending, and Volunteer Programs. CQC registered and award-winning.',
-  keywords: 'care services, homecare, day care, community transport, befriending, volunteers, Northamptonshire, CQC registered',
-}
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.services)
 
 const services = [
   {
@@ -213,6 +212,11 @@ export default function ServicesPage() {
                 </div>
               )
             })}
+          </div>
+
+          {/* Newsletter Signup */}
+          <div className="mb-16">
+            <NewsletterSignup variant="inline" />
           </div>
 
           {/* Contact CTA */}

@@ -8,6 +8,7 @@ import {
   BuildingOffice2Icon,
   UserGroupIcon
 } from '@heroicons/react/24/outline'
+import NewsletterSignup from './NewsletterSignup'
 
 export default function Footer() {
   return (
@@ -210,6 +211,11 @@ export default function Footer() {
               </a>
             </div>
           </div>
+        </div>
+
+        {/* Newsletter Signup Section */}
+        <div className="mt-12 pt-8 border-t border-gray-700/50">
+          <NewsletterSignup variant="footer" />
         </div>
 
         {/* Contact Information & Partners */}

@@ -15,11 +15,9 @@ import {
   HandRaisedIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'About SERVE - 40+ Years Supporting Independence in Northamptonshire',
-  description: 'Learn about SERVE\'s 40+ year history of providing award-winning care services. CQC registered charity supporting older people and adults with disabilities.',
-  keywords: 'SERVE charity, about us, care services history, Northamptonshire charity, CQC registered, Great British Care Awards',
-}
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.about)
 
 const milestones = [
   {

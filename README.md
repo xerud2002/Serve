@@ -87,6 +87,14 @@ npm run dev
 - **Local Community Feel**: Warm, welcoming, personal touch
 - **Awards & Credentials**: Prominently display CQC rating and awards
 
+## 🆕 Latest Updates
+
+- ✅ **Logo Integration**: Added official SERVE logo to header
+- ✅ **Enhanced Forms**: Functional contact and volunteer forms with validation
+- ✅ **Project Tracking**: Built-in todo list component for development progress
+- ✅ **File Cleanup**: Removed build artifacts, keeping only project files
+- ✅ **Theme Update**: Updated color palette to match brand identity
+
 ## 🌈 Color Palette
 
 The website uses a carefully chosen color palette that conveys trust and care:

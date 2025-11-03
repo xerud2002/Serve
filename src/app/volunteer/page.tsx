@@ -18,11 +18,9 @@ import {
   FaceSmileIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
-  title: 'Volunteer With SERVE - Make a Difference in Northamptonshire',
-  description: 'Join SERVE\'s volunteer team and make a real difference in your community. Flexible opportunities in befriending, transport, events, and administration.',
-  keywords: 'volunteer, volunteering opportunities, community service, befriending, Northamptonshire volunteers, charity work',
-}
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.volunteer)
 
 const volunteerOpportunities = [
   {

@@ -11,12 +11,11 @@ import {
   ClockIcon,
   TagIcon
 } from '@heroicons/react/24/outline'
+import NewsletterSignup from '@/components/NewsletterSignup'
 
-export const metadata: Metadata = {
-  title: 'News & Events - SERVE | Latest Updates from Our Charity',
-  description: 'Stay up to date with the latest news, events, and achievements from SERVE. Read about our award wins, community initiatives, and upcoming activities.',
-  keywords: 'SERVE news, charity events, Great British Care Awards, community news, Northamptonshire charity updates',
-}
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.news)
 
 const featuredNews = {
   id: 1,
@@ -368,31 +367,9 @@ export default function NewsPage() {
       </section>
 
       {/* Newsletter Signup */}
-      <section className="py-16 bg-serve-blue-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl font-bold mb-6">Stay Updated</h2>
-          <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-            Subscribe to our newsletter to receive the latest news, events, and updates from SERVE 
-            directly to your inbox.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 border border-white/20 rounded-xl focus:ring-2 focus:ring-white focus:border-transparent bg-white/10 backdrop-blur-sm text-white placeholder-white/70"
-            />
-            <button
-              type="button"
-              className="bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </div>
-          
-          <p className="text-white/80 text-sm">
-            We respect your privacy. Unsubscribe at any time.
-          </p>
+      <section className="py-16 bg-serve-blue-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NewsletterSignup variant="inline" />
         </div>
       </section>
     </div>

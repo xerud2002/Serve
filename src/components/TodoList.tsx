@@ -49,8 +49,8 @@ const initialTodos: TodoItem[] = [
   {
     id: 5,
     title: 'Update Volunteer Form',
-    description: 'Enhance the volunteer application form with the new validation system and form handling functionality',
-    status: 'in-progress'
+    description: 'Enhanced the volunteer application form with validation system, form handling functionality, success states, and proper error handling',
+    status: 'completed'
   },
   {
     id: 6,
@@ -84,6 +84,12 @@ const initialTodos: TodoItem[] = [
   },
   {
     id: 11,
+    title: 'Logo Integration & Theme Update',
+    description: 'Added SERVE logo to header, updated color theme based on logo colors, and integrated todo list component for project tracking',
+    status: 'completed'
+  },
+  {
+    id: 12,
     title: 'Testing & Deployment',
     description: 'Comprehensive testing, performance optimization, and deployment preparation',
     status: 'not-started'

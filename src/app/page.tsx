@@ -6,12 +6,13 @@ import News from '@/components/News'
 import Contact from '@/components/Contact'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
+import TodoList from '@/components/TodoList'
 
 export default function Home() {
   return (
     <>
       <Header />
-      <main>
+      <main id="main-content" tabIndex={-1}>
         <Hero />
         <Services />
         <About />
@@ -20,6 +21,7 @@ export default function Home() {
         <Contact />
       </main>
       <Footer />
+      <TodoList />
     </>
   )
 }
