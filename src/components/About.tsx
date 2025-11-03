@@ -1,4 +1,5 @@
 import { MapPinIcon, HeartIcon, ShieldCheckIcon, UsersIcon } from '@heroicons/react/24/outline'
+import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
 
 export default function About() {
   const milestones = [

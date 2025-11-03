@@ -12,6 +12,7 @@ import {
 import Link from 'next/link'
 import { MobileCard, useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
+import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
 
 export default function Services() {
   const { isMobile } = useIsMobile()
@@ -21,6 +22,7 @@ export default function Services() {
       title: 'Personal & Domestic Care',
       description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
       icon: HomeIcon,
+      image: SERVE_IMAGES.personalCare,
       link: '/services/personal-care',
       featured: true,
       highlights: ['CQC Registered', 'Award Winning', 'Trained Carers', 'Tailored Plans']
@@ -30,6 +32,7 @@ export default function Services() {
       title: 'Day Care & Meals on Wheels',
       description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
       icon: HeartIcon,
+      image: SERVE_IMAGES.dayCare,
       link: '/services/day-care',
       highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff']
     },
@@ -38,6 +41,7 @@ export default function Services() {
       title: 'Community Transport',
       description: 'Reliable, affordable transport to medical appointments, hospital visits, and family connections. Our drivers understand the needs of older people and those with mobility challenges.',
       icon: TruckIcon,
+      image: SERVE_IMAGES.transport,
       link: '/services/transport',
       highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates']
     },
@@ -46,6 +50,7 @@ export default function Services() {
       title: 'Countywide Befriending',
       description: 'Combat loneliness with our friendly befriending service. We provide regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
       icon: UserGroupIcon,
+      image: SERVE_IMAGES.befriending,
       link: '/services/befriending',
       highlights: ['Combat Loneliness', 'Regular Visits', 'Emotional Support', 'Countywide Coverage']
     },
@@ -54,6 +59,7 @@ export default function Services() {
       title: 'Carers Support',
       description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
       icon: HandRaisedIcon,
+      image: SERVE_IMAGES.volunteers,
       link: '/services/carers',
       highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training']
     },
@@ -101,10 +107,29 @@ export default function Services() {
                 )}
                 
                 <div className="flex flex-col h-full text-center">
-                  {/* Icon */}
-                  <div className={`bg-serve-blue-50 rounded-full p-4 ${isMobile ? 'w-16 h-16 mb-4' : 'w-20 h-20 mb-6'} mx-auto group-hover:bg-serve-blue-100 transition-colors flex-shrink-0`}>
-                    <IconComponent className={`${isMobile ? 'w-8 h-8' : 'w-12 h-12'} text-serve-blue-600 mx-auto`} />
-                  </div>
+                  {/* Service Image */}
+                  {service.image && (
+                    <div className={`relative ${isMobile ? 'h-40 mb-4' : 'h-48 mb-6'} rounded-xl overflow-hidden`}>
+                      <OptimizedImage
+                        {...service.image}
+                        fill
+                        className="object-cover group-hover:scale-105 transition-transform duration-300"
+                        sizes={isMobile ? '100vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
+                      />
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
+                      {/* Icon overlay */}
+                      <div className="absolute bottom-3 right-3 bg-white/90 rounded-full p-2">
+                        <IconComponent className="w-6 h-6 text-serve-blue-600" />
+                      </div>
+                    </div>
+                  )}
+                  
+                  {/* Fallback icon if no image */}
+                  {!service.image && (
+                    <div className={`bg-serve-blue-50 rounded-full p-4 ${isMobile ? 'w-16 h-16 mb-4' : 'w-20 h-20 mb-6'} mx-auto group-hover:bg-serve-blue-100 transition-colors flex-shrink-0`}>
+                      <IconComponent className={`${isMobile ? 'w-8 h-8' : 'w-12 h-12'} text-serve-blue-600 mx-auto`} />
+                    </div>
+                  )}
                   
                   {/* Title */}
                   <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors flex-shrink-0 ${isMobile ? 'text-lg' : 'text-xl'}`}>
