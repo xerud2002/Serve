@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Header />
-      <main id="main-content" tabIndex={-1}>
+      <main>
         <Hero />
         <Services />
         <About />

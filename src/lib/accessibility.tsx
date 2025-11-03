@@ -3,7 +3,6 @@
 export const ARIA_LABELS = {
   // Navigation
   mainNavigation: 'Main navigation',
-  skipToContent: 'Skip to main content',
   openMenu: 'Open main menu',
   closeMenu: 'Close main menu',
   
@@ -41,17 +40,7 @@ export const FOCUS_STYLES = {
   input: 'focus:outline-none focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500',
 }
 
-// Skip to content component for keyboard navigation
-export function SkipToContent() {
-  return (
-    <a
-      href="#main-content"
-      className={`sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 bg-serve-blue-600 text-white px-4 py-2 rounded-md z-50 ${FOCUS_STYLES.link}`}
-    >
-      {ARIA_LABELS.skipToContent}
-    </a>
-  )
-}
+
 
 // Screen reader only text component
 export function ScreenReaderOnly({ children }: { children: React.ReactNode }) {
