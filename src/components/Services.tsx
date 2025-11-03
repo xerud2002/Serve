@@ -12,6 +12,7 @@ import {
 import Link from 'next/link'
 import { MobileCard, useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
+import { AssessmentBookingButton } from './AssessmentBooking'
 
 export default function Services() {
   const { isMobile } = useIsMobile()
@@ -145,6 +146,38 @@ export default function Services() {
               </MobileCard>
             )
           })}
+        </div>
+
+        {/* Assessment Booking Section */}
+        <div className={`text-center ${isMobile ? 'mt-8 mb-8' : 'mt-16 mb-12'}`}>
+          <div className="bg-gradient-to-r from-serve-green-50 to-serve-blue-50 rounded-2xl p-8 max-w-4xl mx-auto">
+            <h3 className={`font-bold text-gray-900 mb-4 ${isMobile ? 'text-xl' : 'text-2xl'}`}>
+              Get Care Support & Volunteer by Us
+            </h3>
+            <p className={`text-gray-600 mb-6 max-w-2xl mx-auto ${isMobile ? 'text-sm' : 'text-lg'}`}>
+              Start your journey with SERVE by booking a professional home care assessment. 
+              Our qualified assessors will evaluate your needs and create a personalized care plan.
+            </p>
+            
+            <div className="space-y-4">
+              <AssessmentBookingButton />
+              
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mt-6 text-sm text-gray-600">
+                <div className="flex items-center justify-center">
+                  <CheckCircleIcon className="w-5 h-5 text-serve-green-500 mr-2" />
+                  <span>CQC Registered Assessors</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <CheckCircleIcon className="w-5 h-5 text-serve-green-500 mr-2" />
+                  <span>Full Refund When You Start Care</span>
+                </div>
+                <div className="flex items-center justify-center">
+                  <CheckCircleIcon className="w-5 h-5 text-serve-green-500 mr-2" />
+                  <span>Flexible Scheduling Available</span>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
         <div className={`text-center ${isMobile ? 'mt-8' : 'mt-16'}`}>
