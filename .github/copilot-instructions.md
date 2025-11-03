@@ -21,7 +21,7 @@ Modern Next.js website for SERVE, a 40+ year old registered charity providing ca
 8. **Volunteer Programs** - Community involvement opportunities
 
 ## Technical Stack
-- **Framework**: Next.js 14+ with App Router
+- **Framework**: Next.js 15+ with App Router
 - **Styling**: Tailwind CSS for modern, accessible design
 - **Components**: Reusable components for services, testimonials, contact forms
 - **Accessibility**: WCAG 2.1 AA compliance (important for elderly/disabled users)
