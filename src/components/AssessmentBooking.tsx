@@ -116,21 +116,27 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
     onClose()
   }
 
+  console.log('Modal isOpen:', isOpen) // Debug log
+  
   if (!isOpen) return null
 
   return (
     <div 
-      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50"
+      className="fixed inset-0 flex items-center justify-center p-4"
       style={{ 
         position: 'fixed', 
         top: 0, 
         left: 0, 
         right: 0, 
         bottom: 0,
+        backgroundColor: 'rgba(0, 0, 0, 0.8)',
         zIndex: 9999
       }}
       onClick={(e) => {
-        if (e.target === e.currentTarget) handleClose()
+        if (e.target === e.currentTarget) {
+          console.log('Backdrop clicked, closing modal')
+          handleClose()
+        }
       }}
     >
       <div 
@@ -143,16 +149,25 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
           <div>
             <h2 className="text-2xl font-bold text-gray-900">Book Home Care Assessment</h2>
             <p className="text-gray-600 mt-1">Professional care evaluation at your home</p>
+            <p className="text-xs text-red-500 mt-1">Modal is working! Current step: {step}</p>
           </div>
           <div className="flex items-center space-x-2">
             <button
-              onClick={handleClose}
+              onClick={(e) => {
+                e.preventDefault()
+                console.log('Close button clicked')
+                handleClose()
+              }}
               className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-lg transition-colors font-medium"
             >
               Close
             </button>
             <button
-              onClick={handleClose}
+              onClick={(e) => {
+                e.preventDefault()
+                console.log('X button clicked')
+                handleClose()
+              }}
               className="p-2 hover:bg-gray-200 rounded-full transition-colors"
               aria-label="Close booking form"
             >
@@ -590,10 +605,23 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 export function AssessmentBookingButton() {
   const [isBookingOpen, setIsBookingOpen] = useState(false)
 
+  const handleOpenModal = (e: React.MouseEvent) => {
+    e.preventDefault()
+    e.stopPropagation()
+    console.log('Opening modal...') // Debug log
+    setIsBookingOpen(true)
+  }
+
+  const handleCloseModal = () => {
+    console.log('Closing modal...') // Debug log
+    setIsBookingOpen(false)
+  }
+
   return (
     <>
       <button
-        onClick={() => setIsBookingOpen(true)}
+        type="button"
+        onClick={handleOpenModal}
         className={`group bg-serve-green-600 hover:bg-serve-green-700 active:bg-serve-green-800 text-white font-semibold transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.button} transform hover:scale-105 px-8 py-4 text-lg flex items-center justify-center mx-auto`}
       >
         <CalendarIcon className="w-6 h-6 mr-3" />
@@ -602,7 +630,7 @@ export function AssessmentBookingButton() {
       
       <AssessmentBooking 
         isOpen={isBookingOpen} 
-        onClose={() => setIsBookingOpen(false)} 
+        onClose={handleCloseModal} 
       />
     </>
   )
