@@ -7,8 +7,11 @@ import {
   SparklesIcon,
   CheckCircleIcon 
 } from '@heroicons/react/24/outline'
+import Link from 'next/link'
+import { MobileCard, useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 
 export default function Services() {
+  const { isMobile } = useIsMobile()
   const services = [
     {
       id: 'personal-care',
@@ -62,11 +65,11 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className="py-24 bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+    <section id="services" className={`${isMobile ? 'py-12' : 'py-24'} bg-gray-50`}>
+      <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
+        <div className={`text-center ${isMobile ? 'mb-8' : 'mb-16'}`}>
+          <h2 className={`font-bold text-gray-900 mb-4 ${MOBILE_CLASSES.mobileHeading}`}>Our Services</h2>
+          <p className={`text-gray-600 max-w-3xl mx-auto ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 
             and adults living with a disability or chronic medical condition.
           </p>

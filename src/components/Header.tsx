@@ -5,11 +5,13 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Bars3Icon, XMarkIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
 import { SkipToContent, ARIA_LABELS, FOCUS_STYLES, AccessibleButton, ExternalLink, handleKeyboardNavigation, KEYBOARD_KEYS } from '@/lib/accessibility'
+import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
+  const { isMobile, screenSize } = useIsMobile()
 
   // Handle escape key to close mobile menu
   useEffect(() => {
@@ -48,62 +50,64 @@ export default function Header() {
   return (
     <>
       <SkipToContent />
-      <header className="bg-white shadow-sm">
+      <header className="bg-white shadow-sm relative">
         {/* Contact bar */}
         <div className="bg-serve-blue-800 text-white py-2">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
             <div className="flex justify-between items-center text-sm">
-              <div className="flex items-center space-x-6">
+              <div className="flex items-center space-x-3 sm:space-x-6">
                 <a 
                   href="tel:01933315555" 
-                  className={`flex items-center hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
+                  className={`flex items-center ${MOBILE_CLASSES.touchTarget} hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link} ${isMobile ? 'text-xs' : 'text-sm'}`}
                   aria-label={ARIA_LABELS.phoneNumber}
                 >
-                  <PhoneIcon className="h-4 w-4 mr-1" aria-hidden="true" />
-                  01933 315555
+                  <PhoneIcon className="h-4 w-4 mr-1 flex-shrink-0" aria-hidden="true" />
+                  <span className="truncate">{isMobile ? '01933 315555' : '01933 315555'}</span>
                 </a>
-                <a 
-                  href="mailto:info@serve.org.uk" 
-                  className={`flex items-center hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
-                  aria-label={ARIA_LABELS.emailAddress}
-                >
-                  <EnvelopeIcon className="h-4 w-4 mr-1" aria-hidden="true" />
-                  info@serve.org.uk
-                </a>
+                {!isMobile && (
+                  <a 
+                    href="mailto:info@serve.org.uk" 
+                    className={`flex items-center ${MOBILE_CLASSES.touchTarget} hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
+                    aria-label={ARIA_LABELS.emailAddress}
+                  >
+                    <EnvelopeIcon className="h-4 w-4 mr-1 flex-shrink-0" aria-hidden="true" />
+                    <span className="truncate">info@serve.org.uk</span>
+                  </a>
+                )}
               </div>
-              <div className="flex items-center space-x-4">
+              <div className="flex items-center space-x-2 sm:space-x-4">
                 <ExternalLink 
                   href="https://www.facebook.com/SERVE234/" 
-                  className="hover:text-serve-blue-200 transition-colors"
+                  className={`hover:text-serve-blue-200 transition-colors ${MOBILE_CLASSES.touchTarget} ${isMobile ? 'text-xs' : 'text-sm'}`}
                   ariaLabel={ARIA_LABELS.facebook}
                 >
-                  Facebook
+                  {isMobile ? 'FB' : 'Facebook'}
                 </ExternalLink>
                 <ExternalLink 
                   href="https://www.linkedin.com/company/serve-nvca/" 
-                  className="hover:text-serve-blue-200 transition-colors"
+                  className={`hover:text-serve-blue-200 transition-colors ${MOBILE_CLASSES.touchTarget} ${isMobile ? 'text-xs' : 'text-sm'}`}
                   ariaLabel={ARIA_LABELS.linkedin}
                 >
-                  LinkedIn
+                  {isMobile ? 'LI' : 'LinkedIn'}
                 </ExternalLink>
               </div>
             </div>
           </div>
         </div>        {/* Main navigation */}
-        <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" aria-label={ARIA_LABELS.mainNavigation}>
-        <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" className="flex items-center">
-              <Image
-                src="/pics/Serve-Logo.webp"
-                alt="SERVE - Supporting Independence"
-                width={140}
-                height={70}
-                className="h-14 w-auto"
-                priority
-              />
-            </Link>
-          </div>
+        <nav className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`} aria-label={ARIA_LABELS.mainNavigation}>
+          <div className="flex items-center justify-between h-16 sm:h-20">
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center">
+                <Image
+                  src="/pics/Serve-Logo.webp"
+                  alt="SERVE - Supporting Independence"
+                  width={isMobile ? 120 : 140}
+                  height={isMobile ? 60 : 70}
+                  className={`${isMobile ? 'h-12' : 'h-14'} w-auto`}
+                  priority
+                />
+              </Link>
+            </div>
           
           <div className="hidden md:block">
             <div className="ml-10 flex items-baseline space-x-4">
@@ -123,7 +127,7 @@ export default function Header() {
           <div className="md:hidden">
             <AccessibleButton
               ref={menuButtonRef}
-              className="inline-flex items-center justify-center p-2 rounded-md text-gray-700 hover:text-serve-blue-700 hover:bg-gray-100 transition-colors"
+              className={`inline-flex items-center justify-center p-3 rounded-xl text-gray-700 hover:text-serve-blue-700 hover:bg-gray-100 active:bg-gray-200 transition-colors ${MOBILE_CLASSES.touchTarget}`}
               ariaControls="mobile-menu"
               ariaExpanded={mobileMenuOpen}
               ariaLabel={mobileMenuOpen ? ARIA_LABELS.closeMenu : ARIA_LABELS.openMenu}
@@ -142,18 +146,18 @@ export default function Header() {
           {mobileMenuOpen && (
             <div 
               ref={mobileMenuRef}
-              className="md:hidden" 
+              className="md:hidden absolute top-full left-0 right-0 z-50 bg-white shadow-xl border-t border-gray-100" 
               id="mobile-menu"
               role="menu"
               aria-orientation="vertical"
               aria-labelledby="mobile-menu-button"
             >
-              <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-gray-50 rounded-md mt-2">
+              <div className={`${MOBILE_CLASSES.mobilePadding} py-4 space-y-1 bg-white`}>
                 {navigation.map((item, index) => (
                   <Link
                     key={item.name}
                     href={item.href}
-                    className={`text-gray-700 hover:text-serve-blue-700 block px-3 py-2 rounded-md text-base font-medium transition-colors ${FOCUS_STYLES.link}`}
+                    className={`text-gray-800 hover:text-serve-blue-700 hover:bg-serve-blue-50 active:bg-serve-blue-100 block px-4 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link}`}
                     role="menuitem"
                     aria-current={item.href === '/' ? 'page' : undefined}
                     onClick={() => setMobileMenuOpen(false)}
@@ -167,9 +171,34 @@ export default function Header() {
                       }
                     )}
                   >
-                    {item.name}
+                    <div className="flex items-center">
+                      <span className="flex-1">{item.name}</span>
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </div>
                   </Link>
                 ))}
+              </div>
+              
+              {/* Mobile-only contact actions */}
+              <div className={`${MOBILE_CLASSES.mobilePadding} py-4 bg-gray-50 border-t border-gray-200 space-y-3`}>
+                <a
+                  href="tel:01933315555"
+                  className={`flex items-center justify-center bg-serve-green-600 hover:bg-serve-green-700 active:bg-serve-green-800 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-200 ${MOBILE_CLASSES.touchTarget}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <PhoneIcon className="w-5 h-5 mr-3" />
+                  Call Now
+                </a>
+                <Link
+                  href="/contact"
+                  className={`flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800 text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all duration-200 ${MOBILE_CLASSES.touchTarget}`}
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <EnvelopeIcon className="w-5 h-5 mr-3" />
+                  Get In Touch
+                </Link>
               </div>
             </div>
           )}
