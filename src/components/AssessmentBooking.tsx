@@ -108,27 +108,37 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Progress Steps */}
-        <div className="px-6 py-4 bg-gray-50">
-          <div className="flex items-center justify-center space-x-4">
-            <div className={`flex items-center ${step >= 1 ? 'text-serve-blue-600' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                step >= 1 ? 'bg-serve-blue-600 text-white' : 'bg-gray-200 text-gray-400'
+        <div className="px-8 py-6 bg-white border-b border-gray-100">
+          <div className="flex items-center justify-center max-w-md mx-auto">
+            <div className={`flex flex-col items-center ${step >= 1 ? 'text-serve-blue-600' : 'text-gray-400'}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 ${
+                step >= 1 
+                  ? 'bg-serve-blue-600 text-white border-serve-blue-600 shadow-md' 
+                  : 'bg-gray-100 text-gray-400 border-gray-200'
               }`}>1</div>
-              <span className="ml-2 text-sm font-medium">Details</span>
+              <span className="mt-2 text-xs font-semibold">Details</span>
             </div>
-            <div className={`w-8 h-0.5 ${step >= 2 ? 'bg-serve-blue-600' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center ${step >= 2 ? 'text-serve-blue-600' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                step >= 2 ? 'bg-serve-blue-600 text-white' : 'bg-gray-200 text-gray-400'
+            
+            <div className={`w-16 h-0.5 mx-4 transition-all duration-300 ${step >= 2 ? 'bg-serve-blue-600' : 'bg-gray-200'}`}></div>
+            
+            <div className={`flex flex-col items-center ${step >= 2 ? 'text-serve-blue-600' : 'text-gray-400'}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 ${
+                step >= 2 
+                  ? 'bg-serve-blue-600 text-white border-serve-blue-600 shadow-md' 
+                  : 'bg-gray-100 text-gray-400 border-gray-200'
               }`}>2</div>
-              <span className="ml-2 text-sm font-medium">Payment</span>
+              <span className="mt-2 text-xs font-semibold">Payment</span>
             </div>
-            <div className={`w-8 h-0.5 ${step >= 3 ? 'bg-serve-blue-600' : 'bg-gray-200'}`}></div>
-            <div className={`flex items-center ${step >= 3 ? 'text-serve-green-600' : 'text-gray-400'}`}>
-              <div className={`w-8 h-8 rounded-full flex items-center justify-center text-sm font-semibold ${
-                step >= 3 ? 'bg-serve-green-600 text-white' : 'bg-gray-200 text-gray-400'
+            
+            <div className={`w-16 h-0.5 mx-4 transition-all duration-300 ${step >= 3 ? 'bg-serve-green-600' : 'bg-gray-200'}`}></div>
+            
+            <div className={`flex flex-col items-center ${step >= 3 ? 'text-serve-green-600' : 'text-gray-400'}`}>
+              <div className={`w-10 h-10 rounded-full flex items-center justify-center text-sm font-bold border-2 transition-all duration-300 ${
+                step >= 3 
+                  ? 'bg-serve-green-600 text-white border-serve-green-600 shadow-md' 
+                  : 'bg-gray-100 text-gray-400 border-gray-200'
               }`}>3</div>
-              <span className="ml-2 text-sm font-medium">Confirmed</span>
+              <span className="mt-2 text-xs font-semibold">Confirmed</span>
             </div>
           </div>
         </div>
