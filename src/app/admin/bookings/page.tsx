@@ -1,5 +1,6 @@
+'use client'
+
 import dynamic from 'next/dynamic'
-import { Metadata } from 'next'
 import ErrorBoundary from '@/components/ErrorBoundary'
 
 const BookingManager = dynamic(() => import('@/components/BookingManager'), {
@@ -13,15 +14,6 @@ const BookingManager = dynamic(() => import('@/components/BookingManager'), {
     </div>
   )
 })
-
-export const metadata: Metadata = {
-  title: 'Admin Dashboard - Assessment Bookings',
-  description: 'Manage home care assessment bookings for SERVE charity',
-  robots: {
-    index: false,
-    follow: false
-  }
-}
 
 export default function AdminBookingsPage() {
   return (

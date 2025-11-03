@@ -1,5 +1,7 @@
-import { Metadata } from 'next'
+'use client'
+
 import Link from 'next/link'
+import { TransportBookingButton } from '@/components/TransportBooking'
 import {
   TruckIcon,
   MapPinIcon,
@@ -17,12 +19,6 @@ import {
   BeakerIcon,
   HomeIcon
 } from '@heroicons/react/24/outline'
-
-export const metadata: Metadata = {
-  title: 'Community Transport - SERVE | Reliable Transport Services Northamptonshire',
-  description: 'SERVE\'s community transport service provides safe, reliable door-to-door transport for medical appointments, shopping, and family visits across Northamptonshire.',
-  keywords: 'community transport, medical appointments, shopping trips, wheelchair accessible, door to door, Northamptonshire',
-}
 
 const transportServices = [
   {
@@ -457,20 +453,9 @@ export default function TransportPage() {
           </div>
 
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
-            <button
-              className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
-              onClick={() => {
-                // This will be handled by the transport booking component
-                const event = new CustomEvent('openTransportBooking', {
-                  detail: { serviceType: 'transport' }
-                });
-                window.dispatchEvent(event);
-              }}
-            >
-              <TruckIcon className="w-6 h-6 mr-3" />
-              Book Transport Online
-              <ArrowRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            <div className="inline-flex justify-center">
+              <TransportBookingButton />
+            </div>
             
             <a
               href="tel:01933315555"
