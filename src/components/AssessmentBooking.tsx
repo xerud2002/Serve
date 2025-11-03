@@ -29,17 +29,20 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape' && isOpen) {
+        console.log('Escape key pressed, closing modal')
         handleClose()
       }
     }
 
     if (isOpen) {
+      console.log('Modal opened, setting up event listeners and scroll lock')
       document.addEventListener('keydown', handleEscape)
-      // Prevent background scroll but allow modal scroll
-      document.body.style.overflow = 'hidden'
-      document.body.style.position = 'fixed'
-      document.body.style.width = '100%'
+      // Temporarily disable scroll lock to test
+      // document.body.style.overflow = 'hidden'
+      // document.body.style.position = 'fixed'
+      // document.body.style.width = '100%'
     } else {
+      console.log('Modal closed, cleaning up')
       // Restore normal scrolling
       document.body.style.overflow = ''
       document.body.style.position = ''
@@ -116,9 +119,14 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
     onClose()
   }
 
-  console.log('Modal isOpen:', isOpen) // Debug log
+  console.log('Modal isOpen:', isOpen, 'Step:', step) // Debug log
   
-  if (!isOpen) return null
+  if (!isOpen) {
+    console.log('Modal not open, returning null')
+    return null
+  }
+  
+  console.log('Rendering modal...')
 
   return (
     <div 
@@ -129,10 +137,11 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         left: 0, 
         right: 0, 
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.8)',
-        zIndex: 9999
+        backgroundColor: 'rgba(255, 0, 0, 0.8)', // Red background for testing
+        zIndex: 99999
       }}
       onClick={(e) => {
+        console.log('Backdrop element clicked', e.target === e.currentTarget ? 'on backdrop' : 'on content')
         if (e.target === e.currentTarget) {
           console.log('Backdrop clicked, closing modal')
           handleClose()
@@ -140,10 +149,18 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
       }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative mx-auto"
+        className="bg-blue-500 rounded-2xl shadow-2xl w-96 h-96 relative mx-auto p-8"
         onClick={(e) => e.stopPropagation()}
-        style={{ zIndex: 10000 }}
+        style={{ zIndex: 100000 }}
       >
+        <h1 className="text-white text-2xl">TEST MODAL</h1>
+        <p className="text-white">If you see this, the modal is working!</p>
+        <button 
+          onClick={handleClose}
+          className="bg-white text-blue-500 px-4 py-2 rounded mt-4"
+        >
+          CLOSE TEST
+        </button>
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
           <div>
