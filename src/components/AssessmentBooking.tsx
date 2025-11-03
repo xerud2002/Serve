@@ -144,7 +144,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="p-6">
+        <div className="overflow-y-auto max-h-[calc(95vh-200px)]">
+          <div className="p-8">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-6">
               <div className="bg-serve-blue-50 p-4 rounded-lg mb-6">
