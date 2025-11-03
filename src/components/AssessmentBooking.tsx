@@ -25,19 +25,24 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Lock body scroll when modal is open
+  // Lock body scroll when modal is open, but allow modal to scroll
   useEffect(() => {
     if (isOpen) {
+      // Prevent background scroll but allow modal scroll
       document.body.style.overflow = 'hidden'
-      document.body.style.paddingRight = '0px'
+      document.body.style.position = 'fixed'
+      document.body.style.width = '100%'
     } else {
+      // Restore normal scrolling
       document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
 
     return () => {
       document.body.style.overflow = ''
-      document.body.style.paddingRight = ''
+      document.body.style.position = ''
+      document.body.style.width = ''
     }
   }, [isOpen])
 
@@ -169,8 +174,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-180px)] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
-          <div className="p-8 min-h-full">
+        <div className="overflow-y-auto max-h-[calc(90vh-180px)] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100" style={{ scrollBehavior: 'smooth' }}>
+          <div className="p-8">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-6">
               <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
@@ -186,73 +191,80 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                 </p>
               </div>
 
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-                <div className="space-y-2">
-                  <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Full Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="name"
-                    name="name"
-                    required
-                    value={formData.name}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
-                    placeholder="Enter your full name"
-                  />
+              <div className="space-y-6">
+                {/* Personal Information Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Full Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="name"
+                      name="name"
+                      required
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                      placeholder="Enter your full name"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Phone Number *
+                    </label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      name="phone"
+                      required
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                      placeholder="01933 315555"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Phone Number *
-                  </label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    name="phone"
-                    required
-                    value={formData.phone}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
-                    placeholder="01933 315555"
-                  />
+                {/* Contact Information Row */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Email Address *
+                    </label>
+                    <input
+                      type="email"
+                      id="email"
+                      name="email"
+                      required
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                      placeholder="your.email@example.com"
+                    />
+                  </div>
+
+                  <div>
+                    <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Emergency Contact Name *
+                    </label>
+                    <input
+                      type="text"
+                      id="emergencyContact"
+                      name="emergencyContact"
+                      required
+                      value={formData.emergencyContact}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                      placeholder="Contact person's name"
+                    />
+                  </div>
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Email Address *
-                  </label>
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    required
-                    value={formData.email}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
-                    placeholder="your.email@example.com"
-                  />
-                </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Emergency Contact Name *
-                  </label>
-                  <input
-                    type="text"
-                    id="emergencyContact"
-                    name="emergencyContact"
-                    required
-                    value={formData.emergencyContact}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
-                    placeholder="Contact person's name"
-                  />
-                </div>
-
-                <div className="lg:col-span-2 space-y-2">
-                  <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-2">
+                {/* Address Information */}
+                <div>
+                  <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-3">
                     Home Address *
                   </label>
                   <input
@@ -263,100 +275,108 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                     value={formData.address}
                     onChange={handleInputChange}
                     placeholder="Street address, city, postcode"
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="emergencyPhone" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Emergency Contact Phone *
+                {/* Emergency Contact Phone */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="emergencyPhone" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Emergency Contact Phone *
+                    </label>
+                    <input
+                      type="tel"
+                      id="emergencyPhone"
+                      name="emergencyPhone"
+                      required
+                      value={formData.emergencyPhone}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                      placeholder="Emergency contact phone"
+                    />
+                  </div>
+                </div>
+
+                {/* Date and Time Selection */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div>
+                    <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Preferred Date *
+                    </label>
+                    <select
+                      id="preferredDate"
+                      name="preferredDate"
+                      required
+                      value={formData.preferredDate}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white text-gray-900"
+                    >
+                      <option value="">Select a date</option>
+                      {availableDates.map((date, index) => (
+                        <option key={index} value={date.toISOString().split('T')[0]}>
+                          {date.toLocaleDateString('en-GB', { 
+                            weekday: 'long', 
+                            year: 'numeric', 
+                            month: 'long', 
+                            day: 'numeric' 
+                          })}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div>
+                    <label htmlFor="preferredTime" className="block text-sm font-semibold text-gray-800 mb-3">
+                      Preferred Time *
+                    </label>
+                    <select
+                      id="preferredTime"
+                      name="preferredTime"
+                      required
+                      value={formData.preferredTime}
+                      onChange={handleInputChange}
+                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white text-gray-900"
+                    >
+                      <option value="">Select a time</option>
+                      {availableTimes.map((time, index) => (
+                        <option key={index} value={time}>
+                          {time}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
+                </div>
+
+                {/* Care Needs Description */}
+                <div>
+                  <label htmlFor="careNeeds" className="block text-sm font-semibold text-gray-800 mb-3">
+                    Brief Description of Care Needs
                   </label>
-                  <input
-                    type="tel"
-                    id="emergencyPhone"
-                    name="emergencyPhone"
-                    required
-                    value={formData.emergencyPhone}
+                  <textarea
+                    id="careNeeds"
+                    name="careNeeds"
+                    rows={4}
+                    value={formData.careNeeds}
                     onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300"
-                    placeholder="Emergency contact phone"
+                    placeholder="Please describe the type of care support you're looking for (e.g., personal care, domestic help, companionship)..."
+                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 resize-none text-gray-900"
                   />
                 </div>
 
-                <div className="space-y-2">
-                  <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Preferred Date *
-                  </label>
-                  <select
-                    id="preferredDate"
-                    name="preferredDate"
-                    required
-                    value={formData.preferredDate}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white"
+                {/* Submit Button */}
+                <div className="pt-6">
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 text-white font-bold py-5 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
                   >
-                    <option value="">Select a date</option>
-                    {availableDates.map((date, index) => (
-                      <option key={index} value={date.toISOString().split('T')[0]}>
-                        {date.toLocaleDateString('en-GB', { 
-                          weekday: 'long', 
-                          year: 'numeric', 
-                          month: 'long', 
-                          day: 'numeric' 
-                        })}
-                      </option>
-                    ))}
-                  </select>
+                    <CalendarIcon className="w-6 h-6 mr-3" />
+                    Proceed to Payment
+                    <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                    </svg>
+                  </button>
                 </div>
-
-                <div className="space-y-2">
-                  <label htmlFor="preferredTime" className="block text-sm font-semibold text-gray-800 mb-2">
-                    Preferred Time *
-                  </label>
-                  <select
-                    id="preferredTime"
-                    name="preferredTime"
-                    required
-                    value={formData.preferredTime}
-                    onChange={handleInputChange}
-                    className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white"
-                  >
-                    <option value="">Select a time</option>
-                    {availableTimes.map((time, index) => (
-                      <option key={index} value={time}>
-                        {time}
-                      </option>
-                    ))}
-                  </select>
-                </div>
-              </div>
-
-              <div className="lg:col-span-2 space-y-2">
-                <label htmlFor="careNeeds" className="block text-sm font-semibold text-gray-800 mb-2">
-                  Brief Description of Care Needs
-                </label>
-                <textarea
-                  id="careNeeds"
-                  name="careNeeds"
-                  rows={4}
-                  value={formData.careNeeds}
-                  onChange={handleInputChange}
-                  placeholder="Please describe the type of care support you're looking for (e.g., personal care, domestic help, companionship)..."
-                  className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 resize-none"
-                />
-              </div>
-
-              <div className="lg:col-span-2 pt-4">
-                <button
-                  type="submit"
-                  className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 text-white font-bold py-5 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
-                >
-                  <CalendarIcon className="w-6 h-6 mr-3" />
-                  Proceed to Payment
-                  <svg className="w-5 h-5 ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                  </svg>
-                </button>
               </div>
             </form>
           )}
