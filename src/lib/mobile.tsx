@@ -1,3 +1,5 @@
+'use client'
+
 // Mobile optimization utilities and hooks
 
 import { useState, useEffect } from 'react'

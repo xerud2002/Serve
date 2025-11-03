@@ -1,3 +1,5 @@
+'use client'
+
 import { 
   HomeIcon, 
   HeartIcon, 
@@ -9,6 +11,7 @@ import {
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import { MobileCard, useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
+import { FOCUS_STYLES } from '@/lib/accessibility'
 
 export default function Services() {
   const { isMobile } = useIsMobile()
@@ -75,15 +78,19 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className={`grid grid-cols-1 ${isMobile ? 'gap-6' : 'md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
           {services.map((service) => {
             const IconComponent = service.icon
             return (
-              <div
+              <MobileCard
                 key={service.id}
-                className={`group bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 hover:border-serve-blue-200 flex flex-col h-full ${
-                  service.featured ? 'ring-2 ring-serve-green-500 relative transform hover:-translate-y-2' : 'hover:-translate-y-1'
+                className={`group transition-all duration-300 ${
+                  service.featured ? 'ring-2 ring-serve-green-500 relative' : ''
+                } ${!isMobile ? 'hover:shadow-2xl hover:border-serve-blue-200 hover:-translate-y-1' : ''} ${
+                  service.featured && !isMobile ? 'transform hover:-translate-y-2' : ''
                 }`}
+                padding={isMobile ? 'default' : 'large'}
+                clickable={false}
               >
                 {service.featured && (
                   <div className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-10">
@@ -93,24 +100,26 @@ export default function Services() {
                   </div>
                 )}
                 
-                <div className="flex flex-col h-full p-8 text-center">
+                <div className="flex flex-col h-full text-center">
                   {/* Icon */}
-                  <div className="bg-serve-blue-50 rounded-full p-4 w-20 h-20 mx-auto mb-6 group-hover:bg-serve-blue-100 transition-colors flex-shrink-0">
-                    <IconComponent className="w-12 h-12 text-serve-blue-600 mx-auto" />
+                  <div className={`bg-serve-blue-50 rounded-full p-4 ${isMobile ? 'w-16 h-16 mb-4' : 'w-20 h-20 mb-6'} mx-auto group-hover:bg-serve-blue-100 transition-colors flex-shrink-0`}>
+                    <IconComponent className={`${isMobile ? 'w-8 h-8' : 'w-12 h-12'} text-serve-blue-600 mx-auto`} />
                   </div>
                   
                   {/* Title */}
-                  <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors flex-shrink-0">
+                  <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors flex-shrink-0 ${isMobile ? 'text-lg' : 'text-xl'}`}>
                     {service.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className="text-gray-600 mb-6 leading-relaxed flex-grow">{service.description}</p>
+                  <p className={`text-gray-600 mb-6 leading-relaxed flex-grow ${isMobile ? 'text-sm' : 'text-base'}`}>
+                    {service.description}
+                  </p>
                   
                   {/* Highlights */}
-                  <div className="grid grid-cols-1 gap-3 mb-8 flex-shrink-0">
+                  <div className={`grid grid-cols-1 ${isMobile ? 'gap-2 mb-6' : 'gap-3 mb-8'} flex-shrink-0`}>
                     {service.highlights.map((highlight, index) => (
-                      <div key={index} className="flex items-center justify-center text-sm text-gray-700">
+                      <div key={index} className={`flex items-center justify-center text-gray-700 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                         <CheckCircleIcon className="w-4 h-4 text-serve-green-500 mr-2 flex-shrink-0" />
                         <span className="text-center">{highlight}</span>
                       </div>
@@ -119,30 +128,34 @@ export default function Services() {
                   
                   {/* CTA Button */}
                   <div className="flex-shrink-0">
-                    <a
+                    <Link
                       href={service.link}
-                      className="group/btn inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                      className={`group/btn inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800 text-white font-semibold transition-all duration-300 rounded-xl ${MOBILE_CLASSES.touchTarget} ${
+                        isMobile ? 'w-full px-4 py-3 text-base' : 'px-6 py-3 transform hover:scale-105'
+                      }`}
                       aria-label={`Learn more about ${service.title}`}
                     >
                       Learn More
-                      <svg className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className={`${isMobile ? 'ml-2 h-4 w-4' : 'ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>
-                    </a>
+                    </Link>
                   </div>
                 </div>
-              </div>
+              </MobileCard>
             )
           })}
         </div>
 
-        <div className="text-center mt-16">
-          <a
+        <div className={`text-center ${isMobile ? 'mt-8' : 'mt-16'}`}>
+          <Link
             href="/services"
-            className="bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-lg text-lg font-semibold transition-colors focus-visible:focus"
+            className={`bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800 text-white font-semibold transition-all duration-200 rounded-xl ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.button} ${
+              isMobile ? 'block w-full py-4 text-lg' : 'inline-block px-8 py-4 text-lg'
+            }`}
           >
             View All Services
-          </a>
+          </Link>
         </div>
       </div>
     </section>
