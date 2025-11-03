@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { CalendarIcon, ClockIcon, CreditCardIcon, CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
@@ -24,6 +24,22 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
     emergencyPhone: ''
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
+
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden'
+      document.body.style.paddingRight = '0px'
+    } else {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+
+    return () => {
+      document.body.style.overflow = ''
+      document.body.style.paddingRight = ''
+    }
+  }, [isOpen])
 
   // Generate available dates (next 14 days, excluding weekends)
   const getAvailableDates = () => {
@@ -90,8 +106,17 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-[9999] animate-fadeIn">
-      <div className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[95vh] overflow-hidden animate-slideUp border border-gray-100">
+    <div 
+      className="fixed inset-0 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 z-[99999] animate-fadeIn"
+      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      onClick={(e) => {
+        if (e.target === e.currentTarget) handleClose()
+      }}
+    >
+      <div 
+        className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-hidden animate-slideUp border border-gray-100 relative mx-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
         {/* Header */}
         <div className="flex items-center justify-between p-8 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-serve-green-50">
           <div>
@@ -144,8 +169,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="overflow-y-auto max-h-[calc(95vh-200px)]">
-          <div className="p-8">
+        <div className="overflow-y-auto max-h-[calc(90vh-180px)] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+          <div className="p-8 min-h-full">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-6">
               <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
