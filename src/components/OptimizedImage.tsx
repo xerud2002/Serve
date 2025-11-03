@@ -109,7 +109,7 @@ export const SERVE_IMAGES = {
     height: 400
   },
   award: {
-    src: '/pics/regoional-winner.jpg',
+    src: '/pics/regional-winner.jpg',
     alt: 'SERVE wins Best Homecare Team East Midlands - Great British Care Awards 2024',
     width: 400,
     height: 300
