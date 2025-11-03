@@ -124,7 +124,7 @@ if (typeof window === 'undefined') {
   runAllTests().catch(console.error);
 }
 
-module.exports = {
+export {
   testFormValidation,
   testFormSubmissions,
   testErrorHandling,

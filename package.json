@@ -7,7 +7,14 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "test:forms": "node scripts/test-forms.js",
+    "test:compatibility": "node scripts/test-compatibility.js",
+    "test:all": "npm run test:forms && npm run test:compatibility",
+    "export": "next build && next export",
+    "audit:performance": "lighthouse http://localhost:3000 --output json --output html --output-path ./reports/",
+    "deploy:vercel": "vercel --prod",
+    "deploy:prepare": "npm run lint && npm run build && npm run test:all"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

@@ -172,7 +172,7 @@ function runCompleteTestingSuite() {
 }
 
 // Export for use in other scripts
-module.exports = {
+export {
   BROWSER_SUPPORT,
   DEVICE_MATRIX,
   ACCESSIBILITY_CHECKLIST,
@@ -184,7 +184,5 @@ module.exports = {
   runCompleteTestingSuite
 };
 
-// Run if executed directly
-if (require.main === module) {
-  runCompleteTestingSuite();
-}
+// Run the testing suite
+runCompleteTestingSuite();
