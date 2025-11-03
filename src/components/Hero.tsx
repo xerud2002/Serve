@@ -1,5 +1,4 @@
 import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
-import { AssessmentBookingButton } from './AssessmentBooking'
 
 export default function Hero() {
   return (
@@ -49,52 +48,7 @@ export default function Hero() {
             We help older people and adults with disabilities live independently at home with dignity and respect.
           </p>
           
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-            <a
-              href="/contact"
-              className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-10 py-5 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl inline-flex items-center"
-              aria-label="Contact SERVE for care services"
-            >
-              Get Care Support
-              <svg className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
-            
-            <a
-              href="/volunteer"
-              className="group border-2 border-white text-white hover:bg-white hover:text-serve-blue-900 px-10 py-5 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
-              aria-label="Learn about volunteering with SERVE"
-            >
-              <svg className="mr-3 h-5 w-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
-              </svg>
-              Volunteer With Us
-            </a>
-          </div>
 
-          {/* Assessment Information */}
-          <div className="mb-16">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20 max-w-md mx-auto">
-              <div className="flex items-center justify-center mb-3">
-                <svg className="w-6 h-6 mr-2 text-serve-green-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <h3 className="text-xl font-semibold text-white">Home Care Assessment</h3>
-              </div>
-              <p className="text-blue-100 mb-6 text-center">
-                Start your care journey with a professional assessment
-              </p>
-              
-              {/* Booking Button */}
-              <div className="text-center">
-                <div className="[&>button]:bg-white [&>button]:hover:bg-gray-100 [&>button]:text-serve-blue-900 [&>button]:hover:text-serve-blue-800 [&>button]:shadow-xl [&>button]:hover:shadow-2xl">
-                  <AssessmentBookingButton />
-                </div>
-              </div>
-            </div>
-          </div>
           
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">

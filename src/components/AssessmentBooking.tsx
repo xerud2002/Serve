@@ -90,14 +90,17 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   if (!isOpen) return null
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-      <div className="bg-white rounded-2xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto">
+    <div className="fixed inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4 z-[9999] animate-fadeIn">
+      <div className="bg-white rounded-3xl shadow-2xl max-w-3xl w-full max-h-[95vh] overflow-hidden animate-slideUp border border-gray-100">
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200">
-          <h2 className="text-2xl font-bold text-gray-900">Book Home Care Assessment</h2>
+        <div className="flex items-center justify-between p-8 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-serve-green-50">
+          <div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-1">Book Home Care Assessment</h2>
+            <p className="text-serve-blue-600 font-medium">Professional care evaluation at your home</p>
+          </div>
           <button
             onClick={handleClose}
-            className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+            className="p-3 hover:bg-white/50 rounded-full transition-all duration-200 hover:scale-110 shadow-sm"
             aria-label="Close booking form"
           >
             <XMarkIcon className="w-6 h-6 text-gray-500" />

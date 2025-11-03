@@ -1,4 +1,5 @@
 import Hero from '@/components/Hero'
+import CallToActionSection from '@/components/CallToActionSection'
 import Services from '@/components/Services'
 import About from '@/components/About'
 import Awards from '@/components/Awards'
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <main>
         <Hero />
+        <CallToActionSection />
         <Services />
         <About />
         <Awards />
