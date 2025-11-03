@@ -31,6 +31,17 @@ export default function OptimizedImage({
   const [isLoading, setIsLoading] = useState(true)
   const [hasError, setHasError] = useState(false)
 
+  // Validate required props
+  if (!src || src.trim() === '') {
+    console.warn('OptimizedImage: src prop is required and cannot be empty')
+    return null
+  }
+
+  if (!alt || alt.trim() === '') {
+    console.warn('OptimizedImage: alt prop is required and cannot be empty')
+    return null
+  }
+
   // Create a simple placeholder blur data URL if none provided
   const defaultBlurDataURL = 'data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAABAAEDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSrjjUDRdWMWts/xNWWUD7Q3Ma+0qPa0QrxsQEYfVHlfSNrNscryb9ARXHCD4KyUmZQb4UGFdIrKS5k0T0SdzZpKVn7AQM8VH0RDMfY/WCvGhTZMqiUCgjHfGLaiJBnEh3pwJTpCGbbd/9k='
 
