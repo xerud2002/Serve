@@ -25,9 +25,16 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   })
   const [isSubmitting, setIsSubmitting] = useState(false)
 
-  // Lock body scroll when modal is open, but allow modal to scroll
+  // Handle escape key to close modal
   useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape' && isOpen) {
+        handleClose()
+      }
+    }
+
     if (isOpen) {
+      document.addEventListener('keydown', handleEscape)
       // Prevent background scroll but allow modal scroll
       document.body.style.overflow = 'hidden'
       document.body.style.position = 'fixed'
@@ -40,6 +47,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
     }
 
     return () => {
+      document.removeEventListener('keydown', handleEscape)
       document.body.style.overflow = ''
       document.body.style.position = ''
       document.body.style.width = ''
@@ -112,29 +120,45 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 bg-black/75 backdrop-blur-md flex items-center justify-center p-4 z-[99999] animate-fadeIn"
-      style={{ position: 'fixed', top: 0, left: 0, right: 0, bottom: 0 }}
+      className="fixed inset-0 bg-black bg-opacity-75 flex items-center justify-center p-4 z-50"
+      style={{ 
+        position: 'fixed', 
+        top: 0, 
+        left: 0, 
+        right: 0, 
+        bottom: 0,
+        zIndex: 9999
+      }}
       onClick={(e) => {
         if (e.target === e.currentTarget) handleClose()
       }}
     >
       <div 
-        className="bg-white rounded-3xl shadow-2xl max-w-4xl w-full max-h-[88vh] overflow-hidden animate-slideUp border border-gray-100 relative mx-auto"
+        className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden relative mx-auto"
         onClick={(e) => e.stopPropagation()}
+        style={{ zIndex: 10000 }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-8 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-serve-green-50">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gray-50">
           <div>
-            <h2 className="text-3xl font-bold text-gray-900 mb-1">Book Home Care Assessment</h2>
-            <p className="text-serve-blue-600 font-medium">Professional care evaluation at your home</p>
+            <h2 className="text-2xl font-bold text-gray-900">Book Home Care Assessment</h2>
+            <p className="text-gray-600 mt-1">Professional care evaluation at your home</p>
           </div>
-          <button
-            onClick={handleClose}
-            className="p-3 hover:bg-white/50 rounded-full transition-all duration-200 hover:scale-110 shadow-sm"
-            aria-label="Close booking form"
-          >
-            <XMarkIcon className="w-6 h-6 text-gray-500" />
-          </button>
+          <div className="flex items-center space-x-2">
+            <button
+              onClick={handleClose}
+              className="px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-lg transition-colors font-medium"
+            >
+              Close
+            </button>
+            <button
+              onClick={handleClose}
+              className="p-2 hover:bg-gray-200 rounded-full transition-colors"
+              aria-label="Close booking form"
+            >
+              <XMarkIcon className="w-5 h-5 text-gray-500" />
+            </button>
+          </div>
         </div>
 
         {/* Progress Steps */}
@@ -174,8 +198,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-180px)] scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100" style={{ scrollBehavior: 'smooth' }}>
-          <div className="p-8">
+        <div className="overflow-y-auto max-h-[calc(90vh-200px)] p-6">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-6">
               <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
@@ -558,7 +581,6 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
               </button>
             </div>
           )}
-          </div>
         </div>
       </div>
     </div>
