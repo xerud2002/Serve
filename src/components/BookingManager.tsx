@@ -57,6 +57,12 @@ export default function BookingManager() {
   const [bookings, setBookings] = useState<BookingData[]>(mockBookings)
   const [selectedBooking, setSelectedBooking] = useState<BookingData | null>(null)
   const [filter, setFilter] = useState<'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled'>('all')
+  const [isHydrated, setIsHydrated] = useState(false)
+
+  // Fix hydration mismatch
+  useEffect(() => {
+    setIsHydrated(true)
+  }, [])
 
   const filteredBookings = bookings.filter(booking => 
     filter === 'all' || booking.status === filter
@@ -81,19 +87,47 @@ export default function BookingManager() {
   }
 
   const formatDate = (dateString: string) => {
-    return new Date(dateString).toLocaleDateString('en-GB', {
-      weekday: 'long',
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    })
+    try {
+      const date = new Date(dateString)
+      if (isNaN(date.getTime())) {
+        return 'Invalid Date'
+      }
+      return date.toLocaleDateString('en-GB', {
+        weekday: 'long',
+        year: 'numeric',
+        month: 'long',
+        day: 'numeric'
+      })
+    } catch (error) {
+      return 'Invalid Date'
+    }
   }
 
   const formatDateTime = (dateString: string) => {
-    return new Date(dateString).toLocaleString('en-GB', {
-      dateStyle: 'short',
-      timeStyle: 'short'
-    })
+    try {
+      const date = new Date(dateString)
+      if (isNaN(date.getTime())) {
+        return 'Invalid Date'
+      }
+      return date.toLocaleString('en-GB', {
+        dateStyle: 'short',
+        timeStyle: 'short'
+      })
+    } catch (error) {
+      return 'Invalid Date'
+    }
+  }
+
+  // Prevent hydration mismatch by not rendering until client is ready
+  if (!isHydrated) {
+    return (
+      <div className="p-6 bg-gray-50 min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-serve-blue-600 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading assessment bookings...</p>
+        </div>
+      </div>
+    )
   }
 
   return (
