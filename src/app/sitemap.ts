@@ -23,10 +23,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/news`,
       lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.9,
+      changeFrequency: 'weekly',
+      priority: 0.7,
     },
     {
       url: `${baseUrl}/volunteer`,
@@ -34,19 +34,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
-    {
-      url: `${baseUrl}/news`,
-      lastModified: new Date(),
-      changeFrequency: 'weekly',
-      priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/donate`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.6,
-    },
-    // Service specific pages
+    // Service specific pages that exist
     {
       url: `${baseUrl}/services/personal-care`,
       lastModified: new Date(),
@@ -60,28 +48,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/services/community-transport`,
+      url: `${baseUrl}/services/transport`,
       lastModified: new Date(),
       changeFrequency: 'monthly',
       priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/befriending`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/carers-support`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/services/community-services`,
-      lastModified: new Date(),
-      changeFrequency: 'monthly',
-      priority: 0.7,
     },
   ]
 }

@@ -303,8 +303,8 @@ export default function AboutPage() {
               Our Dedicated Team
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              SERVE's success comes from our passionate team of professionals and volunteers 
-              who are committed to making a difference in people's lives every day.
+              SERVE&apos;s success comes from our passionate team of professionals and volunteers 
+              who are committed to making a difference in people&apos;s lives every day.
             </p>
           </div>
 
@@ -321,7 +321,7 @@ export default function AboutPage() {
           <div className="bg-serve-blue-600 rounded-3xl p-12 text-center text-white">
             <h3 className="text-2xl font-bold mb-6">Join Our Team</h3>
             <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-              We're always looking for caring, dedicated people to join our team. 
+              We&apos;re always looking for caring, dedicated people to join our team. 
               Whether as staff or volunteers, you can make a real difference.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -386,7 +386,7 @@ export default function AboutPage() {
             Get to Know Us Better
           </h2>
           <p className="text-xl opacity-90 mb-10 leading-relaxed">
-            We'd love to tell you more about our services and how we can help you or 
+            We&apos;d love to tell you more about our services and how we can help you or 
             your loved ones maintain independence and quality of life.
           </p>
           

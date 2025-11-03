@@ -20,7 +20,7 @@ export const metadata = generateSEOMetadata(seoConfigs.news)
 const featuredNews = {
   id: 1,
   title: 'SERVE Wins Best Homecare Team Award 2024',
-  excerpt: 'We are thrilled to announce that SERVE has been awarded "Best Homecare Team, East Midlands" at the prestigious Great British Care Awards 2024. This recognition celebrates our dedicated team\'s commitment to providing exceptional care services.',
+  excerpt: 'We are thrilled to announce that SERVE has been awarded "Best Homecare Team, East Midlands" at the prestigious Great British Care Awards 2024. This recognition celebrates our dedicated team&apos;s commitment to providing exceptional care services.',
   category: 'Awards',
   date: 'November 2024',
   readTime: '3 min read',

@@ -72,7 +72,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
   const getAvailableDates = () => {
     const dates = []
     const today = new Date()
-    let currentDate = new Date(today)
+    const currentDate = new Date(today)
     currentDate.setDate(currentDate.getDate() + 1) // Start from tomorrow
     
     while (dates.length < 20) {
@@ -689,7 +689,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
               <div className="space-y-4">
                 <h3 className="text-3xl font-bold text-gray-900">Transport Booked Successfully!</h3>
                 <p className="text-lg text-gray-600 max-w-lg mx-auto">
-                  Your transport has been confirmed. We'll send you a confirmation email shortly.
+                  Your transport has been confirmed. We&apos;ll send you a confirmation email shortly.
                 </p>
               </div>
 
@@ -731,7 +731,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
                 <ul className="space-y-2 text-sm text-purple-800">
                   <li className="flex items-start">
                     <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">1</span>
-                    You'll receive a confirmation email with all details
+                    You&apos;ll receive a confirmation email with all details
                   </li>
                   <li className="flex items-start">
                     <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">2</span>
