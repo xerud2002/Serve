@@ -375,6 +375,122 @@ export default function TransportPage() {
         </div>
       </section>
 
+      {/* Online Booking Section */}
+      <section className="py-20 bg-gradient-to-br from-purple-600 to-purple-800 text-white relative overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='m0 40l40-40h-40v40zm0 0l40-40h-40v40z'/%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="mb-12">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-bold mb-8">
+              <TruckIcon className="w-5 h-5 mr-2" />
+              Quick & Easy Online Booking
+            </div>
+
+            <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+              Book Your Transport <span className="text-purple-200">Online</span>
+            </h2>
+            
+            <p className="text-xl lg:text-2xl opacity-90 mb-12 leading-relaxed max-w-3xl mx-auto">
+              Skip the phone call and book your transport online 24/7. 
+              Quick, secure, and convenient - get your journey confirmed in minutes.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="bg-purple-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                <ClockIcon className="w-6 h-6 text-purple-700" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">24/7 Booking</h3>
+              <p className="text-sm opacity-80">Book anytime, even outside office hours</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="bg-purple-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                <CheckIcon className="w-6 h-6 text-purple-700" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Instant Confirmation</h3>
+              <p className="text-sm opacity-80">Get immediate booking confirmation</p>
+            </div>
+
+            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6">
+              <div className="bg-purple-200 rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-4">
+                <ShieldCheckIcon className="w-6 h-6 text-purple-700" />
+              </div>
+              <h3 className="text-lg font-bold mb-3">Secure Payment</h3>
+              <p className="text-sm opacity-80">Safe and encrypted online payments</p>
+            </div>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12">
+            <h3 className="text-2xl font-bold mb-6">What's Included in Online Booking?</h3>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Choose your pickup time and date</span>
+              </div>
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Specify wheelchair/mobility needs</span>
+              </div>
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Add return journey if needed</span>
+              </div>
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Emergency contact information</span>
+              </div>
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Special requirements and notes</span>
+              </div>
+              <div className="flex items-start">
+                <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
+                <span>Secure online payment processing</span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+            <button
+              className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-10 py-5 rounded-xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl inline-flex items-center justify-center"
+              onClick={() => {
+                // This will be handled by the transport booking component
+                const event = new CustomEvent('openTransportBooking', {
+                  detail: { serviceType: 'transport' }
+                });
+                window.dispatchEvent(event);
+              }}
+            >
+              <TruckIcon className="w-6 h-6 mr-3" />
+              Book Transport Online
+              <ArrowRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+            </button>
+            
+            <a
+              href="tel:01933315555"
+              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-purple-900 text-white px-8 py-5 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+            >
+              <PhoneIcon className="w-6 h-6 mr-3" />
+              Or Call: 01933 315555
+            </a>
+          </div>
+
+          <div className="mt-8 text-sm opacity-80">
+            <p>
+              Need help with online booking? Call us at 01933 315555 or visit our office.
+              <br />
+              Online booking available for journeys within our standard service areas.
+            </p>
+          </div>
+        </div>
+      </section>
+
       {/* Testimonials */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
