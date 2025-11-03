@@ -223,19 +223,19 @@ export default function BookingManager() {
                     <div className="space-y-2 text-sm">
                       <div>
                         <span className="text-gray-600">Name:</span>
-                        <span className="ml-2 font-medium">{selectedBooking.name}</span>
+                        <span className="ml-2 font-medium text-gray-900">{selectedBooking.name}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Email:</span>
-                        <span className="ml-2">{selectedBooking.email}</span>
+                        <span className="ml-2 text-gray-800">{selectedBooking.email}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Phone:</span>
-                        <span className="ml-2">{selectedBooking.phone}</span>
+                        <span className="ml-2 text-gray-800">{selectedBooking.phone}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Address:</span>
-                        <span className="ml-2">{selectedBooking.address}</span>
+                        <span className="ml-2 text-gray-800">{selectedBooking.address}</span>
                       </div>
                     </div>
                   </div>
@@ -246,11 +246,11 @@ export default function BookingManager() {
                     <div className="space-y-2 text-sm">
                       <div>
                         <span className="text-gray-600">Name:</span>
-                        <span className="ml-2 font-medium">{selectedBooking.emergencyContact}</span>
+                        <span className="ml-2 font-medium text-gray-900">{selectedBooking.emergencyContact}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Phone:</span>
-                        <span className="ml-2">{selectedBooking.emergencyPhone}</span>
+                        <span className="ml-2 text-gray-800">{selectedBooking.emergencyPhone}</span>
                       </div>
                     </div>
                   </div>
@@ -261,11 +261,11 @@ export default function BookingManager() {
                     <div className="space-y-2 text-sm">
                       <div>
                         <span className="text-gray-600">Date:</span>
-                        <span className="ml-2 font-medium">{formatDate(selectedBooking.preferredDate)}</span>
+                        <span className="ml-2 font-medium text-gray-900">{formatDate(selectedBooking.preferredDate)}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Time:</span>
-                        <span className="ml-2 font-medium">{selectedBooking.preferredTime}</span>
+                        <span className="ml-2 font-medium text-gray-900">{selectedBooking.preferredTime}</span>
                       </div>
                       <div>
                         <span className="text-gray-600">Status:</span>
