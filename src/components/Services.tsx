@@ -101,29 +101,10 @@ export default function Services() {
                 )}
                 
                 <div className="flex flex-col h-full text-center">
-                  {/* Service Image */}
-                  {service.image && (
-                    <div className={`relative ${isMobile ? 'h-40 mb-4' : 'h-48 mb-6'} rounded-xl overflow-hidden`}>
-                      <OptimizedImage
-                        {...service.image}
-                        fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-300"
-                        sizes={isMobile ? '100vw' : '(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw'}
-                      />
-                      <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
-                      {/* Icon overlay */}
-                      <div className="absolute bottom-3 right-3 bg-white/90 rounded-full p-2">
-                        <IconComponent className="w-6 h-6 text-serve-blue-600" />
-                      </div>
-                    </div>
-                  )}
-                  
-                  {/* Fallback icon if no image */}
-                  {!service.image && (
-                    <div className={`bg-serve-blue-50 rounded-full p-4 ${isMobile ? 'w-16 h-16 mb-4' : 'w-20 h-20 mb-6'} mx-auto group-hover:bg-serve-blue-100 transition-colors flex-shrink-0`}>
-                      <IconComponent className={`${isMobile ? 'w-8 h-8' : 'w-12 h-12'} text-serve-blue-600 mx-auto`} />
-                    </div>
-                  )}
+                  {/* Service Icon */}
+                  <div className={`bg-serve-blue-50 rounded-full p-4 ${isMobile ? 'w-16 h-16 mb-4' : 'w-20 h-20 mb-6'} mx-auto group-hover:bg-serve-blue-100 transition-colors flex-shrink-0`}>
+                    <IconComponent className={`${isMobile ? 'w-8 h-8' : 'w-12 h-12'} text-serve-blue-600 mx-auto`} />
+                  </div>
                   
                   {/* Title */}
                   <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors flex-shrink-0 ${isMobile ? 'text-lg' : 'text-xl'}`}>
