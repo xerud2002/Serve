@@ -83,15 +83,9 @@ export default function Hero() {
                 </svg>
                 <h3 className="text-xl font-semibold text-white">Home Care Assessment</h3>
               </div>
-              <p className="text-blue-100 mb-4 text-center">
+              <p className="text-blue-100 mb-6 text-center">
                 Start your care journey with a professional assessment
               </p>
-              <div className="bg-serve-green-500/20 rounded-lg p-4 text-center mb-6">
-                <div className="text-2xl font-bold text-serve-green-200 mb-1">£25</div>
-                <div className="text-serve-green-100 text-sm">
-                  <strong>Fully Refundable</strong> when you start care
-                </div>
-              </div>
               
               {/* Booking Button */}
               <div className="text-center">
