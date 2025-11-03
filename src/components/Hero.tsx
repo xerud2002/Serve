@@ -1,4 +1,5 @@
 import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
+import { AssessmentBookingButton } from './AssessmentBooking'
 
 export default function Hero() {
   return (
@@ -85,10 +86,17 @@ export default function Hero() {
               <p className="text-blue-100 mb-4 text-center">
                 Start your care journey with a professional assessment
               </p>
-              <div className="bg-serve-green-500/20 rounded-lg p-4 text-center">
+              <div className="bg-serve-green-500/20 rounded-lg p-4 text-center mb-6">
                 <div className="text-2xl font-bold text-serve-green-200 mb-1">£25</div>
                 <div className="text-serve-green-100 text-sm">
                   <strong>Fully Refundable</strong> when you start care
+                </div>
+              </div>
+              
+              {/* Booking Button */}
+              <div className="text-center">
+                <div className="[&>button]:bg-white [&>button]:hover:bg-gray-100 [&>button]:text-serve-blue-900 [&>button]:hover:text-serve-blue-800 [&>button]:shadow-xl [&>button]:hover:shadow-2xl">
+                  <AssessmentBookingButton />
                 </div>
               </div>
             </div>
