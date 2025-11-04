@@ -157,7 +157,7 @@ export default function Contact() {
           <h2 className="text-4xl lg:text-5xl font-bold mb-6">Get in Touch</h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
             Whether you need our care services, want to volunteer, or have questions about our work, 
-            we're here to help. Reach out to us today.
+            we&apos;re here to help. Reach out to us today.
           </p>
         </div>
 

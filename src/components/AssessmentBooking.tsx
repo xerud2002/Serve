@@ -143,7 +143,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
+      className="fixed inset-0 flex items-center justify-center p-2 sm:p-4 animate-fadeIn"
       style={{ 
         position: 'fixed', 
         top: 0, 
@@ -161,15 +161,15 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
       }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl md:max-w-3xl max-h-[90vh] overflow-hidden relative mx-auto border border-gray-200 animate-slideUp"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-5xl md:max-w-6xl lg:max-w-7xl max-h-[98vh] overflow-hidden relative mx-auto border border-gray-200 animate-slideUp"
         onClick={(e) => e.stopPropagation()}
         style={{ zIndex: 51 }}
       >
         {/* Header */}
-        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-white">
-          <div className="flex-1 min-w-0">
-            <h2 className="text-2xl font-bold text-gray-900 mb-1">Book Care Assessment</h2>
-            <p className="text-serve-blue-600 font-medium">Professional evaluation at your home</p>
+        <div className="flex items-center justify-between p-8 lg:p-12 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-white">
+          <div className="flex-1 min-w-0 max-w-4xl">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">Book Care Assessment</h2>
+            <p className="text-serve-blue-600 font-medium text-lg lg:text-xl">Professional evaluation at your home</p>
           </div>
           <button
             onClick={handleClose}
@@ -181,8 +181,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Progress Steps */}
-        <div className="px-4 sm:px-6 lg:px-8 py-4 sm:py-6 bg-white border-b border-gray-100">
-          <div className="flex items-center justify-center max-w-xs sm:max-w-md mx-auto">
+        <div className="px-8 lg:px-12 py-6 lg:py-8 bg-white border-b border-gray-100">
+          <div className="flex items-center justify-center max-w-2xl mx-auto">
             <div className={`flex flex-col items-center ${step >= 1 ? 'text-serve-blue-600' : 'text-gray-400'}`}>
               <div className={`w-8 h-8 sm:w-10 sm:h-10 rounded-full flex items-center justify-center text-xs sm:text-sm font-bold border-2 transition-all duration-300 ${
                 step >= 1 
@@ -217,36 +217,36 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="overflow-y-auto max-h-[calc(90vh-180px)] p-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
+        <div className="overflow-y-auto max-h-[calc(98vh-180px)] p-8 lg:p-12 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
           {step === 1 && (
-            <form onSubmit={handleSubmitDetails} className="space-y-8">
-              <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
-                <div className="flex items-center mb-3">
-                  <div className="w-8 h-8 bg-serve-blue-600 rounded-full flex items-center justify-center mr-3">
-                    <span className="text-white font-bold text-sm">£</span>
+            <form onSubmit={handleSubmitDetails} className="space-y-10 mb-16">
+              <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-8 rounded-xl mb-10 border border-serve-blue-100 shadow-sm">
+                <div className="flex items-center mb-4">
+                  <div className="w-10 h-10 bg-serve-blue-600 rounded-full flex items-center justify-center mr-4">
+                    <span className="text-white font-bold text-lg">£</span>
                   </div>
-                  <h3 className="text-xl font-bold text-serve-blue-900">Assessment Fee: £25</h3>
+                  <h3 className="text-2xl font-bold text-serve-blue-900">Assessment Fee: £25</h3>
                 </div>
-                <p className="text-serve-blue-800 leading-relaxed">
+                <p className="text-serve-blue-800 leading-relaxed text-lg">
                   This fee will be <strong>100% refunded</strong> when you start your care package after the assessment. 
-                  It ensures committed appointments and covers our assessor's travel costs.
+                  It ensures committed appointments and covers our assessor&apos;s travel costs.
                 </p>
               </div>
 
-              <div className="space-y-8">
+              <div className="space-y-10">
                 {/* Personal Information Section */}
-                <div className="bg-white rounded-xl border border-gray-200 p-6">
-                  <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
-                    <div className="w-8 h-8 bg-serve-blue-600 rounded-full flex items-center justify-center mr-3">
-                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                    <div className="w-10 h-10 bg-serve-blue-600 rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
                         <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
                       </svg>
                     </div>
                     Personal Information
                   </h4>
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label htmlFor="name" className="block text-base font-semibold text-gray-700 mb-4">
                         Full Name *
                       </label>
                       <input
@@ -256,13 +256,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
+                        className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white text-base"
                         placeholder="Enter your full name"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3">
+                      <label htmlFor="phone" className="block text-base font-semibold text-gray-700 mb-4">
                         Phone Number *
                       </label>
                       <input
@@ -272,13 +272,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
+                        className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white text-base"
                         placeholder="01933 315555"
                       />
                     </div>
 
-                    <div className="md:col-span-2">
-                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <div className="md:col-span-2 lg:col-span-3">
+                      <label htmlFor="email" className="block text-base font-semibold text-gray-700 mb-4">
                         Email Address *
                       </label>
                       <input
@@ -288,13 +288,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
+                        className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white text-base"
                         placeholder="your.email@example.com"
                       />
                     </div>
 
-                    <div className="md:col-span-2">
-                      <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-700 mb-3">
+                    <div className="md:col-span-2 lg:col-span-3">
+                      <label htmlFor="emergencyContact" className="block text-base font-semibold text-gray-700 mb-4">
                         Emergency Contact Name *
                       </label>
                       <input
@@ -304,8 +304,8 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.emergencyContact}
                         onChange={handleInputChange}
-                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
-                        placeholder="Contact person's name"
+                        className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white text-base"
+                        placeholder="Contact person&apos;s name"
                       />
                     </div>
                   </div>
@@ -359,85 +359,134 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                 </div>
 
                 {/* Appointment Scheduling Section */}
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Appointment Details</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
-                    <div className="sm:col-span-2 lg:col-span-1">
-                      <label htmlFor="preferredDate" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                    <div className="w-10 h-10 bg-serve-green-600 rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    Appointment Details
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 lg:gap-16 max-w-4xl">
+                    <div>
+                      <label htmlFor="preferredDate" className="block text-base font-semibold text-gray-700 mb-4">
                         Preferred Date *
                       </label>
-                      <select
-                        id="preferredDate"
-                        name="preferredDate"
-                        required
-                        value={formData.preferredDate}
-                        onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white text-gray-900 text-sm sm:text-base"
-                      >
-                        <option value="">Select a date</option>
-                        {availableDates.map((date, index) => (
-                          <option key={index} value={date.toISOString().split('T')[0]}>
-                            {date.toLocaleDateString('en-GB', { 
-                              weekday: 'long', 
-                              year: 'numeric', 
-                              month: 'long', 
-                              day: 'numeric' 
-                            })}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="preferredDate"
+                          name="preferredDate"
+                          required
+                          value={formData.preferredDate}
+                          onChange={handleInputChange}
+                          className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 bg-gray-50 focus:bg-white text-gray-900 text-base appearance-none cursor-pointer"
+                        >
+                          <option value="">Select a date</option>
+                          {availableDates.map((date, index) => (
+                            <option key={index} value={date.toISOString().split('T')[0]}>
+                              {date.toLocaleDateString('en-GB', { 
+                                weekday: 'long', 
+                                year: 'numeric', 
+                                month: 'long', 
+                                day: 'numeric' 
+                              })}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
 
                     <div>
-                      <label htmlFor="preferredTime" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                      <label htmlFor="preferredTime" className="block text-base font-semibold text-gray-700 mb-4">
                         Preferred Time *
                       </label>
-                      <select
-                        id="preferredTime"
-                        name="preferredTime"
-                        required
-                        value={formData.preferredTime}
-                        onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 bg-white text-gray-900 text-sm sm:text-base"
-                      >
-                        <option value="">Select a time</option>
-                        {availableTimes.map((time, index) => (
-                          <option key={index} value={time}>
-                            {time}
-                          </option>
-                        ))}
-                      </select>
+                      <div className="relative">
+                        <select
+                          id="preferredTime"
+                          name="preferredTime"
+                          required
+                          value={formData.preferredTime}
+                          onChange={handleInputChange}
+                          className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 bg-gray-50 focus:bg-white text-gray-900 text-base appearance-none cursor-pointer"
+                        >
+                          <option value="">Select a time</option>
+                          {availableTimes.map((time, index) => (
+                            <option key={index} value={time}>
+                              {time}
+                            </option>
+                          ))}
+                        </select>
+                        <div className="absolute inset-y-0 right-0 flex items-center pr-4 pointer-events-none">
+                          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
 
                 {/* Care Needs Section */}
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Care Requirements</h4>
+                <div className="bg-white rounded-xl border border-gray-200 p-8 shadow-sm">
+                  <h4 className="text-2xl font-bold text-gray-900 mb-8 flex items-center">
+                    <div className="w-10 h-10 bg-serve-red-600 rounded-full flex items-center justify-center mr-4">
+                      <svg className="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    Care Requirements
+                  </h4>
                   <div>
-                    <label htmlFor="careNeeds" className="block text-sm font-semibold text-gray-800 mb-3">
+                    <label htmlFor="careNeeds" className="block text-base font-semibold text-gray-700 mb-4">
                       Brief Description of Care Needs
                     </label>
-                    <textarea
-                      id="careNeeds"
-                      name="careNeeds"
-                      rows={4}
-                      value={formData.careNeeds}
-                      onChange={handleInputChange}
-                      placeholder="Please describe the type of care support you're looking for (e.g., personal care, domestic help, companionship, medication assistance)..."
-                      className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 resize-none text-gray-900"
-                    />
+                    <div className="relative">
+                      <textarea
+                        id="careNeeds"
+                        name="careNeeds"
+                        rows={8}
+                        value={formData.careNeeds}
+                        onChange={handleInputChange}
+                        placeholder="Please describe the type of care support you're looking for (e.g., personal care, domestic help, companionship, medication assistance)...&#10;&#10;Include any specific requirements, mobility needs, or health conditions that would help us provide the best assessment for your situation."
+                        className="w-full px-5 py-4 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 resize-none text-gray-900 bg-gray-50 focus:bg-white text-base leading-relaxed"
+                      />
+                      <div className="absolute bottom-4 right-4 text-xs text-gray-400 bg-white px-2 py-1 rounded border">
+                        Optional but helpful
+                      </div>
+                    </div>
+                    <p className="mt-3 text-sm text-gray-600">
+                      💡 <strong>Tip:</strong> The more details you provide, the better we can tailor the assessment to your specific needs.
+                    </p>
                   </div>
                 </div>
 
                 {/* Submit Button */}
-                <div className="pt-4 sm:pt-6">
+                <div className="pt-6 pb-8 max-w-2xl mx-auto">
+                  <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 lg:p-8 rounded-xl border border-serve-blue-100 mb-6">
+                    <div className="flex items-center justify-center mb-3">
+                      <div className="w-8 h-8 bg-serve-blue-600 rounded-full flex items-center justify-center mr-3">
+                        <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                          <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                        </svg>
+                      </div>
+                      <p className="text-serve-blue-800 font-semibold text-lg">Ready to Book Your Assessment?</p>
+                    </div>
+                    <p className="text-serve-blue-700 text-center text-sm">
+                      Click below to proceed to secure payment and confirm your appointment.
+                    </p>
+                  </div>
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-sm sm:text-base"
+                    className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 text-white font-bold py-5 px-8 rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-lg"
                   >
-                    <CalendarIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
-                    <span className="hidden sm:inline">Proceed to Payment</span>
+                    <CalendarIcon className="w-6 h-6 mr-3" />
+                    <span className="hidden sm:inline">Proceed to Payment (£25)</span>
                     <span className="sm:hidden">Continue</span>
                     <svg className="w-4 h-4 sm:w-5 sm:h-5 ml-2 sm:ml-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -624,7 +673,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
               <div className="space-y-4">
                 <h3 className="text-3xl font-bold text-gray-900">Assessment Booked Successfully!</h3>
                 <p className="text-lg text-gray-600 max-w-lg mx-auto">
-                  Your home care assessment has been scheduled. We'll send you a confirmation email shortly.
+                  Your home care assessment has been scheduled. We&apos;ll send you a confirmation email shortly.
                 </p>
               </div>
 
@@ -665,7 +714,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                 <ul className="space-y-2 text-sm text-serve-blue-800">
                   <li className="flex items-start">
                     <span className="w-5 h-5 bg-serve-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">1</span>
-                    You'll receive a confirmation email with all the details
+                    You&apos;ll receive a confirmation email with all the details
                   </li>
                   <li className="flex items-start">
                     <span className="w-5 h-5 bg-serve-blue-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">2</span>

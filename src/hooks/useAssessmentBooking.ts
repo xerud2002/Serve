@@ -131,7 +131,7 @@ export function useAssessmentBooking() {
   const getAvailableDates = useCallback(() => {
     const dates = []
     const today = new Date()
-    let currentDate = new Date(today)
+    const currentDate = new Date(today)
     currentDate.setDate(currentDate.getDate() + 1) // Start from tomorrow
     
     while (dates.length < 10) {

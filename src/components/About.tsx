@@ -44,7 +44,7 @@ export default function About() {
               <p className="text-xl leading-relaxed">
                 SERVE began as a simple idea: that everyone deserves to live with dignity and independence, 
                 regardless of age or disability. What started as a small community initiative has grown into 
-                Northamptonshire's most trusted care charity.
+                Northamptonshire&apos;s most trusted care charity.
               </p>
               
               <p>
