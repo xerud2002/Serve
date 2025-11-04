@@ -49,9 +49,9 @@ export const metadata: Metadata = {
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',
     images: [
       {
-        url: '/pics/logo.png',
-        width: 1200,
-        height: 630,
+        url: '/images/serve.png',
+        width: 800,
+        height: 400,
         alt: 'SERVE Charity Logo - Supporting Independence',
         type: 'image/png',
       },
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     creator: '@serve_charity',
     title: 'SERVE | Supporting Independence in Northamptonshire',
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',
-    images: ['/pics/logo.png'],
+    images: ['/images/serve.png'],
   },
   robots: {
     index: true,

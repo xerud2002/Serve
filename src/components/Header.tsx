@@ -49,10 +49,10 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-white shadow-sm relative">
+      <header className="bg-white shadow-sm relative -my-1">
         {/* Contact bar */}
-        <div className="bg-serve-blue-800 text-white py-2">
-          <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
+        <div className="bg-serve-blue-800 text-white py-1 -mb-1">
+          <div className={`max-w-7xl mx-auto px-1 sm:px-2`}>
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center space-x-3 sm:space-x-6">
                 <a 
@@ -103,16 +103,16 @@ export default function Header() {
             </div>
           </div>
         </div>        {/* Main navigation */}
-        <nav className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`} aria-label={ARIA_LABELS.mainNavigation}>
-          <div className="flex items-center justify-between h-16 sm:h-20">
-            <div className="flex items-center">
-              <Link href="/" className="flex items-center">
+        <nav className={`max-w-7xl mx-auto px-1 sm:px-2 -my-2`} aria-label={ARIA_LABELS.mainNavigation}>
+          <div className="flex items-center justify-between h-28 sm:h-36 py-0 -my-4">
+            <div className="flex items-center -my-6">
+              <Link href="/" className="flex items-center -my-4">
                 <Image
-                  src="/pics/Serve-Logo.webp"
+                  src="/images/serve.png"
                   alt="SERVE - Supporting Independence"
-                  width={isMobile ? 120 : 140}
-                  height={isMobile ? 60 : 70}
-                  className={`${isMobile ? 'h-12' : 'h-14'} w-auto`}
+                  width={isMobile ? 720 : 960}
+                  height={isMobile ? 360 : 480}
+                  className={`${isMobile ? 'h-32' : 'h-40'} w-auto -my-5`}
                   priority
                 />
               </Link>

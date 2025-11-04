@@ -126,9 +126,9 @@ export const SERVE_IMAGES = {
     height: 300
   },
   logo: {
-    src: '/pics/Serve-Logo.webp',
+    src: '/images/serve.png',
     alt: 'SERVE charity logo - Supporting Independence',
-    width: 200,
-    height: 100
+    width: 400,
+    height: 200
   }
 }
