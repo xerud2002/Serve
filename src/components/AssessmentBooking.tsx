@@ -148,58 +148,45 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center p-2 sm:p-4"
+      className="fixed inset-0 flex items-center justify-center p-4 sm:p-6"
       style={{ 
         position: 'fixed', 
         top: 0, 
         left: 0, 
         right: 0, 
         bottom: 0,
-        backgroundColor: 'rgba(0, 0, 0, 0.75)', // Red background for testing
-        zIndex: 99999
+        backgroundColor: 'rgba(0, 0, 0, 0.5)',
+        zIndex: 50,
+        backdropFilter: 'blur(4px)'
       }}
       onClick={(e) => {
-        console.log('Backdrop element clicked', e.target === e.currentTarget ? 'on backdrop' : 'on content')
         if (e.target === e.currentTarget) {
-          console.log('Backdrop clicked, closing modal')
           handleClose()
         }
       }}
     >
       <div 
-        className="bg-white rounded-xl sm:rounded-2xl shadow-2xl w-full max-w-xs sm:max-w-2xl md:max-w-4xl lg:max-w-6xl xl:max-w-7xl 2xl:max-w-[1400px] max-h-[95vh] overflow-hidden relative mx-auto"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl md:max-w-4xl max-h-[90vh] overflow-hidden relative mx-auto border border-gray-200"
         onClick={(e) => e.stopPropagation()}
-        style={{ zIndex: 100000 }}
+        style={{ 
+          zIndex: 51,
+          transform: 'translateY(0)',
+          animation: 'slideIn 0.3s ease-out'
+        }}
       >
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 lg:p-8 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-serve-green-50">
+        <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-white">
           <div className="flex-1 min-w-0">
-            <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">Book Home Care Assessment</h2>
-            <p className="text-sm sm:text-base text-serve-blue-600 font-medium">Professional care evaluation at your home</p>
+            <h2 className="text-2xl font-bold text-gray-900 mb-1">Book Care Assessment</h2>
+            <p className="text-serve-blue-600 font-medium">Professional evaluation at your home</p>
           </div>
-          <div className="flex items-center space-x-2 mt-3 sm:mt-0 self-end sm:self-auto">
-            <button
-              onClick={(e) => {
-                e.preventDefault()
-                console.log('Close button clicked')
-                handleClose()
-              }}
-              className="hidden sm:block px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-lg transition-colors font-medium"
-            >
-              Close
-            </button>
-            <button
-              onClick={(e) => {
-                e.preventDefault()
-                console.log('X button clicked')
-                handleClose()
-              }}
-              className="p-2 hover:bg-gray-200 rounded-full transition-colors"
-              aria-label="Close booking form"
-            >
-              <XMarkIcon className="w-5 h-5 text-gray-500" />
-            </button>
-          </div>
+          <button
+            onClick={handleClose}
+            className="p-3 hover:bg-gray-200 rounded-full transition-colors ml-4 flex-shrink-0"
+            aria-label="Close booking form"
+          >
+            <XMarkIcon className="w-6 h-6 text-gray-500 hover:text-gray-700" />
+          </button>
         </div>
 
         {/* Progress Steps */}
