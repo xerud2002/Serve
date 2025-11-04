@@ -148,7 +148,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center p-4 sm:p-6"
+      className="fixed inset-0 flex items-center justify-center p-4 sm:p-6 animate-fadeIn"
       style={{ 
         position: 'fixed', 
         top: 0, 
@@ -166,13 +166,9 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
       }}
     >
       <div 
-        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl md:max-w-4xl max-h-[90vh] overflow-hidden relative mx-auto border border-gray-200"
+        className="bg-white rounded-2xl shadow-2xl w-full max-w-2xl md:max-w-3xl max-h-[90vh] overflow-hidden relative mx-auto border border-gray-200 animate-slideUp"
         onClick={(e) => e.stopPropagation()}
-        style={{ 
-          zIndex: 51,
-          transform: 'translateY(0)',
-          animation: 'slideIn 0.3s ease-out'
-        }}
+        style={{ zIndex: 51 }}
       >
         {/* Header */}
         <div className="flex items-center justify-between p-6 border-b border-gray-200 bg-gradient-to-r from-serve-blue-50 to-white">
@@ -226,7 +222,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
         </div>
 
         {/* Step Content */}
-        <div className="overflow-y-auto max-h-[calc(95vh-180px)] sm:max-h-[calc(95vh-200px)] p-4 sm:p-6 lg:p-8">
+        <div className="overflow-y-auto max-h-[calc(90vh-180px)] p-6 scrollbar-thin scrollbar-thumb-gray-300 scrollbar-track-gray-100">
           {step === 1 && (
             <form onSubmit={handleSubmitDetails} className="space-y-8">
               <div className="bg-gradient-to-r from-serve-blue-50 to-serve-green-50 p-6 rounded-xl mb-8 border border-serve-blue-100">
@@ -242,13 +238,20 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                 </p>
               </div>
 
-              <div className="space-y-6">
+              <div className="space-y-8">
                 {/* Personal Information Section */}
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Personal Information</h4>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-4 sm:gap-6">
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                    <div className="w-8 h-8 bg-serve-blue-600 rounded-full flex items-center justify-center mr-3">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    Personal Information
+                  </h4>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <label htmlFor="name" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                      <label htmlFor="name" className="block text-sm font-semibold text-gray-700 mb-3">
                         Full Name *
                       </label>
                       <input
@@ -258,13 +261,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.name}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900 text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
                         placeholder="Enter your full name"
                       />
                     </div>
 
                     <div>
-                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                      <label htmlFor="phone" className="block text-sm font-semibold text-gray-700 mb-3">
                         Phone Number *
                       </label>
                       <input
@@ -274,13 +277,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.phone}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900 text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
                         placeholder="01933 315555"
                       />
                     </div>
 
-                    <div className="sm:col-span-2 xl:col-span-1">
-                      <label htmlFor="email" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                    <div className="md:col-span-2">
+                      <label htmlFor="email" className="block text-sm font-semibold text-gray-700 mb-3">
                         Email Address *
                       </label>
                       <input
@@ -290,13 +293,13 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.email}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900 text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
                         placeholder="your.email@example.com"
                       />
                     </div>
 
-                    <div className="sm:col-span-2 xl:col-span-3">
-                      <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-800 mb-2 sm:mb-3">
+                    <div className="md:col-span-2">
+                      <label htmlFor="emergencyContact" className="block text-sm font-semibold text-gray-700 mb-3">
                         Emergency Contact Name *
                       </label>
                       <input
@@ -306,19 +309,26 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         required
                         value={formData.emergencyContact}
                         onChange={handleInputChange}
-                        className="w-full px-3 sm:px-4 py-3 sm:py-4 border-2 border-gray-200 rounded-lg sm:rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900 text-sm sm:text-base"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
                         placeholder="Contact person's name"
                       />
                     </div>
                   </div>
                 </div>
 
-                {/* Address Information Section */}
-                <div>
-                  <h4 className="text-lg font-semibold text-gray-900 mb-4 pb-2 border-b border-gray-200">Address & Emergency Contact</h4>
+                {/* Address & Emergency Contact Section */}
+                <div className="bg-white rounded-xl border border-gray-200 p-6">
+                  <h4 className="text-xl font-bold text-gray-900 mb-6 flex items-center">
+                    <div className="w-8 h-8 bg-serve-green-600 rounded-full flex items-center justify-center mr-3">
+                      <svg className="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 20 20">
+                        <path fillRule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clipRule="evenodd" />
+                      </svg>
+                    </div>
+                    Address & Emergency Contact
+                  </h4>
                   <div className="space-y-6">
                     <div>
-                      <label htmlFor="address" className="block text-sm font-semibold text-gray-800 mb-3">
+                      <label htmlFor="address" className="block text-sm font-semibold text-gray-700 mb-3">
                         Home Address *
                       </label>
                       <input
@@ -329,7 +339,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
                         value={formData.address}
                         onChange={handleInputChange}
                         placeholder="Street address, city, postcode"
-                        className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-300 text-gray-900"
+                        className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-200 hover:border-gray-400 text-gray-900 bg-gray-50 focus:bg-white"
                       />
                     </div>
 
