@@ -1,4 +1,5 @@
 import { MapPinIcon, HeartIcon, ShieldCheckIcon, UsersIcon } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
 
 export default function About() {
@@ -88,8 +89,12 @@ export default function About() {
             {/* SERVE Logo */}
             <div className="flex justify-center items-center h-48 rounded-2xl bg-gradient-to-br from-gray-50 to-white border border-gray-200 mb-8">
               <OptimizedImage
-                {...SERVE_IMAGES.logo}
+                src="/images/serve.png"
+                alt="SERVE - Supporting Independence"
+                width={400}
+                height={200}
                 className="h-40 w-auto"
+                priority
               />
             </div>
             

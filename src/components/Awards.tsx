@@ -149,8 +149,8 @@ export default function Awards() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((testimonial, index) => (
-              <div key={index} className="relative">
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-serve-blue-200 transition-colors">
+              <div key={index} className="relative h-full">
+                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-serve-blue-200 transition-colors h-full flex flex-col">
                   {/* Stars */}
                   <div className="flex justify-center mb-4">
                     {[...Array(5)].map((_, i) => (
@@ -159,12 +159,12 @@ export default function Awards() {
                   </div>
                   
                   {/* Quote */}
-                  <blockquote className="text-gray-700 italic mb-6 text-center leading-relaxed">
+                  <blockquote className="text-gray-700 italic mb-6 text-center leading-relaxed flex-grow">
                     "{testimonial.quote}"
                   </blockquote>
                   
                   {/* Attribution */}
-                  <div className="text-center">
+                  <div className="text-center mt-auto">
                     <div className="font-semibold text-gray-900">{testimonial.author}</div>
                     <div className="text-sm text-gray-600">{testimonial.relation}</div>
                     <div className="text-sm text-serve-blue-600">{testimonial.location}</div>
