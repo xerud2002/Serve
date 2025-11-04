@@ -272,7 +272,7 @@ export default function TransportPage() {
 
           <div className="text-center">
             <p className="text-gray-600 mb-4">
-              Don't see your area listed? Contact us - we may still be able to help with special arrangements.
+              Don&apos;t see your area listed? Contact us - we may still be able to help with special arrangements.
             </p>
             <a
               href="tel:01933315555"
@@ -344,7 +344,7 @@ export default function TransportPage() {
                 <span className="text-2xl font-bold text-purple-700">2</span>
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Confirm Details</h3>
-              <p className="text-gray-600">We'll confirm pickup time, destination, and any special requirements.</p>
+              <p className="text-gray-600">We&apos;ll confirm pickup time, destination, and any special requirements.</p>
             </div>
             
             <div className="bg-white rounded-2xl p-8 shadow-lg">
@@ -423,7 +423,7 @@ export default function TransportPage() {
           </div>
 
           <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-8 mb-12">
-            <h3 className="text-2xl font-bold mb-6">What's Included in Online Booking?</h3>
+            <h3 className="text-2xl font-bold mb-6">What&apos;s Included in Online Booking?</h3>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left">
               <div className="flex items-start">
                 <CheckIcon className="w-5 h-5 text-purple-200 mr-3 mt-0.5 flex-shrink-0" />
@@ -498,7 +498,7 @@ export default function TransportPage() {
                 </div>
                 
                 <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
                 
                 <div className="border-t border-purple-200 pt-4">
@@ -518,7 +518,7 @@ export default function TransportPage() {
             Need Reliable Transport?
           </h2>
           <p className="text-xl opacity-90 mb-10 leading-relaxed">
-            Don't let transport be a barrier to living independently. Our friendly, 
+            Don&apos;t let transport be a barrier to living independently. Our friendly, 
             professional drivers are ready to help you get where you need to go.
           </p>
           

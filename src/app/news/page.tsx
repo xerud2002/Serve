@@ -170,7 +170,7 @@ export default function NewsPage() {
             </h1>
             
             <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
-              Stay connected with SERVE's latest news, achievements, events, and community initiatives 
+              Stay connected with SERVE&apos;s latest news, achievements, events, and community initiatives 
               that are making a difference across Northamptonshire.
             </p>
           </div>

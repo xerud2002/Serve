@@ -25,14 +25,14 @@ export default function VolunteerForm() {
               <CheckCircleIcon className="h-20 w-20 text-green-600 mx-auto mb-8" />
               <h2 className="text-4xl font-bold text-green-900 mb-6">Application Submitted Successfully!</h2>
               <p className="text-xl text-green-700 mb-8 max-w-2xl mx-auto">
-                Thank you for your interest in volunteering with SERVE. We've received your application 
+                Thank you for your interest in volunteering with SERVE. We&apos;ve received your application 
                 and will review it carefully.
               </p>
               <div className="space-y-3 text-lg text-green-600 mb-10">
                 <p><strong>What happens next?</strong></p>
-                <p>• We'll review your application within 5-7 working days</p>
+                <p>• We&apos;ll review your application within 5-7 working days</p>
                 <p>• Our volunteer coordinator will contact you to arrange a chat</p>
-                <p>• We'll discuss suitable opportunities and next steps</p>
+                <p>• We&apos;ll discuss suitable opportunities and next steps</p>
                 <p>• DBS check and training will be arranged if you proceed</p>
               </div>
               <div className="bg-green-100 p-6 rounded-xl mb-8">
@@ -328,7 +328,7 @@ export default function VolunteerForm() {
             </button>
 
             <p className="text-center text-sm text-gray-500">
-              We'll review your application and contact you within 5-7 working days.
+              We&apos;ll review your application and contact you within 5-7 working days.
             </p>
           </form>
         </div>

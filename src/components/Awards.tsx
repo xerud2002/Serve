@@ -144,7 +144,7 @@ export default function Awards() {
         <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-gray-900 mb-4">What Families Say About Us</h3>
-            <p className="text-xl text-gray-600">Real experiences from the people we're proud to serve</p>
+            <p className="text-xl text-gray-600">Real experiences from the people we&apos;re proud to serve</p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -160,7 +160,7 @@ export default function Awards() {
                   
                   {/* Quote */}
                   <blockquote className="text-gray-700 italic mb-6 text-center leading-relaxed flex-grow">
-                    "{testimonial.quote}"
+                    &quot;{testimonial.quote}&quot;
                   </blockquote>
                   
                   {/* Attribution */}

@@ -8,6 +8,7 @@ import {
   BuildingOffice2Icon,
   UserGroupIcon
 } from '@heroicons/react/24/outline'
+import Link from 'next/link'
 import NewsletterSignup from './NewsletterSignup'
 import { ARIA_LABELS } from '@/lib/accessibility'
 
@@ -131,10 +132,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               <li>
-                <a href="/" className="text-gray-300 hover:text-serve-blue-300 transition-colors flex items-center group">
+                <Link href="/" className="text-gray-300 hover:text-serve-blue-300 transition-colors flex items-center group">
                   <span className="w-2 h-2 bg-serve-blue-600 rounded-full mr-3 group-hover:bg-serve-blue-400 transition-colors"></span>
                   Home
-                </a>
+                </Link>
               </li>
               <li>
                 <a href="/services" className="text-gray-300 hover:text-serve-blue-300 transition-colors flex items-center group">

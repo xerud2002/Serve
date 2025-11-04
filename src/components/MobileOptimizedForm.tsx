@@ -21,7 +21,7 @@ interface MobileFormProps {
     required?: boolean
     helpText?: string
   }>
-  onSubmit: (data: any) => Promise<void>
+  onSubmit: (data: Record<string, unknown>) => Promise<void>
   isSubmitting: boolean
   isSubmitted: boolean
   error: string | null
@@ -44,12 +44,12 @@ export default function MobileOptimizedForm({
   className = ''
 }: MobileFormProps) {
   const { isMobile } = useIsMobile()
-  const [formData, setFormData] = React.useState<Record<string, any>>({})
+  const [formData, setFormData] = React.useState<Record<string, unknown>>({})
   const [fieldErrors, setFieldErrors] = React.useState<Record<string, string>>({})
 
   // Initialize form data
   React.useEffect(() => {
-    const initialData: Record<string, any> = {}
+    const initialData: Record<string, unknown> = {}
     fields.forEach(field => {
       initialData[field.id] = ''
     })
@@ -59,7 +59,7 @@ export default function MobileOptimizedForm({
     setFormData(initialData)
   }, [fields, checkboxFields])
 
-  const validateField = (field: any, value: any): string => {
+  const validateField = (field: MobileFormProps['fields'][0], value: unknown): string => {
     if (field.required && (!value || (typeof value === 'string' && value.trim() === ''))) {
       return `${field.label} is required`
     }
@@ -75,7 +75,7 @@ export default function MobileOptimizedForm({
     return ''
   }
 
-  const handleFieldChange = (fieldId: string, value: any) => {
+  const handleFieldChange = (fieldId: string, value: unknown) => {
     setFormData(prev => ({ ...prev, [fieldId]: value }))
     
     // Clear field error when user starts typing
@@ -84,7 +84,7 @@ export default function MobileOptimizedForm({
     }
   }
 
-  const handleFieldBlur = (field: any) => {
+  const handleFieldBlur = (field: MobileFormProps['fields'][0]) => {
     const error = validateField(field, formData[field.id])
     if (error) {
       setFieldErrors(prev => ({ ...prev, [field.id]: error }))

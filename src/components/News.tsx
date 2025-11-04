@@ -79,7 +79,7 @@ export default function News() {
           </div>
           <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">News & Events</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay connected with SERVE's latest achievements, upcoming events, and community initiatives 
+            Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
             that are making a difference across Northamptonshire.
           </p>
         </div>
@@ -188,7 +188,7 @@ export default function News() {
         <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
           <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Don't miss out on SERVE's latest news, events, and community updates. 
+            Don&apos;t miss out on SERVE&apos;s latest news, events, and community updates. 
             Join our mailing list to stay connected with our caring community.
           </p>
           

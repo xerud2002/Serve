@@ -34,7 +34,7 @@ export default function NewsletterSignup({
           <div>
             <h3 className="text-lg font-semibold">Thank you for subscribing!</h3>
             <p className={`text-sm ${variant === 'footer' ? 'text-gray-300' : 'text-gray-600'}`}>
-              You'll receive our newsletter updates soon.
+              You&apos;ll receive our newsletter updates soon.
             </p>
           </div>
         </div>

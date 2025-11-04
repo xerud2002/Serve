@@ -302,7 +302,7 @@ export default function VolunteerPage() {
 
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div>
-                      <h4 className="font-semibold text-gray-900 mb-3">What you'll do:</h4>
+                      <h4 className="font-semibold text-gray-900 mb-3">What you&apos;ll do:</h4>
                       <ul className="space-y-2">
                         {opportunity.responsibilities.map((responsibility, idx) => (
                           <li key={idx} className="flex items-start text-gray-700 text-sm">
@@ -417,7 +417,7 @@ export default function VolunteerPage() {
             {testimonials.map((testimonial, index) => (
               <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
                 <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
                 
                 <div className="border-t border-gray-200 pt-6">

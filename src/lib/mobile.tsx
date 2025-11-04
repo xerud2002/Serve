@@ -106,8 +106,7 @@ export function MobileButton({
   fullWidth?: boolean
   className?: string
   disabled?: boolean
-  [key: string]: any
-}) {
+} & React.ButtonHTMLAttributes<HTMLButtonElement>) {
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all duration-200 touch-manipulation select-none'
   
   const sizeClasses = {

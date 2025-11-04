@@ -145,7 +145,7 @@ export default function BookingManager() {
             {['all', 'pending', 'confirmed', 'completed', 'cancelled'].map((status) => (
               <button
                 key={status}
-                onClick={() => setFilter(status as any)}
+                onClick={() => setFilter(status as 'all' | 'pending' | 'confirmed' | 'completed' | 'cancelled')}
                 className={`px-4 py-2 rounded-lg font-medium transition-colors ${
                   filter === status
                     ? 'bg-serve-blue-600 text-white'

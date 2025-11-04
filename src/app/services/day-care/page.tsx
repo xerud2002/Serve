@@ -277,7 +277,7 @@ export default function DayCarePage() {
                   <div>
                     <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
                       <CakeIcon className="w-4 h-4 mr-2 text-serve-green-600" />
-                      Today's Menu
+                      Today&apos;s Menu
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed">{day.meals}</p>
                   </div>
@@ -310,7 +310,7 @@ export default function DayCarePage() {
                 </div>
                 
                 <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  "{testimonial.quote}"
+                  &quot;{testimonial.quote}&quot;
                 </blockquote>
                 
                 <div className="border-t border-serve-green-200 pt-4">
