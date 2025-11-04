@@ -44,7 +44,7 @@ export default function Hero() {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-balance leading-relaxed text-blue-100">
-            For over 40 years, SERVE has been Northamptonshire's trusted partner in care. 
+            For over 40 years, SERVE has been Northamptonshire&apos;s trusted partner in care. 
             We help older people and adults with disabilities live independently at home with dignity and respect.
           </p>
           

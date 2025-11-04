@@ -121,7 +121,7 @@ export default function Contact() {
               <CheckCircleIcon className="h-20 w-20 text-green-400 mx-auto mb-8" />
               <h2 className="text-4xl font-bold mb-6">Message Sent Successfully!</h2>
               <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
-                Thank you for contacting SERVE. We've received your message and will get back to you within 1-2 business days.
+                Thank you for contacting SERVE. We&apos;ve received your message and will get back to you within 1-2 business days.
               </p>
               <div className="space-y-3 text-lg opacity-80 mb-10">
                 <p>For urgent matters, please call us at <strong className="text-green-400">01933 315555</strong></p>
@@ -280,7 +280,7 @@ export default function Contact() {
               <div className="text-center mb-8">
                 <h3 className="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h3>
                 <p className="text-gray-600">
-                  Have questions about our services or want to get involved? We'd love to hear from you.
+                  Have questions about our services or want to get involved? We&apos;d love to hear from you.
                 </p>
               </div>
               
@@ -443,7 +443,7 @@ export default function Contact() {
                       required
                     />
                     <label htmlFor="privacy" className="ml-3 text-sm text-gray-600">
-                      I agree to SERVE's privacy policy and consent to my personal data being processed 
+                      I agree to SERVE&apos;s privacy policy and consent to my personal data being processed 
                       to respond to my inquiry. *
                     </label>
                   </div>

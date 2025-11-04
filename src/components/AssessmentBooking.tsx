@@ -65,7 +65,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
   const getAvailableDates = () => {
     const dates = []
     const today = new Date()
-    let currentDate = new Date(today)
+    const currentDate = new Date(today)
     currentDate.setDate(currentDate.getDate() + 1) // Start from tomorrow
     
     while (dates.length < 10) {
@@ -137,14 +137,9 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
     onClose()
   }
 
-  console.log('Modal isOpen:', isOpen, 'Step:', step) // Debug log
-  
   if (!isOpen) {
-    console.log('Modal not open, returning null')
     return null
   }
-  
-  console.log('Rendering modal...')
 
   return (
     <div 
@@ -711,12 +706,10 @@ export function AssessmentBookingButton() {
   const handleOpenModal = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log('Opening modal...') // Debug log
     setIsBookingOpen(true)
   }
 
   const handleCloseModal = () => {
-    console.log('Closing modal...') // Debug log
     setIsBookingOpen(false)
   }
 

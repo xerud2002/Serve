@@ -1,6 +1,5 @@
 import { MapPinIcon, HeartIcon, ShieldCheckIcon, UsersIcon } from '@heroicons/react/24/outline'
-import Link from 'next/link'
-import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
+import OptimizedImage from './OptimizedImage'
 
 export default function About() {
   const milestones = [
@@ -49,8 +48,8 @@ export default function About() {
               </p>
               
               <p>
-                Today, we're proud to be a CQC registered care provider, serving hundreds of families 
-                across the county. Our recent recognition as the "Best Homecare Team in the East Midlands" 
+                Today, we&apos;re proud to be a CQC registered care provider, serving hundreds of families 
+                across the county. Our recent recognition as the &ldquo;Best Homecare Team in the East Midlands&rdquo; 
                 reflects our unwavering commitment to excellence.
               </p>
               
