@@ -64,11 +64,11 @@ export default function MobileOptimizedForm({
       return `${field.label} is required`
     }
 
-    if (field.type === 'email' && value && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
+    if (field.type === 'email' && value && typeof value === 'string' && !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(value)) {
       return 'Please enter a valid email address'
     }
 
-    if (field.type === 'tel' && value && !/^[\+]?[\d\s\-\(\)]+$/.test(value)) {
+    if (field.type === 'tel' && value && typeof value === 'string' && !/^[\+]?[\d\s\-\(\)]+$/.test(value)) {
       return 'Please enter a valid phone number'
     }
 
@@ -145,7 +145,7 @@ export default function MobileOptimizedForm({
             id={field.id}
             label={field.label}
             type={field.type}
-            value={formData[field.id] || ''}
+            value={String(formData[field.id] || '')}
             onChange={(value) => handleFieldChange(field.id, value)}
             onBlur={() => handleFieldBlur(field)}
             error={fieldErrors[field.id]}
@@ -164,7 +164,7 @@ export default function MobileOptimizedForm({
             key={field.id}
             id={field.id}
             label={field.label}
-            checked={formData[field.id] || false}
+            checked={Boolean(formData[field.id]) || false}
             onChange={(checked) => handleFieldChange(field.id, checked)}
             error={fieldErrors[field.id]}
             required={field.required}
