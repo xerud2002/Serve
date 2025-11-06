@@ -49,7 +49,7 @@ export default function Hero() {
           </p>
           
           {/* Action Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-16 max-w-4xl mx-auto">
+          <div className="flex flex-col sm:flex-row gap-2 justify-center items-center mb-16 max-w-4xl mx-auto">
             <a
               href="/donate"
               className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
