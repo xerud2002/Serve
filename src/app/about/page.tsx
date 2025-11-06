@@ -160,7 +160,7 @@ export default function AboutPage() {
             </div>
             <div className="text-center">
               <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 mb-4">
-                <div className="text-4xl font-bold text-serve-green-300 mb-2">7</div>
+                <div className="text-4xl font-bold text-serve-green-300 mb-2">6</div>
                 <div className="text-sm opacity-80">Core Services</div>
               </div>
             </div>

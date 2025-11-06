@@ -74,15 +74,19 @@ export default function Awards() {
             {/* Great British Care Awards */}
             <div className="order-2 lg:order-1">
               <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-yellow-400 to-yellow-600 rounded-3xl blur opacity-20"></div>
-                <div className="relative bg-gradient-to-br from-yellow-400 to-yellow-600 text-white p-10 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300">
+                <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 to-red-500 rounded-3xl blur opacity-20"></div>
+                <div className="relative bg-white border-4 border-transparent bg-clip-padding p-10 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{
+                  backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #ec4899 0%, #ef4444 50%, #f59e0b 100%)',
+                  backgroundOrigin: 'border-box',
+                  backgroundClip: 'padding-box, border-box'
+                }}>
                   <div className="text-center">
                     <div className="text-7xl mb-6">🏆</div>
-                    <h3 className="text-3xl font-bold mb-3">Great British Care Awards</h3>
-                    <div className="text-xl font-semibold mb-4">2024 Winner</div>
-                    <div className="bg-white/20 rounded-xl p-4 backdrop-blur-sm">
-                      <p className="text-lg font-medium">Best Homecare Team</p>
-                      <p className="text-lg">East Midlands Region</p>
+                    <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-pink-600 via-red-600 to-orange-500 bg-clip-text text-transparent">Great British Care Awards</h3>
+                    <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent">NATIONAL FINALIST</div>
+                    <div className="bg-gradient-to-r from-pink-50 to-red-50 rounded-xl p-4 border border-pink-200">
+                      <p className="text-lg font-bold text-gray-900">Best Homecare Team</p>
+                      <p className="text-base text-gray-700">2024</p>
                     </div>
                   </div>
                 </div>
