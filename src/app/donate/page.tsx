@@ -193,7 +193,7 @@ export default function DonatePage() {
                 <span>Fundraising events</span>
               </li>
             </ul>
-          </h2>
+          </div>
         </div>
       </section>
 
