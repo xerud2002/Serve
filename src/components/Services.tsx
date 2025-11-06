@@ -131,7 +131,7 @@ export default function Services() {
                   {/* Highlights with improved styling */}
                   <div className={`grid grid-cols-2 ${isMobile ? 'gap-2 mb-6' : 'gap-3 mb-8'} flex-shrink-0`}>
                     {service.highlights.map((highlight, index) => (
-                      <div key={index} className={`flex items-center text-gray-700 bg-gray-50 rounded-lg px-2 py-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
+                      <div key={index} className={`flex items-center text-gray-700 bg-serve-blue-50 rounded-lg px-2 py-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
                         <CheckCircleIcon className="w-4 h-4 text-serve-green-600 mr-2 flex-shrink-0" />
                         <span className="text-left truncate">{highlight}</span>
                       </div>
@@ -142,7 +142,7 @@ export default function Services() {
                   <div className="flex-shrink-0">
                     <Link
                       href={service.link}
-                      className={`group/btn inline-flex items-center justify-center bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 active:from-serve-blue-800 active:to-serve-blue-900 text-white font-bold transition-all duration-300 rounded-xl shadow-md hover:shadow-lg ${MOBILE_CLASSES.touchTarget} ${
+                      className={`group/btn inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800 text-white font-bold transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl ${MOBILE_CLASSES.touchTarget} ${
                         isMobile ? 'w-full px-4 py-3 text-base' : 'px-8 py-3 transform hover:scale-105'
                       }`}
                       aria-label={`Learn more about ${service.title}`}
@@ -162,36 +162,45 @@ export default function Services() {
 
         {/* Bottom CTA with improved design */}
         <div className={`text-center ${isMobile ? 'mt-10' : 'mt-16'}`}>
-          <div className="bg-gradient-to-r from-serve-blue-600 to-serve-green-600 rounded-3xl p-8 shadow-xl">
-            <h3 className="text-white text-2xl font-bold mb-4">
-              Need Help Choosing?
-            </h3>
-            <p className="text-white/90 mb-6 max-w-2xl mx-auto">
-              Our friendly team is here to help you find the right care solution for you or your loved one.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link
-                href="/services"
-                className={`inline-flex items-center bg-white text-serve-blue-700 hover:bg-gray-50 font-bold transition-all duration-200 rounded-xl shadow-lg hover:shadow-xl ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.button} ${
-                  isMobile ? 'w-full justify-center px-6 py-4 text-lg' : 'px-8 py-4 text-lg transform hover:scale-105'
-                }`}
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
-                </svg>
-                View All Services
-              </Link>
-              <Link
-                href="/contact"
-                className={`inline-flex items-center bg-white/10 backdrop-blur-sm text-white hover:bg-white/20 border-2 border-white/30 font-semibold transition-all duration-200 rounded-xl ${MOBILE_CLASSES.touchTarget} ${
-                  isMobile ? 'w-full justify-center px-6 py-4 text-lg' : 'px-8 py-4 text-lg transform hover:scale-105'
-                }`}
-              >
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
-                </svg>
-                Contact Us
-              </Link>
+          <div className="relative bg-gradient-to-br from-serve-blue-700 via-serve-blue-800 to-serve-green-700 rounded-3xl p-10 shadow-2xl overflow-hidden">
+            {/* Background pattern */}
+            <div className="absolute inset-0 opacity-10">
+              <div className="absolute inset-0" style={{
+                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+              }} />
+            </div>
+            
+            <div className="relative">
+              <h3 className="text-white text-3xl font-bold mb-4">
+                Need Help Choosing?
+              </h3>
+              <p className="text-blue-100 text-lg mb-8 max-w-2xl mx-auto leading-relaxed">
+                Our friendly team is here to help you find the right care solution for you or your loved one.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Link
+                  href="/services"
+                  className={`inline-flex items-center bg-white text-serve-blue-700 hover:bg-blue-50 font-bold transition-all duration-200 rounded-xl shadow-lg hover:shadow-2xl ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.button} ${
+                    isMobile ? 'w-full justify-center px-6 py-4 text-lg' : 'px-8 py-4 text-lg transform hover:scale-105'
+                  }`}
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2" />
+                  </svg>
+                  View All Services
+                </Link>
+                <Link
+                  href="/contact"
+                  className={`inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white border-2 border-white/20 font-bold transition-all duration-200 rounded-xl shadow-lg hover:shadow-xl ${MOBILE_CLASSES.touchTarget} ${
+                    isMobile ? 'w-full justify-center px-6 py-4 text-lg' : 'px-8 py-4 text-lg transform hover:scale-105'
+                  }`}
+                >
+                  <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                  </svg>
+                  Contact Us
+                </Link>
+              </div>
             </div>
           </div>
         </div>
