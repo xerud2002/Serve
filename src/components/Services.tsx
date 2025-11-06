@@ -92,7 +92,7 @@ export default function Services() {
           {services.map((service) => {
             const IconComponent = service.icon
             return (
-              <div className="relative">
+              <div key={service.id} className="relative">
                 {service.featured && (
                   <div className={`absolute ${isMobile ? '-top-3' : '-top-4'} left-1/2 transform -translate-x-1/2 z-20`}>
                     <span className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 px-4 py-2 rounded-full text-xs font-bold shadow-lg whitespace-nowrap">
@@ -104,7 +104,6 @@ export default function Services() {
                   </div>
                 )}
                 <MobileCard
-                  key={service.id}
                   className={`group transition-all duration-300 overflow-visible ${
                     service.featured ? 'ring-2 ring-serve-green-500 shadow-xl' : 'shadow-lg'
                   } ${!isMobile ? 'hover:shadow-2xl hover:ring-2 hover:ring-serve-green-400 hover:-translate-y-2' : ''}`}
