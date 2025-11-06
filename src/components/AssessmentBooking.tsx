@@ -122,9 +122,10 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center p-4 z-[9999] animate-fadeIn bg-black bg-opacity-75"
+      className="fixed inset-0 flex items-center justify-center p-4 z-[99999] animate-fadeIn bg-black bg-opacity-75"
       style={{ 
-        backdropFilter: 'blur(8px)'
+        backdropFilter: 'blur(8px)',
+        isolation: 'isolate'
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
@@ -133,7 +134,7 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
       }}
     >
       <div 
-        className="bg-white rounded-3xl shadow-2xl w-[98vw] max-h-[98vh] overflow-hidden relative animate-slideUp"
+        className="bg-white rounded-3xl shadow-2xl w-[98vw] max-h-[98vh] overflow-hidden relative animate-slideUp z-[100000]"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
