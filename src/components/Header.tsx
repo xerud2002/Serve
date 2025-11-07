@@ -4,14 +4,15 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Bars3Icon, XMarkIcon, PhoneIcon, EnvelopeIcon } from '@heroicons/react/24/outline'
-import { ARIA_LABELS, FOCUS_STYLES, AccessibleButton, ExternalLink, handleKeyboardNavigation, KEYBOARD_KEYS } from '@/lib/accessibility'
+import { HeartIcon } from '@heroicons/react/24/solid'
+import { ARIA_LABELS, FOCUS_STYLES, AccessibleButton, handleKeyboardNavigation, KEYBOARD_KEYS } from '@/lib/accessibility'
 import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
-  const { isMobile, screenSize } = useIsMobile()
+  const { isMobile } = useIsMobile()
 
   // Handle escape key to close mobile menu
   useEffect(() => {
@@ -130,10 +131,25 @@ export default function Header() {
                   {item.name}
                 </Link>
               ))}
+              <Link
+                href="/donate"
+                className="inline-flex items-center bg-red-600 hover:bg-red-700 text-white px-5 py-2 rounded-lg text-sm font-bold transition-all duration-200 transform hover:scale-105 shadow-md hover:shadow-lg ml-2 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+                aria-label="Donate to SERVE"
+              >
+                <HeartIcon className="h-4 w-4 text-white mr-2" aria-hidden="true" />
+                Donate
+              </Link>
             </div>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex flex-col items-end gap-1 pr-1">
+            <Link
+              href="/donate"
+              aria-label="Donate to SERVE"
+              className="inline-flex items-center justify-center p-2 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
+            >
+              <HeartIcon className="h-4 w-4" aria-hidden="true" />
+            </Link>
             <AccessibleButton
               ref={menuButtonRef}
               className={`inline-flex items-center justify-center p-3 rounded-xl text-gray-700 hover:text-serve-blue-700 hover:bg-gray-100 active:bg-gray-200 transition-colors ${MOBILE_CLASSES.touchTarget}`}
@@ -162,7 +178,7 @@ export default function Header() {
               aria-labelledby="mobile-menu-button"
             >
               <div className={`${MOBILE_CLASSES.mobilePadding} py-4 space-y-1 bg-white`}>
-                {navigation.map((item, index) => (
+                {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href}
