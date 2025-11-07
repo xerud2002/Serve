@@ -76,6 +76,14 @@ export default function Header() {
                 )}
               </div>
               <div className={`flex items-center ${isMobile ? 'space-x-2' : 'space-x-2'} mt-0.5`}>
+                <Link
+                  href="/donate"
+                  aria-label="Donate to SERVE"
+                  className={`group relative ${isMobile ? 'p-1.5' : 'p-1.5'} rounded-lg bg-gradient-to-br from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link}`}
+                >
+                  <HeartIcon className={`${isMobile ? 'h-4 w-4' : 'h-4 w-4'} text-white`} aria-hidden="true" />
+                  <div className="absolute inset-0 rounded-lg bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                </Link>
                 <a
                   href="https://www.facebook.com/SERVE234/"
                   target="_blank"
@@ -143,13 +151,6 @@ export default function Header() {
           </div>
 
           <div className="md:hidden flex flex-col items-end gap-1 pr-1">
-            <Link
-              href="/donate"
-              aria-label="Donate to SERVE"
-              className="inline-flex items-center justify-center p-2 rounded-full bg-red-600 hover:bg-red-700 text-white shadow-md hover:shadow-lg transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-red-500 focus-visible:ring-offset-2"
-            >
-              <HeartIcon className="h-4 w-4" aria-hidden="true" />
-            </Link>
             <AccessibleButton
               ref={menuButtonRef}
               className={`inline-flex items-center justify-center p-3 rounded-xl text-gray-700 hover:text-serve-blue-700 hover:bg-gray-100 active:bg-gray-200 transition-colors ${MOBILE_CLASSES.touchTarget}`}
