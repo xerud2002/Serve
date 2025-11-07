@@ -7,7 +7,7 @@ export default function DonatePage() {
   return (
   <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-yellow-400 via-yellow-500 to-orange-500 text-white overflow-hidden">
+  <section className="relative py-24 bg-gradient-to-br from-rose-500 via-red-600 to-rose-700 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -22,9 +22,9 @@ export default function DonatePage() {
           </div>
           <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
             Make a Difference<br />
-            <span className="text-yellow-100">Today</span>
+            <span className="text-rose-100">Today</span>
           </h1>
-          <p className="text-2xl mb-12 leading-relaxed text-yellow-50 max-w-3xl mx-auto">
+          <p className="text-2xl mb-12 leading-relaxed text-rose-50 max-w-3xl mx-auto">
             Your generosity helps us provide life-changing care, transport, and support to vulnerable adults across Northamptonshire.
           </p>
           
@@ -49,7 +49,7 @@ export default function DonatePage() {
             href="https://www.justgiving.com/serve-jg"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-white text-yellow-600 hover:bg-yellow-50 font-extrabold px-12 py-6 rounded-full text-2xl shadow-2xl hover:shadow-yellow-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
+            className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-12 py-6 rounded-full text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
           >
             <HeartIcon className="w-8 h-8" />
             <span>Donate Now</span>
@@ -101,23 +101,23 @@ export default function DonatePage() {
           
           <div className="grid md:grid-cols-2 gap-8">
             {/* One-Time Donation */}
-            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-yellow-200 hover:border-yellow-400 transition-all">
-              <div className="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
-                <SparklesIcon className="w-6 h-6 text-yellow-600" />
+            <div className="bg-white rounded-2xl shadow-xl p-8 border-2 border-rose-200 hover:border-rose-400 transition-all">
+              <div className="bg-rose-100 w-12 h-12 rounded-full flex items-center justify-center mb-6">
+                <SparklesIcon className="w-6 h-6 text-rose-600" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">One-Time Gift</h3>
               <p className="text-gray-600 mb-6">Make an immediate impact with a single donation</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-yellow-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
                   Quick & easy online giving
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-yellow-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
                   Secure payment processing
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-yellow-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
                   Instant confirmation
                 </li>
               </ul>
@@ -125,7 +125,7 @@ export default function DonatePage() {
                 href="https://www.justgiving.com/serve-jg"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="block w-full bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-4 rounded-xl text-center transition-all duration-200 shadow-lg hover:shadow-xl"
+                className="block w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 rounded-xl text-center transition-all duration-200 shadow-lg hover:shadow-xl"
               >
                 Give Once
               </a>
