@@ -3,10 +3,9 @@ import {
   ShieldCheckIcon, 
   StarIcon, 
   HeartIcon,
-  HomeIcon,
   ArrowTopRightOnSquareIcon 
 } from '@heroicons/react/24/outline'
-import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
+import { StarIcon as StarIconSolid, TrophyIcon as TrophyIconSolid } from '@heroicons/react/24/solid'
 
 export default function Awards() {
   const testimonials = [
@@ -73,20 +72,26 @@ export default function Awards() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             {/* Great British Care Awards */}
             <div className="order-2 lg:order-1">
-              <div className="relative">
-                <div className="absolute -inset-4 bg-gradient-to-r from-pink-500 to-red-500 rounded-3xl blur opacity-20"></div>
-                <div className="relative bg-white border-4 border-transparent bg-clip-padding p-10 rounded-3xl shadow-2xl transform hover:scale-105 transition-transform duration-300" style={{
-                  backgroundImage: 'linear-gradient(white, white), linear-gradient(135deg, #ec4899 0%, #ef4444 50%, #f59e0b 100%)',
-                  backgroundOrigin: 'border-box',
-                  backgroundClip: 'padding-box, border-box'
-                }}>
-                  <div className="text-center">
-                    <div className="text-7xl mb-6">🏆</div>
-                    <h3 className="text-3xl font-bold mb-3 bg-gradient-to-r from-pink-600 via-red-600 to-orange-500 bg-clip-text text-transparent">Great British Care Awards</h3>
-                    <div className="text-2xl font-bold mb-4 bg-gradient-to-r from-pink-600 to-red-600 bg-clip-text text-transparent">NATIONAL FINALIST</div>
-                    <div className="bg-gradient-to-r from-pink-50 to-red-50 rounded-xl p-4 border border-pink-200">
-                      <p className="text-lg font-bold text-gray-900">Best Homecare Team</p>
-                      <p className="text-base text-gray-700">2024</p>
+              <div className="relative group">
+                <div className="absolute -inset-6 rounded-[28px] bg-gradient-to-br from-rose-400 via-orange-400 to-amber-300 blur-2xl opacity-25 group-hover:opacity-35 transition-opacity"></div>
+                <div className="relative p-[2px] rounded-3xl bg-gradient-to-br from-rose-400 via-orange-400 to-amber-300 shadow-2xl">
+                  <div className="rounded-3xl bg-white p-8 sm:p-10">
+                    <div className="text-center">
+                      <div className="mx-auto mb-6 h-16 w-16 rounded-2xl bg-gradient-to-br from-amber-200 via-orange-300 to-rose-300 p-[2px] shadow">
+                        <div className="h-full w-full rounded-2xl bg-white flex items-center justify-center">
+                          <TrophyIconSolid className="h-8 w-8 text-amber-500" aria-hidden="true" />
+                        </div>
+                      </div>
+                      <h3 className="text-2xl sm:text-3xl font-bold mb-2 bg-gradient-to-r from-rose-500 via-orange-500 to-amber-500 bg-clip-text text-transparent">
+                        Great British Care Awards
+                      </h3>
+                      <div className="text-lg sm:text-2xl font-extrabold tracking-wide mb-5 uppercase bg-gradient-to-r from-rose-600 to-orange-600 bg-clip-text text-transparent">
+                        National Finalist
+                      </div>
+                      <div className="inline-flex flex-col items-center bg-gradient-to-br from-rose-50 to-amber-50 rounded-2xl px-5 py-4 ring-1 ring-rose-200/60 shadow-sm">
+                        <p className="text-base sm:text-lg font-semibold text-gray-900">Best Homecare Team</p>
+                        <p className="text-sm text-gray-700">2024</p>
+                      </div>
                     </div>
                   </div>
                 </div>
