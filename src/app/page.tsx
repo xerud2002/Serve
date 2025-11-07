@@ -5,6 +5,7 @@ import Services from '@/components/Services'
 import About from '@/components/About'
 import Awards from '@/components/Awards'
 import News from '@/components/News'
+import SocialPhotosCarousel from '@/components/SocialPhotosCarousel'
 import Contact from '@/components/Contact'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
@@ -41,6 +42,7 @@ export default function Home() {
         <About />
         <Awards />
         <News />
+  <SocialPhotosCarousel />
         <Contact />
       </main>
       <Footer />
