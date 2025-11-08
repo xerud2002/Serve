@@ -7,15 +7,11 @@ import Awards from '@/components/Awards'
 import News from '@/components/News'
 import SocialPhotosCarousel from '@/components/SocialPhotosCarousel'
 import Contact from '@/components/Contact'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 
 export default function Home() {
   return (
     <>
-      <Header />
-      <main>
-        <Hero />
+      <Hero />
         
         {/* SERVE Winner Badge - Below Hero */}
         <section className="bg-white py-8 border-b border-gray-100">
@@ -42,10 +38,8 @@ export default function Home() {
         <About />
         <Awards />
         <News />
-  <SocialPhotosCarousel />
+        <SocialPhotosCarousel />
         <Contact />
-      </main>
-      <Footer />
     </>
   )
 }
