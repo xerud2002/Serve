@@ -1,4 +1,5 @@
 import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
+import Image from 'next/image'
 
 export default function Hero() {
   return (
@@ -24,6 +25,22 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
+          {/* Winner Badge Image - Floating */}
+          <div className="absolute top-4 right-4 lg:right-8 z-10 hidden md:block">
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/images/servewinner .png" 
+                  alt="SERVE Winner - Great British Care Awards"
+                  className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+                  width={128}
+                  height={128}
+                />
+              </div>
+            </div>
+          </div>
+
           {/* Award Badge */}
           <div className="mb-8">
             <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 shadow-lg transform hover:scale-105 transition-transform">
