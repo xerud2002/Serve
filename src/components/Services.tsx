@@ -72,7 +72,7 @@ export default function Services() {
       <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
         <div className={`text-center ${isMobile ? 'mb-10' : 'mb-16'}`}>
           {/* Badge */}
-          <div className="mb-6">
+          <div className="mb-6 flex justify-center">
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-serve-green-500 to-serve-green-600 text-white shadow-lg">
               <SparklesIcon className="w-4 h-4 mr-2" />
               Comprehensive Care Solutions
@@ -82,7 +82,7 @@ export default function Services() {
           <h2 className={`font-bold text-gray-900 mb-6 ${MOBILE_CLASSES.mobileHeading}`}>
             Our Services
           </h2>
-          <p className={`text-gray-600 max-w-3xl mx-auto leading-relaxed ${MOBILE_CLASSES.mobileSubheading}`}>
+          <p className={`text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 
             and adults living with a disability or chronic medical condition.
           </p>
@@ -92,26 +92,14 @@ export default function Services() {
           {services.map((service) => {
             const IconComponent = service.icon
             return (
-              <div key={service.id} className="relative">
-                {service.featured && (
-                  <div className={`absolute ${isMobile ? '-top-3' : '-top-4'} left-1/2 transform -translate-x-1/2 z-20`}>
-                    <span className="inline-flex items-center bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 px-4 py-2 rounded-full text-xs font-bold shadow-lg whitespace-nowrap">
-                      <svg className="w-4 h-4 mr-1.5" fill="currentColor" viewBox="0 0 20 20">
-                        <path fillRule="evenodd" d="M10 2L7.5 7H2l4.5 3.5L5 16l5-4 5 4-1.5-5.5L18 7h-5.5L10 2z" clipRule="evenodd" />
-                      </svg>
-                      Award Winner
-                    </span>
-                  </div>
-                )}
+              <div key={service.id} className="relative flex flex-col">
                 <MobileCard
-                  className={`group transition-all duration-300 overflow-visible ${
-                    service.featured ? 'ring-2 ring-serve-green-500 shadow-xl' : 'shadow-lg'
-                  } ${!isMobile ? 'hover:shadow-2xl hover:ring-2 hover:ring-serve-green-400 hover:-translate-y-2' : ''}`}
+                  className={`group transition-all duration-300 overflow-visible flex-1 flex flex-col shadow-lg ${!isMobile ? 'hover:shadow-2xl hover:-translate-y-2' : ''}`}
                   padding={isMobile ? 'default' : 'large'}
                   clickable={false}
                 >
                 
-                <div className="flex flex-col h-full text-center">
+                <div className="flex flex-col flex-1 text-center">
                   {/* Service Icon with gradient background */}
                   <div className={`relative bg-gradient-to-br from-serve-blue-600 to-serve-blue-700 rounded-2xl p-4 ${isMobile ? 'w-20 h-20 mb-5' : 'w-24 h-24 mb-6'} mx-auto group-hover:from-serve-blue-700 group-hover:to-serve-blue-800 transition-all flex-shrink-0 shadow-lg`}>
                     <IconComponent className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} text-white mx-auto`} />
@@ -161,14 +149,7 @@ export default function Services() {
 
         {/* Bottom CTA with improved design */}
         <div className={`text-center ${isMobile ? 'mt-10' : 'mt-16'}`}>
-          <div className="relative bg-gradient-to-br from-serve-blue-700 via-serve-blue-800 to-serve-green-700 rounded-3xl p-10 shadow-2xl overflow-hidden">
-            {/* Background pattern */}
-            <div className="absolute inset-0 opacity-10">
-              <div className="absolute inset-0" style={{
-                backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-              }} />
-            </div>
-            
+          <div className="relative bg-gradient-to-br from-serve-blue-600 via-serve-blue-700 to-serve-blue-800 rounded-3xl p-10 shadow-2xl overflow-hidden">
             <div className="relative">
               <h3 className="text-white text-3xl font-bold mb-4">
                 Need Help Choosing?

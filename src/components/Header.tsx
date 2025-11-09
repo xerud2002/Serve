@@ -112,16 +112,16 @@ export default function Header() {
             </div>
           </div>
         </div>        {/* Main navigation */}
-        <nav className={`max-w-7xl mx-auto px-1 sm:px-2 -my-2`} aria-label={ARIA_LABELS.mainNavigation}>
-          <div className="flex items-center justify-between h-28 sm:h-36 py-0 -my-4">
-            <div className="flex items-center -my-6">
-              <Link href="/" className="flex items-center -my-4">
+        <nav className={`max-w-7xl mx-auto px-1 sm:px-2`} aria-label={ARIA_LABELS.mainNavigation}>
+          <div className="flex items-center justify-between h-28 sm:h-36 py-2">
+            <div className="flex items-center">
+              <Link href="/" className="flex items-center">
                 <Image
                   src="/images/serve.png"
                   alt="SERVE - Supporting Independence"
                   width={isMobile ? 720 : 960}
                   height={isMobile ? 360 : 480}
-                  className={`${isMobile ? 'h-32' : 'h-40'} w-auto -my-5`}
+                  className={`${isMobile ? 'h-32' : 'h-40'} w-auto`}
                   priority
                 />
               </Link>
