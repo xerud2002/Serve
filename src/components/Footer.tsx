@@ -1,10 +1,11 @@
 import { 
-  HeartIcon,
   MapPinIcon,
   PhoneIcon,
-  EnvelopeIcon
+  EnvelopeIcon,
+  GiftIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Image from 'next/image'
 import NewsletterSignup from './NewsletterSignup'
 import { ARIA_LABELS } from '@/lib/accessibility'
 
@@ -16,8 +17,13 @@ export default function Footer() {
           {/* About Section */}
           <div>
             <div className="flex items-center mb-4">
-              <HeartIcon className="w-6 h-6 text-serve-blue-400 mr-2" />
-              <h3 className="text-xl font-bold text-white">SERVE</h3>
+              <Image 
+                src="/images/serve.png"
+                alt="SERVE charity logo - Supporting Independence"
+                width={480}
+                height={240}
+                className="h-32 w-auto"
+              />
             </div>
             <p className="text-gray-400 text-sm mb-4 leading-relaxed">
               Award-winning care services helping older people and adults with disabilities 
@@ -124,7 +130,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all"
             >
-              <HeartIcon className="w-4 h-4 mr-2" />
+              <GiftIcon className="w-4 h-4 mr-2" />
               Donate Now
             </a>
           </div>
