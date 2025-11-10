@@ -79,7 +79,7 @@ export default function Awards() {
 
             {/* CQC Registration */}
             <div className="order-1 lg:order-2">
-              <div className="bg-white border-2 border-serve-blue-200 p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
+              <div className="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition-shadow duration-300">
                 <div className="text-center">
                   <ShieldCheckIcon className="w-20 h-20 text-serve-blue-600 mx-auto mb-6" />
                   <h3 className="text-3xl font-bold text-serve-blue-800 mb-4">CQC Registered</h3>
