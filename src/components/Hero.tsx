@@ -25,8 +25,8 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
-          {/* Winner Badge Image - Floating */}
-          <div className="absolute top-4 right-4 lg:right-8 z-10 hidden md:block">
+          {/* Winner Badge Image - Desktop: top-right, Mobile: centered */}
+          <div className="absolute top-4 right-4 md:right-8 z-10 hidden md:block">
             <div className="relative group">
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
               <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
@@ -41,8 +41,24 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Award Badge */}
-          <div className="mb-8">
+          {/* Mobile Winner Badge - Centered */}
+          <div className="block md:hidden mb-3">
+            <div className="relative group mx-auto w-fit">
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/images/servewinner .png" 
+                  alt="SERVE Winner - Great British Care Awards"
+                  className="w-45 h-45 object-contain"
+                  width={180}
+                  height={180}
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Award Badge - Hidden on mobile */}
+          <div className="mb-8 hidden md:block">
             <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 shadow-lg transform hover:scale-105 transition-transform">
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 2L7.5 7H2l4.5 3.5L5 16l5-4 5 4-1.5-5.5L18 7h-5.5L10 2z" clipRule="evenodd" />
