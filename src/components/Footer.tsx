@@ -1,8 +1,7 @@
 import { 
   MapPinIcon,
   PhoneIcon,
-  EnvelopeIcon,
-  GiftIcon
+  EnvelopeIcon
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
@@ -130,7 +129,16 @@ export default function Footer() {
               rel="noopener noreferrer"
               className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-4 py-2 rounded-lg text-sm font-semibold transition-all"
             >
-              <GiftIcon className="w-4 h-4 mr-2" />
+              <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {/* Left hand - outline */}
+                <path d="M6 10v4c0 1.1.9 2 2 2h1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 8v2" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* Right hand - outline */}
+                <path d="M18 10v4c0 1.1-.9 2-2 2h-1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M16 8v2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
               Donate Now
             </a>
           </div>

@@ -87,8 +87,15 @@ export default function Hero() {
               href="/donate"
               className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
-              <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                {/* Left hand - outline */}
+                <path d="M6 10v4c0 1.1.9 2 2 2h1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 8v2" strokeLinecap="round" strokeLinejoin="round"/>
+                {/* Right hand - outline */}
+                <path d="M18 10v4c0 1.1-.9 2-2 2h-1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M16 8v2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <span className="text-lg">Donate Now</span>
             </a>
