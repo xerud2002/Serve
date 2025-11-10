@@ -15,7 +15,6 @@ import {
 } from '@heroicons/react/24/outline'
 import { useContactForm } from '@/hooks/useContactForm'
 import { validateForm, contactFormRules, type ValidationError } from '@/utils/validation'
-import SocialPhotosCarousel from './SocialPhotosCarousel'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -467,11 +466,6 @@ export default function Contact() {
               </form>
             </div>
           </div>
-        </div>
-
-        {/* Social Photos Carousel - Integrated */}
-        <div className="mt-16">
-          <SocialPhotosCarousel />
         </div>
 
         {/* Emergency Contact */}
