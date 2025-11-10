@@ -75,12 +75,12 @@ export default function Services() {
           <div className="mb-6 flex justify-center">
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-serve-green-500 to-serve-green-600 text-white shadow-lg">
               <SparklesIcon className="w-4 h-4 mr-2" />
-              Comprehensive Care Solutions
+              Comprehensive Home Care Solutions
             </span>
           </div>
           
           <h2 className={`font-bold text-gray-900 mb-6 ${MOBILE_CLASSES.mobileHeading}`}>
-            Our Services
+            Ways We Can Assist
           </h2>
           <p className={`text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 

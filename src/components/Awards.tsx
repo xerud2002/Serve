@@ -2,32 +2,11 @@ import {
   TrophyIcon, 
   ShieldCheckIcon, 
   StarIcon, 
-  HeartIcon,
   ArrowTopRightOnSquareIcon 
 } from '@heroicons/react/24/outline'
-import { StarIcon as StarIconSolid, TrophyIcon as TrophyIconSolid } from '@heroicons/react/24/solid'
+import { TrophyIcon as TrophyIconSolid } from '@heroicons/react/24/solid'
 
 export default function Awards() {
-  const testimonials = [
-    {
-      quote: "SERVE has been absolutely wonderful. The carers are so kind and professional, and they've helped mum stay in her own home with dignity.",
-      author: "Sarah M.",
-      relation: "Daughter of service user",
-      location: "Rushden"
-    },
-    {
-      quote: "I look forward to my carer's visits every day. They're not just professional - they're like family to me now.",
-      author: "Harold T.",
-      relation: "Service user",
-      location: "Wellingborough"  
-    },
-    {
-      quote: "The day centre has given my husband such joy. The staff understand his needs and the activities keep him engaged.",
-      author: "Margaret K.",
-      relation: "Carer",
-      location: "Higham Ferrers"
-    }
-  ]
 
   const achievements = [
     {
@@ -146,59 +125,6 @@ export default function Awards() {
                 </div>
               )
             })}
-          </div>
-        </div>
-
-        {/* Testimonials */}
-        <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">What Families Say About Us</h3>
-            <p className="text-xl text-gray-600">Real experiences from the people we&apos;re proud to serve</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="relative h-full">
-                <div className="bg-gray-50 rounded-2xl p-6 border border-gray-200 hover:border-serve-blue-200 transition-colors h-full flex flex-col">
-                  {/* Stars */}
-                  <div className="flex justify-center mb-4">
-                    {[...Array(5)].map((_, i) => (
-                      <StarIconSolid key={i} className="w-5 h-5 text-yellow-400" />
-                    ))}
-                  </div>
-                  
-                  {/* Quote */}
-                  <blockquote className="text-gray-700 italic mb-6 text-center leading-relaxed flex-grow">
-                    &quot;{testimonial.quote}&quot;
-                  </blockquote>
-                  
-                  {/* Attribution */}
-                  <div className="text-center mt-auto">
-                    <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                    <div className="text-sm text-gray-600">{testimonial.relation}</div>
-                    <div className="text-sm text-serve-blue-600">{testimonial.location}</div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-
-          {/* Call to Action */}
-          <div className="text-center mt-12">
-            <p className="text-lg text-gray-600 mb-6">
-              Join hundreds of families who trust SERVE with their care needs.
-            </p>
-            <a
-              href="/contact"
-              className="group inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
-              aria-label="Contact SERVE to discuss your care needs"
-            >
-              <HeartIcon className="mr-3 h-5 w-5" />
-              Start Your Care Journey
-              <svg className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-              </svg>
-            </a>
           </div>
         </div>
       </div>
