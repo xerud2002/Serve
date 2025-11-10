@@ -91,7 +91,7 @@ const services = [
 
 const stats = [
   { label: 'Years of Service', value: '40+', icon: ClockIcon },
-  { label: 'Services Offered', value: '7', icon: CheckIcon },
+  { label: 'Services Offered', value: '6', icon: CheckIcon },
   { label: 'CQC Rating', value: 'Good', icon: StarIcon },
   { label: 'Award Winner', value: '2024', icon: ShieldCheckIcon },
 ]
