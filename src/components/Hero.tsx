@@ -87,10 +87,13 @@ export default function Hero() {
               href="/donate"
               className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
-              {/* Caring hands icon - simple two hands */}
-              <svg className="w-6 h-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M9.5 3C8.1 3 7 4.1 7 5.5V13c0 .3.1.5.3.7.2.2.4.3.7.3s.5-.1.7-.3.3-.4.3-.7V5.5c0-.3.1-.5.3-.7.2-.2.4-.3.7-.3s.5.1.7.3c.2.2.3.4.3.7V11c0 .3.1.5.3.7.2.2.4.3.7.3s.5-.1.7-.3c.2-.2.3-.4.3-.7V5.5C13 4.1 11.9 3 10.5 3h-1zM14.5 3c1.4 0 2.5 1.1 2.5 2.5V13c0 .3-.1.5-.3.7-.2.2-.4.3-.7.3s-.5-.1-.7-.3c-.2-.2-.3-.4-.3-.7V5.5c0-.3-.1-.5-.3-.7-.2-.2-.4-.3-.7-.3s-.5.1-.7.3c-.2.2-.3.4-.3.7V11c0 .3-.1.5-.3.7-.2.2-.4.3-.7.3s-.5-.1-.7-.3c-.2-.2-.3-.4-.3-.7V5.5C11 4.1 12.1 3 13.5 3h1z"/>
-                <ellipse cx="12" cy="15" rx="5" ry="2.5" opacity="0.3"/>
+              <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <path d="M6 10v4c0 1.1.9 2 2 2h1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M6 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M8 8v2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 10v4c0 1.1-.9 2-2 2h-1" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 6v4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M16 8v2" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
               <span className="text-lg">Donate Now</span>
             </a>
