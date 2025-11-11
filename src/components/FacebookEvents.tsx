@@ -77,7 +77,7 @@ export default function FacebookEvents() {
         description: 'Join us for our annual fundraising fair with stalls, entertainment, and festive cheer. All proceeds support SERVE services.',
         startTime: new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
         location: 'West Street, Rushden',
-        coverImage: 'https://images.unsplash.com/photo-1519671282429-b44660c47f8e?w=800&h=600&fit=crop',
+        coverImage: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
       },
     ]
   }
