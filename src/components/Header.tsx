@@ -56,12 +56,13 @@ export default function Header() {
     { name: 'About Us', href: '/about' },
     { name: 'Get Involved', href: '/volunteer' },
     { name: 'News', href: '/news' },
+    { name: 'Our Supporters', href: '/supporters' },
     { name: 'Contact', href: '/contact' },
   ]
 
   return (
     <>
-      <header className={`bg-white shadow-sm relative -my-1 sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
+      <header className={`bg-white shadow-sm -my-1 sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
         {/* Contact bar - always visible */}
         <div className={`bg-serve-blue-800 text-white -mb-1 transition-all duration-300 py-1`}>
           <div className={`max-w-7xl mx-auto px-1 sm:px-2`}>
