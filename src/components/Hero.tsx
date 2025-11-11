@@ -88,14 +88,11 @@ export default function Hero() {
               className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M6 10v4c0 1.1.9 2 2 2h1" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M6 6v4" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M8 8v2" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M18 10v4c0 1.1-.9 2-2 2h-1" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M18 6v4" strokeLinecap="round" strokeLinejoin="round"/>
-                <path d="M16 8v2" strokeLinecap="round" strokeLinejoin="round"/>
+                <rect x="3" y="8" width="18" height="12" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M12 8V4" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M3 12h18" strokeLinecap="round" strokeLinejoin="round"/>
               </svg>
-              <span className="text-lg">Donate Now</span>
+              <span className="text-lg">Help Now</span>
             </a>
             
             <a

@@ -52,7 +52,7 @@ export default function DonatePage() {
             className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-12 py-6 rounded-full text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
           >
             <HeartIcon className="w-8 h-8" />
-            <span>Donate Now</span>
+            <span>Help Now</span>
             <ArrowRightIcon className="w-6 h-6" />
           </a>
         </div>

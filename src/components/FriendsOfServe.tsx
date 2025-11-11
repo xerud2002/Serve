@@ -92,7 +92,7 @@ export default function FriendsOfServe() {
         rel="noopener noreferrer"
         className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors"
       >
-        {isMonthly ? "Donate Monthly" : "Donate Now"}
+        {isMonthly ? "Help Monthly" : "Help Now"}
       </a>
 
       <p className="mt-3 text-xs text-gray-500 text-center">

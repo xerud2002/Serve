@@ -260,7 +260,7 @@ export default function Contact() {
                     className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center"
                   >
                     <HeartIcon className="w-5 h-5 mr-2" />
-                    Donate Now
+                    Help Now
                   </a>
                   <a
                     href="/volunteer"
