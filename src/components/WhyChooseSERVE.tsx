@@ -1,8 +1,7 @@
 import { 
-  ArrowTopRightOnSquareIcon,
-  HandRaisedIcon,
-  TruckIcon
+  ArrowTopRightOnSquareIcon
 } from '@heroicons/react/24/outline'
+import Image from 'next/image'
 
 export default function WhyChooseSERVE() {
   const features = [
@@ -39,24 +38,6 @@ export default function WhyChooseSERVE() {
     }
   ]
 
-  const services = [
-    {
-      icon: HandRaisedIcon,
-      title: 'Personal Care',
-      description: 'Support with daily living tasks, helping you maintain independence at home.'
-    },
-    {
-      icon: TruckIcon,
-      title: 'Community Transport',
-      description: 'Safe and reliable transport for appointments, shopping, and social activities.'
-    },
-    {
-      icon: HandRaisedIcon,
-      title: 'Befriending',
-      description: 'Companionship and social support to reduce isolation and loneliness.'
-    }
-  ]
-
   return (
     <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -78,7 +59,7 @@ export default function WhyChooseSERVE() {
           </p>
         </div>
 
-        {/* Features Grid - Matching site style */}
+        {/* Features Grid */}
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
           {features.map((feature, index) => {
             return (
@@ -101,8 +82,8 @@ export default function WhyChooseSERVE() {
           })}
         </div>
 
-        {/* Our Story & Services */}
-        <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
+        {/* Our Story & Image */}
+        <div className="grid lg:grid-cols-2 gap-12 items-start mb-12">
           
           {/* Our Story */}
           <div>
@@ -141,27 +122,16 @@ export default function WhyChooseSERVE() {
             </div>
           </div>
 
-          {/* Key Services */}
-          <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">What We Offer</h3>
-            <div className="space-y-4">
-              {services.map((service, index) => {
-                const IconComponent = service.icon
-                return (
-                  <div key={index} className="flex gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
-                    <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-serve-green-100 to-serve-green-200 flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-serve-green-700" />
-                      </div>
-                    </div>
-                    <div>
-                      <h4 className="font-bold text-gray-900 mb-1">{service.title}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
-                    </div>
-                  </div>
-                )
-              })}
-            </div>
+          {/* Large Image */}
+          <div className="relative h-full min-h-[400px] lg:min-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+            <Image
+              src="/images/community/bigchat5.jpg"
+              alt="SERVE team providing compassionate care"
+              fill
+              className="object-cover"
+              sizes="(max-width: 768px) 100vw, 50vw"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent"></div>
           </div>
         </div>
 
