@@ -73,7 +73,7 @@ export default function FacebookFeed() {
         id: '1',
         message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch. The laughter and friendship in our centre always brightens our day. #CommunitySupport #DayCare',
         created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(), // 3 hours ago
-        picture: '/images/day-care-activities.jpg',
+        picture: '/images/events/bigchat1.jpg',
         permalink_url: 'https://www.facebook.com/SERVE234',
         likes: { summary: { total_count: 28 } },
         comments: { summary: { total_count: 6 } }
@@ -82,6 +82,7 @@ export default function FacebookFeed() {
         id: '2',
         message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
         created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
+        picture: '/images/events/bus.jpg',
         permalink_url: 'https://www.facebook.com/SERVE234',
         likes: { summary: { total_count: 42 } },
         comments: { summary: { total_count: 11 } },
@@ -91,7 +92,7 @@ export default function FacebookFeed() {
         id: '3',
         message: '💙 Heartwarming feedback received today: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat." This is exactly why we do what we do. #PersonalCare #Compassion',
         created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
-        picture: '/images/transport-service.jpg',
+        picture: '/images/events/carer.jpg',
         permalink_url: 'https://www.facebook.com/SERVE234',
         likes: { summary: { total_count: 56 } },
         comments: { summary: { total_count: 14 } }
@@ -100,7 +101,7 @@ export default function FacebookFeed() {
         id: '4',
         message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024! This recognition belongs to our entire team and the wonderful community we serve.',
         created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(), // 4 days ago
-        picture: '/images/serve-anniversary.jpg',
+        picture: '/images/regionalwinner.png',
         permalink_url: 'https://www.facebook.com/SERVE234',
         likes: { summary: { total_count: 89 } },
         comments: { summary: { total_count: 23 } },
@@ -110,6 +111,7 @@ export default function FacebookFeed() {
         id: '5',
         message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits. No one should feel alone in our community.',
         created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days ago
+        picture: '/images/events/community-spirit.jpg',
         permalink_url: 'https://www.facebook.com/SERVE234',
         likes: { summary: { total_count: 34 } },
         comments: { summary: { total_count: 8 } }

@@ -1,15 +1,10 @@
 "use client"
 
 import { 
-  HomeIcon, 
-  HeartIcon, 
-  TruckIcon, 
-  UserGroupIcon, 
-  HandRaisedIcon,
-  SparklesIcon,
   CheckCircleIcon 
 } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Image from 'next/image'
 import { MobileCard, useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
 
@@ -20,7 +15,7 @@ export default function Services() {
       id: 'personal-care',
       title: 'Personal & Domestic Care',
       description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
-      icon: HomeIcon,
+      image: '/images/events/carer.jpg',
       link: '/services/personal-care',
       featured: true,
       highlights: ['CQC Registered', 'Award Winning', 'Trained Carers', 'Tailored Plans']
@@ -29,7 +24,7 @@ export default function Services() {
       id: 'day-care',
       title: 'Day Care & Meals on Wheels',
       description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
-      icon: HeartIcon,
+      image: '/images/events/bigchat1.jpg',
       link: '/services/day-care',
       highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff']
     },
@@ -37,7 +32,7 @@ export default function Services() {
       id: 'transport',
       title: 'Community Transport',
       description: 'Reliable, affordable transport to medical appointments, hospital visits, and family connections. Our drivers understand the needs of older people and those with mobility challenges.',
-      icon: TruckIcon,
+      image: '/images/events/bus.jpg',
       link: '/services/transport',
       highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates']
     },
@@ -45,7 +40,7 @@ export default function Services() {
       id: 'befriending',
       title: 'Countywide Befriending',
       description: 'Combat loneliness with our friendly befriending service. We provide regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
-      icon: UserGroupIcon,
+      image: '/images/events/community-spirit.jpg',
       link: '/services/befriending',
       highlights: ['Combat Loneliness', 'Regular Visits', 'Emotional Support', 'Countywide Coverage']
     },
@@ -53,7 +48,7 @@ export default function Services() {
       id: 'carers',
       title: 'Carers Support',
       description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
-      icon: HandRaisedIcon,
+      image: '/images/events/carer2.jpg',
       link: '/services/carers',
       highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training']
     },
@@ -61,7 +56,7 @@ export default function Services() {
       id: 'community',
       title: 'Community Services',
       description: 'A range of community support including day trips, hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
-      icon: SparklesIcon,
+      image: '/images/events/fundraising.jpg',
       link: '/services/community',
       highlights: ['Day Trips', 'Hearing Aid Service', 'DBS Checks', 'Community Events']
     },
@@ -74,7 +69,7 @@ export default function Services() {
           {/* Badge */}
           <div className="mb-6 flex justify-center">
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-serve-green-500 to-serve-green-600 text-white shadow-lg">
-              <SparklesIcon className="w-4 h-4 mr-2" />
+              <CheckCircleIcon className="w-4 h-4 mr-2" />
               Comprehensive Home Care Solutions
             </span>
           </div>
@@ -90,7 +85,6 @@ export default function Services() {
 
         <div className={`grid grid-cols-1 ${isMobile ? 'gap-6' : 'md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
           {services.map((service) => {
-            const IconComponent = service.icon
             return (
               <div key={service.id} className="relative flex flex-col">
                 <MobileCard
@@ -100,9 +94,15 @@ export default function Services() {
                 >
                 
                 <div className="flex flex-col flex-1 text-center">
-                  {/* Service Icon with gradient background */}
-                  <div className={`relative bg-gradient-to-br from-serve-blue-600 to-serve-blue-700 rounded-2xl p-4 ${isMobile ? 'w-20 h-20 mb-5' : 'w-24 h-24 mb-6'} mx-auto group-hover:from-serve-blue-700 group-hover:to-serve-blue-800 transition-all flex-shrink-0 shadow-lg`}>
-                    <IconComponent className={`${isMobile ? 'w-12 h-12' : 'w-16 h-16'} text-white mx-auto`} />
+                  {/* Service Image with rounded background */}
+                  <div className={`relative rounded-2xl ${isMobile ? 'w-64 h-64 mb-5' : 'w-80 h-80 mb-6'} mx-auto overflow-hidden flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow bg-gray-100`}>
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      className="object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 256px, 320px"
+                    />
                   </div>
                   
                   {/* Title */}
