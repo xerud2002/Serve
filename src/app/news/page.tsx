@@ -1,5 +1,5 @@
-import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import {
   TrophyIcon,
   CalendarDaysIcon,
@@ -370,6 +370,72 @@ export default function NewsPage() {
       <section className="py-16 bg-serve-blue-600">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <NewsletterSignup variant="inline" />
+        </div>
+      </section>
+
+      {/* Previous Events Photo Gallery */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <TagIcon className="w-4 h-4 mr-2" />
+              Events & Fundraising
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">SERVE Out and About</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              Below are some images from events and fundraising that we&apos;ve been involved in over the last few years.
+            </p>
+            <p className="text-lg text-gray-500">How many of them did you hear about?</p>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Cloisters Rushden Craft Fair', image: '/images/events/Cloisters-Rushden-craft-fair-scaled.webp' },
+              { title: 'Christmas Gifts from Happy Mondays in Rushden', image: '/images/events/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp' },
+              { title: 'Teddy Bear Winners', image: '/images/events/Teddy-Bear-winners-scaled.webp' },
+              { title: 'Fundraising at Asda Rushden', image: '/images/events/Fundraising-at-Asda-Rushden-scaled.webp' },
+              { title: 'Northamptonshire Chamber of Trade Expo 2024', image: '/images/events/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp' },
+              { title: 'Christmas Lights Rushden', image: '/images/events/Christmas-Lights-Rushden-scaled.webp' },
+              { title: 'Gen Kitchen Opens Our New Offices', image: '/images/events/Gen-Kitchen-opens-our-new-offices.webp' },
+              { title: 'Happy Mondays Rushden Fundraiser', image: '/images/events/Happy-Mondays-Rushden-fundraiser-scaled.webp' },
+              { title: 'Support from the Masonic Lodge', image: '/images/events/Support-from-the-Masonic-Lodge.webp' },
+              { title: 'Asda Festive Donations', image: '/images/events/Asda-festive-donations-scaled.webp' },
+              { title: 'Donations from Our Supporters', image: '/images/events/Donations-from-our-supporters-scaled.webp' },
+              { title: 'Support from David Wilson Homes', image: '/images/events/Support-from-David-Wilson-Homes-scaled.webp' },
+              { title: 'Gen Kitchen MP Meets Canto Volunteers and SERVE', image: '/images/events/Gen-Kitchen-MP-meets-Canto-volunteers-and-SERVE-2-scaled.webp' },
+              { title: 'Christmas 2023 at Wellingborough Swansgate', image: '/images/events/Christmas-2023-at-Wellingborough-Swansgate-scaled.webp' },
+              { title: 'Higham Sparkle 2023', image: '/images/events/Higham-Sparkle-2023-scaled.webp' },
+              { title: 'Fundraising from the Homemade Bread Company', image: '/images/events/Fundraising-from-the-Homemade-Bread-Company.webp' }
+            ].map((event, index) => (
+              <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <div className="relative aspect-[4/3] bg-gray-200">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="text-white font-semibold p-4 w-full text-sm leading-tight">{event.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <p className="text-lg text-gray-600 mb-6">Want to get involved in our upcoming events?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+            >
+              Contact Us to Learn More
+              <ArrowRightIcon className="ml-3 h-5 w-5" />
+            </Link>
+          </div>
         </div>
       </section>
     </div>

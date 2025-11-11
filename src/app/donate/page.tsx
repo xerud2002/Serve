@@ -58,37 +58,88 @@ export default function DonatePage() {
         </div>
       </section>
 
-      {/* Why Donate Section */}
-      <section className="py-20">
+      {/* Impact Story Section */}
+      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
         <div className="max-w-6xl mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">Why Your Donation Matters</h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Every contribution directly impacts the lives of vulnerable adults in our community</p>
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <HeartIcon className="w-4 h-4 mr-2" />
+              Real Impact in Our Community
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">Where Your Donations Go</h2>
           </div>
           
-          <div className="grid md:grid-cols-3 gap-8 mb-16">
-            <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-2xl p-8 text-center">
-              <div className="bg-blue-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <CheckCircleIcon className="w-8 h-8 text-white" />
+          <div className="grid md:grid-cols-2 gap-8 items-center">
+            {/* Story Content */}
+            <div className="bg-white rounded-2xl shadow-xl p-8 md:p-10">
+              <div className="mb-6">
+                <h3 className="text-2xl font-bold text-gray-900 mb-4">Supporting Independence</h3>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  After losing her husband, 82-year-old Margaret from Rushden found everyday tasks increasingly difficult. 
+                  Shopping, medical appointments, and staying connected with her community became real challenges.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  Through donor support, SERVE now provides Margaret with regular homecare visits, 
+                  hot meal deliveries, and transport to medical appointments and our Day Centre.
+                </p>
+                <p className="text-gray-700 leading-relaxed mb-4">
+                  She can remain in her home of 40 years, maintain her independence, and stay active in her community—
+                  all funded by local donations.
+                </p>
+                <div className="bg-serve-blue-50 rounded-xl p-6 border-l-4 border-serve-blue-600">
+                  <p className="text-gray-800 font-medium">
+                    Margaret is one of hundreds of older people and adults with disabilities across Northamptonshire 
+                    who benefit from SERVE&apos;s services each year.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Award-Winning Care</h3>
-              <p className="text-gray-700">Your donation supports our CQC-rated services, recognized as Best Homecare Team 2024</p>
             </div>
-            
-            <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-2xl p-8 text-center">
-              <div className="bg-green-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <HeartIcon className="w-8 h-8 text-white" />
+
+            {/* Impact Stats */}
+            <div className="space-y-6">
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-500">
+                <div className="flex items-start gap-4">
+                  <div className="bg-blue-100 rounded-full p-3 flex-shrink-0">
+                    <CheckCircleIcon className="w-6 h-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Personal Care Services</h4>
+                    <p className="text-gray-600">CQC-registered homecare supporting independent living</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">Local Impact</h3>
-              <p className="text-gray-700">100% of your donation stays in Northamptonshire, helping your neighbors</p>
-            </div>
-            
-            <div className="bg-gradient-to-br from-purple-50 to-purple-100 rounded-2xl p-8 text-center">
-              <div className="bg-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                <SparklesIcon className="w-8 h-8 text-white" />
+
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-500">
+                <div className="flex items-start gap-4">
+                  <div className="bg-green-100 rounded-full p-3 flex-shrink-0">
+                    <HeartIcon className="w-6 h-6 text-green-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Transport Services</h4>
+                    <p className="text-gray-600">12,000+ journeys to appointments and activities annually</p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-4">40+ Years Trusted</h3>
-              <p className="text-gray-700">Join thousands who trust SERVE to make a real difference in people&apos;s lives</p>
+
+              <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-purple-500">
+                <div className="flex items-start gap-4">
+                  <div className="bg-purple-100 rounded-full p-3 flex-shrink-0">
+                    <SparklesIcon className="w-6 h-6 text-purple-600" />
+                  </div>
+                  <div>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Day Care & Meals</h4>
+                    <p className="text-gray-600">Social activities and nutritious meals for vulnerable adults</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="bg-gradient-to-br from-rose-500 to-red-600 rounded-2xl shadow-lg p-6 text-white">
+                <div className="text-center">
+                  <p className="text-sm font-semibold mb-2 opacity-90">Local Charity</p>
+                  <p className="text-3xl font-bold mb-1">100%</p>
+                  <p className="text-sm opacity-90">of donations support Northamptonshire residents</p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
