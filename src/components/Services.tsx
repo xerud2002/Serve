@@ -15,7 +15,7 @@ export default function Services() {
       id: 'personal-care',
       title: 'Personal & Domestic Care',
       description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
-      image: '/images/events/carer.jpg',
+      image: '/images/care/care1.jpg',
       link: '/services/personal-care',
       featured: true,
       highlights: ['CQC Registered', 'Award Winning', 'Trained Carers', 'Tailored Plans']
@@ -48,7 +48,7 @@ export default function Services() {
       id: 'carers',
       title: 'Carers Support',
       description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
-      image: '/images/events/carer2.jpg',
+      image: '/images/care/care2.jpg',
       link: '/services/carers',
       highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training']
     },
