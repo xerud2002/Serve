@@ -5,34 +5,44 @@ import {
   ArrowTopRightOnSquareIcon,
   HomeIcon,
   HandRaisedIcon,
-  TruckIcon
+  TruckIcon,
+  SparklesIcon,
+  MapPinIcon,
+  UserGroupIcon
 } from '@heroicons/react/24/outline'
 
 export default function WhyChooseSERVE() {
-  const achievements = [
+  const features = [
     {
       icon: HeartIcon,
-      title: "Person-Centered Care",
-      subtitle: "Tailored to You",
-      description: "Individual care plans designed around your unique needs and preferences"
+      title: "Compassionate Care",
+      description: "Every person we support receives personalized attention with dignity, respect, and genuine kindness",
+      color: "from-rose-100 to-pink-100",
+      iconColor: "text-rose-600"
     },
     {
-      icon: UsersIcon,
-      title: "Trained Care Team",
-      subtitle: "Professional & Compassionate",
-      description: "Experienced staff dedicated to providing the highest quality care"
+      icon: UserGroupIcon,
+      title: "Expert Team",
+      subtitle: "Professional & Caring",
+      description: "Award-winning care professionals who are fully trained, DBS checked, and passionate about what they do",
+      color: "from-blue-100 to-indigo-100",
+      iconColor: "text-blue-600"
     },
     {
-      icon: ClockIcon,
-      title: "40+ Years Experience",
-      subtitle: "Trusted Since 1980s",
-      description: "Four decades of compassionate community care"
+      icon: MapPinIcon,
+      title: "Community Rooted",
+      subtitle: "Northamptonshire Born & Bred",
+      description: "A local charity with deep connections to our community, serving our neighbors for over 40 years",
+      color: "from-green-100 to-emerald-100",
+      iconColor: "text-green-600"
     },
     {
-      icon: HomeIcon,
-      title: "Local Charity",
-      subtitle: "Northamptonshire Based",
-      description: "Deeply rooted in our local community"
+      icon: SparklesIcon,
+      title: "Trusted Excellence",
+      subtitle: "40+ Years of Service",
+      description: "Four decades of experience helping people live independently at home with confidence and security",
+      color: "from-yellow-100 to-amber-100",
+      iconColor: "text-yellow-600"
     }
   ]
 
