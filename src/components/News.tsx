@@ -7,7 +7,7 @@ import {
   ArrowRightIcon 
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import FacebookEvents from './FacebookEvents'
+import FacebookEvents from '@/components/FacebookEvents'
 
 export default function News() {
   const news = [
@@ -22,39 +22,7 @@ export default function News() {
       featured: true,
       image: 'award-ceremony.jpg'
     },
-    {
-      id: 2,
-      title: 'NEW CHARITY PARTNERSHIP WITH CSR DIGITAL',
-      excerpt: 'We\'re excited to announce our new partnership with CSR Digital for their 2024 toner recycling campaign, helping us raise vital funds.',
-      date: 'September 2024',
-      category: 'Partnership',
-      icon: BuildingOffice2Icon,
-      link: '/news/charity-partnership',
-      featured: false,
-      image: 'partnership.jpg'
-    },
-    {
-      id: 4,
-      title: 'NEW VOLUNTEER TRAINING PROGRAMME LAUNCHED',
-      excerpt: 'We\'ve launched an enhanced training programme for new volunteers, providing comprehensive support and development opportunities.',
-      date: 'August 2024',
-      category: 'Volunteering',
-      icon: UserGroupIcon,
-      link: '/news/volunteer-training',
-      featured: false,
-      image: 'volunteer-training.jpg'
-    },
-    {
-      id: 5,
-      title: 'EXPANSION OF COUNTYWIDE BEFRIENDING SERVICE',
-      excerpt: 'Thanks to new funding, we\'re expanding our befriending service to reach more vulnerable adults across Northamptonshire.',
-      date: 'July 2024',
-      category: 'Service Update',
-      icon: HeartIcon,
-      link: '/news/befriending-expansion',
-      featured: false,
-      image: 'befriending.jpg'
-    },
+
   ]
 
   const featuredNews = news.find(item => item.featured)
@@ -68,7 +36,7 @@ export default function News() {
             <CalendarDaysIcon className="w-4 h-4 mr-2" />
             Latest Updates
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">News & Events</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Upcomming & Past Events</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
             that are making a difference across Northamptonshire.

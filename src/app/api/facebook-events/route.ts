@@ -56,7 +56,7 @@ export async function GET() {
         startTime: e.start_time,
         endTime: e.end_time || null,
         location: e.place?.name || null,
-        image: e.cover?.source || null,
+        coverImage: e.cover?.source || null,
       }))
 
     return NextResponse.json({ events }, { status: 200 })

@@ -15,7 +15,7 @@ interface FacebookEvent {
   startTime: string
   endTime?: string | null
   location?: string | null
-  image?: string | null
+  coverImage?: string | null
 }
 
 export default function FacebookEvents() {
@@ -28,7 +28,8 @@ export default function FacebookEvents() {
       try {
         const res = await fetch('/api/facebook-events', { cache: 'no-store' })
         const data = await res.json()
-        const fetchedEvents: FacebookEvent[] = Array.isArray(data?.events) ? data.events : []
+        const fetchedEvents = data.events || []
+        
         if (!cancelled) {
           setEvents(fetchedEvents.length ? fetchedEvents.slice(0, 4) : getFallbackEvents())
           setLoading(false)
@@ -52,6 +53,7 @@ export default function FacebookEvents() {
         description: 'Join us for our exciting autumn programme including harvest celebrations, coffee mornings, and wellness workshops across Northamptonshire.',
         startTime: new Date(now.getTime() + 7 * 24 * 60 * 60 * 1000).toISOString(),
         location: 'Ron Manning Day Centre',
+        coverImage: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&h=600&fit=crop',
       },
       {
         id: '2',
@@ -59,6 +61,7 @@ export default function FacebookEvents() {
         description: 'Learn about volunteering opportunities at SERVE. Meet our team and discover how you can make a difference in your community.',
         startTime: new Date(now.getTime() + 14 * 24 * 60 * 60 * 1000).toISOString(),
         location: 'SERVE Office, Rushden',
+        coverImage: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop',
       },
       {
         id: '3',
@@ -66,6 +69,7 @@ export default function FacebookEvents() {
         description: 'A friendly social gathering for members, carers and families. Enjoy refreshments and good company.',
         startTime: new Date(now.getTime() + 21 * 24 * 60 * 60 * 1000).toISOString(),
         location: 'Ron Manning Day Centre',
+        coverImage: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&h=600&fit=crop',
       },
       {
         id: '4',
@@ -73,6 +77,7 @@ export default function FacebookEvents() {
         description: 'Join us for our annual fundraising fair with stalls, entertainment, and festive cheer. All proceeds support SERVE services.',
         startTime: new Date(now.getTime() + 30 * 24 * 60 * 60 * 1000).toISOString(),
         location: 'West Street, Rushden',
+        coverImage: 'https://images.unsplash.com/photo-1519671282429-b44660c47f8e?w=800&h=600&fit=crop',
       },
     ]
   }
@@ -95,17 +100,29 @@ export default function FacebookEvents() {
     <>
       {/* Regular Events Grid - Replace the hardcoded events cards */}
       {events.map((event) => {
-        const { month, day, fullDate } = formatEventDate(event.startTime)
+        const { fullDate } = formatEventDate(event.startTime)
         
         return (
           <article
             key={event.id}
             className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-purple-200 hover:-translate-y-1"
           >
-            {/* Image Placeholder */}
-            <div className="bg-gradient-to-br from-purple-100 to-purple-200 h-48 flex items-center justify-center">
-              <CalendarDaysIcon className="w-12 h-12 text-purple-600" />
-            </div>
+            {/* Event Cover Image */}
+            {event.coverImage ? (
+              <div className="relative h-48 w-full overflow-hidden">
+                <Image
+                  src={event.coverImage}
+                  alt={event.name}
+                  fill
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                />
+              </div>
+            ) : (
+              <div className="bg-gradient-to-br from-purple-100 to-purple-200 h-48 flex items-center justify-center">
+                <CalendarDaysIcon className="w-12 h-12 text-purple-600" />
+              </div>
+            )}
             
             <div className="p-6">
               <div className="flex items-center justify-between mb-4">
