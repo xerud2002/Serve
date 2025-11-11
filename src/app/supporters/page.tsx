@@ -304,7 +304,7 @@ export default function SupportersPage() {
             <p className="text-lg text-gray-700 leading-relaxed">
               This is just the beginning of our supporters gallery. We'll be adding more photos and stories 
               celebrating our community's generosity and spirit. If you have photos from SERVE events or 
-              fundraising activities, we'd love to feature them here!
+              fundraising activities, we'd love to feature them here! info@serve.org.uk
             </p>
           </div>
         </div>
