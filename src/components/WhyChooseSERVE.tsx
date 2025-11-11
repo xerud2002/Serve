@@ -1,27 +1,26 @@
 import { 
-  ShieldCheckIcon, 
   HeartIcon,
   UsersIcon,
   ClockIcon,
   ArrowTopRightOnSquareIcon,
-  CheckBadgeIcon
+  HomeIcon,
+  HandRaisedIcon,
+  TruckIcon
 } from '@heroicons/react/24/outline'
-import { TrophyIcon as TrophyIconSolid } from '@heroicons/react/24/solid'
 
 export default function WhyChooseSERVE() {
   const achievements = [
     {
-      icon: TrophyIconSolid,
-      title: "Award-Winning Care",
-      subtitle: "Great British Care Awards 2024",
-      description: "Winner: Best Homecare Team, East Midlands",
-      highlight: true
+      icon: HeartIcon,
+      title: "Person-Centered Care",
+      subtitle: "Tailored to You",
+      description: "Individual care plans designed around your unique needs and preferences"
     },
     {
-      icon: ShieldCheckIcon,
-      title: "CQC Registered",
-      subtitle: "Care Quality Commission",
-      description: "Officially regulated and approved care provider"
+      icon: UsersIcon,
+      title: "Trained Care Team",
+      subtitle: "Professional & Compassionate",
+      description: "Experienced staff dedicated to providing the highest quality care"
     },
     {
       icon: ClockIcon,
@@ -30,28 +29,28 @@ export default function WhyChooseSERVE() {
       description: "Four decades of compassionate community care"
     },
     {
-      icon: CheckBadgeIcon,
+      icon: HomeIcon,
       title: "Local Charity",
       subtitle: "Northamptonshire Based",
       description: "Deeply rooted in our local community"
     }
   ]
 
-  const values = [
+  const services = [
     {
       icon: HeartIcon,
-      title: 'Compassion',
-      description: 'We care deeply about every person we support, treating them with kindness and respect.'
+      title: 'Personal Care',
+      description: 'Support with daily living tasks, helping you maintain independence at home.'
     },
     {
-      icon: ShieldCheckIcon,
-      title: 'Excellence',
-      description: 'We maintain the highest standards of care, continuously improving our services.'
+      icon: TruckIcon,
+      title: 'Community Transport',
+      description: 'Safe and reliable transport for appointments, shopping, and social activities.'
     },
     {
-      icon: UsersIcon,
-      title: 'Community',
-      description: 'We believe in the power of community and work to strengthen local connections.'
+      icon: HandRaisedIcon,
+      title: 'Befriending',
+      description: 'Companionship and social support to reduce isolation and loneliness.'
     }
   ]
 
@@ -77,14 +76,12 @@ export default function WhyChooseSERVE() {
             return (
               <div 
                 key={index} 
-                className={`relative group ${achievement.highlight ? 'md:col-span-2 lg:col-span-1' : ''}`}
+                className="relative group"
               >
-                <div className={`${achievement.highlight 
-                  ? 'absolute -inset-1 bg-gradient-to-r from-yellow-400 to-orange-400 rounded-2xl opacity-20 group-hover:opacity-30 blur transition duration-300' 
-                  : 'absolute -inset-0.5 bg-gradient-to-r from-serve-blue-400 to-serve-blue-600 rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300'}`}></div>
-                <div className={`relative bg-white rounded-2xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300 ${achievement.highlight ? 'border-2 border-yellow-300' : 'border border-gray-100'}`}>
-                  <div className={`inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 ${achievement.highlight ? 'bg-gradient-to-br from-yellow-100 to-orange-100' : 'bg-gradient-to-br from-serve-blue-100 to-serve-blue-200'}`}>
-                    <IconComponent className={`w-6 h-6 ${achievement.highlight ? 'text-yellow-700' : 'text-serve-blue-700'}`} />
+                <div className="absolute -inset-0.5 bg-gradient-to-r from-serve-blue-400 to-serve-green-400 rounded-2xl opacity-0 group-hover:opacity-100 blur transition duration-300"></div>
+                <div className="relative bg-white rounded-2xl p-6 h-full shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100">
+                  <div className="inline-flex items-center justify-center w-12 h-12 rounded-xl mb-4 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
+                    <IconComponent className="w-6 h-6 text-serve-blue-700" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{achievement.title}</h3>
                   <p className="text-sm font-semibold text-serve-blue-600 mb-2">{achievement.subtitle}</p>
@@ -95,7 +92,7 @@ export default function WhyChooseSERVE() {
           })}
         </div>
 
-        {/* Our Story & Values */}
+        {/* Our Story & Services */}
         <div className="grid lg:grid-cols-2 gap-12 items-center mb-12">
           
           {/* Our Story */}
@@ -108,13 +105,13 @@ export default function WhyChooseSERVE() {
                 Northamptonshire&apos;s most trusted care charity.
               </p>
               <p>
-                Today, we&apos;re proud to be a CQC registered care provider, serving hundreds of families 
-                across Northamptonshire. Our award-winning team provides personalized care that helps people 
-                maintain their independence, dignity, and quality of life.
+                Today, we&apos;re proud to be a CQC registered care provider and winner of the Great British Care Awards 2024 
+                (Best Homecare Team, East Midlands), serving hundreds of families across Northamptonshire. Our dedicated team 
+                provides personalized care that helps people maintain their independence, dignity, and quality of life.
               </p>
               <p>
-                From our humble beginnings in the 1980s to winning the prestigious Great British Care Awards 
-                in 2024, our commitment has never wavered: putting people first, always.
+                From our humble beginnings in the 1980s to becoming an award-winning care provider, 
+                our commitment has never wavered: putting people first, always.
               </p>
             </div>
 
@@ -126,29 +123,31 @@ export default function WhyChooseSERVE() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-700 font-semibold group"
               >
-                <ShieldCheckIcon className="w-5 h-5 mr-2" />
+                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                </svg>
                 View Our CQC Inspection Report
                 <ArrowTopRightOnSquareIcon className="w-4 h-4 ml-1 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
               </a>
             </div>
           </div>
 
-          {/* Core Values */}
+          {/* Key Services */}
           <div>
-            <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Values</h3>
+            <h3 className="text-3xl font-bold text-gray-900 mb-6">What We Offer</h3>
             <div className="space-y-4">
-              {values.map((value, index) => {
-                const IconComponent = value.icon
+              {services.map((service, index) => {
+                const IconComponent = service.icon
                 return (
                   <div key={index} className="flex gap-4 p-4 bg-white rounded-xl border border-gray-100 hover:shadow-md transition-shadow">
                     <div className="flex-shrink-0">
-                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center">
-                        <IconComponent className="w-6 h-6 text-serve-blue-700" />
+                      <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-serve-green-100 to-serve-green-200 flex items-center justify-center">
+                        <IconComponent className="w-6 h-6 text-serve-green-700" />
                       </div>
                     </div>
                     <div>
-                      <h4 className="font-bold text-gray-900 mb-1">{value.title}</h4>
-                      <p className="text-sm text-gray-600 leading-relaxed">{value.description}</p>
+                      <h4 className="font-bold text-gray-900 mb-1">{service.title}</h4>
+                      <p className="text-sm text-gray-600 leading-relaxed">{service.description}</p>
                     </div>
                   </div>
                 )

@@ -28,48 +28,8 @@ export default function CallToActionSection() {
           </p>
           
           {/* What to Expect Cards with Images */}
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto mb-12">
-            {/* Card 1 - Friendly Visit */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src="/images/events/Visit-from-Liz-Kendall-to-our-day-centre.webp"
-                  alt="Home care assessment visit"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Friendly Home Visit</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Comfortable, no-pressure assessment in the familiar surroundings of your own home
-                </p>
-              </div>
-            </div>
-            
-            {/* Card 2 - Personal Plan */}
-            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
-              <div className="relative h-48 overflow-hidden">
-                <Image
-                  src="/images/community/bigchat6.jpg"
-                  alt="Personalized care planning"
-                  fill
-                  className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-              </div>
-              <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Tailored Care Plan</h3>
-                <p className="text-sm text-gray-600 leading-relaxed">
-                  Care solutions designed around your specific needs, preferences, and lifestyle
-                </p>
-              </div>
-            </div>
-            
-            {/* Card 3 - Expert Guidance */}
+          <div className="grid md:grid-cols-3 gap-6 max-w-7xl mx-auto mb-12">
+            {/* Card 1 - Expert Guidance (was 3rd) */}
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
               <div className="relative h-48 overflow-hidden">
                 <Image
@@ -77,14 +37,56 @@ export default function CallToActionSection() {
                   alt="Award-winning care team"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 33vw"
+                  sizes="(max-width: 768px) 100vw, 25vw"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
-                <h3 className="text-xl font-bold text-gray-900 mb-3">Expert Guidance</h3>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Friendly Home Visit</h3>
                 <p className="text-sm text-gray-600 leading-relaxed">
-                  Professional advice from our CQC registered, Great British Care Awards winning team
+                  Comfortable, no-pressure assessment in the familiar surroundings of your own home
+                </p>
+              </div>
+            </div>
+            
+            
+
+            {/* Card 3 - Personal Plan (was 2nd) */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/community/bigchat6.jpg"
+                  alt="Personalized care planning"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Tailored Care Plan</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Care solutions designed around your specific needs, preferences, and lifestyle
+                </p>
+              </div>
+            </div>
+            
+            {/* Card 4 - Community Support (NEW) */}
+            <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
+              <div className="relative h-48 overflow-hidden">
+                <Image
+                  src="/images/community/bigchat3.jpg"
+                  alt="Community support and activities"
+                  fill
+                  className="object-cover group-hover:scale-110 transition-transform duration-500"
+                  sizes="(max-width: 768px) 100vw, 25vw"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+              </div>
+              <div className="p-6">
+                <h3 className="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h3>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  Regular check-ins and adjustments to ensure your care plan continues to meet your needs
                 </p>
               </div>
             </div>
