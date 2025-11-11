@@ -28,7 +28,7 @@ export default function FacebookFeed() {
         const data = await res.json()
         const fetchedPosts: FacebookPost[] = Array.isArray(data?.posts) ? data.posts : []
         if (!cancelled) {
-          setPosts(fetchedPosts.length ? fetchedPosts.slice(0, 4) : getFallbackPosts())
+          setPosts(fetchedPosts.length ? fetchedPosts.slice(0, 6) : getFallbackPosts())
         }
       } catch {
         if (!cancelled) {
@@ -70,6 +70,20 @@ export default function FacebookFeed() {
         created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
+      { 
+        id: '5', 
+        message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits.',
+        picture: '/images/serve copy.png', 
+        created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
+      },
+      { 
+        id: '6', 
+        message: '🎉 Celebrating 40+ years of serving Northamptonshire! From our small beginnings to CQC registration and national awards, we\'re proud to continue supporting our community.',
+        picture: '/pics/regional-winner.jpg', 
+        created_time: new Date(now - 8 * 24 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
+      },
     ]
   }
 
@@ -101,14 +115,14 @@ export default function FacebookFeed() {
             <PhotoIcon className="w-4 h-4 mr-2" />
             Social Media
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Latest from Facebook</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Latest News</h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Follow our journey and see the impact we&apos;re making in the community through our Facebook page.
           </p>
         </div>
 
         {/* Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {posts.map((post) => {
             const imageUrl = post.full_picture || post.picture
             const postText = post.message || post.story || ''
@@ -120,7 +134,7 @@ export default function FacebookFeed() {
               >
                 {/* Image */}
                 {imageUrl && (
-                  <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                  <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
                     <Image
                       src={imageUrl}
                       alt={postText.substring(0, 50) || 'Facebook post'}
