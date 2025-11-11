@@ -51,7 +51,15 @@ export default function DonatePage() {
             rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-12 py-6 rounded-full text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
           >
-            <HeartIcon className="w-8 h-8" />
+            {/* Caring Hands Icon - Two hands giving/receiving */}
+            <svg className="w-8 h-8" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              {/* Left hand */}
+              <path d="M7 13c-1.5-1.5-1-4.5 1-6 .5-.4 1-.5 1.5-.3l1 4c.2.5 0 1-.3 1.3L7 13z"/>
+              {/* Right hand */}
+              <path d="M17 13c1.5-1.5 1-4.5-1-6-.5-.4-1-.5-1.5-.3l-1 4c-.2.5 0 1 .3 1.3L17 13z"/>
+              {/* Heart/care symbol in center */}
+              <ellipse cx="12" cy="14" rx="4" ry="2.5" opacity="0.4"/>
+            </svg>
             <span>Donate Now</span>
             <ArrowRightIcon className="w-6 h-6" />
           </a>
