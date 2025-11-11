@@ -123,19 +123,16 @@ export default function News() {
                 </div>
                 
                 {/* Image Placeholder */}
-                <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center p-6">
-                  <div className="text-center">
-                    <div className="relative w-32 h-32 mx-auto mb-4">
-                      <Image
-                        src="/images/regionalwinner.png"
-                        alt="SERVE Regional Winner - Great British Care Awards 2024"
-                        fill
-                        className="object-contain"
-                        sizes="128px"
-                      />
-                    </div>
-                    <p className="text-lg font-semibold text-serve-blue-600">Award Winner</p>
-                    <p className="text-sm text-serve-blue-600">Great British Care Awards 2024</p>
+                <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center relative overflow-hidden">
+                  <Image
+                    src="/images/awards/regional-winner.jpg"
+                    alt="SERVE Regional Winner - Great British Care Awards 2024"
+                    fill
+                    className="object-cover"
+                    sizes="(max-width: 1024px) 50vw, 33vw"
+                  />
+                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                    <p className="text-white font-semibold text-center">Great British Care Awards 2024</p>
                   </div>
                 </div>
               </div>
