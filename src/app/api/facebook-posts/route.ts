@@ -26,7 +26,7 @@ interface FacebookPost {
 export async function GET() {
   try {
     // Facebook Graph API configuration
-    const pageId = 'SERVE234' // Your Facebook page ID
+    const pageId = process.env.FACEBOOK_PAGE_ID || '239416516576684'
     const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
     
     if (!accessToken) {
@@ -38,29 +38,31 @@ export async function GET() {
     }
 
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
-    const fields = 'id,message,story,created_time,picture,full_picture,permalink_url,likes.summary(true),comments.summary(true),shares'
-    const url = `https://graph.facebook.com/v18.0/${pageId}/posts?fields=${fields}&limit=12&order=chronological&access_token=${accessToken}`
+    const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
+    const url = `https://graph.facebook.com/v19.0/${pageId}/posts?fields=${fields}&limit=8&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
         'Accept': 'application/json',
       },
-      // Cache for 30 minutes
-      next: { revalidate: 1800 }
+      // Cache for 1 hour
+      next: { revalidate: 3600 }
     })
 
     if (!response.ok) {
+      const errorText = await response.text()
+      console.error(`Facebook API error: ${response.status}`, errorText)
       throw new Error(`Facebook API error: ${response.status}`)
     }
 
     const data = await response.json()
 
     // Filter posts to only include those with meaningful content
-    const filteredPosts = data.data.filter((post: FacebookPost) => 
+    const filteredPosts = (data.data || []).filter((post: FacebookPost) => 
       post.message || post.story || post.picture || post.full_picture
     )
 
-    // Sort by created_time descending (newest first) - Facebook sometimes doesn't return in perfect order
+    // Sort by created_time descending (newest first)
     const sortedPosts = filteredPosts.sort((a: FacebookPost, b: FacebookPost) => {
       return new Date(b.created_time).getTime() - new Date(a.created_time).getTime()
     })

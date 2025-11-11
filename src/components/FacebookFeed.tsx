@@ -1,125 +1,80 @@
 'use client'
 
 import { useState, useEffect } from 'react'
-import { HeartIcon, ChatBubbleLeftIcon, ShareIcon } from '@heroicons/react/24/outline'
-import { ClockIcon } from '@heroicons/react/24/solid'
+import { 
+  PhotoIcon, 
+  ArrowRightIcon 
+} from '@heroicons/react/24/outline'
 import Image from 'next/image'
 
 interface FacebookPost {
   id: string
   message?: string
   story?: string
-  created_time: string
+  created_time?: string
   picture?: string
   full_picture?: string
-  permalink_url: string
-  likes?: {
-    summary: {
-      total_count: number
-    }
-  }
-  comments?: {
-    summary: {
-      total_count: number
-    }
-  }
-  shares?: {
-    count: number
-  }
+  permalink_url?: string
 }
 
 export default function FacebookFeed() {
   const [posts, setPosts] = useState<FacebookPost[]>([])
-  const [loading, setLoading] = useState(true)
-  const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    const fetchFacebookPosts = async () => {
+    let cancelled = false
+    ;(async () => {
       try {
-        const response = await fetch('/api/facebook-posts')
-        
-        if (!response.ok) {
-          throw new Error('Failed to fetch Facebook posts')
+        const res = await fetch('/api/facebook-posts', { cache: 'no-store' })
+        const data = await res.json()
+        const fetchedPosts: FacebookPost[] = Array.isArray(data?.posts) ? data.posts : []
+        if (!cancelled) {
+          setPosts(fetchedPosts.length ? fetchedPosts.slice(0, 4) : getFallbackPosts())
         }
-        
-        const data = await response.json()
-        
-        // Sort posts by creation date (latest first)
-        const sortedPosts = (data.posts || []).sort((a: FacebookPost, b: FacebookPost) => {
-          return new Date(b.created_time).getTime() - new Date(a.created_time).getTime()
-        })
-        
-        setPosts(sortedPosts)
-      } catch (error) {
-        console.error('Error fetching Facebook posts:', error)
-        setError('Unable to load Facebook posts at this time.')
-        // Show fallback content (also sort by latest first)
-        const fallbackPosts = getFallbackPosts().sort((a, b) => {
-          return new Date(b.created_time).getTime() - new Date(a.created_time).getTime()
-        })
-        setPosts(fallbackPosts)
-      } finally {
-        setLoading(false)
+      } catch {
+        if (!cancelled) {
+          setPosts(getFallbackPosts())
+        }
       }
-    }
-
-    fetchFacebookPosts()
+    })()
+    return () => { cancelled = true }
   }, [])
 
   const getFallbackPosts = (): FacebookPost[] => {
     const now = Date.now()
     return [
-      {
-        id: '1',
-        message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch. The laughter and friendship in our centre always brightens our day. #CommunitySupport #DayCare',
-        created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(), // 3 hours ago
-        picture: '/images/community/bigchat1.jpg',
-        permalink_url: 'https://www.facebook.com/SERVE234',
-        likes: { summary: { total_count: 28 } },
-        comments: { summary: { total_count: 6 } }
+      { 
+        id: '1', 
+        message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch.',
+        picture: '/images/community/bigchat1.jpg', 
+        created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
       },
-      {
-        id: '2',
-        message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
-        created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
-        picture: '/images/transport/bus.jpg',
-        permalink_url: 'https://www.facebook.com/SERVE234',
-        likes: { summary: { total_count: 42 } },
-        comments: { summary: { total_count: 11 } },
-        shares: { count: 5 }
+      { 
+        id: '2', 
+        message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits.',
+        picture: '/pics/regional-winner.jpg', 
+        created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
       },
-      {
-        id: '3',
-        message: '💙 Heartwarming feedback received today: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat." This is exactly why we do what we do. #PersonalCare #Compassion',
-        created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
-        picture: '/images/care/care1.jpg',
-        permalink_url: 'https://www.facebook.com/SERVE234',
-        likes: { summary: { total_count: 56 } },
-        comments: { summary: { total_count: 14 } }
+      { 
+        id: '3', 
+        message: '💙 Heartwarming feedback: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat."',
+        picture: '/images/serve.png', 
+        created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
       },
-      {
-        id: '4',
-        message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024! This recognition belongs to our entire team and the wonderful community we serve.',
-        created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(), // 4 days ago
-        picture: '/images/awards/regional-winner.jpg',
-        permalink_url: 'https://www.facebook.com/SERVE234',
-        likes: { summary: { total_count: 89 } },
-        comments: { summary: { total_count: 23 } },
-        shares: { count: 12 }
+      { 
+        id: '4', 
+        message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024!',
+        picture: '/images/servewinner .png', 
+        created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(),
+        permalink_url: 'https://www.facebook.com/SERVE234' 
       },
-      {
-        id: '5',
-        message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits. No one should feel alone in our community.',
-        created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days ago
-        picture: '/images/community/bigchat2.jpg',
-        permalink_url: 'https://www.facebook.com/SERVE234',
-        likes: { summary: { total_count: 34 } },
-        comments: { summary: { total_count: 8 } }
-      }
     ]
   }
 
-  const formatDate = (dateString: string) => {
+  const formatDate = (dateString?: string) => {
+    if (!dateString) return 'Recent'
     const date = new Date(dateString)
     const now = new Date()
     const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
@@ -131,144 +86,104 @@ export default function FacebookFeed() {
     const diffInDays = Math.floor(diffInHours / 24)
     if (diffInDays < 7) return `${diffInDays}d ago`
     
-    return date.toLocaleDateString('en-GB', {
+    return date.toLocaleDateString('en-GB', { 
       day: 'numeric',
       month: 'short',
       year: date.getFullYear() !== now.getFullYear() ? 'numeric' : undefined
     })
   }
 
-  if (loading) {
-    return (
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        {[1, 2, 3, 4].map((i) => (
-          <div key={i} className="bg-white rounded-xl p-6 shadow-lg animate-pulse">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-gray-200 rounded-full"></div>
-              <div className="flex-1">
-                <div className="h-4 bg-gray-200 rounded mb-2"></div>
-                <div className="h-3 bg-gray-200 rounded w-20"></div>
-              </div>
-            </div>
-            <div className="space-y-2 mb-4">
-              <div className="h-4 bg-gray-200 rounded"></div>
-              <div className="h-4 bg-gray-200 rounded w-3/4"></div>
-            </div>
-            <div className="h-48 bg-gray-200 rounded-lg mb-4"></div>
-            <div className="flex gap-6">
-              <div className="h-4 bg-gray-200 rounded w-16"></div>
-              <div className="h-4 bg-gray-200 rounded w-20"></div>
-            </div>
-          </div>
-        ))}
-      </div>
-    )
-  }
-
-  if (error && posts.length === 0) {
-    return (
-      <div className="bg-white rounded-xl p-8 shadow-lg text-center">
-        <div className="text-gray-400 mb-4">
-          <svg className="w-16 h-16 mx-auto" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1} d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.746 0 3.332.477 4.5 1.253v13C19.832 18.477 18.246 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-          </svg>
-        </div>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Facebook Feed Unavailable</h3>
-        <p className="text-gray-600 mb-6">{error}</p>
-        <a
-          href="https://www.facebook.com/SERVE234"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all"
-        >
-          View on Facebook
-        </a>
-      </div>
-    )
-  }
-
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-      {posts.map((post) => (
-        <article key={post.id} className="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
-          {/* Post Header */}
-          <div className="p-6 pb-4">
-            <div className="flex items-center gap-3 mb-4">
-              <div className="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center">
-                <span className="text-white font-bold text-lg">S</span>
-              </div>
-              <div className="flex-1">
-                <h3 className="font-semibold text-gray-900">SERVE</h3>
-                <div className="flex items-center text-gray-500 text-sm">
-                  <ClockIcon className="w-4 h-4 mr-1" />
-                  {formatDate(post.created_time)}
-                </div>
-              </div>
-            </div>
-
-            {/* Post Content */}
-            {(post.message || post.story) && (
-              <p className="text-gray-700 leading-relaxed mb-4">
-                {post.message || post.story}
-              </p>
-            )}
+    <section className="py-24 bg-gray-50">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <PhotoIcon className="w-4 h-4 mr-2" />
+            Social Media
           </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Latest from Facebook</h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Follow our journey and see the impact we&apos;re making in the community through our Facebook page.
+          </p>
+        </div>
 
-          {/* Post Image */}
-          {(post.picture || post.full_picture) && (
-            <div className="relative h-64 bg-gray-100">
-              <Image
-                src={post.full_picture || post.picture || '/images/placeholder.jpg'}
-                alt="Facebook post image"
-                fill
-                className="object-cover"
-                onError={(e) => {
-                  const target = e.target as HTMLImageElement
-                  target.style.display = 'none'
-                }}
-              />
-            </div>
-          )}
-
-          {/* Post Footer */}
-          <div className="p-6 pt-4">
-            <div className="flex items-center justify-between text-gray-500 text-sm mb-4">
-              <div className="flex items-center gap-4">
-                {post.likes && (
-                  <div className="flex items-center gap-1">
-                    <HeartIcon className="w-4 h-4" />
-                    <span>{post.likes.summary.total_count}</span>
+        {/* Posts Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          {posts.map((post) => {
+            const imageUrl = post.full_picture || post.picture
+            const postText = post.message || post.story || ''
+            
+            return (
+              <article
+                key={post.id}
+                className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-1"
+              >
+                {/* Image */}
+                {imageUrl && (
+                  <div className="relative aspect-[4/3] bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                    <Image
+                      src={imageUrl}
+                      alt={postText.substring(0, 50) || 'Facebook post'}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                    />
                   </div>
                 )}
-                {post.comments && (
-                  <div className="flex items-center gap-1">
-                    <ChatBubbleLeftIcon className="w-4 h-4" />
-                    <span>{post.comments.summary.total_count}</span>
-                  </div>
-                )}
-                {post.shares && (
-                  <div className="flex items-center gap-1">
-                    <ShareIcon className="w-4 h-4" />
-                    <span>{post.shares.count}</span>
-                  </div>
-                )}
-              </div>
-            </div>
 
+                <div className="p-6">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                      Post
+                    </span>
+                    <span className="text-gray-500 text-xs">{formatDate(post.created_time)}</span>
+                  </div>
+
+                  {postText && (
+                    <p className="text-gray-700 mb-4 text-sm leading-relaxed line-clamp-4">
+                      {postText}
+                    </p>
+                  )}
+
+                  <a
+                    href={post.permalink_url || 'https://www.facebook.com/SERVE234'}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm group/link"
+                    aria-label="View on Facebook"
+                  >
+                    View on Facebook
+                    <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                  </a>
+                </div>
+              </article>
+            )
+          })}
+        </div>
+
+        {/* Follow CTA */}
+        <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 text-center">
+          <h3 className="text-2xl font-bold text-gray-900 mb-4">Follow Us on Facebook</h3>
+          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
+            Stay connected with daily updates, event announcements, and heartwarming stories from our community.
+          </p>
+          
+          <div className="flex justify-center gap-8">
             <a
-              href={post.permalink_url}
+              href="https://www.facebook.com/SERVE234/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium text-sm transition-colors"
+              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
             >
-              View on Facebook
-              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
               </svg>
+              Follow on Facebook
+              <ArrowRightIcon className="ml-2 h-5 w-5" />
             </a>
           </div>
-        </article>
-      ))}
-    </div>
+        </div>
+      </div>
+    </section>
   )
 }
