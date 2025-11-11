@@ -10,9 +10,20 @@ import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 
 export default function Header() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false)
   const mobileMenuRef = useRef<HTMLDivElement>(null)
   const menuButtonRef = useRef<HTMLButtonElement>(null)
   const { isMobile } = useIsMobile()
+
+  // Handle scroll to make header compact
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   // Handle escape key to close mobile menu
   useEffect(() => {
@@ -50,9 +61,9 @@ export default function Header() {
 
   return (
     <>
-      <header className="bg-white shadow-sm relative -my-1">
-        {/* Contact bar */}
-        <div className="bg-serve-blue-800 text-white py-1 -mb-1">
+      <header className={`bg-white shadow-sm relative -my-1 sticky top-0 z-50 transition-all duration-300 ${isScrolled ? 'shadow-md' : ''}`}>
+        {/* Contact bar - hide when scrolled */}
+        <div className={`bg-serve-blue-800 text-white -mb-1 transition-all duration-300 overflow-hidden ${isScrolled ? 'max-h-0 py-0' : 'max-h-20 py-1'}`}>
           <div className={`max-w-7xl mx-auto px-1 sm:px-2`}>
             <div className="flex justify-between items-center text-sm">
               <div className="flex items-center space-x-3 sm:space-x-6">
@@ -112,8 +123,8 @@ export default function Header() {
             </div>
           </div>
         </div>        {/* Main navigation */}
-        <nav className={`max-w-7xl mx-auto px-1 sm:px-2`} aria-label={ARIA_LABELS.mainNavigation}>
-          <div className="flex items-center justify-between h-28 sm:h-36 py-2">
+        <nav className={`max-w-7xl mx-auto px-1 sm:px-2 transition-all duration-300`} aria-label={ARIA_LABELS.mainNavigation}>
+          <div className={`flex items-center justify-between py-2 transition-all duration-300 ${isScrolled ? 'h-16 sm:h-20' : 'h-28 sm:h-36'}`}>
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
@@ -121,7 +132,7 @@ export default function Header() {
                   alt="SERVE - Supporting Independence"
                   width={isMobile ? 720 : 960}
                   height={isMobile ? 360 : 480}
-                  className={`${isMobile ? 'h-32' : 'h-40'} w-auto`}
+                  className={`w-auto transition-all duration-300 ${isScrolled ? (isMobile ? 'h-16' : 'h-20') : (isMobile ? 'h-32' : 'h-40')}`}
                   priority
                 />
               </Link>

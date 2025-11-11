@@ -123,8 +123,8 @@ export default function Hero() {
               <div className="text-lg text-blue-200">Years Serving Our Community</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-              <div className="text-4xl font-bold text-serve-green-300 mb-2">CQC</div>
-              <div className="text-lg text-blue-200">Registered & Rated Good</div>
+              <div className="text-4xl font-bold text-serve-green-300 mb-2">Award</div>
+              <div className="text-lg text-blue-200">Winning Care Team</div>
             </div>
             <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
               <div className="text-4xl font-bold text-serve-green-300 mb-2">Local</div>
