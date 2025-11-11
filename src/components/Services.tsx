@@ -24,7 +24,7 @@ export default function Services() {
       id: 'day-care',
       title: 'Day Care & Meals on Wheels',
       description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
-      image: '/images/events/bigchat1.jpg',
+      image: '/images/community/bigchat1.jpg',
       link: '/services/day-care',
       highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff']
     },
@@ -32,7 +32,7 @@ export default function Services() {
       id: 'transport',
       title: 'Community Transport',
       description: 'Reliable, affordable transport to medical appointments, hospital visits, and family connections. Our drivers understand the needs of older people and those with mobility challenges.',
-      image: '/images/events/bus.jpg',
+      image: '/images/transport/bus.jpg',
       link: '/services/transport',
       highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates']
     },
@@ -40,7 +40,7 @@ export default function Services() {
       id: 'befriending',
       title: 'Countywide Befriending',
       description: 'Combat loneliness with our friendly befriending service. We provide regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
-      image: '/images/events/community-spirit.jpg',
+      image: '/images/community/bigchat2.jpg',
       link: '/services/befriending',
       highlights: ['Combat Loneliness', 'Regular Visits', 'Emotional Support', 'Countywide Coverage']
     },
@@ -56,7 +56,7 @@ export default function Services() {
       id: 'community',
       title: 'Community Services',
       description: 'A range of community support including day trips, hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
-      image: '/images/events/fundraising.jpg',
+      image: '/images/fundraising/fundraising.jpg',
       link: '/services/community',
       highlights: ['Day Trips', 'Hearing Aid Service', 'DBS Checks', 'Community Events']
     },
