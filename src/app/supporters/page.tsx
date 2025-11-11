@@ -8,15 +8,11 @@ export const metadata: Metadata = {
 
 export default function SupportersPage() {
   const supporters = [
+    // Fundraising Events
     {
       title: "Fundraising at Asda Rushden",
       image: "/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp",
       description: "Our amazing volunteers collecting donations at Asda Rushden"
-    },
-    {
-      title: "Visit from Liz Kendall to Our Day Centre",
-      image: "/images/community/Visit-from-Liz-Kendall-to-our-day-centre.webp",
-      description: "Special visit highlighting our community impact"
     },
     {
       title: "Stroll for SERVE",
@@ -39,14 +35,50 @@ export default function SupportersPage() {
       description: "Magical Christmas event bringing our community together"
     },
     {
-      title: "Sing for SERVE 2023",
-      image: "/images/community/Sing-for-Serve-2023-scaled.webp",
-      description: "Musical performances raising spirits and funds"
-    },
-    {
       title: "Rushden Armed Forces Day 2023",
       image: "/images/fundraising/Rushden-Armed-Forces-Day-2023-scaled.webp",
       description: "Proud participation in our local community events"
+    },
+    {
+      title: "Fundraising from the Homemade Bread Company",
+      image: "/images/fundraising/Fundraising-from-the-Homemade-Bread-Company.webp",
+      description: "Delicious partnership with local bakers"
+    },
+    {
+      title: "SERVE Easter Raffle",
+      image: "/images/fundraising/Serve-Easter-raffle.webp",
+      description: "Spring celebrations with our community"
+    },
+    {
+      title: "Community Fundraising Event",
+      image: "/images/fundraising/fund-rasing2.jpg",
+      description: "Connecting with supporters across Northamptonshire"
+    },
+    {
+      title: "Summer Fundraising",
+      image: "/images/fundraising/WhatsApp Image 2025-07-12 at 11.27.59_e58b5092.jpg",
+      description: "Supporters gathering to make a difference"
+    },
+    {
+      title: "Community Support Event",
+      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_7a0964b4.jpg",
+      description: "Local community rallying behind SERVE"
+    },
+    {
+      title: "Fundraising Activities",
+      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_fcf75e69.jpg",
+      description: "Creative ways our community supports SERVE"
+    },
+    // Community Events
+    {
+      title: "Visit from Liz Kendall to Our Day Centre",
+      image: "/images/community/Visit-from-Liz-Kendall-to-our-day-centre.webp",
+      description: "Special visit highlighting our community impact"
+    },
+    {
+      title: "Sing for SERVE 2023",
+      image: "/images/community/Sing-for-Serve-2023-scaled.webp",
+      description: "Musical performances raising spirits and funds"
     },
     {
       title: "Northamptonshire Chamber of Trade Expo 2024",
@@ -69,24 +101,75 @@ export default function SupportersPage() {
       description: "Supporting local artisans while raising funds"
     },
     {
-      title: "Fundraising from the Homemade Bread Company",
-      image: "/images/fundraising/Fundraising-from-the-Homemade-Bread-Company.webp",
-      description: "Delicious partnership with local bakers"
-    },
-    {
-      title: "SERVE Easter Raffle",
-      image: "/images/fundraising/Serve-Easter-raffle.webp",
-      description: "Spring celebrations with our community"
+      title: "Community Newsletter Feature",
+      image: "/images/community/NEwsletter.jpg",
+      description: "Sharing our story with the local community"
     },
     {
       title: "Community Engagement",
-      image: "/images/fundraising/fund-rasing2.jpg",
-      description: "Connecting with supporters across Northamptonshire"
+      image: "/images/community/WhatsApp Image 2025-05-11 at 11.47.19_fa01ef94.jpg",
+      description: "Building relationships across Northamptonshire"
     },
     {
-      title: "Fundraising Activities",
-      image: "/images/fundraising/fundraising.jpg",
-      description: "Creative ways our community supports SERVE"
+      title: "Community Day Centre Activities",
+      image: "/images/community/bigchat7.jpg",
+      description: "Bringing people together at our day centre"
+    },
+    // Donations & Support
+    {
+      title: "Asda Festive Donations",
+      image: "/images/donations/Asda-festive-donations-scaled.webp",
+      description: "Generous Christmas donations from Asda"
+    },
+    {
+      title: "Christmas 2023 at Wellingborough Swansgate",
+      image: "/images/donations/Christmas-2023-at-Wellingborough-Swansgate-scaled.webp",
+      description: "Festive cheer and community spirit"
+    },
+    {
+      title: "Christmas Gifts from Happy Mondays in Rushden",
+      image: "/images/donations/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp",
+      description: "Wonderful holiday donations from local business"
+    },
+    {
+      title: "Christmas Lights Rushden",
+      image: "/images/donations/Christmas-Lights-Rushden-scaled.webp",
+      description: "Community celebration spreading joy"
+    },
+    {
+      title: "Community Spirit",
+      image: "/images/donations/community-spirit.jpg",
+      description: "The heart of our supporter community"
+    },
+    {
+      title: "Donations from Our Supporters",
+      image: "/images/donations/Donations-from-our-supporters-scaled.webp",
+      description: "Generous contributions making a real difference"
+    },
+    {
+      title: "Gen Kitchen Opens Our New Offices",
+      image: "/images/donations/Gen-Kitchen-opens-our-new-offices.webp",
+      description: "Celebrating new beginnings with community partners"
+    },
+    {
+      title: "Partnership with Wellingborough Wills",
+      image: "/images/donations/Partnership-with-Wellingborough-Wills-scaled.webp",
+      description: "Professional partnerships supporting SERVE"
+    },
+    {
+      title: "Ricoh Christmas Gifts",
+      image: "/images/donations/Ricoh-Christmas-gifts.webp",
+      description: "Corporate support bringing festive cheer"
+    },
+    {
+      title: "Support from David Wilson Homes",
+      image: "/images/donations/Support-from-David-Wilson-Homes-scaled.webp",
+      description: "Building partnerships in our community"
+    },
+    {
+      title: "Support from the Masonic Lodge",
+      image: "/images/donations/Support-from-the-Masonic-Lodge.webp",
+      description: "Community organizations supporting our mission"
     }
   ]
 
@@ -190,12 +273,12 @@ export default function SupportersPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="/donate"
-              className="inline-flex items-center justify-center bg-yellow-500 hover:bg-yellow-600 text-gray-900 px-8 py-4 rounded-lg text-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
+              className="inline-flex items-center justify-center bg-red-600 hover:bg-red-700 text-white px-8 py-4 rounded-lg text-lg font-bold transition-all duration-200 transform hover:scale-105 shadow-lg hover:shadow-xl"
             >
-              <svg className="w-6 h-6 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+              <svg className="w-6 h-6 mr-2" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M11.645 20.91l-.007-.003-.022-.012a15.247 15.247 0 01-.383-.218 25.18 25.18 0 01-4.244-3.17C4.688 15.36 2.25 12.174 2.25 8.25 2.25 5.322 4.714 3 7.688 3A5.5 5.5 0 0112 5.052 5.5 5.5 0 0116.313 3c2.973 0 5.437 2.322 5.437 5.25 0 3.925-2.438 7.111-4.739 9.256a25.175 25.175 0 01-4.244 3.17 15.247 15.247 0 01-.383.219l-.022.012-.007.004-.003.001a.752.752 0 01-.704 0l-.003-.001z" />
               </svg>
-              Help Now
+              Donate
             </a>
             <a
               href="/volunteer"
