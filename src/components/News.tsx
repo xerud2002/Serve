@@ -7,6 +7,7 @@ import {
   ArrowRightIcon 
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import FacebookEvents from './FacebookEvents'
 
 export default function News() {
   const news = [
@@ -31,17 +32,6 @@ export default function News() {
       link: '/news/charity-partnership',
       featured: false,
       image: 'partnership.jpg'
-    },
-    {
-      id: 3,
-      title: 'AUTUMN COMMUNITY EVENTS PROGRAMME',
-      excerpt: 'Join us for our exciting autumn programme including harvest celebrations, coffee mornings, and wellness workshops across Northamptonshire.',
-      date: 'November 2024',
-      category: 'Events',
-      icon: CalendarDaysIcon,
-      link: '/events',
-      featured: false,
-      image: 'community-events.jpg'
     },
     {
       id: 4,
@@ -188,6 +178,9 @@ export default function News() {
               </article>
             )
           })}
+          
+          {/* Facebook Events - Dynamically loaded */}
+          <FacebookEvents />
         </div>
 
         {/* Newsletter Signup */}

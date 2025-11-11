@@ -45,7 +45,6 @@ export default function Header() {
     { name: 'About Us', href: '/about' },
     { name: 'Get Involved', href: '/volunteer' },
     { name: 'News', href: '/news' },
-    { name: 'How we help', href: '/how-we-help' },
     { name: 'Contact', href: '/contact' },
   ]
 
