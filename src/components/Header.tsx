@@ -124,7 +124,7 @@ export default function Header() {
           </div>
         </div>        {/* Main navigation */}
         <nav className={`max-w-7xl mx-auto px-1 sm:px-2 transition-all duration-300`} aria-label={ARIA_LABELS.mainNavigation}>
-          <div className={`flex items-center justify-between py-2 transition-all duration-300 ${isScrolled ? 'h-16 sm:h-20' : 'h-28 sm:h-36'}`}>
+          <div className={`flex items-center justify-between py-2 transition-all duration-300 h-16 sm:h-20`}>
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
@@ -132,7 +132,7 @@ export default function Header() {
                   alt="SERVE - Supporting Independence"
                   width={isMobile ? 720 : 960}
                   height={isMobile ? 360 : 480}
-                  className={`w-auto transition-all duration-300 ${isScrolled ? (isMobile ? 'h-16' : 'h-20') : (isMobile ? 'h-32' : 'h-40')}`}
+                  className={`w-auto transition-all duration-300 ${isMobile ? 'h-16' : 'h-20'}`}
                   priority
                 />
               </Link>
