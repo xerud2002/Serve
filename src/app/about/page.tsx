@@ -6,7 +6,8 @@ import {
   UserGroupIcon,
   TrophyIcon,
   PhoneIcon,
-  ArrowRightIcon
+  ArrowRightIcon,
+  DocumentTextIcon
 } from '@heroicons/react/24/outline'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
@@ -42,40 +43,53 @@ const teamMembers = [
 
 const trustees = [
   {
-    name: 'Trustee Name 1',
-    role: 'Chair of the Board',
-    image: '/images/trustees/chair.jpg', // Replace with actual photo path
-    expertise: 'Healthcare & Governance'
+    name: 'Anita Harvey',
+    role: 'Chair',
+    image: '/images/trustees/chair.jpg',
+    dateAppointed: 'January 2024',
+    expertise: 'Board Leadership & Governance'
   },
   {
-    name: 'Trustee Name 2',
-    role: 'Vice Chair',
-    image: '/images/trustees/vice-chair.jpg', // Replace with actual photo path
+    name: 'Michael Robert Hulands',
+    role: 'Trustee',
+    image: '/images/trustees/trustee-1.jpg',
+    dateAppointed: 'September 2025',
+    expertise: 'Strategic Development'
+  },
+  {
+    name: 'Rachel Wilson',
+    role: 'Trustee',
+    image: '/images/trustees/trustee-2.jpg',
+    dateAppointed: 'January 2024',
+    expertise: 'Community & Social Care'
+  },
+  {
+    name: 'Simon Howard Partridge',
+    role: 'Trustee',
+    image: '/images/trustees/trustee-3.jpg',
+    dateAppointed: 'November 2022',
     expertise: 'Finance & Risk Management'
   },
   {
-    name: 'Trustee Name 3',
+    name: 'Timothy David Richard James',
     role: 'Trustee',
-    image: '/images/trustees/trustee-1.jpg', // Replace with actual photo path
-    expertise: 'Social Care & Community'
+    image: '/images/trustees/trustee-4.jpg',
+    dateAppointed: 'July 2019',
+    expertise: 'Heritage & Community'
   },
   {
-    name: 'Trustee Name 4',
+    name: 'Maureen Patricia Core',
     role: 'Trustee',
-    image: '/images/trustees/trustee-2.jpg', // Replace with actual photo path
+    image: '/images/trustees/trustee-5.jpg',
+    dateAppointed: 'June 2016',
+    expertise: 'Care Services & Operations'
+  },
+  {
+    name: 'Zara Elizabeth Cunliffe',
+    role: 'Trustee',
+    image: '/images/trustees/trustee-6.jpg',
+    dateAppointed: 'April 2016',
     expertise: 'Legal & Compliance'
-  },
-  {
-    name: 'Trustee Name 5',
-    role: 'Trustee',
-    image: '/images/trustees/trustee-3.jpg', // Replace with actual photo path
-    expertise: 'Marketing & Communications'
-  },
-  {
-    name: 'Trustee Name 6',
-    role: 'Trustee',
-    image: '/images/trustees/trustee-4.jpg', // Replace with actual photo path
-    expertise: 'Human Resources'
   }
 ]
 
@@ -326,7 +340,8 @@ export default function AboutPage() {
                 </div>
                 <div className="p-6">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{trustee.name}</h3>
-                  <p className="text-sm font-semibold text-serve-blue-600 mb-2">{trustee.role}</p>
+                  <p className="text-sm font-semibold text-serve-blue-600 mb-1">{trustee.role}</p>
+                  <p className="text-xs text-gray-500 mb-2">Appointed: {trustee.dateAppointed}</p>
                   <p className="text-xs text-gray-600">{trustee.expertise}</p>
                 </div>
               </div>
@@ -341,7 +356,7 @@ export default function AboutPage() {
               social care, finance, and community development. Our trustees volunteer their time and skills 
               to ensure we maintain the highest standards of care and financial stewardship.
             </p>
-            <div className="bg-white rounded-xl p-6 border border-serve-blue-200">
+            <div className="bg-white rounded-xl p-6 border border-serve-blue-200 mb-6">
               <h4 className="text-lg font-bold text-gray-900 mb-3">Key Responsibilities:</h4>
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start">
@@ -361,6 +376,15 @@ export default function AboutPage() {
                   <span>Compliance with legal and regulatory requirements</span>
                 </li>
               </ul>
+            </div>
+            <div className="text-center">
+              <Link 
+                href="/about/annual-report-2024"
+                className="inline-flex items-center gap-2 bg-serve-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-serve-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
+              >
+                <DocumentTextIcon className="w-5 h-5" />
+                View Annual Report 2023-2024
+              </Link>
             </div>
           </div>
         </div>

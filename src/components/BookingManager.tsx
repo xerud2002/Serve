@@ -98,7 +98,7 @@ export default function BookingManager() {
         month: 'long',
         day: 'numeric'
       })
-    } catch (error) {
+    } catch {
       return 'Invalid Date'
     }
   }
@@ -113,7 +113,7 @@ export default function BookingManager() {
         dateStyle: 'short',
         timeStyle: 'short'
       })
-    } catch (error) {
+    } catch {
       return 'Invalid Date'
     }
   }
