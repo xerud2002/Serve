@@ -39,7 +39,7 @@ export async function GET() {
 
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v19.0/${pageId}/posts?fields=${fields}&limit=8&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v19.0/${pageId}/posts?fields=${fields}&limit=10&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
