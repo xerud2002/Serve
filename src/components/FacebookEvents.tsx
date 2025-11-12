@@ -52,7 +52,7 @@ export default function FacebookEvents() {
         description: 'Tickets are available for our fantastic Evening with Graeme Duffin, of Wet, Wet, Wet, at the Castle Theatre, Wellingborough next month - book your ticket here - https://www.parkwoodtheatres.co.uk/castle-theatre/whats-on/an-evening-with-graeme-duffin-of-wet-wet-wet',
         startTime: '2025-05-23T19:00:00+0100',
         location: 'Castle Theatre, Wellingborough',
-        coverImage: 'https://images.unsplash.com/photo-1501281668745-f7f57925c3b4?w=800&h=600&fit=crop',
+        coverImage: '/images/events/graeme-duffin.jpg',
       },
       {
         id: '1118818683095354',
@@ -60,7 +60,7 @@ export default function FacebookEvents() {
         description: 'Sing for Serve and presentation of the Susan Hollowell Award for volunteering at Park Road Baptist Church, Rushden - details here - https://www.northantstelegraph.co.uk/arts-and-culture/come-along-for-a-festive-sing-song-with-serve-4875111',
         startTime: '2024-12-11T14:00:00+0000',
         location: 'NN10 0RT Rushden, United Kingdom',
-        coverImage: 'https://images.unsplash.com/photo-1519406596751-0a3ccc4937fe?w=800&h=600&fit=crop',
+        coverImage: '/images/events/sing-for-serve.jpg',
       },
       {
         id: '488541410754988',
@@ -69,7 +69,7 @@ export default function FacebookEvents() {
         startTime: '2024-10-04T09:30:00+0100',
         endTime: '2024-10-04T11:00:00+0100',
         location: null,
-        coverImage: 'https://images.unsplash.com/photo-1559027615-cd4628902d4a?w=800&h=600&fit=crop',
+        coverImage: '/images/events/happy-to-serve.jpg',
       },
       {
         id: '1456713141656694',
@@ -78,7 +78,7 @@ export default function FacebookEvents() {
         startTime: '2024-08-10T12:00:00+0100',
         endTime: '2024-08-10T16:00:00+0100',
         location: 'Irchester Country Park, Wellingborough',
-        coverImage: 'https://images.unsplash.com/photo-1530103862676-de8c9debad1d?w=800&h=600&fit=crop',
+        coverImage: '/images/events/family-fun-day.jpg',
       },
     ]
   }
