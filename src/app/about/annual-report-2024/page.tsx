@@ -546,7 +546,7 @@ export default function AnnualReport2024Page() {
               href="/get-involved/donate"
               className="bg-serve-green-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-serve-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              Support Our Work
+              Donate
             </Link>
           </div>
         </div>
