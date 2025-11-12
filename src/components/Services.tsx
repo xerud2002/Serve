@@ -24,7 +24,7 @@ export default function Services() {
       id: 'day-care',
       title: 'Day Care & Meals on Wheels',
       description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
-      image: '/images/community/bigchat1.jpg',
+      image: '/images/daycenter/day-center4.jpg',
       link: '/services/day-care',
       highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff']
     },
@@ -32,7 +32,7 @@ export default function Services() {
       id: 'transport',
       title: 'Community Transport',
       description: 'Reliable, affordable transport to medical appointments, hospital visits, and family connections. Our drivers understand the needs of older people and those with mobility challenges.',
-      image: '/images/transport/bus.jpg',
+      image: '/images/transport/community-transport1.jpg',
       link: '/services/transport',
       highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates']
     },
@@ -40,7 +40,7 @@ export default function Services() {
       id: 'befriending',
       title: 'Countywide Befriending',
       description: 'Combat loneliness with our friendly befriending service. We provide regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
-      image: '/images/community/bigchat2.jpg',
+      image: '/images/befriending/befriending1.jpg',
       link: '/services/befriending',
       highlights: ['Combat Loneliness', 'Regular Visits', 'Emotional Support', 'Countywide Coverage']
     },
@@ -75,7 +75,8 @@ export default function Services() {
           </div>
           
           <h2 className={`font-bold text-gray-900 mb-6 ${MOBILE_CLASSES.mobileHeading}`}>
-            Ways We Can Assist
+            <span className="text-gray-900">Ways We Can</span>{' '}
+            <span className="text-serve-blue-600">Assist</span>
           </h2>
           <p className={`text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 

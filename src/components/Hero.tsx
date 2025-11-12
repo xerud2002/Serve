@@ -1,11 +1,29 @@
+'use client'
+
 import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
 import Image from 'next/image'
+import { useEffect, useState } from 'react'
 
 export default function Hero() {
+  const [snowflakes, setSnowflakes] = useState<Array<{ id: number; left: string; delay: string; duration: string; size: string; opacity: string }>>([])
+
+  useEffect(() => {
+    // Generate snowflakes with more varied sizes and opacity
+    const flakes = Array.from({ length: 50 }, (_, i) => ({
+      id: i,
+      left: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 5}s`,
+      duration: `${8 + Math.random() * 12}s`,
+      size: `${8 + Math.random() * 16}px`, // Larger range: 8-24px
+      opacity: `${0.5 + Math.random() * 0.5}` // Opacity range: 0.5-1.0
+    }))
+    setSnowflakes(flakes)
+  }, [])
+
   return (
-    <section className="relative bg-gradient-to-br from-serve-blue-800 via-serve-blue-900 to-serve-blue-950 text-white overflow-hidden">
-      {/* Background image */}
-      <div className="absolute inset-0 opacity-20">
+    <section className="relative bg-serve-blue-800 text-white overflow-hidden">
+      {/* Background image with stronger blue overlay */}
+      <div className="absolute inset-0 opacity-10">
         <OptimizedImage
           {...SERVE_IMAGES.hero}
           fill
@@ -13,7 +31,29 @@ export default function Hero() {
           sizes="100vw"
           priority
         />
-        <div className="absolute inset-0 bg-gradient-to-br from-serve-blue-800/80 via-serve-blue-900/80 to-serve-blue-950/80" />
+        <div className="absolute inset-0 bg-serve-blue-800/95" />
+      </div>
+
+      {/* Animated Snowflakes */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
+        {snowflakes.map((flake) => (
+          <div
+            key={flake.id}
+            className="absolute animate-snowfall"
+            style={{
+              left: flake.left,
+              animationDelay: flake.delay,
+              animationDuration: flake.duration,
+              width: flake.size,
+              height: flake.size,
+              opacity: flake.opacity,
+            }}
+          >
+            <svg viewBox="0 0 24 24" fill="white">
+              <path d="M12 0L13.5 7.5L21 6L15 12L21 18L13.5 16.5L12 24L10.5 16.5L3 18L9 12L3 6L10.5 7.5L12 0Z" />
+            </svg>
+          </div>
+        ))}
       </div>
       
       {/* Background pattern overlay */}
@@ -118,15 +158,15 @@ export default function Hero() {
           
           {/* Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div className="bg-serve-blue-800/40 backdrop-blur-sm rounded-2xl p-6 border border-serve-blue-700/30">
               <div className="text-4xl font-bold text-serve-green-300 mb-2">40+</div>
               <div className="text-lg text-blue-200">Years Serving Our Community</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div className="bg-serve-blue-800/40 backdrop-blur-sm rounded-2xl p-6 border border-serve-blue-700/30">
               <div className="text-4xl font-bold text-serve-green-300 mb-2">Award</div>
               <div className="text-lg text-blue-200">Winning Care Team</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div className="bg-serve-blue-800/40 backdrop-blur-sm rounded-2xl p-6 border border-serve-blue-700/30">
               <div className="text-4xl font-bold text-serve-green-300 mb-2">Local</div>
               <div className="text-lg text-blue-200">Northamptonshire Charity</div>
             </div>

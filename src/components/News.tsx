@@ -1,9 +1,6 @@
 import { 
   TrophyIcon, 
-  BuildingOffice2Icon, 
   CalendarDaysIcon,
-  UserGroupIcon,
-  HeartIcon,
   ArrowRightIcon 
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
@@ -36,7 +33,10 @@ export default function News() {
             <CalendarDaysIcon className="w-4 h-4 mr-2" />
             Latest Updates
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">Upcomming & Past Events</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <span className="text-gray-900">Upcoming &</span>{' '}
+            <span className="text-serve-blue-600">Past Events</span>
+          </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
             that are making a difference across Northamptonshire.

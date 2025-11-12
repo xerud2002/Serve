@@ -154,7 +154,10 @@ export default function Contact() {
             <ChatBubbleBottomCenterTextIcon className="w-4 h-4 mr-2" />
             Contact SERVE
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">Get in Touch</h2>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-white">Get in</span>{' '}
+            <span className="text-serve-green-300">Touch</span>
+          </h2>
           <p className="text-xl opacity-90 max-w-3xl mx-auto">
             Whether you need our care services, want to volunteer, or have questions about our work, 
             we&apos;re here to help. Reach out to us today.

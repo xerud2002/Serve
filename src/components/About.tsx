@@ -36,7 +36,8 @@ export default function About() {
             <div className="mb-6">
               <span className="text-serve-blue-600 font-semibold text-lg">Our Story</span>
               <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mt-2 leading-tight">
-                40+ Years of Caring for Our Community
+                <span className="text-gray-900">40+ Years of</span>{' '}
+                <span className="text-serve-blue-600">Caring for Our Community</span>
               </h2>
             </div>
             

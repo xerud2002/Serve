@@ -1,3 +1,5 @@
+"use client"
+
 import Link from 'next/link'
 import Image from 'next/image'
 import {
@@ -9,10 +11,6 @@ import {
   ArrowRightIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline'
-
-import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
-
-export const metadata = generateSEOMetadata(seoConfigs.about)
 
 const teamMembers = [
   {
@@ -385,6 +383,191 @@ export default function AboutPage() {
                 <DocumentTextIcon className="w-5 h-5" />
                 View Annual Report 2023-2024
               </Link>
+            </div>
+          </div>
+
+          {/* Board Meetings Section */}
+          <div className="mt-12 bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <div className="flex items-center gap-3 mb-6">
+              <div className="w-12 h-12 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 rounded-xl flex items-center justify-center">
+                <DocumentTextIcon className="w-6 h-6 text-serve-blue-700" />
+              </div>
+              <h3 className="text-2xl font-bold text-gray-900">Trustee Board Meetings</h3>
+            </div>
+
+            <p className="text-gray-700 mb-8">
+              In the interests of transparency and accountability, we publish details of our trustee board meetings, 
+              including minutes of past meetings and schedules for upcoming meetings.
+            </p>
+
+            {/* Upcoming Meetings */}
+            <div className="mb-8">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg className="w-5 h-5 text-serve-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                </svg>
+                Upcoming Meetings
+              </h4>
+              <div className="bg-serve-blue-50 rounded-xl p-6 border border-serve-blue-200">
+                <div className="space-y-4">
+                  {/* Sample upcoming meeting - update with real dates */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div className="flex items-start justify-between">
+                      <div>
+                        <p className="font-semibold text-gray-900">Quarterly Board Meeting - Q4 2025</p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          <span className="font-medium">Date:</span> To be confirmed
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">Time:</span> To be confirmed
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">Location:</span> SERVE Office, Rushden
+                        </p>
+                      </div>
+                      <span className="text-xs bg-serve-green-100 text-serve-green-700 px-3 py-1 rounded-full font-semibold">
+                        Scheduled
+                      </span>
+                    </div>
+                  </div>
+                  
+                  {/* Add more upcoming meetings here */}
+                  <p className="text-sm text-gray-500 italic text-center">
+                    Meeting dates are scheduled quarterly. Check back for updates.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Past Meeting Minutes */}
+            <div className="mb-8">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg className="w-5 h-5 text-serve-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                Meeting Minutes
+              </h4>
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <div className="space-y-3">
+                  {/* Sample meeting minutes - update with real data */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <p className="font-semibold text-gray-900">Board Meeting Minutes - September 2025</p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          <span className="font-medium">Date:</span> September 15, 2025
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">Attendees:</span> 6 of 7 trustees present
+                        </p>
+                        <p className="text-sm text-gray-600 mt-2">
+                          <span className="font-medium">Key Decisions:</span> Approved Q3 financials, Strategic plan review, New service expansion discussion
+                        </p>
+                      </div>
+                      <a 
+                        href="#" 
+                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
+                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
+                      >
+                        <DocumentTextIcon className="w-5 h-5" />
+                        View PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <p className="font-semibold text-gray-900">Board Meeting Minutes - June 2025</p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          <span className="font-medium">Date:</span> June 20, 2025
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">Attendees:</span> 7 of 7 trustees present
+                        </p>
+                        <p className="text-sm text-gray-600 mt-2">
+                          <span className="font-medium">Key Decisions:</span> Annual report approval, Budget review, CQC compliance update
+                        </p>
+                      </div>
+                      <a 
+                        href="#" 
+                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
+                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
+                      >
+                        <DocumentTextIcon className="w-5 h-5" />
+                        View PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <div className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <p className="font-semibold text-gray-900">Board Meeting Minutes - March 2025</p>
+                        <p className="text-sm text-gray-600 mt-1">
+                          <span className="font-medium">Date:</span> March 18, 2025
+                        </p>
+                        <p className="text-sm text-gray-600">
+                          <span className="font-medium">Attendees:</span> 7 of 7 trustees present
+                        </p>
+                        <p className="text-sm text-gray-600 mt-2">
+                          <span className="font-medium">Key Decisions:</span> Q1 performance review, Volunteer recruitment initiative, Fundraising strategy
+                        </p>
+                      </div>
+                      <a 
+                        href="#" 
+                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
+                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
+                      >
+                        <DocumentTextIcon className="w-5 h-5" />
+                        View PDF
+                      </a>
+                    </div>
+                  </div>
+
+                  {/* Placeholder for more minutes */}
+                  <p className="text-sm text-gray-500 italic text-center pt-4">
+                    Additional meeting minutes available upon request
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Board Operations */}
+            <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-xl p-6 border border-serve-blue-100">
+              <h4 className="text-lg font-bold text-gray-900 mb-3">How the Board Operates</h4>
+              <div className="space-y-3 text-sm text-gray-700">
+                <p>
+                  <span className="font-semibold">Meeting Frequency:</span> The Board of Trustees meets quarterly 
+                  to review organizational performance, approve strategic initiatives, and ensure compliance with 
+                  all regulatory requirements.
+                </p>
+                <p>
+                  <span className="font-semibold">Decision Making:</span> Decisions are made collectively by the 
+                  Board, with all trustees having equal voting rights. A quorum of at least 50% of trustees is 
+                  required for formal decision-making.
+                </p>
+                <p>
+                  <span className="font-semibold">Governing Document:</span> SERVE operates in accordance with 
+                  our Articles of Association and Charity Commission guidelines, ensuring transparent and 
+                  accountable governance.
+                </p>
+                <p>
+                  <span className="font-semibold">Public Access:</span> Members of the public may request copies 
+                  of meeting minutes by contacting our office. Some information may be redacted to protect 
+                  confidential matters.
+                </p>
+              </div>
+              <div className="mt-4 pt-4 border-t border-serve-blue-200">
+                <p className="text-sm text-gray-600">
+                  <span className="font-semibold">Contact:</span> For inquiries about board meetings or to request 
+                  past minutes, please email{' '}
+                  <a href="mailto:info@serve.org.uk" className="text-serve-blue-600 hover:text-serve-blue-700 font-semibold">
+                    info@serve.org.uk
+                  </a>
+                  {' '}or call 01933 315555
+                </p>
+              </div>
             </div>
           </div>
         </div>

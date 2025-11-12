@@ -18,8 +18,8 @@ export default function CallToActionSection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            Personalized Care Starts with<br/>
-            <span className="text-serve-blue-600">Understanding Your Needs</span>
+            <span className="text-gray-900">Personalized Care</span>{' '}
+            <span className="text-serve-blue-600">Starts with Understanding Your Needs</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
             Take the first step towards personalized care with a comprehensive home assessment. Our compassionate, 
