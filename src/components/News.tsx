@@ -173,23 +173,6 @@ export default function News() {
               Subscribe
             </button>
           </div>
-          
-          <div className="flex justify-center gap-8">
-            <a
-              href="/news"
-              className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold"
-            >
-              View All News
-              <ArrowRightIcon className="ml-2 h-4 w-4" />
-            </a>
-            <a
-              href="/events"
-              className="inline-flex items-center text-serve-green-600 hover:text-serve-green-800 font-semibold"
-            >
-              Upcoming Events
-              <ArrowRightIcon className="ml-2 h-4 w-4" />
-            </a>
-          </div>
         </div>
       </div>
     </section>
