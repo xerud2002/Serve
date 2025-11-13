@@ -13,7 +13,6 @@ import {
   CheckCircleIcon,
   ExclamationTriangleIcon
 } from '@heroicons/react/24/outline'
-import { useContactForm } from '@/hooks/useContactForm'
 import { validateForm, contactFormRules, type ValidationError } from '@/utils/validation'
 
 export default function Contact() {
@@ -27,9 +26,9 @@ export default function Contact() {
     privacy: false
   })
   const [validationErrors, setValidationErrors] = useState<ValidationError[]>([])
-  
-  // Replace with your actual Formspree endpoint
-  const { isSubmitting, isSubmitted, error, submitForm, resetForm } = useContactForm('https://formspree.io/f/YOUR_FORM_ID')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string | null>(null)
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -46,6 +45,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
+    setError(null)
     
     // Custom validation for this form
     const errors: ValidationError[] = []
@@ -86,9 +86,25 @@ export default function Contact() {
       privacy: formData.privacy
     }
     
-    const success = await submitForm(submissionData)
-    if (success) {
-      // Clear form
+    try {
+      setIsSubmitting(true)
+      
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(submissionData),
+      })
+      
+      const data = await response.json()
+      
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+      
+      // Success - clear form and show success message
+      setIsSubmitted(true)
       setFormData({
         firstName: '',
         lastName: '',
@@ -99,7 +115,17 @@ export default function Contact() {
         privacy: false
       })
       setValidationErrors([])
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred')
+    } finally {
+      setIsSubmitting(false)
     }
+  }
+  
+  const resetForm = () => {
+    setIsSubmitted(false)
+    setError(null)
+    setValidationErrors([])
   }
 
   const getFieldError = (fieldName: string) => {
