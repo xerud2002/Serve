@@ -125,7 +125,7 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-2 justify-center items-center mb-16 max-w-4xl mx-auto">
             <a
               href="/donate"
-              className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
+              className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                 <rect x="3" y="8" width="18" height="12" rx="2" strokeLinecap="round" strokeLinejoin="round"/>
@@ -137,7 +137,7 @@ export default function Hero() {
             
             <a
               href="/volunteer"
-              className="bg-red-600 hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
+              className="bg-yellow-500 hover:bg-yellow-600 text-yellow-950 font-bold px-8 py-4 rounded-xl shadow-lg hover:shadow-xl transition-all duration-200 w-full sm:w-auto text-center flex items-center justify-center gap-2"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
