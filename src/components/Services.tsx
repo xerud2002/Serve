@@ -67,18 +67,18 @@ export default function Services() {
       <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
         <div className={`text-center ${isMobile ? 'mb-10' : 'mb-16'}`}>
           {/* Badge */}
-          <div className="mb-6 flex justify-center">
-            <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-serve-green-500 to-serve-green-600 text-white shadow-lg">
-              
-              Comprehensive Home Care Solutions
-            </span>
+          <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+            </svg>
+            Comprehensive Home Care Solutions
           </div>
           
-          <h2 className={`font-bold text-gray-900 mb-6 ${MOBILE_CLASSES.mobileHeading}`}>
+          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
             <span className="text-gray-900">Ways We Can</span>{' '}
             <span className="text-serve-blue-600">Assist</span>
           </h2>
-          <p className={`text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
+          <p className={`text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 
             and adults living with a disability or chronic medical condition.
           </p>

@@ -6,7 +6,7 @@ import {
 import Image from 'next/image'
 import FacebookEvents from '@/components/FacebookEvents'
 
-export default function News() {
+export default function Events() {
   const news = [
     {
       id: 1,
@@ -26,7 +26,7 @@ export default function News() {
   const regularNews = news.filter(item => !item.featured)
 
   return (
-    <section id="news" className="py-24 bg-gray-50">
+    <section id="events" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
