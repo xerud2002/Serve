@@ -65,7 +65,7 @@ export async function POST(request: NextRequest) {
       // Admin notification email
       resend.emails.send({
         from: 'SERVE Contact Form <noreply@serve.org.uk>',
-        to: 'info@serve.org.uk',
+        to: 'web@serve.org.uk',
         subject: adminEmail.subject,
         html: adminEmail.html,
         text: adminEmail.text,
@@ -79,7 +79,7 @@ export async function POST(request: NextRequest) {
         subject: userEmail.subject,
         html: userEmail.html,
         text: userEmail.text,
-        replyTo: 'info@serve.org.uk'
+        replyTo: 'web@serve.org.uk'
       })
     ])
     
