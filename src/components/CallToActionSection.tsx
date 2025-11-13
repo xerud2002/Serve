@@ -92,38 +92,48 @@ export default function CallToActionSection() {
             </div>
           </div>
           
-          {/* CTA Button */}
-          <div className="mb-8">
+          {/* Trust Badges - Redesigned */}
+          <div className="bg-gradient-to-br from-white to-serve-blue-50/50 rounded-3xl p-8 md:p-10 shadow-2xl border-2 border-serve-blue-100/50 max-w-4xl mx-auto mb-10">
+            <div className="grid md:grid-cols-3 gap-6 mb-8">
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-serve-green-500 to-serve-green-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2 text-lg">No Obligation</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">Free assessment with no pressure to proceed</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-serve-blue-500 to-serve-blue-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M16.5 10.5V6.75a4.5 4.5 0 10-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 002.25-2.25v-6.75a2.25 2.25 0 00-2.25-2.25H6.75a2.25 2.25 0 00-2.25 2.25v6.75a2.25 2.25 0 002.25 2.25z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2 text-lg">Confidential</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">Your privacy protected at every step</p>
+              </div>
+              
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-16 h-16 bg-gradient-to-br from-yellow-500 to-yellow-600 rounded-2xl flex items-center justify-center mb-4 shadow-lg group-hover:shadow-xl group-hover:scale-110 transition-all duration-300">
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12c0 4.556-4.03 8.25-9 8.25a9.764 9.764 0 01-2.555-.337A5.972 5.972 0 015.41 20.97a5.969 5.969 0 01-.474-.065 4.48 4.48 0 00.978-2.025c.09-.457-.133-.901-.467-1.226C3.93 16.178 3 14.189 3 12c0-4.556 4.03-8.25 9-8.25s9 3.694 9 8.25z" />
+                  </svg>
+                </div>
+                <h4 className="font-bold text-gray-900 mb-2 text-lg">Free Consultation</h4>
+                <p className="text-sm text-gray-600 leading-relaxed">Expert advice at no cost to you</p>
+              </div>
+            </div>
+            
+            {/* CTA Button */}
             <div className="[&>button]:bg-gradient-to-r [&>button]:from-serve-green-600 [&>button]:to-serve-green-700 [&>button]:hover:from-serve-green-700 [&>button]:hover:to-serve-green-800 [&>button]:text-white [&>button]:font-bold [&>button]:px-12 [&>button]:py-5 [&>button]:text-lg [&>button]:shadow-xl [&>button]:hover:shadow-2xl [&>button]:transform [&>button]:hover:scale-105 [&>button]:transition-all [&>button]:duration-300 [&>button]:rounded-2xl [&>button]:flex [&>button]:items-center [&>button]:gap-3">
               <AssessmentBookingButton />
             </div>
-          </div>
-          
-          <div className="flex flex-wrap items-center justify-center gap-8 md:gap-12">
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-              </div>
-              <span className="font-semibold text-gray-800">No obligation</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-              </div>
-              <span className="font-semibold text-gray-800">Confidential</span>
-            </div>
-            <div className="flex items-center gap-3 bg-white/80 backdrop-blur-sm px-6 py-3 rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-              <div className="flex-shrink-0 w-10 h-10 bg-green-100 rounded-full flex items-center justify-center">
-                <svg className="w-6 h-6 text-green-600" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-              </div>
-              <span className="font-semibold text-gray-800">Free consultation</span>
-            </div>
+            
+            <p className="text-center text-sm text-gray-500 mt-6">
+              Trusted by families across Northamptonshire for over 40 years
+            </p>
           </div>
         </div>
 

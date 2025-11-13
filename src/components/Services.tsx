@@ -69,7 +69,7 @@ export default function Services() {
           {/* Badge */}
           <div className="mb-6 flex justify-center">
             <span className="inline-flex items-center px-5 py-2 rounded-full text-sm font-semibold bg-gradient-to-r from-serve-green-500 to-serve-green-600 text-white shadow-lg">
-              <CheckCircleIcon className="w-4 h-4 mr-2" />
+              
               Comprehensive Home Care Solutions
             </span>
           </div>
