@@ -50,10 +50,11 @@ export default function WhyChooseSERVE() {
             </svg>
             Trusted Home Care Provider
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-            Why Choose SERVE?
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-cyan-600">Why Choose</span>{' '}
+            <span className="text-red-600">SERVE?</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed">
             For over 40 years, we&apos;ve been Northamptonshire&apos;s most trusted care charity,
             supporting older people and adults with disabilities to live independently at home.
           </p>

@@ -74,9 +74,9 @@ export default function Services() {
             Comprehensive Home Care Solutions
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            <span className="text-gray-900">Ways We Can</span>{' '}
-            <span className="text-serve-blue-600">Assist</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-cyan-600">Ways We Can</span>{' '}
+            <span className="text-red-600">Assist</span>
           </h2>
           <p className={`text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
             Everything we do is tailored to support and improve the daily lives of older people 

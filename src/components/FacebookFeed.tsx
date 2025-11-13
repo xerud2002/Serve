@@ -115,9 +115,9 @@ export default function FacebookFeed() {
             <PhotoIcon className="w-4 h-4 mr-2" />
             Social Media
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            <span className="text-gray-900">Latest</span>{' '}
-            <span className="text-serve-blue-600">News</span>
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="text-cyan-600">Latest</span>{' '}
+            <span className="text-red-600">News</span>
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Follow our journey and see the impact we&apos;re making in the community through our Facebook page.

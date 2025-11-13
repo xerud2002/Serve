@@ -6,7 +6,7 @@ import {
 import Image from 'next/image'
 import FacebookEvents from '@/components/FacebookEvents'
 
-export default function Events() {
+export default function News() {
   const news = [
     {
       id: 1,
@@ -26,10 +26,24 @@ export default function Events() {
   const regularNews = news.filter(item => !item.featured)
 
   return (
-    <section id="events" className="py-24 bg-gray-50">
+    <section id="news" className="py-24 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Featured Award - Moved to top */}
+        <div className="text-center mb-16">
+          <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
+            <CalendarDaysIcon className="w-4 h-4 mr-2" />
+            Latest Updates
+          </div>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            <span className="text-gray-900">Upcoming &</span>{' '}
+            <span className="text-serve-blue-600">Past Events</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
+            that are making a difference across Northamptonshire.
+          </p>
+        </div>
+
+        {/* Featured News */}
         {featuredNews && (
           <div className="mb-16">
             <article className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
@@ -58,7 +72,7 @@ export default function Events() {
                   
                   <a
                     href={featuredNews.link}
-                    className="group inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 w-fit"
+                    className="group inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 w-fit"
                     aria-label={`Read more about ${featuredNews.title}`}
                   >
                     Read Full Story
@@ -66,7 +80,7 @@ export default function Events() {
                   </a>
                 </div>
                 
-                {/* Image */}
+                {/* Image Placeholder */}
                 <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center relative overflow-hidden">
                   <Image
                     src="/images/awards/regional-winner.jpg"
@@ -83,21 +97,6 @@ export default function Events() {
             </article>
           </div>
         )}
-        
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <CalendarDaysIcon className="w-4 h-4 mr-2" />
-            Latest Updates
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-cyan-600">Upcoming &</span>{' '}
-            <span className="text-red-600">Past Events</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
-            that are making a difference across Northamptonshire.
-          </p>
-        </div>
 
         {/* Regular News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">

@@ -17,9 +17,9 @@ export default function CallToActionSection() {
             Start Your Care Journey
           </div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-            <span className="text-gray-900">Personalized Care</span>{' '}
-            <span className="text-serve-blue-600">Starts with Understanding Your Needs</span>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
+            <span className="text-cyan-600">Personalized Care</span>{' '}
+            <span className="text-red-600">Starts with Understanding Your Needs</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
             Take the first step towards personalized care with a comprehensive home assessment. Our compassionate, 
