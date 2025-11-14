@@ -10,6 +10,7 @@ import {
   ShieldCheckIcon
 } from '@heroicons/react/24/outline'
 import type { Metadata } from 'next'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
   title: 'Annual Report 2023-2024 | SERVE',
@@ -40,9 +41,7 @@ export default function AnnualReport2024Page() {
               <DocumentTextIcon className="w-5 h-5" />
               <span className="text-sm font-semibold">Financial Year 2023-2024</span>
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Annual Report & Financial Statements
-            </h1>
+            <MajorTitle primary="Annual Report &" secondary="Financial Statements" dark size="large" />
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-4">
               Year Ending March 31, 2024
             </p>

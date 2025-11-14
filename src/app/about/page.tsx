@@ -11,6 +11,7 @@ import {
   ArrowRightIcon,
   DocumentTextIcon
 } from '@heroicons/react/24/outline'
+import MajorTitle from '@/components/MajorTitle'
 
 const teamMembers = [
   {
@@ -125,9 +126,7 @@ export default function AboutPage() {
               <TrophyIcon className="w-5 h-5" />
               <span className="text-sm font-semibold">Award-Winning Care Since 1980s</span>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About SERVE
-            </h1>
+            <MajorTitle primary="About" secondary="SERVE" dark />
             <p className="text-xl text-blue-100 leading-relaxed">
               For over 40 years, SERVE has been providing award-winning care services to help older people 
               and adults with disabilities maintain their independence across Northamptonshire.

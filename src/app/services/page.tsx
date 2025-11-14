@@ -17,6 +17,7 @@ import {
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.services)
 
@@ -115,9 +116,7 @@ export default function ServicesPage() {
               Award-Winning Care Services
             </div>
             
-            <h1 className="text-5xl lg:text-6xl font-bold mb-8 leading-tight">
-              Our <span className="text-serve-blue-200">Services</span>
-            </h1>
+            <MajorTitle primary="Our" secondary="Services" dark size="large" accentClass="text-serve-blue-200" className="mb-8" />
             
             <p className="text-xl lg:text-2xl opacity-90 max-w-4xl mx-auto leading-relaxed">
               For over 40 years, SERVE has provided comprehensive, award-winning care services 

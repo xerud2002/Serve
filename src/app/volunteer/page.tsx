@@ -19,6 +19,7 @@ import {
 } from '@heroicons/react/24/outline'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.volunteer)
 
@@ -210,9 +211,7 @@ export default function VolunteerPage() {
                 Join Our Caring Community
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Volunteer with <span className="text-serve-green-200">SERVE</span>
-              </h1>
+              <MajorTitle primary="Volunteer with" secondary="SERVE" dark accentClass="text-serve-green-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Make a meaningful difference in your community by volunteering with SERVE. 

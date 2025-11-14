@@ -16,6 +16,7 @@ import {
   BeakerIcon,
   ShoppingBagIcon
 } from '@heroicons/react/24/outline'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
   title: 'Personal & Domestic Care - SERVE | Award-Winning Homecare in Northamptonshire',
@@ -163,9 +164,7 @@ export default function PersonalCarePage() {
                 Best Homecare Team 2024 - Great British Care Awards
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Personal & <span className="text-serve-blue-200">Domestic Care</span>
-              </h1>
+              <MajorTitle primary="Personal &" secondary="Domestic Care" dark accentClass="text-serve-blue-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Award-winning, CQC registered personal care services helping you maintain 

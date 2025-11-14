@@ -14,6 +14,7 @@ import {
 import NewsletterSignup from '@/components/NewsletterSignup'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
 
@@ -165,9 +166,7 @@ export default function NewsPage() {
               Latest Updates
             </div>
             
-            <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-              News & <span className="text-serve-blue-200">Events</span>
-            </h1>
+            <MajorTitle primary="News &" secondary="Events" dark accentClass="text-serve-blue-200" />
             
             <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed">
               Stay connected with SERVE&apos;s latest news, achievements, events, and community initiatives 

@@ -19,6 +19,7 @@ import {
   BeakerIcon,
   HomeIcon
 } from '@heroicons/react/24/outline'
+import MajorTitle from '@/components/MajorTitle'
 
 const transportServices = [
   {
@@ -126,9 +127,7 @@ export default function TransportPage() {
                 Door-to-Door Service
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Community <span className="text-purple-200">Transport</span>
-              </h1>
+              <MajorTitle primary="Community" secondary="Transport" dark accentClass="text-purple-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Safe, reliable transport to medical appointments, shopping trips, 

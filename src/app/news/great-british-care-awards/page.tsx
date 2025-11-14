@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { ArrowLeftIcon, TrophyIcon, StarIcon, HeartIcon } from '@heroicons/react/24/outline'
 import type { Metadata } from 'next'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
   title: 'Great British Care Awards 2024 - Best Homecare Team Winner | SERVE',
@@ -31,9 +32,7 @@ export default function GreatBritishCareAwardsPage() {
               <TrophyIcon className="w-5 h-5" />
               AWARD WINNER 2024
             </div>
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Best Homecare Team, East Midlands
-            </h1>
+            <MajorTitle primary="Best Homecare Team," secondary="East Midlands" dark size="large" />
             <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto mb-8">
               Great British Care Awards 2024
             </p>

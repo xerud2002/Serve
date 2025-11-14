@@ -18,6 +18,7 @@ import {
   BookOpenIcon,
   FaceSmileIcon
 } from '@heroicons/react/24/outline'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
   title: 'Day Care & Meals on Wheels - SERVE | Ron Manning Day Centre Northamptonshire',
@@ -133,9 +134,7 @@ export default function DayCarePage() {
                 Ron Manning Day and Activity Centre
               </div>
 
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
-                Day Care & <span className="text-serve-green-200">Meals on Wheels</span>
-              </h1>
+              <MajorTitle primary="Day Care &" secondary="Meals on Wheels" dark accentClass="text-serve-green-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 A welcoming community hub offering social activities, nutritious meals, 

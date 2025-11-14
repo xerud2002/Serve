@@ -1,5 +1,6 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
+import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
   title: 'Our Supporters | SERVE',
@@ -185,9 +186,7 @@ export default function SupportersPage() {
             </svg>
             Thank You to Our Amazing Community
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold mb-6">
-            Our Supporters
-          </h1>
+          <MajorTitle primary="Our" secondary="Supporters" dark size="large" />
           <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto leading-relaxed">
             A heartfelt thank you to everyone who has supported SERVE over the years. Your generosity, time, and dedication make our work possible.
           </p>

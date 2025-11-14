@@ -94,6 +94,48 @@ npm run dev
 - ✅ **Project Tracking**: Built-in todo list component for development progress
 - ✅ **File Cleanup**: Removed build artifacts, keeping only project files
 - ✅ **Theme Update**: Updated color palette to match brand identity
+- ✅ **MajorTitle Component**: Unified heading styling across all pages
+- ✅ **Policy Pages**: Added Privacy, Terms, and Accessibility pages
+- ✅ **Leadership Update**: CEO Tony Gibbs content and photo
+
+## 📐 Component Library
+
+### MajorTitle Component
+
+A reusable component for consistent major page headings with optional accent text:
+
+```tsx
+import MajorTitle from '@/components/MajorTitle'
+
+// Basic usage
+<MajorTitle primary="About" secondary="SERVE" dark />
+
+// With custom accent color
+<MajorTitle 
+  primary="Our" 
+  secondary="Services" 
+  dark 
+  size="large" 
+  accentClass="text-serve-blue-200" 
+/>
+
+// Light background variant
+<MajorTitle primary="Privacy" secondary="Policy" />
+```
+
+**Props:**
+- `primary` (string, required): Main heading text
+- `secondary` (string, optional): Accent text displayed on second line
+- `dark` (boolean, default: false): White text for dark backgrounds
+- `size` ('default' | 'large', default: 'default'): Heading size
+- `accentClass` (string, optional): Custom Tailwind class for accent color
+- `className` (string, optional): Additional classes for the h1 element
+
+**Default Styling:**
+- Default size: `text-4xl md:text-5xl`
+- Large size: `text-5xl md:text-6xl lg:text-7xl`
+- Light mode: `text-serve-blue-800` with `text-serve-blue-600` accent
+- Dark mode: `text-white` with `text-serve-blue-200` accent
 
 ## 🌈 Color Palette
 

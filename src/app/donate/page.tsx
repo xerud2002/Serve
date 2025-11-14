@@ -1,5 +1,6 @@
 import React from "react";
 import FriendsOfServe from "@/components/FriendsOfServe";
+import MajorTitle from '@/components/MajorTitle'
 import { HeartIcon, PhoneIcon, ArrowRightIcon, SparklesIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 
@@ -20,10 +21,7 @@ export default function DonatePage() {
             <HeartIcon className="w-5 h-5 mr-2" />
             Every Gift Transforms Lives
           </div>
-          <h1 className="text-6xl md:text-7xl font-extrabold mb-6 leading-tight drop-shadow-lg">
-            Make a Difference<br />
-            <span className="text-rose-100">Today</span>
-          </h1>
+          <MajorTitle primary="Make a Difference" secondary="Today" dark size="large" accentClass="text-rose-100" className="font-extrabold drop-shadow-lg" />
           <p className="text-2xl mb-12 leading-relaxed text-rose-50 max-w-3xl mx-auto">
             Your generosity helps us provide life-changing care, transport, and support to vulnerable adults across Northamptonshire.
           </p>
