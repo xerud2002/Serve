@@ -1,6 +1,5 @@
 'use client'
 
-import OptimizedImage, { SERVE_IMAGES } from './OptimizedImage'
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
 
@@ -22,40 +21,6 @@ export default function Hero() {
 
   return (
     <section className="relative bg-serve-blue-800 text-white overflow-hidden">
-      {/* Background image with stronger blue overlay */}
-      <div className="absolute inset-0 opacity-10">
-        <OptimizedImage
-          {...SERVE_IMAGES.hero}
-          fill
-          className="object-cover"
-          sizes="100vw"
-          priority
-        />
-        <div className="absolute inset-0 bg-serve-blue-800/95" />
-      </div>
-
-      {/* Animated Snowflakes */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        {snowflakes.map((flake) => (
-          <div
-            key={flake.id}
-            className="absolute animate-snowfall"
-            style={{
-              left: flake.left,
-              animationDelay: flake.delay,
-              animationDuration: flake.duration,
-              width: flake.size,
-              height: flake.size,
-              opacity: flake.opacity,
-            }}
-          >
-            <svg viewBox="0 0 24 24" fill="white">
-              <path d="M12 0L13.5 7.5L21 6L15 12L21 18L13.5 16.5L12 24L10.5 16.5L3 18L9 12L3 6L10.5 7.5L12 0Z" />
-            </svg>
-          </div>
-        ))}
-      </div>
-      
       {/* Background pattern overlay */}
       <div className="absolute inset-0 opacity-10">
         <div 

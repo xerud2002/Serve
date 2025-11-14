@@ -83,42 +83,6 @@ export default function OptimizedImage({
 
 // Predefined image configurations for SERVE website
 export const SERVE_IMAGES = {
-  hero: {
-    src: '/pics/hero-care.svg',
-    alt: 'SERVE charity providing compassionate care services to older people and adults with disabilities',
-    width: 1200,
-    height: 600
-  },
-  personalCare: {
-    src: '/pics/personal-care.svg',
-    alt: 'Personal care services - helping with daily activities at home',
-    width: 600,
-    height: 400
-  },
-  dayCare: {
-    src: '/pics/day-care.svg',
-    alt: 'Ron Manning Day and Activity Centre - social activities and meals',
-    width: 600,
-    height: 400
-  },
-  transport: {
-    src: '/pics/transport.svg',
-    alt: 'Community transport service - medical appointments and family visits',
-    width: 600,
-    height: 400
-  },
-  befriending: {
-    src: '/pics/befriending.svg',
-    alt: 'Befriending service - companionship and social support',
-    width: 600,
-    height: 400
-  },
-  volunteers: {
-    src: '/pics/volunteers.svg',
-    alt: 'SERVE volunteers making a difference in the community',
-    width: 600,
-    height: 400
-  },
   award: {
     src: '/pics/regional-winner.jpg',
     alt: 'SERVE wins Best Homecare Team East Midlands - Great British Care Awards 2024',
@@ -130,5 +94,11 @@ export const SERVE_IMAGES = {
     alt: 'SERVE charity logo - Supporting Independence',
     width: 400,
     height: 200
+  },
+  serveLogo: {
+    src: '/pics/Serve-Logo.webp',
+    alt: 'SERVE charity logo',
+    width: 480,
+    height: 240
   }
 }

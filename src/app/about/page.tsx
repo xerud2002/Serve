@@ -17,25 +17,25 @@ const teamMembers = [
   {
     name: 'Tony Gibbs',
     role: 'CEO – Leadership & Strategy',
-    image: '/images/team/Tony2.jpg', // Updated photo per request
+    image: '/images/team/Tony2.jpg',
     description: 'Overseeing organizational strategy and operations'
   },
   {
     name: 'Care Manager',
     role: 'Care Services',
-    image: '/images/team/care-manager.jpg', // Replace with actual photo path
+    image: '/images/team/placeholder.svg',
     description: 'Leading our award-winning care team'
   },
   {
     name: 'Community Coordinator',
     role: 'Community Programs',
-    image: '/images/team/community-coordinator.jpg', // Replace with actual photo path
+    image: '/images/team/placeholder.svg',
     description: 'Coordinating volunteers and community services'
   },
   {
     name: 'Operations Manager',
     role: 'Operations & Finance',
-    image: '/images/team/operations-manager.jpg', // Replace with actual photo path
+    image: '/images/team/placeholder.svg',
     description: 'Managing daily operations and financial oversight'
   }
 ]
@@ -44,49 +44,49 @@ const trustees = [
   {
     name: 'Anita Harvey',
     role: 'Chair',
-    image: '/images/trustees/chair.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'January 2024',
     expertise: 'Board Leadership & Governance'
   },
   {
     name: 'Michael Robert Hulands',
     role: 'Trustee',
-    image: '/images/trustees/trustee-1.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'September 2025',
     expertise: 'Strategic Development'
   },
   {
     name: 'Rachel Wilson',
     role: 'Trustee',
-    image: '/images/trustees/trustee-2.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'January 2024',
     expertise: 'Community & Social Care'
   },
   {
     name: 'Simon Howard Partridge',
     role: 'Trustee',
-    image: '/images/trustees/trustee-3.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'November 2022',
     expertise: 'Finance & Risk Management'
   },
   {
     name: 'Timothy David Richard James',
     role: 'Trustee',
-    image: '/images/trustees/trustee-4.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'July 2019',
     expertise: 'Heritage & Community'
   },
   {
     name: 'Maureen Patricia Core',
     role: 'Trustee',
-    image: '/images/trustees/trustee-5.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'June 2016',
     expertise: 'Care Services & Operations'
   },
   {
     name: 'Zara Elizabeth Cunliffe',
     role: 'Trustee',
-    image: '/images/trustees/trustee-6.jpg',
+    image: '/images/trustees/placeholder.svg',
     dateAppointed: 'April 2016',
     expertise: 'Legal & Compliance'
   }
