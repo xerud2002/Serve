@@ -135,8 +135,8 @@ export default function FacebookFeed() {
                 key={post.id}
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-1"
               >
-                {/* Image */}
-                {imageUrl && (
+                {/* Image or Fallback */}
+                {imageUrl ? (
                   <div className="relative h-48 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
                     <Image
                       src={imageUrl}
@@ -145,6 +145,20 @@ export default function FacebookFeed() {
                       className="object-cover group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                     />
+                  </div>
+                ) : (
+                  <div className="relative h-32 bg-gradient-to-br from-serve-blue-50 to-serve-blue-100 flex items-center justify-center overflow-hidden">
+                    <div className="text-center">
+                      <div className="w-16 h-16 mx-auto mb-3 relative">
+                        <Image
+                          src="/images/serve.png"
+                          alt="SERVE Logo"
+                          fill
+                          className="object-contain"
+                        />
+                      </div>
+                      <span className="text-serve-blue-800 font-semibold text-sm">SERVE</span>
+                    </div>
                   </div>
                 )}
 

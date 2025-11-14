@@ -59,9 +59,18 @@ export async function GET() {
     const data = await response.json()
 
     // Filter posts to only include those with meaningful content
-    const filteredPosts = (data.data || []).filter((post: FacebookPost) => 
-      post.message || post.story || post.picture || post.full_picture
-    )
+    const filteredPosts = (data.data || []).filter((post: FacebookPost) => {
+      // Include posts with photos
+      if (post.picture || post.full_picture) return true
+      
+      // Include text posts only if they have substantial message content (more than just status updates)
+      if (post.message && post.message.trim().length > 20) return true
+      
+      // Include story posts only if they contain meaningful content (not just "updated their status")
+      if (post.story && post.story.trim().length > 30 && !post.story.includes('updated their status')) return true
+      
+      return false
+    })
 
     // Sort by created_time descending (newest first)
     const sortedPosts = filteredPosts.sort((a: FacebookPost, b: FacebookPost) => {
