@@ -14,9 +14,9 @@ import {
 
 const teamMembers = [
   {
-    name: 'Executive Director',
-    role: 'Leadership & Strategy',
-    image: '/images/team/director.jpg', // Replace with actual photo path
+    name: 'Tony Gibbs',
+    role: 'CEO – Leadership & Strategy',
+    image: '/images/team/Tony2.jpg', // Updated photo per request
     description: 'Overseeing organizational strategy and operations'
   },
   {
