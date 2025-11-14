@@ -137,11 +137,9 @@ export default function AssessmentBooking({ isOpen, onClose }: AssessmentBooking
 
   return (
     <div 
-      className="fixed inset-0 flex items-center justify-center p-4 z-[99999] animate-fadeIn pt-24"
+      className="fixed inset-0 flex items-center justify-center p-4 z-[99999] animate-fadeIn pt-24 backdrop-blur-xl isolate"
       style={{ 
-        background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,64,175,0.4) 100%)',
-        backdropFilter: 'blur(12px)',
-        isolation: 'isolate'
+        background: 'linear-gradient(135deg, rgba(0,0,0,0.8) 0%, rgba(30,64,175,0.4) 100%)'
       }}
       onClick={(e) => {
         if (e.target === e.currentTarget) {
