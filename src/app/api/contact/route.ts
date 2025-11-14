@@ -1,9 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { Resend } from 'resend'
-import { generateAdminEmail, type AdminEmailData } from '@/lib/emails/admin-notification'
-import { generateUserConfirmationEmail, type UserEmailData } from '@/lib/emails/user-confirmation'
-
-const resend = new Resend(process.env.RESEND_API_KEY)
+import nodemailer from 'nodemailer'
 
 export async function POST(request: NextRequest) {
   try {
@@ -26,78 +22,115 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    // Split name into first and last name
-    const nameParts = name.trim().split(' ')
-    const firstName = nameParts[0] || ''
-    const lastName = nameParts.slice(1).join(' ') || ''
-    
+    // Create SMTP transporter using your domain's email settings
+    const transporter = nodemailer.createTransporter({
+      host: process.env.SMTP_HOST,
+      port: parseInt(process.env.SMTP_PORT || '587'),
+      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    })
+
     // Get current timestamp
     const submittedAt = new Date().toLocaleString('en-GB', {
       dateStyle: 'full',
       timeStyle: 'short',
       timeZone: 'Europe/London'
     })
-    
-    // Generate admin email
-    const adminEmailData: AdminEmailData = {
-      firstName,
-      lastName,
-      email,
-      phone: phone || '',
-      subject,
-      message,
-      submittedAt
+
+    // Admin notification email
+    const adminEmailOptions = {
+      from: `"SERVE Contact Form" <${process.env.SMTP_USER}>`,
+      to: 'web@serve.org.uk',
+      subject: `New Contact Form Submission - ${subject}`,
+      replyTo: email,
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+            <h1 style="margin: 0; font-size: 24px;">New Contact Form Submission</h1>
+          </div>
+          <div style="background: #f8fafc; padding: 20px; border: 1px solid #e2e8f0; border-radius: 0 0 8px 8px;">
+            <p><strong>Name:</strong> ${name}</p>
+            <p><strong>Email:</strong> ${email}</p>
+            <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
+            <p><strong>Subject:</strong> ${subject}</p>
+            <p><strong>Message:</strong></p>
+            <div style="background: white; padding: 15px; border-radius: 6px; border-left: 4px solid #0284c7;">
+              ${message.replace(/\n/g, '<br>')}
+            </div>
+            <p style="margin-top: 20px; color: #666; font-size: 12px;">
+              Submitted: ${submittedAt}
+            </p>
+          </div>
+        </div>
+      `,
+      text: `
+New Contact Form Submission
+
+Name: ${name}
+Email: ${email}
+Phone: ${phone || 'Not provided'}
+Subject: ${subject}
+
+Message:
+${message}
+
+Submitted: ${submittedAt}
+      `
     }
-    const adminEmail = generateAdminEmail(adminEmailData)
-    
-    // Generate user confirmation email
-    const userEmailData: UserEmailData = {
-      firstName,
-      lastName,
-      email,
-      subject,
-      message
+
+    // User confirmation email
+    const userEmailOptions = {
+      from: `"SERVE" <${process.env.SMTP_USER}>`,
+      to: email,
+      subject: 'Thank you for contacting SERVE',
+      replyTo: 'web@serve.org.uk',
+      html: `
+        <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
+          <div style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; padding: 20px; border-radius: 8px 8px 0 0;">
+            <h1 style="margin: 0; font-size: 24px;">Thank you for contacting SERVE</h1>
+          </div>
+          <div style="background: #f8fafc; padding: 20px; border: 1px solid #e2e8f0; border-radius: 0 0 8px 8px;">
+            <p>Dear ${name.split(' ')[0]},</p>
+            <p>Thank you for getting in touch with SERVE. We have received your message and will respond within 1-2 business days.</p>
+            
+            <div style="background: white; padding: 15px; border-radius: 6px; border: 1px solid #cbd5e1; margin: 20px 0;">
+              <p><strong>Your message:</strong></p>
+              <p style="color: #666;">${message.replace(/\n/g, '<br>')}</p>
+            </div>
+            
+            <p>For urgent matters, please call us directly:</p>
+            <p style="font-size: 18px; color: #0284c7; font-weight: bold;">📞 01933 315555</p>
+            <p style="color: #666; font-size: 14px;">Office hours: Monday - Friday, 9:00 AM - 5:00 PM</p>
+            
+            <p>Best regards,<br>The SERVE Team</p>
+          </div>
+        </div>
+      `,
+      text: `
+Dear ${name.split(' ')[0]},
+
+Thank you for getting in touch with SERVE. We have received your message and will respond within 1-2 business days.
+
+Your message:
+${message}
+
+For urgent matters, please call us directly at 01933 315555
+Office hours: Monday - Friday, 9:00 AM - 5:00 PM
+
+Best regards,
+The SERVE Team
+      `
     }
-    const userEmail = generateUserConfirmationEmail(userEmailData)
-    
-    // Send both emails
-    const [adminResult, userResult] = await Promise.allSettled([
-      // Admin notification email - goes to SERVE team
-      resend.emails.send({
-        from: 'SERVE Contact Form <onboarding@resend.dev>',
-        to: 'web@serve.org.uk',
-        subject: adminEmail.subject,
-        html: adminEmail.html,
-        text: adminEmail.text,
-        replyTo: email
-      }),
-      
-      // User confirmation email - goes to the person who submitted the form
-      resend.emails.send({
-        from: 'SERVE <onboarding@resend.dev>',
-        to: email,
-        subject: userEmail.subject,
-        html: userEmail.html,
-        text: userEmail.text,
-        replyTo: 'web@serve.org.uk'
-      })
+
+    // Send emails
+    await Promise.all([
+      transporter.sendMail(adminEmailOptions),
+      transporter.sendMail(userEmailOptions)
     ])
-    
-    // Check if admin email failed
-    if (adminResult.status === 'rejected') {
-      console.error('Failed to send admin notification:', adminResult.reason)
-      return NextResponse.json(
-        { error: 'Failed to send notification to SERVE team. Please try again or call us directly.' },
-        { status: 500 }
-      )
-    }
-    
-    // Check if user confirmation email failed (warn but don't fail the request)
-    if (userResult.status === 'rejected') {
-      console.error('Failed to send user confirmation:', userResult.reason)
-      // Still return success as the admin notification worked
-    }
-    
+
     return NextResponse.json({
       success: true,
       message: 'Your message has been sent successfully. We will respond within 1-2 business days.'
