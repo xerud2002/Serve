@@ -62,9 +62,9 @@ export async function POST(request: NextRequest) {
     
     // Send both emails
     const [adminResult, userResult] = await Promise.allSettled([
-      // Admin notification email
+      // Admin notification email - goes to SERVE team
       resend.emails.send({
-        from: 'SERVE Contact Form <noreply@serve.org.uk>',
+        from: 'SERVE Contact Form <onboarding@resend.dev>',
         to: 'web@serve.org.uk',
         subject: adminEmail.subject,
         html: adminEmail.html,
@@ -72,9 +72,9 @@ export async function POST(request: NextRequest) {
         replyTo: email
       }),
       
-      // User confirmation email
+      // User confirmation email - goes to the person who submitted the form
       resend.emails.send({
-        from: 'SERVE <noreply@serve.org.uk>',
+        from: 'SERVE <onboarding@resend.dev>',
         to: email,
         subject: userEmail.subject,
         html: userEmail.html,
