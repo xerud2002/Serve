@@ -27,7 +27,6 @@ export async function GET() {
 
   // If env vars are missing, return an empty list so the UI can fall back gracefully
   if (!pageId || !accessToken) {
-    console.warn('Facebook access token not configured for events')
     return NextResponse.json({ events: [] }, { status: 200 })
   }
 
@@ -41,8 +40,8 @@ export async function GET() {
     const res = await fetch(url.toString(), { next: { revalidate } })
 
     if (!res.ok) {
-      const errorText = await res.text()
-      console.error(`Facebook Events API error: ${res.status}`, errorText)
+      // Silently return empty events when token expires or API fails
+      // This allows graceful degradation without build errors
       return NextResponse.json({ events: [] }, { status: 200 })
     }
 
@@ -60,9 +59,8 @@ export async function GET() {
       }))
 
     return NextResponse.json({ events }, { status: 200 })
-  } catch (error) {
-    console.error('Error fetching Facebook events:', error)
-    // Fail soft with empty events to allow the UI to render
+  } catch {
+    // Silently fail - return empty events to allow the UI to render
     return NextResponse.json({ events: [] }, { status: 200 })
   }
 }

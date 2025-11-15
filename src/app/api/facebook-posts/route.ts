@@ -30,7 +30,6 @@ export async function GET() {
     const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
     
     if (!accessToken) {
-      console.warn('Facebook access token not configured, returning fallback data')
       return NextResponse.json({ 
         posts: getFallbackPosts(),
         fallback: true 
@@ -51,8 +50,6 @@ export async function GET() {
     })
 
     if (!response.ok) {
-      const errorText = await response.text()
-      console.error(`Facebook API error: ${response.status}`, errorText)
       throw new Error(`Facebook API error: ${response.status}`)
     }
 
@@ -82,9 +79,7 @@ export async function GET() {
       fallback: false 
     })
     
-  } catch (error) {
-    console.error('Error fetching Facebook posts:', error)
-    
+  } catch {
     // Return fallback content on error
     return NextResponse.json({ 
       posts: getFallbackPosts(),

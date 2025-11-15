@@ -89,9 +89,7 @@ export default function Contact() {
     try {
       setIsSubmitting(true)
       
-      console.log('Submitting form to /api/contact with data:', submissionData)
-      
-      const response = await fetch('/api/contact', {
+      const response = await fetch('/api/contact-smtp', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -99,11 +97,7 @@ export default function Contact() {
         body: JSON.stringify(submissionData),
       })
       
-      console.log('Response status:', response.status)
-      
       const data = await response.json()
-      
-      console.log('Response data:', data)
       
       if (!response.ok) {
         throw new Error(data.error || 'Failed to send message')

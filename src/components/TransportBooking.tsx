@@ -50,17 +50,13 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
   // Handle escape key to close modal
   useEffect(() => {
     const handleEscape = (event: KeyboardEvent) => {
-      if (event.key === 'Escape' && isOpen) {
-        console.log('Escape key pressed, closing transport booking')
+      if (event.key === 'Escape') {
         handleClose()
       }
     }
 
     if (isOpen) {
       document.addEventListener('keydown', handleEscape)
-      console.log('Transport booking modal opened')
-    } else {
-      console.log('Transport booking modal closed, cleaning up')
     }
 
     return () => {
@@ -177,11 +173,8 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
   console.log('Transport booking modal isOpen:', isOpen, 'Step:', step)
   
   if (!isOpen) {
-    console.log('Transport booking modal not open, returning null')
     return null
   }
-  
-  console.log('Rendering transport booking modal...')
 
   return (
     <div 
@@ -196,9 +189,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
         zIndex: 99999
       }}
       onClick={(e) => {
-        console.log('Transport booking backdrop clicked')
         if (e.target === e.currentTarget) {
-          console.log('Transport booking backdrop clicked, closing modal')
           handleClose()
         }
       }}
@@ -764,12 +755,10 @@ export function TransportBookingButton() {
   const handleOpenModal = (e: React.MouseEvent) => {
     e.preventDefault()
     e.stopPropagation()
-    console.log('Opening transport booking modal...') 
     setIsBookingOpen(true)
   }
 
   const handleCloseModal = () => {
-    console.log('Closing transport booking modal...') 
     setIsBookingOpen(false)
   }
 
