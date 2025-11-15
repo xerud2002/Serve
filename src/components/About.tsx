@@ -41,6 +41,7 @@ export default function About() {
               </h2>
             </div>
             
+            
             <div className="prose prose-lg text-gray-600 space-y-6">
               <p className="text-xl leading-relaxed">
                 SERVE began as a simple idea: that everyone deserves to live with dignity and independence, 
