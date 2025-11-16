@@ -89,7 +89,7 @@ export default function Contact() {
     try {
       setIsSubmitting(true)
       
-      const response = await fetch('/api/contact-smtp', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

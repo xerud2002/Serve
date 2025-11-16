@@ -28,15 +28,19 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    // Create SMTP transporter using your domain's email settings
+    // Create SMTP transporter using Microsoft 365 settings
     const transporter = nodemailer.createTransport({
-      host: process.env.SMTP_HOST, // e.g., mail.serve.org.uk or smtp.serve.org.uk
+      host: process.env.SMTP_HOST,
       port: parseInt(process.env.SMTP_PORT || '587'),
-      secure: process.env.SMTP_SECURE === 'true', // true for 465, false for other ports
+      secure: false, // Use STARTTLS
       auth: {
-        user: process.env.SMTP_USER, // your email: web@serve.org.uk
-        pass: process.env.SMTP_PASS, // your email password
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
       },
+      tls: {
+        ciphers: 'SSLv3',
+        rejectUnauthorized: true
+      }
     })
 
     // Get current timestamp
