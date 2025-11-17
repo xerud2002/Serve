@@ -27,7 +27,7 @@ export default function Hero() {
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
               <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
                 <Image 
-                  src="/images/servewinner .png" 
+                  src="/images/servewinner .webp" 
                   alt="SERVE Winner - Great British Care Awards"
                   className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
                   width={128}
@@ -44,7 +44,7 @@ export default function Hero() {
               <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
               <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
                 <Image 
-                  src="/images/servewinner .png" 
+                  src="/images/servewinner .webp" 
                   alt="SERVE Winner - Great British Care Awards"
                   className="w-45 h-45 object-contain"
                   width={180}
