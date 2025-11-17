@@ -33,7 +33,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
   } = config
 
   const baseUrl = 'https://serve.org.uk'
-  const defaultImage = '/images/serve.png'
+  const defaultImage = '/images/serve.webp'
 
   const seoImages = images.length > 0 ? images : [
     {

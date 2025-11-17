@@ -17,7 +17,7 @@ export default function Events() {
       icon: TrophyIcon,
       link: '/news/great-british-care-awards',
       featured: true,
-      image: 'award-ceremony.jpg'
+      image: 'award-ceremony.webp'
     },
 
   ]
@@ -69,7 +69,7 @@ export default function Events() {
                 {/* Image */}
                 <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center relative overflow-hidden">
                   <Image
-                    src="/images/awards/regional-winner.jpg"
+                    src="/images/awards/regional-winner.webp"
                     alt="SERVE Regional Winner - Great British Care Awards 2024"
                     fill
                     className="object-cover"

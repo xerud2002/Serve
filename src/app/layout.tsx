@@ -48,7 +48,7 @@ export const metadata: Metadata = {
       { url: '/favicon.svg', type: 'image/svg+xml' },
       { url: '/favicon.ico', sizes: '32x32' },
     ],
-    apple: '/apple-touch-icon.png',
+    apple: '/apple-touch-icon.webp',
   },
   metadataBase: new URL('https://serve.org.uk'),
   alternates: {
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',
     images: [
       {
-        url: '/images/serve.png',
+        url: '/images/serve.webp',
         width: 800,
         height: 400,
         alt: 'SERVE Charity Logo - Supporting Independence',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     creator: '@serve_charity',
     title: 'SERVE | Supporting Independence in Northamptonshire',
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',
-    images: ['/images/serve.png'],
+    images: ['/images/serve.webp'],
   },
   robots: {
     index: true,

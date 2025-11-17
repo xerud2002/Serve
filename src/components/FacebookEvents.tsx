@@ -52,7 +52,7 @@ export default function FacebookEvents() {
         description: 'Tickets are available for our fantastic Evening with Graeme Duffin, of Wet, Wet, Wet, at the Castle Theatre, Wellingborough next month - book your ticket here - https://www.parkwoodtheatres.co.uk/castle-theatre/whats-on/an-evening-with-graeme-duffin-of-wet-wet-wet',
         startTime: '2025-05-23T19:00:00+0100',
         location: 'Castle Theatre, Wellingborough',
-        coverImage: '/images/events/graeme-duffin.jpg',
+        coverImage: '/images/events/graeme-duffin.webp',
       },
       {
         id: '1118818683095354',
@@ -60,7 +60,7 @@ export default function FacebookEvents() {
         description: 'Sing for Serve and presentation of the Susan Hollowell Award for volunteering at Park Road Baptist Church, Rushden - details here - https://www.northantstelegraph.co.uk/arts-and-culture/come-along-for-a-festive-sing-song-with-serve-4875111',
         startTime: '2024-12-11T14:00:00+0000',
         location: 'NN10 0RT Rushden, United Kingdom',
-        coverImage: '/images/events/sing-for-serve.jpg',
+        coverImage: '/images/events/sing-for-serve.webp',
       },
       {
         id: '488541410754988',
@@ -69,7 +69,7 @@ export default function FacebookEvents() {
         startTime: '2024-10-04T09:30:00+0100',
         endTime: '2024-10-04T11:00:00+0100',
         location: null,
-        coverImage: '/images/events/happy-to-serve.jpg',
+        coverImage: '/images/events/happy-to-serve.webp',
       },
       {
         id: '1456713141656694',
@@ -78,7 +78,7 @@ export default function FacebookEvents() {
         startTime: '2024-08-10T12:00:00+0100',
         endTime: '2024-08-10T16:00:00+0100',
         location: 'Irchester Country Park, Wellingborough',
-        coverImage: '/images/events/family-fun-day.jpg',
+        coverImage: '/images/events/family-fun-day.webp',
       },
     ]
   }

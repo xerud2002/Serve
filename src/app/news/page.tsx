@@ -26,7 +26,7 @@ const featuredNews = {
   date: 'November 2024',
   readTime: '3 min read',
   featured: true,
-  image: '/images/award-ceremony.jpg',
+  image: '/images/award-ceremony.webp',
   content: `
     SERVE is delighted to announce that we have been awarded "Best Homecare Team, East Midlands" at the Great British Care Awards 2024. This prestigious recognition celebrates the exceptional dedication and commitment of our care team in providing outstanding services to vulnerable adults across Northamptonshire.
 

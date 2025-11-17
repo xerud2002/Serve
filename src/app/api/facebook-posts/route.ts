@@ -97,7 +97,7 @@ function getFallbackPosts() {
       id: 'fallback-1',
       message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch. The laughter and friendship in our centre always brightens our day. #CommunitySupport #DayCare',
       created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(), // 3 hours ago
-      picture: '/images/community/bigchat1.jpg',
+      picture: '/images/community/bigchat1.webp',
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 28 } },
       comments: { summary: { total_count: 6 } }
@@ -106,7 +106,7 @@ function getFallbackPosts() {
       id: 'fallback-2',
       message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
       created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
-      picture: '/images/transport/bus.jpg',
+      picture: '/images/transport/bus.webp',
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 42 } },
       comments: { summary: { total_count: 11 } },
@@ -116,7 +116,7 @@ function getFallbackPosts() {
       id: 'fallback-3',
       message: '💙 Heartwarming feedback received today: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat." This is exactly why we do what we do. #PersonalCare #Compassion',
       created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(), // 2 days ago
-      picture: '/images/care/care1.jpg',
+      picture: '/images/care/care1.webp',
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 56 } },
       comments: { summary: { total_count: 14 } }
@@ -125,7 +125,7 @@ function getFallbackPosts() {
       id: 'fallback-4',
       message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024! This recognition belongs to our entire team and the wonderful community we serve.',
       created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(), // 4 days ago
-      picture: '/images/awards/regional-winner.jpg', 
+      picture: '/images/awards/regional-winner.webp', 
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 89 } },
       comments: { summary: { total_count: 23 } },
@@ -135,7 +135,7 @@ function getFallbackPosts() {
       id: 'fallback-5',
       message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits. No one should feel alone in our community.',
       created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days ago
-      picture: '/images/community/bigchat2.jpg',
+      picture: '/images/community/bigchat2.webp',
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 34 } },
       comments: { summary: { total_count: 8 } }
@@ -144,7 +144,7 @@ function getFallbackPosts() {
       id: 'fallback-6',
       message: '🎉 Celebrating 40+ years of serving Northamptonshire! From our small beginnings to CQC registration and national awards, we\'re proud to continue supporting older people and adults with disabilities to live with dignity.',
       created_time: new Date(now - 8 * 24 * 60 * 60 * 1000).toISOString(), // 8 days ago
-      picture: '/images/fundraising/fundraising.jpg',
+      picture: '/images/fundraising/fundraising.webp',
       permalink_url: 'https://www.facebook.com/SERVE234', 
       likes: { summary: { total_count: 78 } },
       comments: { summary: { total_count: 19 } },

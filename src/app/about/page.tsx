@@ -20,7 +20,7 @@ const teamMembers = [
   {
     name: 'Tony Gibbs',
     role: 'CEO – Leadership & Strategy',
-    image: '/images/team/Tony2.jpg',
+    image: '/images/team/Tony2.webp',
     description: 'Overseeing organizational strategy and operations'
   },
   {

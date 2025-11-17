@@ -33,7 +33,7 @@ export default function CallToActionSection() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/community/bigchat4,jpg.jpg"
+                  src="/images/community/bigchat4,jpg.webp"
                   alt="Award-winning care team"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -55,7 +55,7 @@ export default function CallToActionSection() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/community/bigchat6.jpg"
+                  src="/images/community/bigchat6.webp"
                   alt="Personalized care planning"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
@@ -75,7 +75,7 @@ export default function CallToActionSection() {
             <div className="bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 border border-gray-100 group">
               <div className="relative h-48 overflow-hidden">
                 <Image
-                  src="/images/community/bigchat3.jpg"
+                  src="/images/community/bigchat3.webp"
                   alt="Community support and activities"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"

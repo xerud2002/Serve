@@ -126,7 +126,7 @@ export default function WhyChooseSERVE() {
           {/* Large Image */}
           <div className="relative h-full min-h-[400px] lg:min-h-[500px] rounded-2xl overflow-hidden shadow-2xl">
             <Image
-              src="/images/community/bigchat5.jpg"
+              src="/images/community/bigchat5.webp"
               alt="SERVE team providing compassionate care"
               fill
               className="object-cover"

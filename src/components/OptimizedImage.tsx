@@ -84,13 +84,13 @@ export default function OptimizedImage({
 // Predefined image configurations for SERVE website
 export const SERVE_IMAGES = {
   award: {
-    src: '/pics/regional-winner.jpg',
+    src: '/pics/regional-winner.webp',
     alt: 'SERVE wins Best Homecare Team East Midlands - Great British Care Awards 2024',
     width: 400,
     height: 300
   },
   logo: {
-    src: '/images/serve.png',
+    src: '/images/serve.webp',
     alt: 'SERVE charity logo - Supporting Independence',
     width: 400,
     height: 200

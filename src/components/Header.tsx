@@ -128,7 +128,7 @@ export default function Header() {
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
                 <Image
-                  src="/images/serve.png"
+                  src="/images/serve.webp"
                   alt="SERVE - Supporting Independence"
                   width={isMobile ? 720 : 960}
                   height={isMobile ? 360 : 480}

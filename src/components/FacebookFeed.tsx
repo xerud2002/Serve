@@ -45,42 +45,42 @@ export default function FacebookFeed() {
       { 
         id: '1', 
         message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch.',
-        picture: '/images/community/bigchat1.jpg', 
+        picture: '/images/community/bigchat1.webp', 
         created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
       { 
         id: '2', 
         message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits.',
-        picture: '/pics/regional-winner.jpg', 
+        picture: '/pics/regional-winner.webp', 
         created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
       { 
         id: '3', 
         message: '💙 Heartwarming feedback: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat."',
-        picture: '/images/serve.png', 
+        picture: '/images/serve.webp', 
         created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
       { 
         id: '4', 
         message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024!',
-        picture: '/images/servewinner .png', 
+        picture: '/images/servewinner .webp', 
         created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
       { 
         id: '5', 
         message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits.',
-        picture: '/images/serve copy.png', 
+        picture: '/images/serve copy.webp', 
         created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
       { 
         id: '6', 
         message: '🎉 Celebrating 40+ years of serving Northamptonshire! From our small beginnings to CQC registration and national awards, we\'re proud to continue supporting our community.',
-        picture: '/pics/regional-winner.jpg', 
+        picture: '/pics/regional-winner.webp', 
         created_time: new Date(now - 8 * 24 * 60 * 60 * 1000).toISOString(),
         permalink_url: 'https://www.facebook.com/SERVE234' 
       },
@@ -151,7 +151,7 @@ export default function FacebookFeed() {
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-3 relative">
                         <Image
-                          src="/images/serve.png"
+                          src="/images/serve.webp"
                           alt="SERVE Logo"
                           fill
                           className="object-contain"

@@ -17,7 +17,7 @@ export default function Footer() {
           <div>
             <div className="flex items-center mb-4">
               <Image 
-                src="/images/serve.png"
+                src="/images/serve.webp"
                 alt="SERVE charity logo - Supporting Independence"
                 width={480}
                 height={240}

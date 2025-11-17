@@ -52,22 +52,22 @@ export default function SupportersPage() {
     },
     {
       title: "Community Fundraising Event",
-      image: "/images/fundraising/fund-rasing2.jpg",
+      image: "/images/fundraising/fund-rasing2.webp",
       description: "Connecting with supporters across Northamptonshire"
     },
     {
       title: "Summer Fundraising",
-      image: "/images/fundraising/WhatsApp Image 2025-07-12 at 11.27.59_e58b5092.jpg",
+      image: "/images/fundraising/WhatsApp Image 2025-07-12 at 11.27.59_e58b5092.webp",
       description: "Supporters gathering to make a difference"
     },
     {
       title: "Community Support Event",
-      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_7a0964b4.jpg",
+      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_7a0964b4.webp",
       description: "Local community rallying behind SERVE"
     },
     {
       title: "Fundraising Activities",
-      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_fcf75e69.jpg",
+      image: "/images/fundraising/WhatsApp Image 2025-08-03 at 08.56.35_fcf75e69.webp",
       description: "Creative ways our community supports SERVE"
     },
     // Community Events
@@ -103,17 +103,17 @@ export default function SupportersPage() {
     },
     {
       title: "Community Newsletter Feature",
-      image: "/images/community/NEwsletter.jpg",
+      image: "/images/community/NEwsletter.webp",
       description: "Sharing our story with the local community"
     },
     {
       title: "Community Engagement",
-      image: "/images/community/WhatsApp Image 2025-05-11 at 11.47.19_fa01ef94.jpg",
+      image: "/images/community/WhatsApp Image 2025-05-11 at 11.47.19_fa01ef94.webp",
       description: "Building relationships across Northamptonshire"
     },
     {
       title: "Community Day Centre Activities",
-      image: "/images/community/bigchat7.jpg",
+      image: "/images/community/bigchat7.webp",
       description: "Bringing people together at our day centre"
     },
     // Donations & Support
@@ -139,7 +139,7 @@ export default function SupportersPage() {
     },
     {
       title: "Community Spirit",
-      image: "/images/donations/community-spirit.jpg",
+      image: "/images/donations/community-spirit.webp",
       description: "The heart of our supporter community"
     },
     {

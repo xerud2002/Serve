@@ -290,10 +290,10 @@ export function getUserConfirmationEmail(data: ContactFormData): string {
                   <!-- Social links -->
                   <div style="margin: 20px 0;">
                     <a href="https://www.facebook.com/SERVE234/" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                      <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook" width="32" height="32" style="border-radius: 50%;">
+                      <img src="https://img.icons8.com/color/48/000000/facebook.webp" alt="Facebook" width="32" height="32" style="border-radius: 50%;">
                     </a>
                     <a href="https://www.linkedin.com/company/serve-nvca/" style="display: inline-block; margin: 0 8px; text-decoration: none;">
-                      <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn" width="32" height="32" style="border-radius: 50%;">
+                      <img src="https://img.icons8.com/color/48/000000/linkedin.webp" alt="LinkedIn" width="32" height="32" style="border-radius: 50%;">
                     </a>
                   </div>
                   
