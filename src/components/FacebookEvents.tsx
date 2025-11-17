@@ -153,7 +153,6 @@ export default function FacebookEvents() {
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-purple-600 hover:text-purple-800 font-semibold text-sm group/link"
-                aria-label={`View ${event.name} on Facebook`}
               >
                 View Event
                 <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />

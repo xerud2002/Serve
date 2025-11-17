@@ -59,7 +59,6 @@ export default function Events() {
                   <a
                     href={featuredNews.link}
                     className="group inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 w-fit"
-                    aria-label={`Read more about ${featuredNews.title}`}
                   >
                     Read Full Story
                     <ArrowRightIcon className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
@@ -138,7 +137,6 @@ export default function Events() {
                   <a
                     href={item.link}
                     className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
-                    aria-label={`Read more about ${item.title}`}
                   >
                     Read Full Article
                     <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
