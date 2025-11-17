@@ -151,15 +151,15 @@ export default function Footer() {
               © 2025 SERVE. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <a href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
                 Privacy
-              </a>
-              <a href="/terms" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
                 Terms
-              </a>
-              <a href="/accessibility" className="text-gray-400 hover:text-white transition-colors">
+              </Link>
+              <Link href="/accessibility" className="text-gray-400 hover:text-white transition-colors">
                 Accessibility
-              </a>
+              </Link>
             </div>
           </div>
         </div>
