@@ -149,10 +149,6 @@ const nextConfig = {
           }
         }
       }
-      
-      // Enable tree shaking
-      config.optimization.usedExports = true
-      config.optimization.sideEffects = true
     }
     return config
   },
