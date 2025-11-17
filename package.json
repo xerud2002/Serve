@@ -27,7 +27,8 @@
     "nodemailer": "^7.0.10",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
-    "resend": "^6.4.2"
+    "resend": "^6.4.2",
+    "web-vitals": "^5.1.0"
   },
   "devDependencies": {
     "@types/node": "^22.19.1",
