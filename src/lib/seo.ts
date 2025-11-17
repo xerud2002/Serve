@@ -127,4 +127,10 @@ export const seoConfigs = {
     keywords: ['charity news', 'events', 'Great British Care Awards', 'community news', 'Northamptonshire charity updates'],
     canonicalUrl: '/news',
   },
+  donate: {
+    title: 'Donate to SERVE - Support Care Services | SERVE Charity',
+    description: 'Make a difference by donating to SERVE. Your gift provides life-changing care, transport, and support to vulnerable adults across Northamptonshire. Every donation transforms lives.',
+    keywords: ['donate', 'charity donation', 'support SERVE', 'JustGiving', 'Friends of SERVE', 'gift aid', 'legacy giving'],
+    canonicalUrl: '/donate',
+  },
 }

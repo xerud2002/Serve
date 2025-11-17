@@ -4,6 +4,9 @@ import CallToActionSection from '@/components/CallToActionSection'
 import WhyChooseSERVE from '@/components/WhyChooseSERVE'
 import Events from '@/components/Events'
 import FacebookFeed from '@/components/FacebookFeed'
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.home)
 
 export default function Home() {
   return (

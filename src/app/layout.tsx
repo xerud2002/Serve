@@ -92,6 +92,13 @@ export const metadata: Metadata = {
     yandex: 'ADD_YANDEX_VERIFICATION_CODE',
     yahoo: 'ADD_YAHOO_VERIFICATION_CODE',
   },
+  category: 'Healthcare & Social Services',
+  classification: 'Charity',
+  other: {
+    'charity-number': '1043321',
+    'cqc-registered': 'true',
+    'area-served': 'Northamptonshire, East Midlands, UK',
+  },
 }
 
 export default function RootLayout({

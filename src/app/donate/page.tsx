@@ -3,6 +3,9 @@ import FriendsOfServe from "@/components/FriendsOfServe";
 import MajorTitle from '@/components/MajorTitle'
 import { HeartIcon, PhoneIcon, ArrowRightIcon, SparklesIcon, CheckCircleIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
+import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
+
+export const metadata = generateSEOMetadata(seoConfigs.donate)
 
 export default function DonatePage() {
   return (

@@ -140,7 +140,7 @@ export default function Events() {
                     className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
                     aria-label={`Read more about ${item.title}`}
                   >
-                    Read More
+                    Read Full Article
                     <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                   </a>
                 </div>

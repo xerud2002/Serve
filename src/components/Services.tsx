@@ -135,7 +135,7 @@ export default function Services() {
                       }`}
                       aria-label={`Learn more about ${service.title}`}
                     >
-                      Learn More
+                      {isMobile ? service.title : `Explore ${service.title}`}
                       <svg className={`${isMobile ? 'ml-2 h-5 w-5' : 'ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                       </svg>

@@ -301,7 +301,7 @@ export default function NewsPage() {
                         href={`/news/${article.id}`}
                         className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
                       >
-                        Read More
+                        Read Full Story
                         <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
                       </Link>
                     </div>

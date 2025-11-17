@@ -13,6 +13,9 @@ import {
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 
+// Note: This page needs to be a client component for the interactive trustee sections
+// SEO metadata is defined in the parent layout or can be added via generateMetadata in future refactor
+
 const teamMembers = [
   {
     name: 'Tony Gibbs',
