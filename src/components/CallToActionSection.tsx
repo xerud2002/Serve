@@ -1,5 +1,5 @@
-import { AssessmentBookingButton } from './AssessmentBooking'
 import Image from 'next/image'
+import Link from 'next/link'
 
 export default function CallToActionSection() {
   return (
@@ -93,9 +93,15 @@ export default function CallToActionSection() {
           </div>
           
           {/* CTA Button */}
-          <div className="[&>button]:bg-gradient-to-r [&>button]:from-serve-green-600 [&>button]:to-serve-green-700 [&>button]:hover:from-serve-green-700 [&>button]:hover:to-serve-green-800 [&>button]:text-white [&>button]:font-bold [&>button]:px-12 [&>button]:py-5 [&>button]:text-lg [&>button]:shadow-xl [&>button]:hover:shadow-2xl [&>button]:transform [&>button]:hover:scale-105 [&>button]:transition-all [&>button]:duration-300 [&>button]:rounded-2xl [&>button]:flex [&>button]:items-center [&>button]:gap-3">
-            <AssessmentBookingButton />
-          </div>
+          <Link 
+            href="/contact"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-serve-green-600 to-serve-green-700 hover:from-serve-green-700 hover:to-serve-green-800 text-white font-bold px-12 py-5 text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl"
+          >
+            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+            </svg>
+            Request a Home Assessment
+          </Link>
         </div>
 
 

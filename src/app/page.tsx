@@ -4,7 +4,6 @@ import CallToActionSection from '@/components/CallToActionSection'
 import WhyChooseSERVE from '@/components/WhyChooseSERVE'
 import Events from '@/components/Events'
 import FacebookFeed from '@/components/FacebookFeed'
-import Contact from '@/components/Contact'
 
 export default function Home() {
   return (
@@ -15,7 +14,6 @@ export default function Home() {
       <Events />
       <FacebookFeed />
       <WhyChooseSERVE />
-      <Contact />
     </>
   )
 }
