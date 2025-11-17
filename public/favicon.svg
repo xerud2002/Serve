@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Blue person (left) -->
+  <circle cx="10" cy="8" r="3" fill="#0284c7"/>
+  <path d="M5 14 L10 18 L15 14 Z" fill="#0284c7"/>
+  
+  <!-- Red person (right) -->
+  <circle cx="22" cy="6" r="3.5" fill="#dc2626"/>
+  <path d="M16 12 L22 17 L28 12 Z" fill="#dc2626"/>
+  
+  <!-- Supporting line -->
+  <line x1="10" y1="18" x2="22" y2="17" stroke="#0284c7" stroke-width="1.5"/>
+</svg>
