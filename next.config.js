@@ -118,6 +118,39 @@ const nextConfig = {
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: ['@heroicons/react', 'react', 'react-dom'],
+    optimizeCss: true, // Enable CSS optimization
+    webpackBuildWorker: true, // Faster builds
+  },
+  
+  // Webpack optimizations to reduce bundle size
+  webpack: (config, { isServer }) => {
+    if (!isServer) {
+      // Split chunks for better caching
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          default: false,
+          vendors: false,
+          // Vendor chunk for npm packages
+          vendor: {
+            name: 'vendor',
+            chunks: 'all',
+            test: /node_modules/,
+            priority: 20
+          },
+          // Common chunk for shared code
+          common: {
+            name: 'common',
+            minChunks: 2,
+            chunks: 'all',
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true
+          }
+        }
+      }
+    }
+    return config
   },
   
   // HTTP Headers for performance and security

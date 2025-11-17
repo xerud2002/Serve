@@ -5,6 +5,8 @@ export default {
     './src/components/**/*.{js,ts,jsx,tsx,mdx}',
     './src/app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  // Aggressive CSS purging for production
+  safelist: [],
   theme: {
     extend: {
       colors: {
