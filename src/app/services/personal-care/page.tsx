@@ -86,24 +86,6 @@ const benefits = [
   'Award-winning service'
 ]
 
-const testimonials = [
-  {
-    quote: "The care I receive from SERVE allows me to stay in my own home with dignity. The staff are wonderful - they're not just carers, they're friends.",
-    author: "Margaret, Rushden",
-    service: "Personal Care Client"
-  },
-  {
-    quote: "SERVE's personal care team helped my mother maintain her independence for years. Their compassionate approach made all the difference to our family.",
-    author: "David, Wellingborough", 
-    service: "Family Member"
-  },
-  {
-    quote: "Professional, reliable, and caring. SERVE's team treats me with respect and helps me live life on my own terms.",
-    author: "Frank, Kettering",
-    service: "Personal Care Client"
-  }
-]
-
 const faqs = [
   {
     question: "What is included in personal care services?",
@@ -270,41 +252,6 @@ export default function PersonalCarePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              What Our Clients Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Real experiences from people who trust SERVE with their care
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </blockquote>
-                
-                <div className="border-t border-gray-200 pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.service}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

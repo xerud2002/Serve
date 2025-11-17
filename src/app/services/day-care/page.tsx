@@ -6,7 +6,6 @@ import {
   UserGroupIcon,
   PhoneIcon,
   CheckIcon,
-  StarIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   HeartIcon,
@@ -15,7 +14,6 @@ import {
   MusicalNoteIcon,
   PuzzlePieceIcon,
   CakeIcon,
-  BookOpenIcon,
   FaceSmileIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
@@ -82,24 +80,6 @@ const schedule = [
   { day: 'Wednesday', activities: 'Garden Club, Reading Group, Quizzes', meals: 'Fresh Fish & Chips' },
   { day: 'Thursday', activities: 'Creative Writing, Board Games, Singing', meals: 'Home-cooked Favourites' },
   { day: 'Friday', activities: 'Social Club, Entertainment, Celebration', meals: 'Special Friday Treats' }
-]
-
-const testimonials = [
-  {
-    quote: "The day centre has given me a new lease of life. I look forward to seeing my friends and the activities keep me active and happy.",
-    author: "Mary, Rushden",
-    service: "Day Care Attendee"
-  },
-  {
-    quote: "Ron Manning Day Centre provides excellent care for my father. The staff are wonderful and the meals are always delicious.",
-    author: "Sarah, Wellingborough",
-    service: "Family Member"
-  },
-  {
-    quote: "I've made so many friends at the day centre. It's become like a second home to me, and the activities are always interesting.",
-    author: "Albert, Kettering",
-    service: "Day Care Attendee"
-  }
 ]
 
 export default function DayCarePage() {
@@ -280,41 +260,6 @@ export default function DayCarePage() {
                     </h4>
                     <p className="text-sm text-gray-700 leading-relaxed">{day.meals}</p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              What Our Members Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Hear from people who are part of our day care community
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-serve-green-50 rounded-2xl p-8 shadow-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </blockquote>
-                
-                <div className="border-t border-serve-green-200 pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.service}</div>
                 </div>
               </div>
             ))}

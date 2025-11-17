@@ -77,24 +77,6 @@ const pricing = [
   { service: 'Return journeys', price: '10% discount', description: 'Save when booking return transport' }
 ]
 
-const testimonials = [
-  {
-    quote: "The transport service is a lifeline for me. The drivers are so friendly and helpful, and I always feel safe and comfortable.",
-    author: "Dorothy, Rushden",
-    service: "Regular Transport User"
-  },
-  {
-    quote: "SERVE's transport helped my father get to his hospital appointments when we couldn't. The service is reliable and the staff are wonderful.",
-    author: "Michael, Irthlingborough",
-    service: "Family Member"
-  },
-  {
-    quote: "I can still do my weekly shopping thanks to SERVE's transport. The drivers even help me with my bags - excellent service!",
-    author: "George, Higham Ferrers",
-    service: "Shopping Transport User"
-  }
-]
-
 export default function TransportPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -336,41 +318,6 @@ export default function TransportPage() {
 
       {/* Online Booking Section */}
       {/* Online booking hero removed per request */}
-
-      {/* Testimonials */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              What Our Passengers Say
-            </h2>
-            <p className="text-xl text-gray-600">
-              Real experiences from people who use our transport service
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-purple-50 rounded-2xl p-8 shadow-lg">
-                <div className="flex mb-4">
-                  {[...Array(5)].map((_, i) => (
-                    <StarIcon key={i} className="w-5 h-5 text-yellow-400 fill-current" />
-                  ))}
-                </div>
-                
-                <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </blockquote>
-                
-                <div className="border-t border-purple-200 pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.author}</div>
-                  <div className="text-sm text-gray-600">{testimonial.service}</div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-purple-600 to-purple-700">

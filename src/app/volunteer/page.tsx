@@ -174,24 +174,6 @@ const process = [
   }
 ]
 
-const testimonials = [
-  {
-    quote: "Volunteering with SERVE has been incredibly rewarding. I've made a real friend through befriending, and knowing I'm helping someone feel less lonely makes my week.",
-    name: "Sarah Johnson",
-    role: "Befriending Volunteer, 2 years"
-  },
-  {
-    quote: "The team at SERVE made me feel so welcome from day one. The training was excellent, and I love being part of such a caring organization.",
-    name: "David Mitchell",
-    role: "Transport Volunteer, 3 years"
-  },
-  {
-    quote: "I started volunteering after retirement and it's given me such purpose. The staff are supportive and the clients are wonderful - I wouldn't change it for anything.",
-    name: "Margaret Thompson",
-    role: "Events Volunteer, 1 year"
-  }
-]
-
 export default function VolunteerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
@@ -396,35 +378,6 @@ export default function VolunteerPage() {
                 </div>
               )
             })}
-          </div>
-        </div>
-      </section>
-
-      {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Volunteer Stories
-            </h2>
-            <p className="text-xl text-gray-600">
-              Hear from our volunteers about their experiences with SERVE
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-lg">
-                <blockquote className="text-gray-700 mb-6 italic leading-relaxed">
-                  &quot;{testimonial.quote}&quot;
-                </blockquote>
-                
-                <div className="border-t border-gray-200 pt-6">
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>
