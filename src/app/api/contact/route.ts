@@ -1,7 +1,9 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 
-const resend = new Resend(process.env.RESEND_API_KEY)
+const resend = process.env.RESEND_API_KEY 
+  ? new Resend(process.env.RESEND_API_KEY)
+  : null
 
 export async function POST(request: NextRequest) {
   try {
@@ -29,6 +31,15 @@ export async function POST(request: NextRequest) {
       timeStyle: 'short',
       timeZone: 'Europe/London'
     })
+
+    // If Resend is not configured, log to console (development/build time)
+    if (!resend) {
+      console.log('Contact form submission (Resend not configured):', { name, email, subject })
+      return NextResponse.json({
+        success: true,
+        message: 'Your message has been received. We will respond within 1-2 business days.'
+      })
+    }
 
     // Send admin notification
     await resend.emails.send({

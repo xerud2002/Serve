@@ -27,6 +27,15 @@ export async function POST(request: NextRequest) {
         { status: 400 }
       )
     }
+
+    // Check if SMTP is configured
+    if (!process.env.SMTP_HOST || !process.env.SMTP_USER || !process.env.SMTP_PASS) {
+      console.log('Contact form submission (SMTP not configured):', { name, email, subject })
+      return NextResponse.json({
+        success: true,
+        message: 'Your message has been received. We will respond within 1-2 business days.'
+      })
+    }
     
     // Create SMTP transporter using Microsoft 365 settings
     const transporter = nodemailer.createTransport({
