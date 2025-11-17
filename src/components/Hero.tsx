@@ -7,14 +7,14 @@ export default function Hero() {
   const [snowflakes, setSnowflakes] = useState<Array<{ id: number; left: string; delay: string; duration: string; size: string; opacity: string }>>([])
 
   useEffect(() => {
-    // Generate snowflakes with more varied sizes and opacity
+    // Generate snowflakes with soft, transparent appearance
     const flakes = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       delay: `${Math.random() * 5}s`,
       duration: `${8 + Math.random() * 12}s`,
-      size: `${8 + Math.random() * 16}px`, // Larger range: 8-24px
-      opacity: `${0.5 + Math.random() * 0.5}` // Opacity range: 0.5-1.0
+      size: `${6 + Math.random() * 10}px`, // Smaller, softer range: 6-16px
+      opacity: `${0.2 + Math.random() * 0.3}` // Soft transparent range: 0.2-0.5
     }))
     setSnowflakes(flakes)
   }, [])
@@ -29,6 +29,32 @@ export default function Hero() {
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
           }} 
         />
+      </div>
+
+      {/* Snowflakes */}
+      <div className="absolute inset-0 pointer-events-none">
+        {snowflakes.map((flake) => (
+          <div
+            key={flake.id}
+            className="absolute animate-snowfall"
+            style={{
+              left: flake.left,
+              animationDelay: flake.delay,
+              animationDuration: flake.duration,
+              opacity: flake.opacity,
+            }}
+          >
+            <svg 
+              width={flake.size} 
+              height={flake.size} 
+              viewBox="0 0 24 24" 
+              fill="white" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 2L13.5 8.5L18.36 5.64L14.5 10.5L21 12L14.5 13.5L18.36 18.36L13.5 15.5L12 22L10.5 15.5L5.64 18.36L9.5 13.5L3 12L9.5 10.5L5.64 5.64L10.5 8.5L12 2Z" />
+            </svg>
+          </div>
+        ))}
       </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
