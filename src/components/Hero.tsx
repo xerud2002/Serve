@@ -51,7 +51,6 @@ export default function Hero() {
                   height={180}
                   priority
                 />
-                />
               </div>
             </div>
           </div>

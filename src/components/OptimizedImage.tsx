@@ -72,6 +72,8 @@ export default function OptimizedImage({
     priority,
     placeholder,
     blurDataURL: blurDataURL || defaultBlurDataURL,
+    quality: priority ? 90 : 85, // Higher quality for priority images
+    loading: priority ? 'eager' as const : 'lazy' as const,
     ...(fill ? { fill: true } : { width, height }),
     ...(sizes && { sizes })
   }
