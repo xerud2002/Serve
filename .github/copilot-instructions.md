@@ -13,6 +13,19 @@ Next.js 15+ charity website for SERVE, providing care services to older people a
 - **API Routes** in `src/app/api/*/route.ts` export `GET`/`POST` functions (e.g., `/api/facebook-photos`, `/api/contact`)
 - **Path aliases**: `@/*` resolves to `src/*` (configured in `tsconfig.json`)
 
+### API Routes Architecture
+All API routes in `src/app/api/` use Next.js Route Handlers pattern:
+```typescript
+// Standard pattern: Validation → Processing → Dual emails
+export async function POST(request: NextRequest) {
+  const body = await request.json()
+  if (!field) return NextResponse.json({ error: 'Message' }, { status: 400 })
+  // Send admin email + user confirmation
+  return NextResponse.json({ success: true })
+}
+```
+**Active routes**: `/api/contact`, `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
+
 ### Accessibility Infrastructure (`src/lib/accessibility.tsx`)
 All interactive elements MUST use centralized accessibility utilities:
 ```tsx
@@ -88,6 +101,18 @@ if (!process.env.FACEBOOK_ACCESS_TOKEN) {
 ```
 **Never throw errors** for missing env vars - return empty/fallback data. See `FACEBOOK_INTEGRATION.md`, `EMAIL_SETUP.md` for setup.
 
+### Testing Strategy
+- **No Jest/Vitest**: Uses custom Node.js test scripts in `scripts/` directory
+- **Form testing**: Validates rules from `src/utils/validation.ts` (email patterns, phone formats)
+- **Booking testing**: Tests multi-step form flow, payment validation, scheduling logic
+- **Run before commits**: `npm run test:all` ensures forms, compatibility, booking work
+
+### Component Development Pattern
+1. **Start server-first**: Create in `src/components/` WITHOUT `"use client"`
+2. **Add client directive only if**: Uses `useState`/`useEffect`, handles events, uses browser APIs
+3. **Wrap complex components**: Use `<ErrorBoundary>` to prevent full-page crashes
+4. **Test accessibility**: Tab navigation, screen reader, verify `FOCUS_STYLES` applied
+
 ## Critical Integration Points
 
 ### Facebook Graph API (`/api/facebook-photos`, `/api/facebook-events`)
@@ -110,6 +135,35 @@ import OptimizedImage from '@/components/OptimizedImage'
 ```
 Remote images (Facebook CDN) configured in `next.config.js` `remotePatterns`.
 
+### SEO & Metadata System
+- **Structured data**: `StructuredData.tsx` generates LocalBusiness schema (JSON-LD)
+- **Metadata**: Centralized in `src/app/layout.tsx` with template support (e.g., "Services | SERVE Charity")
+- **Sitemap**: Auto-generated at `src/app/sitemap.ts`
+- **Robots.txt**: `src/app/robots.ts`
+- **Open Graph**: Full OG tags + Twitter cards for social sharing
+
+## Brand & Content Guidelines
+
+### Core Services (maintain exact order/wording)
+1. **Personal & Domestic Care** - Award-winning CQC registered homecare
+2. **Day Care & Meals on Wheels** - Ron Manning Day and Activity Centre
+3. **Community Transport** - Medical appointments and family visits
+4. **Countywide Befriending** - Vulnerable adult support
+5. **Carers Support** - Respite services for family carers
+6. **Volunteer Programs** - Community involvement opportunities
+
+### Contact Information (verify before use)
+- **Phone**: 01933 315555 (format consistently)
+- **Email**: info@serve.org.uk (primary contact)
+- **Address**: 8 West Street, Rushden, Northants NN10 0RT
+- **Charity Number**: 1043321 (display on footer)
+- **CQC Registration**: https://www.cqc.org.uk/location/1-2165219210
+
+### External Links
+- **Fundraising**: https://www.justgiving.com/serve-jg
+- **Facebook**: facebook.com/SERVE234
+- **LinkedIn**: linkedin.com/company/serve-nvca
+
 ## Non-Negotiable Rules
 
 1. **Accessibility First**: Every change must pass keyboard navigation + screen reader testing
@@ -117,6 +171,22 @@ Remote images (Facebook CDN) configured in `next.config.js` `remotePatterns`.
 3. **Graceful Failures**: API failures, missing env vars must never break UI
 4. **Server-First Rendering**: Only mark `"use client"` when hooks/state/events are essential
 5. **Brand Consistency**: Use `serve-blue` palette + `MajorTitle` component for headings
+
+### Performance Standards
+- **First Contentful Paint**: < 1.5s
+- **Largest Contentful Paint**: < 2.5s
+- **Cumulative Layout Shift**: < 0.1
+- **Time to Interactive**: < 3.5s
+- **Test with**: Lighthouse (target 90+ accessibility score)
+
+### Deployment Checklist (`DEPLOYMENT.md`)
+Before production deployment:
+1. Run `npm run deploy:prepare` (lint + build + test:all)
+2. Verify environment variables: `RESEND_API_KEY`, `FACEBOOK_ACCESS_TOKEN` (optional)
+3. Configure domain in Resend dashboard for email delivery
+4. Test accessibility: Screen reader, keyboard navigation
+5. Verify contact information accuracy
+6. Check CQC registration link validity
 
 ## Reference Documentation
 - **Assessment Booking**: See `ASSESSMENT_BOOKING_SYSTEM.md` for booking flow + payment system
