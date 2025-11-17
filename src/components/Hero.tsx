@@ -32,6 +32,7 @@ export default function Hero() {
                   className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
                   width={128}
                   height={128}
+                  priority
                 />
               </div>
             </div>
@@ -48,6 +49,8 @@ export default function Hero() {
                   className="w-45 h-45 object-contain"
                   width={180}
                   height={180}
+                  priority
+                />
                 />
               </div>
             </div>

@@ -170,7 +170,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
     return basePrice + wheelchairSurcharge
   }
 
-  console.log('Transport booking modal isOpen:', isOpen, 'Step:', step)
+  // Track modal state for accessibility
   
   if (!isOpen) {
     return null
@@ -209,7 +209,6 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
             <button
               onClick={(e) => {
                 e.preventDefault()
-                console.log('Transport booking close button clicked')
                 handleClose()
               }}
               className="hidden sm:block px-4 py-2 text-gray-600 hover:text-gray-800 hover:bg-gray-200 rounded-lg transition-colors font-medium"
@@ -219,7 +218,6 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
             <button
               onClick={(e) => {
                 e.preventDefault()
-                console.log('Transport booking X button clicked')
                 handleClose()
               }}
               className="p-2 hover:bg-gray-200 rounded-full transition-colors"

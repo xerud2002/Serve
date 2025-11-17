@@ -33,12 +33,10 @@ export default function OptimizedImage({
 
   // Validate required props
   if (!src || src.trim() === '') {
-    console.warn('OptimizedImage: src prop is required and cannot be empty')
     return null
   }
 
   if (!alt || alt.trim() === '') {
-    console.warn('OptimizedImage: alt prop is required and cannot be empty')
     return null
   }
 

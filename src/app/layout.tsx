@@ -5,7 +5,12 @@ import StructuredData from '@/components/StructuredData'
 import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ 
+  subsets: ['latin'],
+  display: 'swap', // Prevent invisible text during font load
+  preload: true,
+  variable: '--font-inter'
+})
 
 export const metadata: Metadata = {
   title: {
@@ -113,6 +118,10 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         <meta name="theme-color" content="#1664de" />
+        {/* Preconnect to external domains for faster resource loading */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://graph.facebook.com" />
         <StructuredData type="local-business" />
       </head>
       <body className={`${inter.className} antialiased`}>

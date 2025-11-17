@@ -92,8 +92,6 @@ export function useAssessmentBooking() {
       // 3. Send confirmation emails to customer and SERVE
       // 4. Add to calendar system
       
-      console.log('Booking submitted:', { formData, paymentData })
-      
       setIsSubmitting(false)
       setCurrentStep(3) // Move to confirmation step
       return true
