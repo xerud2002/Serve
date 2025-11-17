@@ -7,9 +7,11 @@ import Footer from '@/components/Footer'
 
 const inter = Inter({ 
   subsets: ['latin'],
-  display: 'swap', // Prevent invisible text during font load
+  display: 'swap',
   preload: true,
-  variable: '--font-inter'
+  variable: '--font-inter',
+  adjustFontFallback: true,
+  fallback: ['system-ui', '-apple-system', 'sans-serif']
 })
 
 export const metadata: Metadata = {
@@ -136,15 +138,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="preconnect" href="https://graph.facebook.com" />
         <link rel="dns-prefetch" href="https://www.facebook.com" />
-        
-        {/* Preload critical font - prevents FOIT/FOUT */}
-        <link
-          rel="preload"
-          href="https://fonts.gstatic.com/s/inter/v13/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hiA.woff2"
-          as="font"
-          type="font/woff2"
-          crossOrigin="anonymous"
-        />
         
         <StructuredData type="local-business" />
       </head>
