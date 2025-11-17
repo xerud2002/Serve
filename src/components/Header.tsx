@@ -130,10 +130,11 @@ export default function Header() {
                 <Image
                   src="/images/serve.webp"
                   alt="SERVE - Supporting Independence"
-                  width={isMobile ? 720 : 960}
-                  height={isMobile ? 360 : 480}
+                  width={240}
+                  height={120}
                   className={`w-auto transition-all duration-300 ${isMobile ? 'h-24' : 'h-36'}`}
                   priority
+                  sizes="(max-width: 640px) 96px, 144px"
                 />
               </Link>
             </div>
