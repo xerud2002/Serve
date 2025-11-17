@@ -1,24 +1,9 @@
 'use client'
 
 import Image from 'next/image'
-import { useEffect, useState } from 'react'
+import { FallingStars } from './HeroEffects'
 
 export default function Hero() {
-  const [snowflakes, setSnowflakes] = useState<Array<{ id: number; left: string; delay: string; duration: string; size: string; opacity: string }>>([])
-
-  useEffect(() => {
-    // Generate snowflakes with soft, transparent appearance
-    const flakes = Array.from({ length: 50 }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 5}s`,
-      duration: `${8 + Math.random() * 12}s`,
-      size: `${6 + Math.random() * 10}px`, // Smaller, softer range: 6-16px
-      opacity: `${0.2 + Math.random() * 0.3}` // Soft transparent range: 0.2-0.5
-    }))
-    setSnowflakes(flakes)
-  }, [])
-
   return (
     <section className="relative bg-serve-blue-800 text-white overflow-hidden">
       {/* Background pattern overlay */}
@@ -31,31 +16,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* Snowflakes */}
-      <div className="absolute inset-0 pointer-events-none">
-        {snowflakes.map((flake) => (
-          <div
-            key={flake.id}
-            className="absolute animate-snowfall"
-            style={{
-              left: flake.left,
-              animationDelay: flake.delay,
-              animationDuration: flake.duration,
-              opacity: flake.opacity,
-            }}
-          >
-            <svg 
-              width={flake.size} 
-              height={flake.size} 
-              viewBox="0 0 24 24" 
-              fill="white" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12 2L13.5 8.5L18.36 5.64L14.5 10.5L21 12L14.5 13.5L18.36 18.36L13.5 15.5L12 22L10.5 15.5L5.64 18.36L9.5 13.5L3 12L9.5 10.5L5.64 5.64L10.5 8.5L12 2Z" />
-            </svg>
-          </div>
-        ))}
-      </div>
+      {/* Hero Effect - Change this to switch between different occasions */}
+      <FallingStars />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
