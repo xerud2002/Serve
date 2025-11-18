@@ -36,7 +36,7 @@ export default function Hero() {
                   priority
                   loading="eager"
                   fetchPriority="high"
-                  quality={75}
+                  quality={60}
                   sizes="(max-width: 768px) 0px, 128px"
                 />
               </div>
@@ -56,7 +56,7 @@ export default function Hero() {
                   height={180}
                   priority
                   fetchPriority="high"
-                  quality={75}
+                  quality={60}
                   sizes="(max-width: 768px) 180px, 0px"
                 />
               </div>

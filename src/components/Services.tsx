@@ -103,8 +103,10 @@ export default function Services() {
                       fill
                       className="object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 256px, 320px"
-                      quality={75}
+                      quality={60}
                       loading={service.featured ? "eager" : "lazy"}
+                      placeholder="blur"
+                      blurDataURL="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='320' height='320'%3E%3Crect fill='%23f3f4f6' width='320' height='320'/%3E%3C/svg%3E"
                     />
                   </div>
                   
