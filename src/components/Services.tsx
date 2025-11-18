@@ -49,7 +49,7 @@ export default function Services() {
       title: 'Carers Support',
       description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
       image: '/images/care/care2.webp',
-      link: '/services/carers',
+      link: '/services/carers-support',
       highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training']
     },
     {
