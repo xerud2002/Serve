@@ -44,6 +44,8 @@ Serve123@@
 
 **\*Server - VPS**
 
+**http://92.205.108.255/**
+
 **webadmin**
 
 **Serve123@@**
@@ -89,6 +91,10 @@ SEO on page
 https://admin.microsoft.com/Adminportal/Home?ocid=cmm45ut5ap0#/homepage
 
 SMTP AUTH Disabled
+
+
+
+https://pagespeed.web.dev/
 
 
 

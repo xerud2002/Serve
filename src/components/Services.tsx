@@ -103,6 +103,8 @@ export default function Services() {
                       fill
                       className="object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
                       sizes="(max-width: 768px) 256px, 320px"
+                      quality={75}
+                      loading={service.featured ? "eager" : "lazy"}
                     />
                   </div>
                   

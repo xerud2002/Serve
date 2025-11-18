@@ -31,12 +31,13 @@ export default function Hero() {
                   src="/images/servewinner .webp" 
                   alt="SERVE Winner - Great British Care Awards"
                   className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
-                  width={144}
-                  height={144}
+                  width={128}
+                  height={128}
                   priority
                   loading="eager"
                   fetchPriority="high"
-                  quality={85}
+                  quality={75}
+                  sizes="(max-width: 768px) 0px, 128px"
                 />
               </div>
             </div>
@@ -55,7 +56,8 @@ export default function Hero() {
                   height={180}
                   priority
                   fetchPriority="high"
-                  quality={90}
+                  quality={75}
+                  sizes="(max-width: 768px) 180px, 0px"
                 />
               </div>
             </div>
