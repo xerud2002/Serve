@@ -101,9 +101,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'ADD_GOOGLE_SITE_VERIFICATION_CODE',
-    yandex: 'ADD_YANDEX_VERIFICATION_CODE',
-    yahoo: 'ADD_YAHOO_VERIFICATION_CODE',
+    google: 'dc1d40cc239cfa22',
   },
   category: 'Healthcare & Social Services',
   classification: 'Charity',
