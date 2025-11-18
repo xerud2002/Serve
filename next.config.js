@@ -120,10 +120,11 @@ const nextConfig = {
     optimizePackageImports: ['@heroicons/react', 'react', 'react-dom'],
     optimizeCss: true, // Enable CSS optimization
     webpackBuildWorker: true, // Faster builds
+    cssChunking: 'strict', // Better CSS code splitting
   },
   
   // Webpack optimizations to reduce bundle size
-  webpack: (config, { isServer }) => {
+  webpack: (config, { isServer, dev }) => {
     if (!isServer) {
       // Optimize chunk splitting for better caching and smaller initial load
       config.optimization.splitChunks = {
@@ -146,7 +147,7 @@ const nextConfig = {
             test: /[\\/]node_modules[\\/]/,
             priority: 20,
             minChunks: 1,
-            maxSize: 100000, // Split large vendor bundles
+            maxSize: 50000, // Further split vendor bundles to 50KB
           },
           // Common chunk for shared code
           common: {
@@ -160,8 +161,10 @@ const nextConfig = {
         },
       }
       
-      // Minimize bundle size
+      // Minimize bundle size with modern settings
       config.optimization.minimize = true
+      config.optimization.usedExports = true // Tree shaking
+      config.optimization.sideEffects = true // Enable side effects detection
     }
     
     return config
