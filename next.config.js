@@ -125,18 +125,28 @@ const nextConfig = {
   // Webpack optimizations to reduce bundle size
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Split chunks for better caching
+      // Optimize chunk splitting for better caching and smaller initial load
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
           default: false,
           vendors: false,
-          // Vendor chunk for npm packages
+          // Framework chunk (React, Next.js)
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          // Vendor chunk for other npm packages
           vendor: {
             name: 'vendor',
             chunks: 'all',
-            test: /node_modules/,
-            priority: 20
+            test: /[\\/]node_modules[\\/]/,
+            priority: 20,
+            minChunks: 1,
+            maxSize: 100000, // Split large vendor bundles
           },
           // Common chunk for shared code
           common: {
@@ -145,11 +155,15 @@ const nextConfig = {
             chunks: 'all',
             priority: 10,
             reuseExistingChunk: true,
-            enforce: true
-          }
-        }
+            enforce: true,
+          },
+        },
       }
+      
+      // Minimize bundle size
+      config.optimization.minimize = true
     }
+    
     return config
   },
   

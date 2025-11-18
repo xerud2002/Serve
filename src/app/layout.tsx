@@ -11,7 +11,8 @@ const inter = Inter({
   preload: true,
   variable: '--font-inter',
   adjustFontFallback: true,
-  fallback: ['system-ui', '-apple-system', 'sans-serif']
+  fallback: ['system-ui', '-apple-system', 'sans-serif'],
+  weight: ['400', '500', '600', '700'], // Only load weights we use
 })
 
 export const metadata: Metadata = {
@@ -132,14 +133,10 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#1664de" />
         
-        {/* Critical resource hints - load first for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://graph.facebook.com" />
-        <link rel="preconnect" href="https://scontent.fman4-3.fna.fbcdn.net" />
-        <link rel="dns-prefetch" href="https://www.facebook.com" />
+        {/* Critical resource hints - optimized for LCP */}
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        <link rel="dns-prefetch" href="https://graph.facebook.com" />
         
         <StructuredData type="local-business" />
       </head>

@@ -34,8 +34,9 @@ export default function Hero() {
                   width={144}
                   height={144}
                   priority
+                  loading="eager"
                   fetchPriority="high"
-                  quality={90}
+                  quality={85}
                 />
               </div>
             </div>
