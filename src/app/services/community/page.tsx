@@ -15,6 +15,27 @@ export const metadata: Metadata = {
   title: 'Community Services - SERVE | Day Trips, DBS Checks & Community Support',
   description: 'A range of community support including day trips, hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
   keywords: 'community services, day trips, DBS checks, hearing aid, community support, Northamptonshire, social activities',
+  alternates: {
+    canonical: '/services/community',
+  },
+  openGraph: {
+    title: 'Community Services - SERVE',
+    description: 'Day trips, hearing aid servicing, DBS checks, and community support to help maintain independence and connections.',
+    url: '/services/community',
+    type: 'website',
+    images: [{
+      url: '/images/community/bigchat1.webp',
+      width: 1200,
+      height: 630,
+      alt: 'SERVE Community Services',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Community Services - SERVE',
+    description: 'Day trips, hearing aid servicing, DBS checks, and community support in Northamptonshire.',
+    images: ['/images/community/bigchat1.webp'],
+  },
 }
 
 const communityServices = [
@@ -107,8 +128,73 @@ const faqs = [
 ]
 
 export default function CommunityServicesPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Community Services",
+    "description": "Community support including day trips, hearing aid servicing, DBS checks, and community events to help maintain independence and social connections.",
+    "provider": {
+      "@type": "Organization",
+      "name": "SERVE",
+      "url": "https://serve.org.uk",
+      "telephone": "+44-1933-315555",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8 West Street",
+        "addressLocality": "Rushden",
+        "addressRegion": "Northamptonshire",
+        "postalCode": "NN10 0RT",
+        "addressCountry": "GB"
+      }
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Northamptonshire"
+    },
+    "serviceType": "Community Support Services",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Community Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Day Trips and Social Outings"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Hearing Aid Servicing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "DBS Check Processing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Community Events"
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

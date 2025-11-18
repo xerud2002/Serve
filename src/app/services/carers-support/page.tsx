@@ -16,6 +16,27 @@ export const metadata: Metadata = {
   title: 'Carers Support - SERVE | Respite and Advice for Family Carers',
   description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
   keywords: 'carers support, respite care, family carers, carer training, emotional support, Northamptonshire, caregiver help',
+  alternates: {
+    canonical: '/services/carers-support',
+  },
+  openGraph: {
+    title: 'Carers Support Services - SERVE',
+    description: 'Respite services, practical advice, and emotional support for family carers. Because carers need care too.',
+    url: '/services/carers-support',
+    type: 'website',
+    images: [{
+      url: '/images/care/care2.webp',
+      width: 1200,
+      height: 630,
+      alt: 'SERVE Carers Support Service',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Carers Support Services - SERVE',
+    description: 'Respite services, practical advice, and emotional support for family carers in Northamptonshire.',
+    images: ['/images/care/care2.webp'],
+  },
 }
 
 const carersServices = [
@@ -108,8 +129,66 @@ const faqs = [
 ]
 
 export default function CarersSupportPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Carers Support Service",
+    "description": "Respite services, practical advice, and emotional support for family carers. Includes respite care, carer training, and practical guidance.",
+    "provider": {
+      "@type": "Organization",
+      "name": "SERVE",
+      "url": "https://serve.org.uk",
+      "telephone": "+44-1933-315555",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8 West Street",
+        "addressLocality": "Rushden",
+        "addressRegion": "Northamptonshire",
+        "postalCode": "NN10 0RT",
+        "addressCountry": "GB"
+      }
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Northamptonshire"
+    },
+    "serviceType": "Carers Support and Respite Care",
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Carers Support Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Respite Care"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Carer Training"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Practical Advice and Support"
+          }
+        }
+      ]
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

@@ -18,6 +18,27 @@ export const metadata: Metadata = {
   title: 'Countywide Befriending - SERVE | Combat Loneliness in Northamptonshire',
   description: 'SERVE\'s friendly befriending service provides regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
   keywords: 'befriending, loneliness, companionship, emotional support, Northamptonshire, vulnerable adults, social connection',
+  alternates: {
+    canonical: '/services/befriending',
+  },
+  openGraph: {
+    title: 'Countywide Befriending Service - SERVE',
+    description: 'Combat loneliness with our friendly befriending service. Regular companionship and emotional support across Northamptonshire.',
+    url: '/services/befriending',
+    type: 'website',
+    images: [{
+      url: '/images/befriending/befriending1.webp',
+      width: 1200,
+      height: 630,
+      alt: 'SERVE Befriending Service',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Countywide Befriending Service - SERVE',
+    description: 'Combat loneliness with regular companionship and emotional support across Northamptonshire.',
+    images: ['/images/befriending/befriending1.webp'],
+  },
 }
 
 const befriendingServices = [
@@ -110,8 +131,45 @@ const faqs = [
 ]
 
 export default function BefriendingPage() {
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Countywide Befriending Service",
+    "description": "Friendly befriending service providing regular companionship and emotional support to vulnerable adults across Northamptonshire.",
+    "provider": {
+      "@type": "Organization",
+      "name": "SERVE",
+      "url": "https://serve.org.uk",
+      "telephone": "+44-1933-315555",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "8 West Street",
+        "addressLocality": "Rushden",
+        "addressRegion": "Northamptonshire",
+        "postalCode": "NN10 0RT",
+        "addressCountry": "GB"
+      }
+    },
+    "areaServed": {
+      "@type": "AdministrativeArea",
+      "name": "Northamptonshire"
+    },
+    "serviceType": "Befriending and Companionship Service",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "GBP",
+      "description": "Free befriending service"
+    }
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Structured Data */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
