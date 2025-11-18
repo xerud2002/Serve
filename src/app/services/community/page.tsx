@@ -1,19 +1,13 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import {
-  HeartIcon,
   PhoneIcon,
   CheckIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   TruckIcon,
-  CalendarIcon,
-  CurrencyPoundIcon,
-  HomeIcon,
   UserGroupIcon,
-  WrenchScrewdriverIcon,
-  BuildingStorefrontIcon,
-  ShoppingBagIcon
+  WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 
@@ -203,7 +197,7 @@ export default function CommunityServicesPage() {
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Our community services help you stay active, connected, and independent. 
-              From social trips to practical support, we're here to help.
+              From social trips to practical support, we&apos;re here to help.
             </p>
           </div>
 
@@ -279,8 +273,8 @@ export default function CommunityServicesPage() {
             Join Our Community Today
           </h2>
           <p className="text-xl opacity-90 mb-10 leading-relaxed">
-            Get involved with our community services. Whether it's a day trip, hearing aid check, 
-            or community event, there's always something happening at SERVE.
+            Get involved with our community services. Whether it&apos;s a day trip, hearing aid check, 
+            or community event, there&apos;s always something happening at SERVE.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

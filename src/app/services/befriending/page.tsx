@@ -7,9 +7,7 @@ import {
   CheckIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  ChatBubbleBottomCenterTextIcon,
   CalendarIcon,
-  HomeIcon,
   MapPinIcon,
   HandRaisedIcon,
   SparklesIcon

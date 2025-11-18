@@ -2,17 +2,13 @@ import { Metadata } from 'next'
 import Link from 'next/link'
 import {
   HeartIcon,
-  UserGroupIcon,
   PhoneIcon,
   CheckIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   AcademicCapIcon,
   ClockIcon,
-  HandRaisedIcon,
-  ChatBubbleLeftRightIcon,
-  HomeIcon,
-  SparklesIcon
+  ChatBubbleLeftRightIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 
@@ -185,7 +181,7 @@ export default function CarersSupportPage() {
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <HeartIcon className="w-12 h-12 mx-auto mb-4 text-serve-blue-200" />
                   <div className="font-bold text-lg mb-2">Emotional Support</div>
-                  <div className="text-sm opacity-80">We're here for you</div>
+                  <div className="text-sm opacity-80">We&apos;re here for you</div>
                 </div>
               </div>
             </div>
