@@ -2,6 +2,26 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Inline critical styles for faster initial render */
+@layer base {
+  /* Critical font loading */
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: local('Inter'), local('Inter-Regular');
+  }
+  
+  @font-face {
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: local('Inter'), local('Inter-Bold');
+  }
+}
+
 /* Critical Above-the-Fold Styles */
 @layer base {
   :root {

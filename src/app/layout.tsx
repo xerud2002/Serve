@@ -11,7 +11,7 @@ const inter = Inter({
   preload: true,
   variable: '--font-inter',
   adjustFontFallback: true,
-  fallback: ['system-ui', '-apple-system', 'sans-serif']
+  fallback: ['system-ui', '-apple-system', 'sans-serif'],
 })
 
 export const metadata: Metadata = {
@@ -100,9 +100,7 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: 'ADD_GOOGLE_SITE_VERIFICATION_CODE',
-    yandex: 'ADD_YANDEX_VERIFICATION_CODE',
-    yahoo: 'ADD_YAHOO_VERIFICATION_CODE',
+    google: 'dc1d40cc239cfa22',
   },
   category: 'Healthcare & Social Services',
   classification: 'Charity',
@@ -121,8 +119,9 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> */}
         
+      
         {/* PWA Meta Tags */}
         <meta name="application-name" content="SERVE Charity" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,14 +131,8 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#1664de" />
         
-        {/* Critical resource hints - load first for performance */}
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://graph.facebook.com" />
-        <link rel="preconnect" href="https://scontent.fman4-3.fna.fbcdn.net" />
-        <link rel="dns-prefetch" href="https://www.facebook.com" />
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Critical resource hints for Facebook API */}
+        <link rel="dns-prefetch" href="https://graph.facebook.com" />
         
         <StructuredData type="local-business" />
       </head>

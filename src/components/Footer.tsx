@@ -79,15 +79,15 @@ export default function Footer() {
                 <MapPinIcon className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
                 <span>8 West Street, Rushden, NN10 0RT</span>
               </div>
-              <div className="flex items-center text-gray-400">
-                <PhoneIcon className="w-4 h-4 mr-2 flex-shrink-0" />
-                <a href="tel:01933315555" className="hover:text-white transition-colors">
+              <div className="flex items-start text-gray-400">
+                <PhoneIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
+                <a href="tel:01933315555" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors">
                   01933 315555
                 </a>
               </div>
-              <div className="flex items-center text-gray-400">
-                <EnvelopeIcon className="w-4 h-4 mr-2 flex-shrink-0" />
-                <a href="mailto:info@serve.org.uk" className="hover:text-white transition-colors">
+              <div className="flex items-start text-gray-400">
+                <EnvelopeIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
+                <a href="mailto:info@serve.org.uk" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors break-all">
                   info@serve.org.uk
                 </a>
               </div>

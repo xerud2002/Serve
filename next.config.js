@@ -80,6 +80,7 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Common device widths
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Icon/thumbnail sizes
     minimumCacheTTL: 60 * 60 * 24 * 365, // Cache images for 1 year
+    qualities: [50, 60, 75, 90, 100], // Configure allowed quality values for Next.js 16
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
@@ -108,6 +109,9 @@ const nextConfig = {
   // Performance optimizations
   reactStrictMode: true,
   
+  // Generate source maps for production debugging
+  productionBrowserSourceMaps: true,
+  
   // Compiler optimizations
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production' ? {
@@ -120,23 +124,34 @@ const nextConfig = {
     optimizePackageImports: ['@heroicons/react', 'react', 'react-dom'],
     optimizeCss: true, // Enable CSS optimization
     webpackBuildWorker: true, // Faster builds
+    cssChunking: 'strict', // Better CSS code splitting
   },
   
   // Webpack optimizations to reduce bundle size
   webpack: (config, { isServer }) => {
     if (!isServer) {
-      // Split chunks for better caching
+      // Optimize chunk splitting for better caching and smaller initial load
       config.optimization.splitChunks = {
         chunks: 'all',
         cacheGroups: {
           default: false,
           vendors: false,
-          // Vendor chunk for npm packages
+          // Framework chunk (React, Next.js)
+          framework: {
+            name: 'framework',
+            chunks: 'all',
+            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          // Vendor chunk for other npm packages
           vendor: {
             name: 'vendor',
             chunks: 'all',
-            test: /node_modules/,
-            priority: 20
+            test: /[\\/]node_modules[\\/]/,
+            priority: 20,
+            minChunks: 1,
+            maxSize: 50000, // Further split vendor bundles to 50KB
           },
           // Common chunk for shared code
           common: {
@@ -145,17 +160,44 @@ const nextConfig = {
             chunks: 'all',
             priority: 10,
             reuseExistingChunk: true,
-            enforce: true
-          }
-        }
+            enforce: true,
+          },
+        },
       }
     }
+    
     return config
   },
   
   // HTTP Headers for performance and security
   async headers() {
     return [
+      {
+        source: '/_next/static/css/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/css; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
+      {
+        source: '/_next/static/chunks/:path*',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/javascript; charset=utf-8',
+          },
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable',
+          },
+        ],
+      },
       {
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico)',
         headers: [
@@ -193,10 +235,6 @@ const nextConfig = {
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
           },
           {
             key: 'Referrer-Policy',
