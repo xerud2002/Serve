@@ -2,7 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { FallingStars } from './HeroEffects'
+import { FloatingHearts } from './HeroEffects'
 
 export default function Hero() {
   return (
@@ -17,8 +17,8 @@ export default function Hero() {
         />
       </div>
 
-      {/* Hero Effect - Change this to switch between different occasions */}
-      <FallingStars />
+      {/* Hero Effect - Valentine's Day Hearts */}
+      <FloatingHearts />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
