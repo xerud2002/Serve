@@ -163,11 +163,6 @@ const nextConfig = {
           },
         },
       }
-      
-      // Minimize bundle size with modern settings
-      config.optimization.minimize = true
-      config.optimization.usedExports = true // Tree shaking
-      config.optimization.sideEffects = true // Enable side effects detection
     }
     
     return config
