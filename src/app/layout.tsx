@@ -12,7 +12,6 @@ const inter = Inter({
   variable: '--font-inter',
   adjustFontFallback: true,
   fallback: ['system-ui', '-apple-system', 'sans-serif'],
-  weight: ['400', '500', '600', '700'], // Only load weights we use
 })
 
 export const metadata: Metadata = {
@@ -121,8 +120,8 @@ export default function RootLayout({
     <html lang="en-GB">
       <head>
         {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> */}
-        <meta name="google-site-verification" content="6eJLizycBlLeDBnx6lVSYaJU6O31v3nFMrAE940JbJs" />
         
+      
         {/* PWA Meta Tags */}
         <meta name="application-name" content="SERVE Charity" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
@@ -132,9 +131,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#1664de" />
         
-        {/* Critical resource hints - optimized for LCP */}
-        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
-        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+        {/* Critical resource hints for Facebook API */}
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
         
         <StructuredData type="local-business" />
