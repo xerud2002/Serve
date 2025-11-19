@@ -120,7 +120,7 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        {/* <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" /> */}
         <meta name="google-site-verification" content="6eJLizycBlLeDBnx6lVSYaJU6O31v3nFMrAE940JbJs" />
         
         {/* PWA Meta Tags */}
