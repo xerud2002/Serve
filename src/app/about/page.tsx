@@ -191,13 +191,13 @@ export default function AboutPage() {
 
                 <div className="bg-serve-blue-50 rounded-2xl p-6 my-8 border-l-4 border-serve-blue-600">
                   <p className="text-gray-800 italic leading-relaxed">
-                    "Every day, our dedicated team works tirelessly to make a real difference in people's lives. 
-                    Whether it's helping someone maintain their independence through personal care, connecting 
+                    &quot;Every day, our dedicated team works tirelessly to make a real difference in people&apos;s lives. 
+                    Whether it&apos;s helping someone maintain their independence through personal care, connecting 
                     isolated individuals through our befriending service, or ensuring safe transport to vital 
-                    appointments—we're here because we genuinely care."
+                    appointments. We&apos;re here because we genuinely care.&quot;
                   </p>
                   <p className="text-sm text-serve-blue-700 font-semibold mt-4">
-                    — Tony Gibbs, Chief Executive Officer
+                    Tony Gibbs, Chief Executive Officer
                   </p>
                 </div>
 
@@ -209,7 +209,7 @@ export default function AboutPage() {
 
                 <p className="text-gray-700 leading-relaxed mb-6">
                   From our CQC-registered homecare services to our vibrant Ron Manning Day and Activity Centre, 
-                  from our reliable community transport to our countywide befriending programme—every service 
+                  from our reliable community transport to our countywide befriending programme. Every service 
                   we provide is built on the foundation of respect, compassion, and excellence.
                 </p>
 
