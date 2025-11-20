@@ -13,16 +13,16 @@ export default function FallingSnowflakes() {
   }>>([])
 
   useEffect(() => {
-    // Generate snowflakes with soft, transparent appearance
-    const snowflakes = Array.from({ length: 50 }, (_, i) => ({
+    // Generate 6-pointed stars with soft, transparent appearance
+    const stars = Array.from({ length: 50 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       delay: `${Math.random() * 5}s`,
       duration: `${8 + Math.random() * 12}s`,
-      size: `${10 + Math.random() * 14}px`, // Range: 10-24px
-      opacity: `${0.2 + Math.random() * 0.3}` // Soft transparent range: 0.2-0.5
+      size: `${12 + Math.random() * 16}px`, // Range: 12-28px
+      opacity: `${0.3 + Math.random() * 0.4}` // Soft transparent range: 0.3-0.7
     }))
-    setParticles(snowflakes)
+    setParticles(stars)
   }, [])
 
   return (
@@ -42,15 +42,12 @@ export default function FallingSnowflakes() {
             width={particle.size} 
             height={particle.size} 
             viewBox="0 0 24 24" 
-            fill="none" 
+            fill="white" 
             xmlns="http://www.w3.org/2000/svg"
           >
-            <path 
-              d="M12 2L12 22M12 2L9 5M12 2L15 5M12 22L9 19M12 22L15 19M2 12L22 12M2 12L5 9M2 12L5 15M22 12L19 9M22 12L19 15M5.64 5.64L18.36 18.36M5.64 5.64L7.05 9.17M5.64 5.64L9.17 7.05M18.36 18.36L16.95 14.83M18.36 18.36L14.83 16.95M18.36 5.64L5.64 18.36M18.36 5.64L14.83 7.05M18.36 5.64L16.95 9.17M5.64 18.36L9.17 16.95M5.64 18.36L7.05 14.83" 
-              stroke="white" 
-              strokeWidth="1.5" 
-              strokeLinecap="round"
-            />
+            {/* 6-pointed star (Star of David / hexagram shape) */}
+            <path d="M12 2 L14.5 7.5 L20.5 7.5 L16 11.5 L18 17 L12 13.5 L6 17 L8 11.5 L3.5 7.5 L9.5 7.5 Z" />
+            <path d="M12 22 L14.5 16.5 L20.5 16.5 L16 12.5 L18 7 L12 10.5 L6 7 L8 12.5 L3.5 16.5 L9.5 16.5 Z" />
           </svg>
         </div>
       ))}
