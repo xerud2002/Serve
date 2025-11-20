@@ -43,7 +43,7 @@ export async function POST(request: NextRequest) {
 
     // Send admin notification
     await resend.emails.send({
-      from: 'SERVE Contact Form <onboarding@resend.dev>',
+      from: 'SERVE Contact Form <noreply@serve.org.uk>',
       to: 'web@serve.co.uk',
       replyTo: email,
       subject: `New Contact Form - ${subject}`,
@@ -71,7 +71,7 @@ export async function POST(request: NextRequest) {
 
     // Send user confirmation
     await resend.emails.send({
-      from: 'SERVE <onboarding@resend.dev>',
+      from: 'SERVE <noreply@serve.org.uk>',
       to: email,
       replyTo: 'web@serve.co.uk',
       subject: 'Thank you for contacting SERVE',
