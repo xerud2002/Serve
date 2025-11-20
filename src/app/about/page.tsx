@@ -300,41 +300,6 @@ export default function AboutPage() {
               </div>
             </div>
           </div>
-
-          {/* Team Stats */}
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mx-auto mb-3">
-                <UserGroupIcon className="w-6 h-6 text-serve-blue-700" />
-              </div>
-              <div className="text-3xl font-bold text-serve-blue-600 mb-1">7</div>
-              <p className="text-xs font-semibold text-gray-900">Leadership Team</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-green-100 to-serve-green-200 flex items-center justify-center mx-auto mb-3">
-                <HeartIcon className="w-6 h-6 text-serve-green-700" />
-              </div>
-              <div className="text-3xl font-bold text-serve-green-600 mb-1">25+</div>
-              <p className="text-xs font-semibold text-gray-900">Care Professionals</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mx-auto mb-3">
-                <UserGroupIcon className="w-6 h-6 text-serve-blue-700" />
-              </div>
-              <div className="text-3xl font-bold text-serve-blue-600 mb-1">6</div>
-              <p className="text-xs font-semibold text-gray-900">Transport Team</p>
-            </div>
-
-            <div className="bg-white rounded-xl p-6 shadow-sm text-center">
-              <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-green-100 to-serve-green-200 flex items-center justify-center mx-auto mb-3">
-                <HeartIcon className="w-6 h-6 text-serve-green-700" />
-              </div>
-              <div className="text-3xl font-bold text-serve-green-600 mb-1">50+</div>
-              <p className="text-xs font-semibold text-gray-900">Volunteers</p>
-            </div>
-          </div>
         </div>
       </section>
 
