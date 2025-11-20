@@ -47,14 +47,14 @@ const trustees = [
   },
   {
     name: 'Michael Robert Hulands',
-    role: 'Trustee',
+    role: 'Vice Chair',
     image: '/images/trustees/placeholder.svg',
     dateAppointed: 'September 2025',
     expertise: 'Strategic Development'
   },
   {
     name: 'Rachel Wilson',
-    role: 'Trustee',
+    role: 'Treasurer',
     image: '/images/trustees/placeholder.svg',
     dateAppointed: 'January 2024',
     expertise: 'Community & Social Care'
