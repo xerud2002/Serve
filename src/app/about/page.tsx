@@ -161,6 +161,85 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* Our Story */}
+      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Our Story
+              </h2>
+              <p className="text-lg text-gray-600">
+                Four decades of compassionate care and community support
+              </p>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100">
+              <div className="prose prose-lg max-w-none">
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Since the 1980s, SERVE has been a cornerstone of care in Northamptonshire, born from a simple 
+                  yet powerful vision: to ensure that older people and adults with disabilities can live with 
+                  dignity, independence, and joy in their own homes and communities.
+                </p>
+                
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  What began as a small voluntary initiative has grown into an award-winning charity providing 
+                  comprehensive care services across the county. Our journey has been shaped by the thousands 
+                  of individuals we've had the privilege to support, each with their own unique story, challenges, 
+                  and dreams.
+                </p>
+
+                <div className="bg-serve-blue-50 rounded-2xl p-6 my-8 border-l-4 border-serve-blue-600">
+                  <p className="text-gray-800 italic leading-relaxed">
+                    "Every day, our dedicated team works tirelessly to make a real difference in people's lives. 
+                    Whether it's helping someone maintain their independence through personal care, connecting 
+                    isolated individuals through our befriending service, or ensuring safe transport to vital 
+                    appointments—we're here because we genuinely care."
+                  </p>
+                  <p className="text-sm text-serve-blue-700 font-semibold mt-4">
+                    — Tony Gibbs, Chief Executive Officer
+                  </p>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  Our success isn't measured in numbers alone, though we're proud to serve hundreds of people 
+                  each year. It's measured in the smiles of our service users, the relief of family members who 
+                  know their loved ones are in safe hands, and the strengthened bonds within our community.
+                </p>
+
+                <p className="text-gray-700 leading-relaxed mb-6">
+                  From our CQC-registered homecare services to our vibrant Ron Manning Day and Activity Centre, 
+                  from our reliable community transport to our countywide befriending programme—every service 
+                  we provide is built on the foundation of respect, compassion, and excellence.
+                </p>
+
+                <div className="grid md:grid-cols-3 gap-6 my-8">
+                  <div className="text-center p-6 bg-gradient-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
+                    <div className="text-4xl font-bold text-serve-blue-600 mb-2">40+</div>
+                    <p className="text-sm font-semibold text-gray-700">Years of Service</p>
+                  </div>
+                  <div className="text-center p-6 bg-gradient-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
+                    <div className="text-4xl font-bold text-serve-green-600 mb-2">1000s</div>
+                    <p className="text-sm font-semibold text-gray-700">Lives Touched</p>
+                  </div>
+                  <div className="text-center p-6 bg-gradient-to-br from-yellow-50 to-white rounded-xl border border-yellow-100">
+                    <div className="text-4xl font-bold text-yellow-600 mb-2">2024</div>
+                    <p className="text-sm font-semibold text-gray-700">Award Winner</p>
+                  </div>
+                </div>
+
+                <p className="text-gray-700 leading-relaxed">
+                  Today, as we continue to evolve and expand our services, our commitment remains unchanged: 
+                  to provide exceptional care that empowers people to live their best lives. With our dedicated 
+                  staff, passionate volunteers, and the unwavering support of our community, we're writing the 
+                  next chapter of our story—one filled with hope, dignity, and compassion for all.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Mission & Vision */}
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
