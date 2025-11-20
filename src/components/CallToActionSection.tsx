@@ -18,11 +18,11 @@ export default function CallToActionSection() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="text-cyan-600">Personalized Care</span>{' '}
+            <span className="text-cyan-600">Personalised Care</span>{' '}
             <span className="text-red-600">Starts with Understanding Your Needs</span>
           </h2>
           <p className="text-lg text-gray-600 max-w-3xl mx-auto mb-12 leading-relaxed">
-            Take the first step towards personalized care with a comprehensive home assessment. Our compassionate, 
+            Take the first step towards personalised care with a comprehensive home assessment. Our compassionate, 
             award-winning team will visit you at home to understand your unique needs and create a tailored care plan 
             that helps you maintain independence, dignity, and quality of life.
           </p>
@@ -56,7 +56,7 @@ export default function CallToActionSection() {
               <div className="relative h-48 overflow-hidden">
                 <Image
                   src="/images/community/bigchat6.webp"
-                  alt="Personalized care planning"
+                  alt="Personalised care planning"
                   fill
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 25vw"

@@ -43,7 +43,7 @@ const communityServices = [
     title: 'Day Trips',
     icon: TruckIcon,
     services: [
-      'Organized group outings',
+      'Organised group outings',
       'Popular destinations',
       'Accessible transport',
       'Social interaction',

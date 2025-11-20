@@ -258,7 +258,7 @@ export function getUserConfirmationEmail(data: ContactFormData): string {
                           <span style="display: inline-block; background: #10b981; color: white; width: 24px; height: 24px; border-radius: 50%; text-align: center; line-height: 24px; font-size: 12px; font-weight: 700;">3</span>
                         </td>
                         <td style="padding: 10px 0 10px 10px; color: #374151; font-size: 14px; line-height: 1.5;">
-                          You receive a personalized response within 1-2 business days
+                          You receive a personalised response within 1-2 business days
                         </td>
                       </tr>
                     </table>

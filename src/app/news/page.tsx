@@ -107,7 +107,7 @@ const newsArticles = [
   {
     id: 9,
     title: 'Mental Health Awareness Week Activities',
-    excerpt: 'SERVE organized special activities during Mental Health Awareness Week to promote wellbeing and reduce social isolation.',
+    excerpt: 'SERVE organised special activities during Mental Health Awareness Week to promote wellbeing and reduce social isolation.',
     category: 'Health & Wellbeing',
     date: 'May 2024',
     readTime: '2 min read',

@@ -97,7 +97,7 @@ const faqs = [
   },
   {
     question: "How do I arrange a care assessment?",
-    answer: "Contact us on 01933 315555 to arrange a free, no-obligation assessment. We'll visit you at home to understand your needs and create a personalized care plan."
+    answer: "Contact us on 01933 315555 to arrange a free, no-obligation assessment. We'll visit you at home to understand your needs and create a personalised care plan."
   },
   {
     question: "What qualifications do your carers have?",
@@ -287,7 +287,7 @@ export default function PersonalCarePage() {
           </h2>
           <p className="text-xl opacity-90 mb-10 leading-relaxed">
             Contact us today for a free, no-obligation assessment. Our experienced team 
-            will work with you to create a personalized care plan that meets your unique needs.
+            will work with you to create a personalised care plan that meets your unique needs.
           </p>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">

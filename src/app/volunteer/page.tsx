@@ -95,7 +95,7 @@ const volunteerOpportunities = [
     ],
     requirements: [
       'Basic computer skills',
-      'Organized and detail-oriented',
+      'Organised and detail-oriented',
       'Good telephone manner',
       'Reliable attendance'
     ]

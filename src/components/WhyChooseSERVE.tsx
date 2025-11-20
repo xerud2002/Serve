@@ -7,7 +7,7 @@ export default function WhyChooseSERVE() {
   const features = [
     {
       title: "Compassionate Care",
-      description: "Every person we support receives personalized attention with dignity, respect, and genuine kindness",
+      description: "Every person we support receives personalised attention with dignity, respect, and genuine kindness",
       color: "from-rose-100 to-pink-100",
       iconColor: "text-rose-600",
       iconPath: <path strokeLinecap="round" strokeLinejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
@@ -98,7 +98,7 @@ export default function WhyChooseSERVE() {
               <p>
                 Today, we&apos;re proud to be a CQC registered care provider and winner of the Great British Care Awards 2024 
                 (Best Homecare Team, East Midlands), serving hundreds of families across Northamptonshire. Our dedicated team 
-                provides personalized care that helps people maintain their independence, dignity, and quality of life.
+                provides personalised care that helps people maintain their independence, dignity, and quality of life.
               </p>
               <p>
                 From our humble beginnings in the 1980s to becoming an award-winning care provider, 
