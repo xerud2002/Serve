@@ -39,14 +39,14 @@ export async function GET() {
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
     // Using /posts endpoint for published posts only
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=10&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=6&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
         'Accept': 'application/json',
       },
-      // Cache for 5 minutes for fresher content
-      next: { revalidate: 300 }
+      // Cache for 1 hour - updates hourly
+      next: { revalidate: 3600 }
     })
 
     if (!response.ok) {
@@ -55,27 +55,11 @@ export async function GET() {
 
     const data = await response.json()
 
-    // Filter posts to only include those with meaningful content
-    const filteredPosts = (data.data || []).filter((post: FacebookPost) => {
-      // Include posts with photos
-      if (post.picture || post.full_picture) return true
-      
-      // Include text posts only if they have substantial message content (more than just status updates)
-      if (post.message && post.message.trim().length > 20) return true
-      
-      // Include story posts only if they contain meaningful content (not just "updated their status")
-      if (post.story && post.story.trim().length > 30 && !post.story.includes('updated their status')) return true
-      
-      return false
-    })
-
-    // Sort by created_time descending (newest first)
-    const sortedPosts = filteredPosts.sort((a: FacebookPost, b: FacebookPost) => {
-      return new Date(b.created_time).getTime() - new Date(a.created_time).getTime()
-    })
+    // Get the latest 6 posts (already sorted by created_time desc from Facebook)
+    const latestPosts = (data.data || []).slice(0, 6)
 
     return NextResponse.json({ 
-      posts: sortedPosts,
+      posts: latestPosts,
       fallback: false 
     })
     

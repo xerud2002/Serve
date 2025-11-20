@@ -22,7 +22,7 @@ export default function FacebookFeed() {
 
   useEffect(() => {
     let cancelled = false
-    ;(async () => {
+    const fetchPosts = async () => {
       try {
         const res = await fetch('/api/facebook-posts', { cache: 'no-store' })
         const data = await res.json()
@@ -35,8 +35,18 @@ export default function FacebookFeed() {
           setPosts(getFallbackPosts())
         }
       }
-    })()
-    return () => { cancelled = true }
+    }
+    
+    // Initial fetch
+    fetchPosts()
+    
+    // Set up hourly refresh (3600000 ms = 1 hour)
+    const interval = setInterval(fetchPosts, 3600000)
+    
+    return () => { 
+      cancelled = true
+      clearInterval(interval)
+    }
   }, [])
 
   const getFallbackPosts = (): FacebookPost[] => {
