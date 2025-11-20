@@ -34,12 +34,6 @@ const teamMembers = [
     role: 'Community Programs',
     image: '/images/team/placeholder.svg',
     description: 'Coordinating volunteers and community services'
-  },
-  {
-    name: 'Operations Manager',
-    role: 'Operations & Finance',
-    image: '/images/team/placeholder.svg',
-    description: 'Managing daily operations and financial oversight'
   }
 ]
 
@@ -256,7 +250,7 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid md:grid-cols-3 gap-8 mb-12">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
                 <div className="relative h-64 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
@@ -326,26 +320,20 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Trustees Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {trustees.map((trustee, index) => (
-              <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all border border-gray-100 group">
-                <div className="relative h-72 bg-gradient-to-br from-serve-blue-100 to-serve-green-100">
-                  <Image
-                    src={trustee.image}
-                    alt={trustee.name}
-                    fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-lg font-bold text-gray-900 mb-1">{trustee.name}</h3>
-                  <p className="text-sm font-semibold text-serve-blue-600 mb-1">{trustee.role}</p>
-                  <p className="text-xs text-gray-500 mb-2">Appointed: {trustee.dateAppointed}</p>
-                  <p className="text-xs text-gray-600">{trustee.expertise}</p>
-                </div>
+          {/* Trustees List - Simple Name and Position Format */}
+          <div className="max-w-4xl mx-auto">
+            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+              <div className="space-y-4">
+                {trustees.map((trustee, index) => (
+                  <div key={index} className="flex items-start justify-between py-4 border-b border-gray-200 last:border-0">
+                    <div className="flex-1">
+                      <h3 className="text-lg font-bold text-gray-900">{trustee.name}</h3>
+                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
+                    </div>
+                  </div>
+                ))}
               </div>
-            ))}
+            </div>
           </div>
 
           {/* Governance Info */}
