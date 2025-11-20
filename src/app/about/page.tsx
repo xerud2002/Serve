@@ -325,11 +325,9 @@ export default function AboutPage() {
             <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
               <div className="space-y-4">
                 {trustees.map((trustee, index) => (
-                  <div key={index} className="flex items-start justify-between py-4 border-b border-gray-200 last:border-0">
-                    <div className="flex-1">
-                      <h3 className="text-lg font-bold text-gray-900">{trustee.name}</h3>
-                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
-                    </div>
+                  <div key={index} className="py-4 border-b border-gray-200 last:border-0">
+                    <h3 className="text-lg font-bold text-gray-900">{trustee.name}</h3>
+                    <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
                   </div>
                 ))}
               </div>
