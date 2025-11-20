@@ -19,21 +19,36 @@ import MajorTitle from '@/components/MajorTitle'
 const teamMembers = [
   {
     name: 'Tony Gibbs',
-    role: 'CEO – Leadership & Strategy',
+    role: 'Chief Executive Officer',
     image: '/images/team/Tony2.webp',
-    description: 'Overseeing organizational strategy and operations'
+    description: 'Leading organizational strategy and operations'
+  }
+]
+
+const managementTeam = [
+  {
+    name: 'Louise Wiltshire',
+    role: 'Executive Assistant'
   },
   {
-    name: 'Care Manager',
-    role: 'Care Services',
-    image: '/images/team/placeholder.svg',
-    description: 'Leading our award-winning care team'
+    name: 'Sam Horne',
+    role: 'Registered Care Manager'
   },
   {
-    name: 'Community Coordinator',
-    role: 'Community Programs',
-    image: '/images/team/placeholder.svg',
-    description: 'Coordinating volunteers and community services'
+    name: 'Cheryl Smith',
+    role: 'Befriending Manager'
+  },
+  {
+    name: 'Mario Brown',
+    role: 'Policy and Compliance Manager/Transport Manager'
+  },
+  {
+    name: 'Emily Lennox',
+    role: 'Finance Manager'
+  },
+  {
+    name: 'Sean Silver',
+    role: 'Project Manager'
   }
 ]
 
@@ -250,7 +265,8 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8 mb-12">
+          {/* CEO Section */}
+          <div className="max-w-md mx-auto mb-12">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
                 <div className="relative h-64 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
@@ -270,13 +286,28 @@ export default function AboutPage() {
             ))}
           </div>
 
+          {/* Management Team List */}
+          <div className="max-w-4xl mx-auto mb-12">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Management Team</h3>
+            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+              <div className="grid md:grid-cols-2 gap-4">
+                {managementTeam.map((member, index) => (
+                  <div key={index} className="py-3 border-b border-gray-200 last:border-0">
+                    <h4 className="text-base font-bold text-gray-900">{member.name}</h4>
+                    <p className="text-sm font-semibold text-serve-blue-600 mt-1">{member.role}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* Team Stats */}
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-6">
             <div className="bg-white rounded-xl p-6 shadow-sm text-center">
               <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mx-auto mb-3">
                 <UserGroupIcon className="w-6 h-6 text-serve-blue-700" />
               </div>
-              <div className="text-3xl font-bold text-serve-blue-600 mb-1">8</div>
+              <div className="text-3xl font-bold text-serve-blue-600 mb-1">7</div>
               <p className="text-xs font-semibold text-gray-900">Leadership Team</p>
             </div>
 
