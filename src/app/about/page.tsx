@@ -55,52 +55,66 @@ const managementTeam = [
 const trustees = [
   {
     name: 'Anita Harvey',
-    role: 'Chair',
+    role: 'Director / Chair',
     image: '/images/trustees/placeholder.svg',
     dateAppointed: 'January 2024',
     expertise: 'Board Leadership & Governance'
   },
   {
-    name: 'Michael Robert Hulands',
-    role: 'Vice Chair',
+    name: 'Zara Cunliffe',
+    role: 'Director / Deputy Chair',
     image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'September 2025',
-    expertise: 'Strategic Development'
+    dateAppointed: 'April 2016',
+    expertise: 'Legal & Compliance'
   },
   {
-    name: 'Rachel Wilson',
-    role: 'Treasurer',
-    image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'January 2024',
-    expertise: 'Community & Social Care'
-  },
-  {
-    name: 'Simon Howard Partridge',
-    role: 'Trustee',
-    image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'November 2022',
-    expertise: 'Finance & Risk Management'
-  },
-  {
-    name: 'Timothy David Richard James',
-    role: 'Trustee',
+    name: 'Jess Bermudez',
+    role: 'Director / Trustee',
     image: '/images/trustees/placeholder.svg',
     dateAppointed: 'July 2019',
     expertise: 'Heritage & Community'
   },
   {
-    name: 'Maureen Patricia Core',
-    role: 'Trustee',
+    name: 'Maureen Core',
+    role: 'Director / Trustee',
     image: '/images/trustees/placeholder.svg',
     dateAppointed: 'June 2016',
     expertise: 'Care Services & Operations'
   },
   {
-    name: 'Zara Elizabeth Cunliffe',
-    role: 'Trustee',
+    name: 'Mike Huland',
+    role: 'Director / Trustee',
     image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'April 2016',
-    expertise: 'Legal & Compliance'
+    dateAppointed: 'September 2025',
+    expertise: 'Strategic Development'
+  },
+  {
+    name: 'Jimmy James',
+    role: 'Director / Trustee',
+    image: '/images/trustees/placeholder.svg',
+    dateAppointed: 'July 2019',
+    expertise: 'Heritage & Community'
+  },
+  {
+    name: 'Simon Partridge',
+    role: 'Director / Trustee',
+    image: '/images/trustees/placeholder.svg',
+    dateAppointed: 'November 2022',
+    expertise: 'Finance & Risk Management'
+  },
+  {
+    name: 'Rachel Wilson',
+    role: 'Director / Trustee',
+    image: '/images/trustees/placeholder.svg',
+    dateAppointed: 'January 2024',
+    expertise: 'Community & Social Care'
+  },
+  {
+    name: 'I & J Rep Coopted Trustees',
+    role: 'Coopted Trustees',
+    image: '/images/trustees/placeholder.svg',
+    dateAppointed: 'January 2024',
+    expertise: 'Community & Social Care'
   }
 ]
 
