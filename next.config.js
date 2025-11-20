@@ -109,8 +109,8 @@ const nextConfig = {
   // Performance optimizations
   reactStrictMode: true,
   
-  // Generate source maps for production debugging
-  productionBrowserSourceMaps: true,
+  // Disable source maps in production for better performance
+  productionBrowserSourceMaps: false,
   
   // Compiler optimizations
   compiler: {
@@ -176,10 +176,6 @@ const nextConfig = {
         source: '/_next/static/css/:path*',
         headers: [
           {
-            key: 'Content-Type',
-            value: 'text/css; charset=utf-8',
-          },
-          {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
           },
@@ -188,10 +184,6 @@ const nextConfig = {
       {
         source: '/_next/static/chunks/:path*',
         headers: [
-          {
-            key: 'Content-Type',
-            value: 'application/javascript; charset=utf-8',
-          },
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable',
