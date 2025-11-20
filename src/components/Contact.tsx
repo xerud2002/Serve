@@ -341,7 +341,7 @@ export default function Contact() {
                       name="firstName"
                       value={formData.firstName}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white ${
+                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 ${
                         getFieldError('name') ? 'border-red-500' : 'border-gray-200'
                       }`}
                       placeholder="Your first name"
@@ -358,7 +358,7 @@ export default function Contact() {
                       name="lastName"
                       value={formData.lastName}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white ${
+                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 ${
                         getFieldError('name') ? 'border-red-500' : 'border-gray-200'
                       }`}
                       placeholder="Your last name"
@@ -381,7 +381,7 @@ export default function Contact() {
                       name="email"
                       value={formData.email}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white ${
+                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 ${
                         getFieldError('email') ? 'border-red-500' : 'border-gray-200'
                       }`}
                       placeholder="your.email@example.com"
@@ -402,7 +402,7 @@ export default function Contact() {
                       name="phone"
                       value={formData.phone}
                       onChange={handleInputChange}
-                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white ${
+                      className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 ${
                         getFieldError('phone') ? 'border-red-500' : 'border-gray-200'
                       }`}
                       placeholder="01933 315555"
@@ -422,7 +422,7 @@ export default function Contact() {
                     name="subject"
                     value={formData.subject}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white ${
+                    className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 ${
                       getFieldError('subject') ? 'border-red-500' : 'border-gray-200'
                     }`}
                     required
@@ -453,7 +453,7 @@ export default function Contact() {
                     rows={6}
                     value={formData.message}
                     onChange={handleInputChange}
-                    className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white resize-none ${
+                    className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 resize-none ${
                       getFieldError('message') ? 'border-red-500' : 'border-gray-200'
                     }`}
                     placeholder="Please tell us more about your inquiry..."

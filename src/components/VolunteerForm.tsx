@@ -90,7 +90,7 @@ export default function VolunteerForm() {
                   name="firstName"
                   value={formData.firstName}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('firstName') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your first name"
@@ -111,7 +111,7 @@ export default function VolunteerForm() {
                   name="lastName"
                   value={formData.lastName}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('lastName') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your last name"
@@ -134,7 +134,7 @@ export default function VolunteerForm() {
                   name="email"
                   value={formData.email}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('email') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="your.email@example.com"
@@ -155,7 +155,7 @@ export default function VolunteerForm() {
                   name="phone"
                   value={formData.phone}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('phone') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="01933 315555"
@@ -178,7 +178,7 @@ export default function VolunteerForm() {
                   name="address"
                   value={formData.address}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('address') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="Your full address"
@@ -199,7 +199,7 @@ export default function VolunteerForm() {
                   name="postcode"
                   value={formData.postcode}
                   onChange={handleInputChange}
-                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                  className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 ${
                     getFieldError('postcode') ? 'border-red-500' : 'border-gray-200'
                   }`}
                   placeholder="NN10 0RT"
@@ -220,7 +220,7 @@ export default function VolunteerForm() {
                 name="volunteering"
                 value={formData.volunteering}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white ${
+                className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 ${
                   getFieldError('volunteering') ? 'border-red-500' : 'border-gray-200'
                 }`}
                 required
@@ -269,7 +269,7 @@ export default function VolunteerForm() {
                 rows={3}
                 value={formData.experience}
                 onChange={handleInputChange}
-                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white resize-none"
+                className="w-full px-4 py-4 border-2 border-gray-200 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 resize-none"
                 placeholder="Tell us about any previous volunteer work..."
               />
             </div>
@@ -284,7 +284,7 @@ export default function VolunteerForm() {
                 rows={4}
                 value={formData.motivation}
                 onChange={handleInputChange}
-                className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white resize-none ${
+                className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-green-500 focus:border-serve-green-500 transition-all duration-300 bg-white text-gray-900 placeholder-gray-400 resize-none ${
                   getFieldError('motivation') ? 'border-red-500' : 'border-gray-200'
                 }`}
                 placeholder="Tell us what motivates you to volunteer..."
