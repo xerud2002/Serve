@@ -448,78 +448,48 @@ export default function AboutPage() {
               <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
                 <div className="space-y-3">
                   {/* Sample meeting minutes - update with real data */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="font-semibold text-gray-900">Board Meeting Minutes - September 2025</p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          <span className="font-medium">Date:</span> September 15, 2025
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Attendees:</span> 6 of 7 trustees present
-                        </p>
-                        <p className="text-sm text-gray-600 mt-2">
-                          <span className="font-medium">Key Decisions:</span> Approved Q3 financials, Strategic plan review, New service expansion discussion
-                        </p>
-                      </div>
-                      <a 
-                        href="#" 
-                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
-                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
-                      >
-                        <DocumentTextIcon className="w-5 h-5" />
-                        View PDF
-                      </a>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div>
+                      <p className="font-semibold text-gray-900">Board Meeting Minutes - September 2025</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        <span className="font-medium">Date:</span> September 15, 2025
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        <span className="font-medium">Attendees:</span> 6 of 7 trustees present
+                      </p>
+                      <p className="text-sm text-gray-600 mt-2">
+                        <span className="font-medium">Key Decisions:</span> Approved Q3 financials, Strategic plan review, New service expansion discussion
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="font-semibold text-gray-900">Board Meeting Minutes - June 2025</p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          <span className="font-medium">Date:</span> June 20, 2025
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Attendees:</span> 7 of 7 trustees present
-                        </p>
-                        <p className="text-sm text-gray-600 mt-2">
-                          <span className="font-medium">Key Decisions:</span> Annual report approval, Budget review, CQC compliance update
-                        </p>
-                      </div>
-                      <a 
-                        href="#" 
-                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
-                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
-                      >
-                        <DocumentTextIcon className="w-5 h-5" />
-                        View PDF
-                      </a>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div>
+                      <p className="font-semibold text-gray-900">Board Meeting Minutes - June 2025</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        <span className="font-medium">Date:</span> June 20, 2025
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        <span className="font-medium">Attendees:</span> 7 of 7 trustees present
+                      </p>
+                      <p className="text-sm text-gray-600 mt-2">
+                        <span className="font-medium">Key Decisions:</span> Annual report approval, Budget review, CQC compliance update
+                      </p>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
-                    <div className="flex items-center justify-between">
-                      <div className="flex-1">
-                        <p className="font-semibold text-gray-900">Board Meeting Minutes - March 2025</p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          <span className="font-medium">Date:</span> March 18, 2025
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Attendees:</span> 7 of 7 trustees present
-                        </p>
-                        <p className="text-sm text-gray-600 mt-2">
-                          <span className="font-medium">Key Decisions:</span> Q1 performance review, Volunteer recruitment initiative, Fundraising strategy
-                        </p>
-                      </div>
-                      <a 
-                        href="#" 
-                        className="ml-4 inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-sm"
-                        onClick={(e) => { e.preventDefault(); alert('Minutes PDF download would be available here') }}
-                      >
-                        <DocumentTextIcon className="w-5 h-5" />
-                        View PDF
-                      </a>
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <div>
+                      <p className="font-semibold text-gray-900">Board Meeting Minutes - March 2025</p>
+                      <p className="text-sm text-gray-600 mt-1">
+                        <span className="font-medium">Date:</span> March 18, 2025
+                      </p>
+                      <p className="text-sm text-gray-600">
+                        <span className="font-medium">Attendees:</span> 7 of 7 trustees present
+                      </p>
+                      <p className="text-sm text-gray-600 mt-2">
+                        <span className="font-medium">Key Decisions:</span> Q1 performance review, Volunteer recruitment initiative, Fundraising strategy
+                      </p>
                     </div>
                   </div>
 
