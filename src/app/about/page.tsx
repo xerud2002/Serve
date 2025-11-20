@@ -232,7 +232,7 @@ export default function AboutPage() {
                   Today, as we continue to evolve and expand our services, our commitment remains unchanged: 
                   to provide exceptional care that empowers people to live their best lives. With our dedicated 
                   staff, passionate volunteers, and the unwavering support of our community, we're writing the 
-                  next chapter of our story—one filled with hope, dignity, and compassion for all.
+                  next chapter of our story. One filled with hope, dignity, and compassion for all.
                 </p>
               </div>
             </div>

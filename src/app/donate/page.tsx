@@ -84,7 +84,7 @@ export default function DonatePage() {
                   hot meal deliveries, and transport to medical appointments and our Day Centre.
                 </p>
                 <p className="text-gray-700 leading-relaxed mb-4">
-                  She can remain in her home of 40 years, maintain her independence, and stay active in her community—
+                  She can remain in her home of 40 years, maintain her independence, and stay active in her community.
                   all funded by local donations.
                 </p>
                 <div className="bg-serve-blue-50 rounded-xl p-6 border-l-4 border-serve-blue-600">
