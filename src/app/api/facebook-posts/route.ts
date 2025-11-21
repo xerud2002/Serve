@@ -39,7 +39,7 @@ export async function GET() {
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
     // Using /posts endpoint for published posts only
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=4&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=3&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
@@ -55,8 +55,8 @@ export async function GET() {
 
     const data = await response.json()
 
-    // Get the latest 4 posts (already sorted by created_time desc from Facebook)
-    const latestPosts = (data.data || []).slice(0, 4)
+    // Get the latest 3 posts (already sorted by created_time desc from Facebook)
+    const latestPosts = (data.data || []).slice(0, 3)
 
     return NextResponse.json({ 
       posts: latestPosts,
@@ -114,6 +114,6 @@ function getFallbackPosts() {
       likes: { summary: { total_count: 89 } },
       comments: { summary: { total_count: 23 } },
       shares: { count: 12 }
-    }
+    },
   ]
 }

@@ -312,7 +312,7 @@ export default async function NewsPage() {
           
           <div className="flex gap-6 overflow-x-auto pb-4">
             {facebookPosts.length > 0 ? (
-              facebookPosts.slice(0, 4).map((post: any) => {
+              facebookPosts.slice(0, 3).map((post: any) => {
                 const imageUrl = post.full_picture || post.picture
                 const postText = post.message || post.story || ''
                 const excerpt = postText.length > 150 ? postText.substring(0, 150) + '...' : postText
