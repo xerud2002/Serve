@@ -39,7 +39,7 @@ export async function GET() {
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
     // Using /posts endpoint for published posts only
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=6&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=4&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
@@ -55,8 +55,8 @@ export async function GET() {
 
     const data = await response.json()
 
-    // Get the latest 6 posts (already sorted by created_time desc from Facebook)
-    const latestPosts = (data.data || []).slice(0, 6)
+    // Get the latest 4 posts (already sorted by created_time desc from Facebook)
+    const latestPosts = (data.data || []).slice(0, 4)
 
     return NextResponse.json({ 
       posts: latestPosts,
@@ -114,25 +114,6 @@ function getFallbackPosts() {
       likes: { summary: { total_count: 89 } },
       comments: { summary: { total_count: 23 } },
       shares: { count: 12 }
-    },
-    {
-      id: 'fallback-5',
-      message: 'Our befriending service is making real connections! 🤝 This week we matched another vulnerable adult with a caring volunteer for weekly companionship visits. No one should feel alone in our community.',
-      created_time: new Date(now - 6 * 24 * 60 * 60 * 1000).toISOString(), // 6 days ago
-      picture: '/images/community/bigchat2.webp',
-      permalink_url: 'https://www.facebook.com/SERVE234',
-      likes: { summary: { total_count: 34 } },
-      comments: { summary: { total_count: 8 } }
-    },
-    {
-      id: 'fallback-6',
-      message: '🎉 Celebrating 40+ years of serving Northamptonshire! From our small beginnings to CQC registration and national awards, we\'re proud to continue supporting older people and adults with disabilities to live with dignity.',
-      created_time: new Date(now - 8 * 24 * 60 * 60 * 1000).toISOString(), // 8 days ago
-      picture: '/images/fundraising/fundraising.webp',
-      permalink_url: 'https://www.facebook.com/SERVE234', 
-      likes: { summary: { total_count: 78 } },
-      comments: { summary: { total_count: 19 } },
-      shares: { count: 7 }
     }
   ]
 }
