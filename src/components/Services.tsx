@@ -26,7 +26,9 @@ export default function Services() {
       description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
       image: '/images/daycenter/day-center4.webp',
       link: '/services/day-care',
-      highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff']
+      highlights: ['Social Activities', 'Nutritious Meals', 'Transport Included', 'Friendly Staff'],
+      loading: 'eager' as const,
+      priority: true
     },
     {
       id: 'transport',
