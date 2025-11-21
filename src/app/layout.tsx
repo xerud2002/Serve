@@ -119,10 +119,19 @@ export default function RootLayout({
   return (
     <html lang="en-GB">
       <head>
-        {/* Performance optimizations */}
+        {/* Critical CSS - Inline for faster render */}
+        <style dangerouslySetInnerHTML={{__html: `
+          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
+          .antialiased { -webkit-font-smoothing: antialiased; }
+        `}} />
+        
+        {/* Performance optimizations - Preconnect to required origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
+        
+        {/* Defer non-critical resources */}
+        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
         
         {/* PWA Meta Tags */}
         <meta name="application-name" content="SERVE Charity" />

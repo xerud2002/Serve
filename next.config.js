@@ -80,7 +80,8 @@ const nextConfig = {
     deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840], // Common device widths
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384], // Icon/thumbnail sizes
     minimumCacheTTL: 60 * 60 * 24 * 365, // Cache images for 1 year
-    qualities: [50, 60, 75, 90, 100], // Configure allowed quality values for Next.js 16
+    loader: 'default',
+    unoptimized: false, // Enable image optimization
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
