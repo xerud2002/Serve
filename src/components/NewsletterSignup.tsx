@@ -23,7 +23,7 @@ export default function NewsletterSignup({
     handleInputChange,
     handleSubmit,
     clearForm
-  } = useNewsletterSignup('https://formspree.io/f/YOUR_NEWSLETTER_FORM_ID')
+  } = useNewsletterSignup('/api/contact')
 
   if (isSubmitted) {
     return (
