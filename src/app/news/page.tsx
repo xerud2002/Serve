@@ -117,6 +117,16 @@ const newsArticles = [
 
 const upcomingEvents = [
   {
+    title: 'SERVE Community Appeal - Help Us Raise £25,000',
+    date: 'Until April 2026',
+    time: 'Donate Anytime',
+    location: 'Online via JustGiving',
+    description: 'Support our Community Appeal to enhance day centre services, expand community programs, and create more opportunities for connection and care across Northamptonshire.',
+    link: 'https://www.justgiving.com/campaign/serve-community-appeal',
+    isExternal: true,
+    featured: true
+  },
+  {
     title: 'Volunteer Training Session',
     date: 'January 15, 2025',
     time: '10:00 AM - 2:00 PM',
@@ -323,30 +333,56 @@ export default function NewsPage() {
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {upcomingEvents.map((event, index) => (
-              <div key={index} className="bg-gradient-to-r from-serve-green-50 to-serve-blue-50 rounded-2xl p-8 shadow-lg">
+              <div 
+                key={index} 
+                className={`rounded-2xl p-8 shadow-lg ${
+                  event.featured 
+                    ? 'bg-gradient-to-r from-serve-green-500 to-serve-blue-600 text-white col-span-1 lg:col-span-2'
+                    : 'bg-gradient-to-r from-serve-green-50 to-serve-blue-50'
+                }`}
+              >
                 <div className="flex items-start">
-                  <div className="bg-serve-green-600 text-white rounded-xl p-3 mr-6">
-                    <CalendarDaysIcon className="w-6 h-6" />
+                  <div className={`rounded-xl p-3 mr-6 ${
+                    event.featured ? 'bg-white/20' : 'bg-serve-green-600'
+                  }`}>
+                    <CalendarDaysIcon className={`w-6 h-6 ${event.featured ? 'text-white' : 'text-white'}`} />
                   </div>
                   <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-3">{event.title}</h3>
+                    <h3 className={`text-xl font-bold mb-3 ${event.featured ? 'text-white' : 'text-gray-900'}`}>
+                      {event.title}
+                    </h3>
                     
-                    <div className="space-y-2 mb-4 text-gray-700">
+                    <div className={`space-y-2 mb-4 ${event.featured ? 'text-white/90' : 'text-gray-700'}`}>
                       <div className="flex items-center">
-                        <CalendarDaysIcon className="w-4 h-4 mr-2 text-serve-green-600" />
+                        <CalendarDaysIcon className={`w-4 h-4 mr-2 ${event.featured ? 'text-white' : 'text-serve-green-600'}`} />
                         <span className="font-medium">{event.date}</span>
                       </div>
                       <div className="flex items-center">
-                        <ClockIcon className="w-4 h-4 mr-2 text-serve-green-600" />
+                        <ClockIcon className={`w-4 h-4 mr-2 ${event.featured ? 'text-white' : 'text-serve-green-600'}`} />
                         <span>{event.time}</span>
                       </div>
                       <div className="flex items-center">
-                        <BuildingOffice2Icon className="w-4 h-4 mr-2 text-serve-green-600" />
+                        <BuildingOffice2Icon className={`w-4 h-4 mr-2 ${event.featured ? 'text-white' : 'text-serve-green-600'}`} />
                         <span>{event.location}</span>
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed">{event.description}</p>
+                    <p className={`leading-relaxed mb-6 ${event.featured ? 'text-white/90' : 'text-gray-600'}`}>
+                      {event.description}
+                    </p>
+
+                    {event.link && event.isExternal && (
+                      <a
+                        href={event.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-white text-serve-blue-600 hover:bg-gray-100 px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      >
+                        <HeartIcon className="w-5 h-5 mr-2" />
+                        Donate Now on JustGiving
+                        <ArrowRightIcon className="ml-2 h-5 w-5" />
+                      </a>
+                    )}
                   </div>
                 </div>
               </div>

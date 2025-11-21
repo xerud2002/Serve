@@ -23,7 +23,7 @@ export default function NewsletterSignup({
     handleInputChange,
     handleSubmit,
     clearForm
-  } = useNewsletterSignup('/api/contact')
+  } = useNewsletterSignup('/api/newsletter')
 
   if (isSubmitted) {
     return (
