@@ -150,6 +150,18 @@ export default function Events() {
           <FacebookEvents />
         </div>
 
+        {/* View All News Button */}
+        <div className="text-center mb-12">
+          <a
+            href="/news"
+            className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-10 py-5 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+          >
+            <CalendarDaysIcon className="w-6 h-6 mr-3" />
+            View All News & Events
+            <ArrowRightIcon className="ml-3 h-6 w-6" />
+          </a>
+        </div>
+
         {/* Newsletter Signup */}
         <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 text-center">
           <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
