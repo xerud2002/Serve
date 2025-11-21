@@ -7,8 +7,18 @@ export const metadata: Metadata = {
   description: 'A warm welcome and heartfelt thanks to all our supporters, donors, volunteers, and event participants who make SERVE\'s mission possible.',
 }
 
+// Fisher-Yates shuffle algorithm
+function shuffleArray<T>(array: T[]): T[] {
+  const shuffled = [...array]
+  for (let i = shuffled.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffled[i], shuffled[j]] = [shuffled[j], shuffled[i]]
+  }
+  return shuffled
+}
+
 export default function SupportersPage() {
-  const supporters = [
+  const supportersData = [
     // Fundraising Events
     {
       title: "Fundraising at Asda Rushden",
@@ -173,6 +183,9 @@ export default function SupportersPage() {
       description: "Community organizations supporting our mission"
     }
   ]
+
+  // Shuffle the supporters array for randomized display
+  const supporters = shuffleArray(supportersData)
 
   return (
     <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
