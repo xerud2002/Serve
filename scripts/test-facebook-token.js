@@ -55,7 +55,12 @@ async function testFacebookToken() {
   console.log('\n🔍 Testing Facebook Access Token...\n')
   
   // Load environment variables
-  require('dotenv').config({ path: '.env.local' })
+  try {
+    const dotenv = await import('dotenv')
+    dotenv.config({ path: '.env.local' })
+  } catch {
+    // dotenv not available, will use existing env vars
+  }
   
   const pageId = process.env.FACEBOOK_PAGE_ID || '239416516576684'
   const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
