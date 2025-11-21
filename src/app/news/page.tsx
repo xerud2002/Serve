@@ -18,6 +18,25 @@ import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
 
+// Fetch Facebook posts server-side
+async function getFacebookPosts() {
+  try {
+    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
+    const res = await fetch(`${baseUrl}/api/facebook-posts`, { 
+      cache: 'no-store',
+      next: { revalidate: 3600 } // Revalidate every hour
+    })
+    
+    if (!res.ok) throw new Error('Failed to fetch')
+    
+    const data = await res.json()
+    return Array.isArray(data?.posts) ? data.posts : []
+  } catch (error) {
+    console.error('Error fetching Facebook posts:', error)
+    return []
+  }
+}
+
 const featuredNews = {
   id: 1,
   title: 'SERVE Wins Best Homecare Team Award 2024',
@@ -158,7 +177,35 @@ const upcomingEvents = [
 
 const categories = ['All', 'Awards', 'Events', 'Service Updates', 'Community', 'Partnerships', 'Activities', 'Quality', 'Volunteering', 'Health & Wellbeing']
 
-export default function NewsPage() {
+export default async function NewsPage() {
+  const facebookPosts = await getFacebookPosts()
+  
+  // Format Facebook posts as news articles
+  const formatDate = (dateString: string) => {
+    const date = new Date(dateString)
+    return date.toLocaleDateString('en-GB', { 
+      day: 'numeric',
+      month: 'long',
+      year: 'numeric'
+    })
+  }
+  
+  const formatTimeAgo = (dateString: string) => {
+    const date = new Date(dateString)
+    const now = new Date()
+    const diffInHours = Math.floor((now.getTime() - date.getTime()) / (1000 * 60 * 60))
+    
+    if (diffInHours < 1) return 'Just now'
+    if (diffInHours < 24) return `${diffInHours}h ago`
+    if (diffInHours < 48) return 'Yesterday'
+    
+    const diffInDays = Math.floor(diffInHours / 24)
+    if (diffInDays < 7) return `${diffInDays} days ago`
+    if (diffInDays < 30) return `${Math.floor(diffInDays / 7)} weeks ago`
+    
+    return formatDate(dateString)
+  }
+  
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
@@ -258,68 +305,149 @@ export default function NewsPage() {
         </div>
       </section>
 
-      {/* News Articles Grid */}
+      {/* News Articles Grid - From Facebook */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Recent News</h2>
+          <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Updates from Facebook</h2>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {newsArticles.map((article) => {
-              const IconComponent = article.icon
-              return (
-                <article
-                  key={article.id}
-                  className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
-                >
-                  {/* Image Placeholder */}
-                  <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-48 flex items-center justify-center">
-                    <IconComponent className="w-12 h-12 text-serve-blue-600" />
-                  </div>
-                  
-                  <div className="p-6">
-                    <div className="flex items-center justify-between mb-4">
-                      <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                        article.category === 'Awards' ? 'bg-yellow-100 text-yellow-800' :
-                        article.category === 'Events' ? 'bg-purple-100 text-purple-800' :
-                        article.category === 'Service Updates' ? 'bg-blue-100 text-blue-800' :
-                        article.category === 'Community' ? 'bg-green-100 text-green-800' :
-                        article.category === 'Partnerships' ? 'bg-indigo-100 text-indigo-800' :
-                        article.category === 'Activities' ? 'bg-pink-100 text-pink-800' :
-                        article.category === 'Quality' ? 'bg-emerald-100 text-emerald-800' :
-                        article.category === 'Volunteering' ? 'bg-orange-100 text-orange-800' :
-                        'bg-red-100 text-red-800'
-                      }`}>
-                        {article.category}
-                      </span>
-                      <div className="text-gray-500 text-xs flex items-center">
-                        <ClockIcon className="w-3 h-3 mr-1" />
-                        {article.readTime}
+            {facebookPosts.length > 0 ? (
+              facebookPosts.slice(0, 12).map((post: any) => {
+                const imageUrl = post.full_picture || post.picture
+                const postText = post.message || post.story || ''
+                const excerpt = postText.length > 150 ? postText.substring(0, 150) + '...' : postText
+                
+                return (
+                  <article
+                    key={post.id}
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                  >
+                    {/* Image */}
+                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
+                      {imageUrl ? (
+                        <Image
+                          src={imageUrl}
+                          alt={excerpt}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-500"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="flex items-center justify-center h-full">
+                          <HeartIcon className="w-12 h-12 text-serve-blue-600" />
+                        </div>
+                      )}
+                    </div>
+                    
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
+                          Facebook Post
+                        </span>
+                        <div className="text-gray-500 text-xs flex items-center">
+                          <ClockIcon className="w-3 h-3 mr-1" />
+                          {post.created_time ? formatTimeAgo(post.created_time) : 'Recent'}
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-4">
+                        {excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-sm">
+                          {post.created_time ? formatDate(post.created_time) : ''}
+                        </span>
+                        <a
+                          href={post.permalink_url || 'https://www.facebook.com/SERVE234'}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
+                        >
+                          View on Facebook
+                          <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                        </a>
                       </div>
                     </div>
-                    
-                    <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-serve-blue-800 transition-colors">
-                      {article.title}
-                    </h3>
-                    
-                    <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
-                      {article.excerpt}
-                    </p>
-                    
-                    <div className="flex items-center justify-between">
-                      <span className="text-gray-500 text-sm">{article.date}</span>
-                      <Link
-                        href={`/news/${article.id}`}
-                        className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
-                      >
-                        Read Full Story
-                        <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
-                      </Link>
+                  </article>
+                )
+              })
+            ) : (
+              newsArticles.map((article) => {
+                const IconComponent = article.icon
+                return (
+                  <article
+                    key={article.id}
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-serve-blue-200 hover:-translate-y-1"
+                  >
+                    {/* Image Placeholder */}
+                    <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-48 flex items-center justify-center">
+                      <IconComponent className="w-12 h-12 text-serve-blue-600" />
                     </div>
-                  </div>
-                </article>
-              )
-            })}
+                    
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                          article.category === 'Awards' ? 'bg-yellow-100 text-yellow-800' :
+                          article.category === 'Events' ? 'bg-purple-100 text-purple-800' :
+                          article.category === 'Service Updates' ? 'bg-blue-100 text-blue-800' :
+                          article.category === 'Community' ? 'bg-green-100 text-green-800' :
+                          article.category === 'Partnerships' ? 'bg-indigo-100 text-indigo-800' :
+                          article.category === 'Activities' ? 'bg-pink-100 text-pink-800' :
+                          article.category === 'Quality' ? 'bg-emerald-100 text-emerald-800' :
+                          article.category === 'Volunteering' ? 'bg-orange-100 text-orange-800' :
+                          'bg-red-100 text-red-800'
+                        }`}>
+                          {article.category}
+                        </span>
+                        <div className="text-gray-500 text-xs flex items-center">
+                          <ClockIcon className="w-3 h-3 mr-1" />
+                          {article.readTime}
+                        </div>
+                      </div>
+                      
+                      <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-serve-blue-800 transition-colors">
+                        {article.title}
+                      </h3>
+                      
+                      <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
+                        {article.excerpt}
+                      </p>
+                      
+                      <div className="flex items-center justify-between">
+                        <span className="text-gray-500 text-sm">{article.date}</span>
+                        <Link
+                          href={`/news/${article.id}`}
+                          className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
+                        >
+                          Read Full Story
+                          <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
+                      </div>
+                    </div>
+                  </article>
+                )
+              })
+            )}
           </div>
+          
+          {/* Follow on Facebook CTA */}
+          {facebookPosts.length > 0 && (
+            <div className="text-center mt-12">
+              <a
+                href="https://www.facebook.com/SERVE234"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105"
+              >
+                <svg className="w-5 h-5 mr-3" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                  <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                </svg>
+                Follow Us on Facebook for More Updates
+                <ArrowRightIcon className="ml-3 h-5 w-5" />
+              </a>
+            </div>
+          )}
         </div>
       </section>
 
