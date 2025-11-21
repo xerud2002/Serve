@@ -55,10 +55,10 @@ export default function Services() {
     {
       id: 'community',
       title: 'Community Services',
-      description: 'A range of community support including day trips, hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
+      description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
       image: '/images/fundraising/fundraising.webp',
       link: '/services/community',
-      highlights: ['Day Trips', 'Hearing Aid Service', 'DBS Checks', 'Community Events']
+      highlights: ['Hearing Aid Service', 'DBS Checks', 'Community Events', 'Information Service']
     },
   ]
 

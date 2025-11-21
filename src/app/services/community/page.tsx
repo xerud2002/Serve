@@ -12,15 +12,15 @@ import {
 import MajorTitle from '@/components/MajorTitle'
 
 export const metadata: Metadata = {
-  title: 'Community Services - SERVE | Day Trips, DBS Checks & Community Support',
-  description: 'A range of community support including day trips, hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
-  keywords: 'community services, day trips, DBS checks, hearing aid, community support, Northamptonshire, social activities',
+  title: 'Community Services - SERVE | DBS Checks & Community Support',
+  description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
+  keywords: 'community services, DBS checks, hearing aid, community support, Northamptonshire, social activities',
   alternates: {
     canonical: '/services/community',
   },
   openGraph: {
     title: 'Community Services - SERVE',
-    description: 'Day trips, hearing aid servicing, DBS checks, and community support to help maintain independence and connections.',
+    description: 'Hearing aid servicing, DBS checks, and community support to help maintain independence and connections.',
     url: '/services/community',
     type: 'website',
     images: [{
@@ -33,24 +33,12 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: 'Community Services - SERVE',
-    description: 'Day trips, hearing aid servicing, DBS checks, and community support in Northamptonshire.',
+    description: 'Hearing aid servicing, DBS checks, and community support in Northamptonshire.',
     images: ['/images/community/bigchat1.webp'],
   },
 }
 
 const communityServices = [
-  {
-    title: 'Day Trips',
-    icon: TruckIcon,
-    services: [
-      'Organised group outings',
-      'Popular destinations',
-      'Accessible transport',
-      'Social interaction',
-      'Seasonal excursions',
-      'Affordable pricing'
-    ]
-  },
   {
     title: 'Hearing Aid Servicing',
     icon: WrenchScrewdriverIcon,
@@ -102,14 +90,6 @@ const benefits = [
 
 const faqs = [
   {
-    question: "What day trips do you organize?",
-    answer: "We organize regular day trips to popular destinations including seaside towns, garden centers, Christmas markets, local attractions, and cultural venues. Trips are fully accessible and include transport, with activities suitable for older people and those with mobility needs."
-  },
-  {
-    question: "How do I book a place on a day trip?",
-    answer: "Call us on 01933 315555 to book your place. We'll let you know upcoming trips, availability, costs, and pick-up locations. Popular trips fill quickly, so early booking is recommended!"
-  },
-  {
     question: "What is the hearing aid service?",
     answer: "Our free hearing aid servicing clinic provides battery replacements, cleaning, minor repairs, and maintenance checks. We hold regular sessions at our day center and can advise on further support if needed."
   },
@@ -132,7 +112,7 @@ export default function CommunityServicesPage() {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": "Community Services",
-    "description": "Community support including day trips, hearing aid servicing, DBS checks, and community events to help maintain independence and social connections.",
+    "description": "Community support including hearing aid servicing, DBS checks, and community events to help maintain independence and social connections.",
     "provider": {
       "@type": "Organization",
       "name": "SERVE",
@@ -156,13 +136,6 @@ export default function CommunityServicesPage() {
       "@type": "OfferCatalog",
       "name": "Community Services",
       "itemListElement": [
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Day Trips and Social Outings"
-          }
-        },
         {
           "@type": "Offer",
           "itemOffered": {
@@ -222,7 +195,7 @@ export default function CommunityServicesPage() {
               <MajorTitle primary="Community" secondary="Services" dark accentClass="text-serve-blue-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
-                A range of community support including day trips, hearing aid servicing, DBS 
+                A range of community support including hearing aid servicing, DBS 
                 checks, and other services that help maintain independence and community connections.
               </p>
 
@@ -247,14 +220,14 @@ export default function CommunityServicesPage() {
             <div className="grid grid-cols-2 gap-6">
               <div className="space-y-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-                  <TruckIcon className="w-12 h-12 mx-auto mb-4 text-serve-blue-200" />
-                  <div className="font-bold text-lg mb-2">Day Trips</div>
-                  <div className="text-sm opacity-80">Fun outings</div>
-                </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <WrenchScrewdriverIcon className="w-12 h-12 mx-auto mb-4 text-serve-blue-200" />
                   <div className="font-bold text-lg mb-2">Hearing Aid Service</div>
                   <div className="text-sm opacity-80">Free maintenance</div>
+                </div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
+                  <UserGroupIcon className="w-12 h-12 mx-auto mb-4 text-serve-blue-200" />
+                  <div className="font-bold text-lg mb-2">Community Events</div>
+                  <div className="text-sm opacity-80">Stay connected</div>
                 </div>
               </div>
               <div className="space-y-6 pt-12">
@@ -359,7 +332,7 @@ export default function CommunityServicesPage() {
             Join Our Community Today
           </h2>
           <p className="text-xl opacity-90 mb-10 leading-relaxed">
-            Get involved with our community services. Whether it&apos;s a day trip, hearing aid check, 
+            Get involved with our community services. Whether it&apos;s a hearing aid check 
             or community event, there&apos;s always something happening at SERVE.
           </p>
           

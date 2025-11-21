@@ -81,9 +81,9 @@ const services = [
     id: 'community-services',
     title: 'Community Services',
     subtitle: 'Additional community support',
-    description: 'Day trips, hearing aid servicing, DBS checks, and other community-focused services.',
+    description: 'Hearing aid servicing, DBS checks, and other community-focused services.',
     icon: BuildingOffice2Icon,
-    features: ['Day trips', 'Hearing aid servicing', 'DBS checks', 'Community events', 'Information service'],
+    features: ['Hearing aid servicing', 'DBS checks', 'Community events', 'Information service', 'Social support'],
     href: '/services/community-services',
     badge: 'Community Wide',
     gradient: 'from-teal-600 to-teal-700'

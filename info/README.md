@@ -72,7 +72,7 @@ npm run dev
 - **Community Transport** - Medical appointments and family visits
 - **Countywide Befriending** - Support for vulnerable adults
 - **Carers Support** - Respite services for family carers
-- **Community Services** - Day trips, hearing aid servicing, DBS checks
+- **Community Services** - Hearing aid servicing, DBS checks, community events
 
 ### Website Features
 - **Responsive Design** - Mobile-first approach

@@ -163,7 +163,7 @@ export default function AnnualReport2024Page() {
                 </div>
                 <div>
                   <div className="font-bold text-gray-900 mb-1">Wellbeing Activities</div>
-                  <div className="text-sm text-gray-600">Day trips and day center programs</div>
+                  <div className="text-sm text-gray-600">Day center programs and activities</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -330,8 +330,8 @@ export default function AnnualReport2024Page() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Wellbeing Services</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Day trips and outings</li>
                 <li>• Day center activities</li>
+                <li>• Social programs and events</li>
                 <li>• Reduced isolation and improved quality of life</li>
               </ul>
             </div>
