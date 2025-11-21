@@ -104,16 +104,6 @@ function getFallbackPosts() {
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 56 } },
       comments: { summary: { total_count: 14 } }
-    },
-    {
-      id: 'fallback-4',
-      message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024! This recognition belongs to our entire team and the wonderful community we serve.',
-      created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(), // 4 days ago
-      picture: '/images/awards/regional-winner.webp', 
-      permalink_url: 'https://www.facebook.com/SERVE234',
-      likes: { summary: { total_count: 89 } },
-      comments: { summary: { total_count: 23 } },
-      shares: { count: 12 }
-    },
+    }
   ]
 }
