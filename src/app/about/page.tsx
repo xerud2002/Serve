@@ -185,7 +185,7 @@ export default function AboutPage() {
                 <p className="text-gray-700 leading-relaxed mb-6">
                   What began as a small voluntary initiative has grown into an award-winning charity providing 
                   comprehensive care services across the county. Our journey has been shaped by the thousands 
-                  of individuals we've had the privilege to support, each with their own unique story, challenges, 
+                  of individuals we have had the privilege to support, each with their own unique story, challenges, 
                   and dreams.
                 </p>
 
@@ -202,8 +202,8 @@ export default function AboutPage() {
                 </div>
 
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Our success isn't measured in numbers alone, though we're proud to serve hundreds of people 
-                  each year. It's measured in the smiles of our service users, the relief of family members who 
+                  Our success is not measured in numbers alone, though we are proud to serve hundreds of people 
+                  each year. It is measured in the smiles of our service users, the relief of family members who 
                   know their loved ones are in safe hands, and the strengthened bonds within our community.
                 </p>
 
@@ -231,7 +231,7 @@ export default function AboutPage() {
                 <p className="text-gray-700 leading-relaxed">
                   Today, as we continue to evolve and expand our services, our commitment remains unchanged: 
                   to provide exceptional care that empowers people to live their best lives. With our dedicated 
-                  staff, passionate volunteers, and the unwavering support of our community, we're writing the 
+                  staff, passionate volunteers, and the unwavering support of our community, we&apos;re writing the 
                   next chapter of our story. One filled with hope, dignity, and compassion for all.
                 </p>
               </div>
