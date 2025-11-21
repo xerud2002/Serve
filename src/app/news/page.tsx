@@ -310,7 +310,7 @@ export default async function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Updates from Facebook</h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="flex gap-6 overflow-x-auto pb-4">
             {facebookPosts.length > 0 ? (
               facebookPosts.slice(0, 4).map((post: any) => {
                 const imageUrl = post.full_picture || post.picture
@@ -320,7 +320,7 @@ export default async function NewsPage() {
                 return (
                   <article
                     key={post.id}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1 flex-shrink-0 w-80"
                   >
                     {/* Image */}
                     <div className="relative h-48 overflow-hidden bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
