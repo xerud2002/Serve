@@ -39,7 +39,7 @@ export async function GET() {
     // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
     // Using /posts endpoint for published posts only
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=3&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=4&access_token=${accessToken}`
 
     const response = await fetch(url, {
       headers: {
@@ -55,8 +55,8 @@ export async function GET() {
 
     const data = await response.json()
 
-    // Get the latest 3 posts (already sorted by created_time desc from Facebook)
-    const latestPosts = (data.data || []).slice(0, 3)
+    // Get the latest 4 posts (already sorted by created_time desc from Facebook)
+    const latestPosts = (data.data || []).slice(0, 4)
 
     return NextResponse.json({ 
       posts: latestPosts,
@@ -104,6 +104,16 @@ function getFallbackPosts() {
       permalink_url: 'https://www.facebook.com/SERVE234',
       likes: { summary: { total_count: 56 } },
       comments: { summary: { total_count: 14 } }
+    },
+    {
+      id: 'fallback-4',
+      message: 'Exciting news! 🏆 We\'re still celebrating our Great British Care Awards win - Best Homecare Team East Midlands 2024! This recognition belongs to our entire team and the wonderful community we serve.',
+      created_time: new Date(now - 4 * 24 * 60 * 60 * 1000).toISOString(), // 4 days ago
+      picture: '/images/awards/regional-winner.webp', 
+      permalink_url: 'https://www.facebook.com/SERVE234',
+      likes: { summary: { total_count: 89 } },
+      comments: { summary: { total_count: 23 } },
+      shares: { count: 12 }
     }
   ]
 }
