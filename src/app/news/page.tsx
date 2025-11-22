@@ -18,6 +18,16 @@ import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
 
+interface FacebookPost {
+  id: string
+  message?: string
+  story?: string
+  created_time?: string
+  picture?: string
+  full_picture?: string
+  permalink_url?: string
+}
+
 // Fetch Facebook posts server-side
 async function getFacebookPosts() {
   try {
@@ -312,11 +322,9 @@ export default async function NewsPage() {
           
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {facebookPosts.length > 0 ? (
-              facebookPosts.slice(0, 4).map((post: any) => {
-                const imageUrl = post.full_picture || post.picture
+              facebookPosts.slice(0, 4).map((post: FacebookPost) => {
                 const postText = post.message || post.story || ''
                 const excerpt = postText.length > 200 ? postText.substring(0, 200) + '...' : postText
-                
                 return (
                   <div 
                     key={post.id} 
