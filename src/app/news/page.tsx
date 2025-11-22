@@ -310,122 +310,96 @@ export default async function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Updates from Facebook</h2>
           
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {facebookPosts.length > 0 ? (
               facebookPosts.slice(0, 4).map((post: any) => {
                 const imageUrl = post.full_picture || post.picture
                 const postText = post.message || post.story || ''
-                const excerpt = postText.length > 150 ? postText.substring(0, 150) + '...' : postText
+                const excerpt = postText.length > 200 ? postText.substring(0, 200) + '...' : postText
                 
                 return (
-                  <article
-                    key={post.id}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden hover:-translate-y-1"
+                  <div 
+                    key={post.id} 
+                    className="rounded-2xl p-8 shadow-lg bg-gradient-to-r from-blue-50 to-serve-blue-50"
                   >
-                    {/* Image */}
-                    <div className="relative h-48 overflow-hidden bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
-                      {imageUrl ? (
-                        <Image
-                          src={imageUrl}
-                          alt={excerpt}
-                          fill
-                          className="object-cover group-hover:scale-110 transition-transform duration-500"
-                          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                        />
-                      ) : (
-                        <div className="flex items-center justify-center h-full">
-                          <HeartIcon className="w-12 h-12 text-serve-blue-600" />
-                        </div>
-                      )}
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-100 text-blue-800">
-                          Facebook Post
-                        </span>
-                        <div className="text-gray-500 text-xs flex items-center">
-                          <ClockIcon className="w-3 h-3 mr-1" />
-                          {post.created_time ? formatTimeAgo(post.created_time) : 'Recent'}
-                        </div>
+                    <div className="flex items-start">
+                      <div className="rounded-xl p-3 mr-6 bg-blue-600 flex-shrink-0">
+                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                          <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
+                        </svg>
                       </div>
-                      
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-4">
-                        {excerpt}
-                      </p>
-                      
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500 text-sm">
-                          {post.created_time ? formatDate(post.created_time) : ''}
-                        </span>
+                      <div className="flex-1">
+                        <div className="space-y-2 mb-4 text-gray-700">
+                          <div className="flex items-center">
+                            <ClockIcon className="w-4 h-4 mr-2 text-blue-600" />
+                            <span className="font-medium">{post.created_time ? formatTimeAgo(post.created_time) : 'Recent'}</span>
+                          </div>
+                          <div className="flex items-center text-sm text-gray-600">
+                            <CalendarDaysIcon className="w-4 h-4 mr-2 text-blue-600" />
+                            <span>{post.created_time ? formatDate(post.created_time) : ''}</span>
+                          </div>
+                        </div>
+                        
+                        <p className="leading-relaxed mb-6 text-gray-600">
+                          {excerpt}
+                        </p>
+
                         <a
                           href={post.permalink_url || 'https://www.facebook.com/SERVE234'}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
+                          className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
                           View on Facebook
-                          <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                          <ArrowRightIcon className="ml-2 h-5 w-5" />
                         </a>
                       </div>
                     </div>
-                  </article>
+                  </div>
                 )
               })
             ) : (
-              newsArticles.map((article) => {
+              newsArticles.slice(0, 4).map((article) => {
                 const IconComponent = article.icon
                 return (
-                  <article
-                    key={article.id}
-                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-serve-blue-200 hover:-translate-y-1"
+                  <div 
+                    key={article.id} 
+                    className="rounded-2xl p-8 shadow-lg bg-gradient-to-r from-serve-green-50 to-serve-blue-50"
                   >
-                    {/* Image Placeholder */}
-                    <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-48 flex items-center justify-center">
-                      <IconComponent className="w-12 h-12 text-serve-blue-600" />
-                    </div>
-                    
-                    <div className="p-6">
-                      <div className="flex items-center justify-between mb-4">
-                        <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                          article.category === 'Awards' ? 'bg-yellow-100 text-yellow-800' :
-                          article.category === 'Events' ? 'bg-purple-100 text-purple-800' :
-                          article.category === 'Service Updates' ? 'bg-blue-100 text-blue-800' :
-                          article.category === 'Community' ? 'bg-green-100 text-green-800' :
-                          article.category === 'Partnerships' ? 'bg-indigo-100 text-indigo-800' :
-                          article.category === 'Activities' ? 'bg-pink-100 text-pink-800' :
-                          article.category === 'Quality' ? 'bg-emerald-100 text-emerald-800' :
-                          article.category === 'Volunteering' ? 'bg-orange-100 text-orange-800' :
-                          'bg-red-100 text-red-800'
-                        }`}>
-                          {article.category}
-                        </span>
-                        <div className="text-gray-500 text-xs flex items-center">
-                          <ClockIcon className="w-3 h-3 mr-1" />
-                          {article.readTime}
-                        </div>
+                    <div className="flex items-start">
+                      <div className="rounded-xl p-3 mr-6 bg-serve-blue-600">
+                        <IconComponent className="w-6 h-6 text-white" />
                       </div>
-                      
-                      <h3 className="text-xl font-bold text-gray-900 mb-3 leading-tight group-hover:text-serve-blue-800 transition-colors">
-                        {article.title}
-                      </h3>
-                      
-                      <p className="text-gray-600 mb-4 text-sm leading-relaxed line-clamp-3">
-                        {article.excerpt}
-                      </p>
-                      
-                      <div className="flex items-center justify-between">
-                        <span className="text-gray-500 text-sm">{article.date}</span>
+                      <div className="flex-1">
+                        <h3 className="text-xl font-bold mb-3 text-gray-900">
+                          {article.title}
+                        </h3>
+                        
+                        <div className="space-y-2 mb-4 text-gray-700">
+                          <div className="flex items-center">
+                            <CalendarDaysIcon className="w-4 h-4 mr-2 text-serve-green-600" />
+                            <span className="font-medium">{article.date}</span>
+                          </div>
+                          <div className="flex items-center">
+                            <ClockIcon className="w-4 h-4 mr-2 text-serve-green-600" />
+                            <span>{article.readTime}</span>
+                          </div>
+                        </div>
+                        
+                        <p className="leading-relaxed mb-6 text-gray-600">
+                          {article.excerpt}
+                        </p>
+
                         <Link
                           href={`/news/${article.id}`}
-                          className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-800 font-semibold text-sm group/link"
+                          className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
                         >
                           Read Full Story
-                          <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                          <ArrowRightIcon className="ml-2 h-5 w-5" />
                         </Link>
                       </div>
                     </div>
-                  </article>
+                  </div>
                 )
               })
             )}
