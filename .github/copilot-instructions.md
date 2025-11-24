@@ -1,195 +1,263 @@
 # SERVE Charity Website - AI Coding Instructions
 
-## Project Overview
-Next.js 15+ charity website for SERVE, providing care services to older people and adults with disabilities in Northamptonshire. Winner of "Best homecare team, East Midlands" at Great British Care Awards 2024.
+## Project Context
+Next.js 15+ charity website for SERVE (Charity #1043321), providing care services to older people and adults with disabilities in Northamptonshire. **Winner: "Best homecare team, East Midlands" 2024**. Accessibility-first design optimized for elderly/disabled users.
 
-**Key Context**: Charity Number 1043321 | CQC Registered | 40+ year history | Accessibility-first design for elderly/disabled users
+## Architecture Overview
 
-## Architecture & Component Patterns
+### Next.js App Router (Server-First)
+- **Default**: Server Components (SSR) - only add `"use client"` when absolutely necessary
+- **Path aliases**: `@/*` → `src/*` (tsconfig.json)
+- **When to use client**: Hooks (`useState`, `useEffect`), event handlers, browser APIs
+- **Example client components**: `Header.tsx`, `Hero.tsx`, `Services.tsx`, `Contact.tsx`, `OptimizedImage.tsx`, `ErrorBoundary.tsx`
 
-### Next.js App Router Structure
-- **Server Components** are default - all pages/components are SSR unless marked `"use client"`
-- **Client Components** marked with `"use client"` at top of file (see `AssessmentBooking.tsx`, `ErrorBoundary.tsx`, `mobile.tsx`)
-- **API Routes** in `src/app/api/*/route.ts` export `GET`/`POST` functions (e.g., `/api/facebook-photos`, `/api/contact`)
-- **Path aliases**: `@/*` resolves to `src/*` (configured in `tsconfig.json`)
-
-### API Routes Architecture
-All API routes in `src/app/api/` use Next.js Route Handlers pattern:
+### API Routes Pattern (`src/app/api/*/route.ts`)
+**Standard dual-email pattern** - all forms send admin notification + user confirmation:
 ```typescript
-// Standard pattern: Validation → Processing → Dual emails
 export async function POST(request: NextRequest) {
   const body = await request.json()
   if (!field) return NextResponse.json({ error: 'Message' }, { status: 400 })
-  // Send admin email + user confirmation
+  
+  // Graceful fallback if Resend API not configured
+  if (!resend) {
+    console.log('Contact submission:', body)
+    return NextResponse.json({ success: true })
+  }
+  
+  // Send admin + user emails
+  await resend.emails.send({ /* admin template */ })
+  await resend.emails.send({ /* user confirmation */ })
   return NextResponse.json({ success: true })
 }
 ```
-**Active routes**: `/api/contact`, `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
+**Active routes**: `/api/contact`, `/api/newsletter`, `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
 
-### Accessibility Infrastructure (`src/lib/accessibility.tsx`)
-All interactive elements MUST use centralized accessibility utilities:
+### PWA Configuration (`next.config.js`)
+PWA enabled via `next-pwa` with Workbox caching:
+- **Google Fonts**: CacheFirst (1 year)
+- **Facebook API**: NetworkFirst (1 day, 10s timeout)
+- **Images**: CacheFirst (30 days)
+- **JS/CSS**: StaleWhileRevalidate (1 day)
+- **Disabled in dev**: `disable: process.env.NODE_ENV === 'development'`
+
+### Webpack Bundle Optimization
+Custom splitChunks in `next.config.js`:
+- **Framework chunk**: React/Next.js (priority 40)
+- **Vendor chunk**: npm packages, max 50KB (priority 20)
+- **Common chunk**: Shared code across routes (priority 10)
+
+### Accessibility System (`src/lib/accessibility.tsx`)
+**Mandatory for all interactive elements** - never write custom focus styles:
 ```tsx
-import { FOCUS_STYLES, ARIA_LABELS } from '@/lib/accessibility'
-// Pre-defined focus rings for buttons, links, inputs
-className={FOCUS_STYLES.button} // Consistent 2px ring-serve-blue-500
-// Standard aria-labels for common elements
-aria-label={ARIA_LABELS.phoneNumber} // "Call SERVE at 01933 315555"
-```
-**Never** write custom focus styles - always extend from `FOCUS_STYLES`. Screen reader text uses `<ScreenReaderOnly>` component.
+import { FOCUS_STYLES, ARIA_LABELS, ScreenReaderOnly } from '@/lib/accessibility'
 
-### Mobile-First Responsive System (`src/lib/mobile.tsx`)
+// Pre-built focus rings (2px ring-serve-blue-500)
+className={FOCUS_STYLES.button}  // buttons
+className={FOCUS_STYLES.link}    // links
+className={FOCUS_STYLES.input}   // form inputs
+
+// Standard aria-labels
+aria-label={ARIA_LABELS.phoneNumber}  // "Call SERVE at 01933 315555"
+aria-label={ARIA_LABELS.mainNavigation}
+
+// Screen reader only text
+<ScreenReaderOnly>Hidden from visual users</ScreenReaderOnly>
+```
+Components: `<AccessibleButton>`, `<ExternalLink>`, keyboard helpers (`KEYBOARD_KEYS`, `handleKeyboardNavigation`)
+
+### Mobile-First System (`src/lib/mobile.tsx`)
+**Critical for elderly users** - all interactive elements need 44px minimum touch targets:
 ```tsx
 import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
-// Hook returns: { isMobile, isSmall, isMedium, isLarge, screenSize }
-const { isMobile } = useIsMobile()
-// Pre-built touch-optimized classes
-className={MOBILE_CLASSES.touchTarget} // Ensures 44px minimum
+
+const { isMobile, isSmall, isMedium, isLarge, screenSize } = useIsMobile()
+
+// Pre-built mobile classes
+className={MOBILE_CLASSES.touchTarget}     // min-h-[44px] min-w-[44px]
+className={MOBILE_CLASSES.mobilePadding}   // px-4 sm:px-6 lg:px-8
+className={MOBILE_CLASSES.safeAreaTop}     // pt-safe-top (notched devices)
+
+// Components: <MobileButton>, <MobileCard>, useTouchInteractions()
 ```
-**Critical**: All buttons/links need `MOBILE_CLASSES.touchTarget` for elderly users. Test on mobile devices < 640px.
+Test on devices <640px width (elderly users primarily use phones).
 
-### Form Development Pattern
-**Always use existing form hooks** - never implement form state from scratch:
+### Form Infrastructure (`src/lib/forms.tsx`, `src/hooks/`)
+**Never implement form state from scratch** - use existing hooks + components:
 ```tsx
+// 1. Use form hook
 import { useContactForm } from '@/hooks/useContactForm'
-import { validateForm } from '@/utils/validation'
+const { isSubmitting, isSubmitted, error, submitForm } = useContactForm('/api/contact')
 
-const { isSubmitting, isSubmitted, error, submitForm } = useContactForm(endpoint)
-const errors = validateForm(data, {
-  email: { required: true, pattern: /^[^\s@]+@[^\s@]+\.[^\s@]+$/ },
-  phone: { pattern: /^[0-9\s+()-]+$/ }
-})
+// 2. Validate with centralized rules
+import { validateForm, contactFormRules } from '@/utils/validation'
+const errors = validateForm(data, contactFormRules)
+
+// 3. Use accessible form components
+import { AccessibleFormField, AccessibleCheckboxField, FormSubmissionMessage } from '@/lib/forms'
+<AccessibleFormField id="email" label="Email" type="email" required />
+<FormSubmissionMessage {...{ isSubmitting, isSubmitted, error }} />
 ```
 Available hooks: `useContactForm`, `useVolunteerForm`, `useAssessmentBooking`, `useNewsletterSignup`
 
-### Styling & Brand System
-**Never use arbitrary blue colors** - only use custom palette from `tailwind.config.js`:
-- Primary buttons: `bg-serve-blue-600 hover:bg-serve-blue-700`
-- Dark backgrounds: `bg-serve-blue-800`
-- Light accents: `bg-serve-blue-50 text-serve-blue-800`
-- Other palettes: `serve-red`, `serve-green`, `serve-orange`, `serve-teal` (50-950 scale)
+### Validation Patterns (`src/utils/validation.ts`)
+Centralized validation rules with UK-specific patterns:
+```typescript
+import { validateForm, validationPatterns } from '@/utils/validation'
 
-**Typography Component** for consistent headings:
+validationPatterns.email    // /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+validationPatterns.phone    // UK phone numbers (complex regex)
+validationPatterns.postcode // UK postcodes
+
+// Pre-built rule sets
+contactFormRules, volunteerFormRules
+```
+
+## Styling & Brand System
+
+### Color Palette (Tailwind)
+**Never use arbitrary colors** - only custom palettes from `tailwind.config.js`:
+```css
+/* Primary */
+bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800
+text-serve-blue-800 /* Dark text */
+bg-serve-blue-50 text-serve-blue-800 /* Light backgrounds */
+
+/* Secondary palettes (50-950 scale) */
+serve-red, serve-green, serve-orange, serve-teal
+
+/* Note: serve-blue-600 is #1565C0 for WCAG AAA contrast (4.54:1) */
+```
+
+### Typography Component (`MajorTitle.tsx`)
+Consistent heading styling across site:
 ```tsx
 import MajorTitle from '@/components/MajorTitle'
-<MajorTitle primary="Our" secondary="Services" dark size="large" />
-// Generates h1 with "Our" + accent-colored "Services" below
+
+<MajorTitle 
+  primary="Our" 
+  secondary="Services"  // Colored accent line
+  dark={true}           // White text for dark backgrounds
+  size="large"          // or "default"
+/>
+// Generates <h1> with "Our" + colored "Services" below
 ```
+
+### Image Optimization (`OptimizedImage.tsx`)
+**Always use wrapper** instead of raw Next.js `<Image>`:
+```tsx
+import OptimizedImage from '@/components/OptimizedImage'
+
+<OptimizedImage 
+  src="/images/care/homecare.jpg"
+  alt="Homecare support"
+  width={800} height={600}
+  priority={true}  // Above-the-fold images
+/>
+// Handles: lazy loading, blur placeholders, error states, aspect ratios
+```
+Remote images (Facebook CDN) configured in `next.config.js` `remotePatterns`.
 
 ## Development Workflow
 
 ### Essential Commands
 ```bash
-npm run dev                    # Port 3000, hot reload enabled
-npm run test:all              # Runs: test:forms, test:compatibility, test:booking
-npm run deploy:prepare        # Pre-deployment: lint → build → test:all
-npm run audit:performance     # Lighthouse audit (requires dev server)
+npm run dev                # Port 3000, hot reload
+npm run test:all          # test:forms + test:compatibility + test:booking
+npm run deploy:prepare    # lint → build → test:all
+npm run audit:performance # Lighthouse (requires dev server running)
 ```
 
-### Testing Procedures
-- **Forms**: Run `npm run test:forms` after changing `Contact.tsx`, `VolunteerForm.tsx`, `AssessmentBooking.tsx`
-- **Booking Admin**: Navigate to `/admin/bookings` to test assessment booking flow (no auth in dev)
-- **Accessibility**: Test keyboard-only navigation (Tab, Enter, Space) and high-contrast mode
-- **Mobile**: Test on real devices <640px width - elderly users primarily use phones
+### Custom Testing (No Jest/Vitest)
+- **Scripts**: `scripts/test-forms.js`, `scripts/test-compatibility.js`, `scripts/test-booking-system.js`
+- **Form validation**: Tests rules from `src/utils/validation.ts` (email patterns, UK phone/postcode)
+- **Run before commits**: `npm run test:all`
+- **Booking admin**: Test at `/admin/bookings` (no auth in dev)
 
-### Environment Variables Pattern
-All API integrations fail gracefully without env vars:
+### Environment Variables (Graceful Degradation)
+**NEVER throw errors for missing env vars** - return empty/fallback data:
 ```typescript
-// Pattern used in /api/facebook-photos, /api/contact-smtp
+// Pattern in /api/facebook-photos
 if (!process.env.FACEBOOK_ACCESS_TOKEN) {
   return NextResponse.json({ images: [] }, { status: 200 }) // Silent fallback
 }
 ```
-**Never throw errors** for missing env vars - return empty/fallback data. See `FACEBOOK_INTEGRATION.md`, `EMAIL_SETUP.md` for setup.
+Optional vars: `RESEND_API_KEY`, `FACEBOOK_PAGE_ID`, `FACEBOOK_ACCESS_TOKEN`
 
-### Testing Strategy
-- **No Jest/Vitest**: Uses custom Node.js test scripts in `scripts/` directory
-- **Form testing**: Validates rules from `src/utils/validation.ts` (email patterns, phone formats)
-- **Booking testing**: Tests multi-step form flow, payment validation, scheduling logic
-- **Run before commits**: `npm run test:all` ensures forms, compatibility, booking work
+## Performance Optimizations
 
-### Component Development Pattern
-1. **Start server-first**: Create in `src/components/` WITHOUT `"use client"`
-2. **Add client directive only if**: Uses `useState`/`useEffect`, handles events, uses browser APIs
-3. **Wrap complex components**: Use `<ErrorBoundary>` to prevent full-page crashes
-4. **Test accessibility**: Tab navigation, screen reader, verify `FOCUS_STYLES` applied
+### Dynamic Imports (Code Splitting)
+Used in `src/app/page.tsx` for below-the-fold content:
+```tsx
+import dynamic from 'next/dynamic'
+
+const WhyChooseSERVE = dynamic(() => import('@/components/WhyChooseSERVE'), {
+  loading: () => <div className="min-h-[400px] bg-gray-50 animate-pulse" />
+})
+```
+
+### ISR Caching (Facebook APIs)
+```typescript
+// In /api/facebook-photos/route.ts
+export const revalidate = 3600 // 1 hour ISR
+```
+
+### Next.js Config Optimizations
+- **Image formats**: AVIF → WebP (next.config.js)
+- **Compression**: `compress: true` (gzip)
+- **Source maps**: Disabled in production
+- **Console removal**: Production builds remove logs (except error/warn)
+- **Experimental**: `optimizePackageImports`, `webpackBuildWorker`, `cssChunking: 'strict'`
 
 ## Critical Integration Points
 
-### Facebook Graph API (`/api/facebook-photos`, `/api/facebook-events`)
-- **Graceful degradation**: Returns `{ images: [] }` if `FACEBOOK_ACCESS_TOKEN` missing
-- **Caching**: `export const revalidate = 3600` (1 hour ISR)
-- **Error handling**: All errors return empty arrays, never expose API errors to client
-
 ### Email System (Resend API)
-- **Admin notification** template: `src/lib/emails/admin-notification.ts`
-- **User confirmation** template: `src/lib/emails/user-confirmation.ts`
-- Uses `RESEND_API_KEY` env var, falls back to console logging in dev
-- See `EMAIL_SETUP.md` for Resend domain verification steps
+Templates in `src/lib/emails/`:
+- `admin-notification.ts` - Sent to web@serve.co.uk
+- `user-confirmation.ts` - Sent to form submitter
+- Falls back to console.log if `RESEND_API_KEY` missing
 
-### Image Optimization
-**Always use `OptimizedImage` wrapper** instead of raw Next.js `<Image>`:
-```tsx
-import OptimizedImage from '@/components/OptimizedImage'
-<OptimizedImage src="/images/care/homecare.jpg" alt="..." />
-// Handles lazy loading, blur placeholders, aspect ratios automatically
-```
-Remote images (Facebook CDN) configured in `next.config.js` `remotePatterns`.
+### Facebook Graph API
+Routes: `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
+- **Graceful degradation**: Returns `{ images: [] }` if token missing
+- **Error handling**: Never expose API errors to client
+- **ISR caching**: 1 hour revalidation
 
-### SEO & Metadata System
-- **Structured data**: `StructuredData.tsx` generates LocalBusiness schema (JSON-LD)
-- **Metadata**: Centralized in `src/app/layout.tsx` with template support (e.g., "Services | SERVE Charity")
+### SEO Infrastructure
+- **Metadata**: `src/lib/seo.ts` with `generateSEOMetadata()` helper
 - **Sitemap**: Auto-generated at `src/app/sitemap.ts`
-- **Robots.txt**: `src/app/robots.ts`
-- **Open Graph**: Full OG tags + Twitter cards for social sharing
-
-## Brand & Content Guidelines
-
-### Core Services (maintain exact order/wording)
-1. **Personal & Domestic Care** - Award-winning CQC registered homecare
-2. **Day Care & Meals on Wheels** - Ron Manning Day and Activity Centre
-3. **Community Transport** - Medical appointments and family visits
-4. **Countywide Befriending** - Vulnerable adult support
-5. **Carers Support** - Respite services for family carers
-6. **Volunteer Programs** - Community involvement opportunities
-
-### Contact Information (verify before use)
-- **Phone**: 01933 315555 (format consistently)
-- **Email**: info@serve.org.uk (primary contact)
-- **Address**: 8 West Street, Rushden, Northants NN10 0RT
-- **Charity Number**: 1043321 (display on footer)
-- **CQC Registration**: https://www.cqc.org.uk/location/1-2165219210
-
-### External Links
-- **Fundraising**: https://www.justgiving.com/serve-jg
-- **Facebook**: facebook.com/SERVE234
-- **LinkedIn**: linkedin.com/company/serve-nvca
+- **Robots**: `src/app/robots.ts`
+- **Structured data**: `<StructuredData>` component (LocalBusiness schema)
+- **OG tags**: Centralized in `src/app/layout.tsx`
 
 ## Non-Negotiable Rules
 
-1. **Accessibility First**: Every change must pass keyboard navigation + screen reader testing
-2. **Mobile Touch Targets**: All interactive elements ≥44px (use `MOBILE_CLASSES.touchTarget`)
-3. **Graceful Failures**: API failures, missing env vars must never break UI
-4. **Server-First Rendering**: Only mark `"use client"` when hooks/state/events are essential
-5. **Brand Consistency**: Use `serve-blue` palette + `MajorTitle` component for headings
+1. **Accessibility First**: Every change passes keyboard nav + screen reader testing
+2. **Mobile Touch Targets**: All buttons/links ≥44px (use `MOBILE_CLASSES.touchTarget`)
+3. **Graceful Failures**: API errors/missing env vars never break UI - return empty/fallback
+4. **Server-First**: Only `"use client"` when hooks/state/events required
+5. **Brand Colors**: Use `serve-blue` palette - never arbitrary colors
+6. **Form Hooks**: Use existing `useContactForm`/`useVolunteerForm` - never rebuild state
+7. **OptimizedImage**: Always use wrapper instead of raw Next.js `<Image>`
+8. **FOCUS_STYLES**: Never write custom focus rings - extend from `src/lib/accessibility.tsx`
 
-### Performance Standards
-- **First Contentful Paint**: < 1.5s
-- **Largest Contentful Paint**: < 2.5s
-- **Cumulative Layout Shift**: < 0.1
-- **Time to Interactive**: < 3.5s
-- **Test with**: Lighthouse (target 90+ accessibility score)
+## Performance Targets (Lighthouse)
+- **FCP**: <1.5s | **LCP**: <2.5s | **CLS**: <0.1 | **TTI**: <3.5s
+- **Accessibility score**: ≥90
+- Test: `npm run audit:performance` (requires dev server)
 
-### Deployment Checklist (`DEPLOYMENT.md`)
-Before production deployment:
-1. Run `npm run deploy:prepare` (lint + build + test:all)
-2. Verify environment variables: `RESEND_API_KEY`, `FACEBOOK_ACCESS_TOKEN` (optional)
-3. Configure domain in Resend dashboard for email delivery
-4. Test accessibility: Screen reader, keyboard navigation
-5. Verify contact information accuracy
-6. Check CQC registration link validity
+## Key File Locations
+- **Accessibility**: `src/lib/accessibility.tsx`
+- **Mobile utilities**: `src/lib/mobile.tsx`
+- **Form components**: `src/lib/forms.tsx`
+- **Validation rules**: `src/utils/validation.ts`
+- **Form hooks**: `src/hooks/use{Contact,Volunteer,Assessment,Newsletter}*.ts`
+- **Email templates**: `src/lib/emails/`
+- **API routes**: `src/app/api/*/route.ts`
+- **PWA config**: `next.config.js` (withPWA wrapper)
+- **Test scripts**: `scripts/test-*.js`
 
-## Reference Documentation
-- **Assessment Booking**: See `ASSESSMENT_BOOKING_SYSTEM.md` for booking flow + payment system
-- **Facebook Setup**: See `FACEBOOK_SETUP.md` for Graph API token generation
-- **Deployment**: See `DEPLOYMENT.md` for Vercel/Netlify config + SEO checklist
-- **Completed Features**: See `PROJECT_COMPLETION.md` for full feature inventory
+## Brand Assets
+- **Phone**: 01933 315555 | **Email**: info@serve.org.uk
+- **Address**: 8 West Street, Rushden, Northants NN10 0RT
+- **Charity**: 1043321 | **CQC**: https://www.cqc.org.uk/location/1-2165219210
+- **JustGiving**: https://www.justgiving.com/serve-jg
