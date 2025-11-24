@@ -27,19 +27,40 @@ export async function GET() {
   try {
     // Facebook Graph API configuration
     const pageId = process.env.FACEBOOK_PAGE_ID || '239416516576684'
-    const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
+    const userAccessToken = process.env.FACEBOOK_ACCESS_TOKEN
     
-    if (!accessToken) {
+    if (!userAccessToken) {
       return NextResponse.json({ 
         posts: getFallbackPosts(),
         fallback: true 
       })
     }
 
-    // Facebook Graph API endpoint to get page posts (sorted by created_time desc)
-    // Using /posts endpoint for published posts only
+    // Step 1: Convert User Admin Token to Page Access Token
+    const accountsResponse = await fetch(
+      `https://graph.facebook.com/v24.0/me/accounts?access_token=${userAccessToken}`,
+      {
+        headers: { 'Accept': 'application/json' },
+        next: { revalidate: 3600 }
+      }
+    )
+
+    if (!accountsResponse.ok) {
+      throw new Error(`Failed to fetch page accounts: ${accountsResponse.status}`)
+    }
+
+    const accountsData = await accountsResponse.json()
+    const servePage = accountsData.data?.find((page: { id: string; access_token?: string }) => page.id === pageId)
+    
+    if (!servePage || !servePage.access_token) {
+      throw new Error('SERVE page not found in accounts or no access token')
+    }
+
+    const pageAccessToken = servePage.access_token
+
+    // Step 2: Fetch posts using Page Access Token
     const fields = 'id,message,story,created_time,picture,full_picture,permalink_url'
-    const url = `https://graph.facebook.com/v24.0/${pageId}/posts?fields=${fields}&limit=4&access_token=${accessToken}`
+    const url = `https://graph.facebook.com/v24.0/${pageId}/feed?fields=${fields}&limit=4&access_token=${pageAccessToken}`
 
     const response = await fetch(url, {
       headers: {

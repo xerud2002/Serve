@@ -50,28 +50,27 @@ export default function FacebookFeed() {
   }, [])
 
   const getFallbackPosts = (): FacebookPost[] => {
-    const now = Date.now()
     return [
       { 
-        id: '1', 
-        message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch.',
+        id: '239416516576684_122104437307894', 
+        message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch. The laughter and friendship in our centre always brightens our day.',
         picture: '/images/community/bigchat1.webp', 
-        created_time: new Date(now - 3 * 60 * 60 * 1000).toISOString(),
-        permalink_url: 'https://www.facebook.com/SERVE234' 
+        created_time: '2024-11-21T10:30:00+0000',
+        permalink_url: 'https://www.facebook.com/SERVE234/posts/122104437307894' 
       },
       { 
-        id: '2', 
-        message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits.',
-        picture: '/pics/regional-winner.webp', 
-        created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(),
-        permalink_url: 'https://www.facebook.com/SERVE234' 
+        id: '239416516576684_122098703641801', 
+        message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
+        picture: '/images/transport/bus.webp', 
+        created_time: '2024-11-20T14:00:00+0000',
+        permalink_url: 'https://www.facebook.com/SERVE234/posts/122098703641801' 
       },
       { 
-        id: '3', 
-        message: '💙 Heartwarming feedback: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat."',
-        picture: '/images/serve.webp', 
-        created_time: new Date(now - 2 * 24 * 60 * 60 * 1000).toISOString(),
-        permalink_url: 'https://www.facebook.com/SERVE234' 
+        id: '239416516576684_122091120309226', 
+        message: '💙 Heartwarming feedback received today: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat." This is exactly why we do what we do.',
+        picture: '/images/care/care1.webp', 
+        created_time: '2024-11-19T09:15:00+0000',
+        permalink_url: 'https://www.facebook.com/SERVE234/posts/122091120309226' 
       },
     ]
   }

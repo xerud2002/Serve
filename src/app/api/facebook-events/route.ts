@@ -23,19 +23,42 @@ type FBEvent = {
 
 export async function GET() {
   const pageId = process.env.FACEBOOK_PAGE_ID || '239416516576684'
-  const accessToken = process.env.FACEBOOK_ACCESS_TOKEN
+  const userAccessToken = process.env.FACEBOOK_ACCESS_TOKEN
 
   // If env vars are missing, return an empty list so the UI can fall back gracefully
-  if (!pageId || !accessToken) {
+  if (!pageId || !userAccessToken) {
     return NextResponse.json({ events: [] }, { status: 200 })
   }
 
   try {
-    const url = new URL(`https://graph.facebook.com/v19.0/${pageId}/events`)
+    // Step 1: Convert User Admin Token to Page Access Token
+    const accountsResponse = await fetch(
+      `https://graph.facebook.com/v24.0/me/accounts?access_token=${userAccessToken}`,
+      {
+        headers: { 'Accept': 'application/json' },
+        next: { revalidate }
+      }
+    )
+
+    if (!accountsResponse.ok) {
+      return NextResponse.json({ events: [] }, { status: 200 })
+    }
+
+    const accountsData = await accountsResponse.json()
+    const servePage = accountsData.data?.find((page: { id: string; access_token?: string }) => page.id === pageId)
+    
+    if (!servePage || !servePage.access_token) {
+      return NextResponse.json({ events: [] }, { status: 200 })
+    }
+
+    const pageAccessToken = servePage.access_token
+
+    // Step 2: Fetch events using Page Access Token
+    const url = new URL(`https://graph.facebook.com/v24.0/${pageId}/events`)
     url.searchParams.set('fields', 'id,name,description,start_time,end_time,place,cover,is_canceled')
     url.searchParams.set('time_filter', 'upcoming')
     url.searchParams.set('limit', '10')
-    url.searchParams.set('access_token', accessToken)
+    url.searchParams.set('access_token', pageAccessToken)
 
     const res = await fetch(url.toString(), { next: { revalidate } })
 
