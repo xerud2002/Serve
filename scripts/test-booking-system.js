@@ -9,12 +9,26 @@ console.log('🏥 Testing SERVE Assessment Booking System...\n')
 
 // Test data structure validation
 console.log('✅ Testing booking data structure...')
+
+// Generate a valid future weekday date (tomorrow or next weekday)
+const getNextWeekday = () => {
+  const date = new Date()
+  date.setDate(date.getDate() + 1) // Start from tomorrow
+  
+  // If tomorrow is weekend, move to next Monday
+  while (date.getDay() === 0 || date.getDay() === 6) {
+    date.setDate(date.getDate() + 1)
+  }
+  
+  return date.toISOString().split('T')[0]
+}
+
 const testBooking = {
   name: 'Test User',
   email: 'test@example.com',
   phone: '01933 123456',
   address: '123 Test Street, Rushden, NN10 0AB',
-  preferredDate: '2025-11-15',
+  preferredDate: getNextWeekday(),
   preferredTime: '10:00',
   careNeeds: 'Test care requirements',
   emergencyContact: 'Emergency Contact',
