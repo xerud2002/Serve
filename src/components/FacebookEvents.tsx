@@ -31,7 +31,7 @@ export default function FacebookEvents() {
         const fetchedEvents = data.events || []
         
         if (!cancelled) {
-          setEvents(fetchedEvents.length ? fetchedEvents.slice(0, 4) : getFallbackEvents())
+          setEvents(fetchedEvents.length ? fetchedEvents.slice(0, 3) : getFallbackEvents())
           setLoading(false)
         }
       } catch {
@@ -71,15 +71,6 @@ export default function FacebookEvents() {
         location: null,
         coverImage: '/images/events/happy-to-serve.webp',
       },
-      {
-        id: '1456713141656694',
-        name: 'Family Fun Day',
-        description: "If you go down to the woods on Saturday, August 10, you are in for a big surprise! The very first SERVE fun day - themed around a teddy bear's picnic- will be taking place at Irchester Country Park - please do join us #teddies #cuddlies #serve #charity #fundraising",
-        startTime: '2024-08-10T12:00:00+0100',
-        endTime: '2024-08-10T16:00:00+0100',
-        location: 'Irchester Country Park, Wellingborough',
-        coverImage: '/images/events/family-fun-day.webp',
-      },
     ]
   }
 
@@ -110,12 +101,12 @@ export default function FacebookEvents() {
           >
             {/* Event Cover Image */}
             {event.coverImage ? (
-              <div className="relative h-48 w-full overflow-hidden">
+              <div className="relative h-48 w-full overflow-hidden bg-gray-100">
                 <Image
                   src={event.coverImage}
                   alt={event.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
                 />
               </div>
