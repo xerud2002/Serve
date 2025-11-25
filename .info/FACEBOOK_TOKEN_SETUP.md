@@ -1,24 +1,44 @@
 # Facebook Integration Setup - SERVE Website
 
-## Current Status
-The website is configured to display the latest 6 posts from your Facebook page (SERVE234) on the homepage.
+## Current Status ✅
 
-## Quick Setup Guide
+**Page**: SERVE234 (https://www.facebook.com/SERVE234)  
+**Page ID**: 239416516576684  
+**Token Type**: Page Access Token (long-lived)  
+**Token Status**: Active and configured in Vercel production  
+**Expiration**: Long-lived (valid for extended period)  
+**Display**: Latest 6 posts on homepage + events feed
 
-### Step 1: Get Your Access Token (Daily)
+## Current Configuration (Already Set Up)
+
+The website is using a **Page Access Token** which provides:
+- ✅ Long-lived token (no daily updates needed)
+- ✅ Access to public posts from SERVE234 page
+- ✅ Access to public events
+- ✅ Reliable API access without frequent re-authentication
+
+**Environment Variables (Configured in Vercel):**
+```
+FACEBOOK_ACCESS_TOKEN=EAAZADjQJDkC8BO... (Page Access Token)
+FACEBOOK_PAGE_ID=239416516576684
+```
+
+## If You Need a New Token
+
+### Option 1: Get Page Access Token (Recommended)
 
 1. **Visit the Graph API Explorer**
    - Go to: https://developers.facebook.com/tools/explorer/
 
 2. **Configure the Explorer**
-   - App: Select "Serve Website" (your app)
-   - Token Type: Select "User Token"
+   - App: Select your Facebook app
+   - Token Type: Select **"Page Access Token"** (not User Token)
+   - Page: Select "SERVE234"
 
-3. **Add Required Permissions**
-   Click "Add a Permission" and select:
+3. **Required Permissions**
+   The Page Access Token automatically includes:
    - `pages_show_list`
    - `pages_read_engagement`
-   - `pages_manage_metadata`
    - `pages_read_user_content`
 
 4. **Generate Token**

@@ -1,36 +1,63 @@
 # Facebook Integration Setup
 
+## Current Status ✅
+
+**Facebook Page**: https://www.facebook.com/SERVE234  
+**Page ID**: 239416516576684  
+**Access Token**: Page Access Token (long-lived, configured in Vercel)  
+**Integration Status**: Active and deployed
+
 ## Environment Variables
 
-To enable live Facebook posts integration, add the following to your `.env.local` file:
+Environment variables are configured in Vercel production:
 
+```bash
+FACEBOOK_ACCESS_TOKEN=EAAZADjQJDkC8BO... (Page Access Token)
+FACEBOOK_PAGE_ID=239416516576684
 ```
-FACEBOOK_ACCESS_TOKEN=your_facebook_access_token_here
+
+**Local Development:**  
+Add to `.env.local` file:
+```
+FACEBOOK_ACCESS_TOKEN=your_page_access_token_here
+FACEBOOK_PAGE_ID=239416516576684
 ```
 
-## Getting a Facebook Access Token
+## API Configuration
 
-1. Go to [Facebook Developers](https://developers.facebook.com/)
-2. Create a new app or use existing app
-3. Add "Pages" permission to your app
-4. Generate a Page Access Token for the SERVE234 page
-5. For production, convert to a long-lived token
+### Posts Feed (`/api/facebook-posts`)
+- **Endpoint**: `/${pageId}/posts`
+- **Fields**: `id,message,created_time,full_picture,permalink_url,reactions.summary(total_count),comments.summary(total_count),shares`
+- **Limit**: 6 posts
+- **Revalidation**: 3600 seconds (1 hour)
+- **Auto-refresh**: Client-side hourly refresh
+
+### Events Feed (`/api/facebook-events`)
+- **Endpoint**: `/${pageId}/events`
+- **Fields**: `id,name,description,start_time,end_time,place,cover`
+- **Limit**: 10 events
+- **Revalidation**: 300 seconds (5 minutes)
+- **Filter**: Future events only
 
 ## Fallback Behavior
 
 The system is designed to work with or without the Facebook API:
-- **With token**: Shows live Facebook posts from SERVE234 page
-- **Without token**: Shows curated fallback content that represents typical SERVE posts
+- **With token**: Shows live Facebook posts and events from SERVE234 page
+- **Without token**: Returns empty arrays (graceful degradation)
+- **API errors**: Silent fallback to empty data without breaking UI
 
 ## Features Included
 
-- ✅ Real-time Facebook post integration
-- ✅ Automatic fallback to curated content
+- ✅ Real-time Facebook posts integration (6 latest posts)
+- ✅ Facebook events display with cover images
+- ✅ Automatic fallback to empty state
 - ✅ Post engagement metrics (likes, comments, shares)
-- ✅ Image display with error handling
+- ✅ Event images with object-cover display
+- ✅ Image display with error handling and unoptimized flag
 - ✅ Responsive design
 - ✅ Graceful error handling
-- ✅ 30-minute caching for performance
+- ✅ 1-hour caching for posts, 5-minute caching for events
+- ✅ Client-side hourly auto-refresh
 
 ## Page Features
 

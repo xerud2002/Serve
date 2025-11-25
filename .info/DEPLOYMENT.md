@@ -2,27 +2,32 @@
 
 ## 🚀 Production Deployment Setup
 
+### Current Deployment Status ✅
+
+**Platform**: Vercel  
+**Production URL**: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
+**Deployment Date**: November 25, 2025  
+**Status**: Live and fully functional
+
 ### Environment Configuration
 
-#### Production Environment Variables
-Create a `.env.production` file with:
+#### Production Environment Variables (Configured in Vercel)
+The following environment variables are set in Vercel production:
 
 ```bash
-# Site Configuration
-NEXT_PUBLIC_SITE_URL=https://serve.org.uk
-NEXT_PUBLIC_SITE_NAME="SERVE - Supporting Independence"
+# Facebook Integration
+FACEBOOK_ACCESS_TOKEN=EAAZADjQJDkC8BO... (Page Access Token, long-lived)
+FACEBOOK_PAGE_ID=239416516576684
 
-# Form Handling (Formspree)
-NEXT_PUBLIC_FORMSPREE_CONTACT_ID=your_contact_form_id
-NEXT_PUBLIC_FORMSPREE_VOLUNTEER_ID=your_volunteer_form_id
-NEXT_PUBLIC_FORMSPREE_NEWSLETTER_ID=your_newsletter_form_id
+# Email - Resend API
+RESEND_API_KEY=re_SUL3c6WV_7ZMRfi2YTXBS5XDS7LC4DDqD
 
-# Analytics
-NEXT_PUBLIC_GA_TRACKING_ID=UA-XXXXXXXX-X
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXX
-
-# Security
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY=your_recaptcha_site_key
+# Email - Microsoft 365 SMTP
+SMTP_HOST=smtp.office365.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=info@serve.org.uk
+SMTP_PASS=Serve123@@
 ```
 
 ### Build and Deployment Steps
@@ -65,16 +70,48 @@ serve -s out
 
 ### Hosting Options
 
-#### Option 1: Vercel (Recommended)
+#### Option 1: Vercel (Currently Active) ✅
+
+**Quick Deployment with Environment Variables:**
 ```bash
-# Install Vercel CLI
+# Run the automated deployment script
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\vercel-env-setup.ps1
+```
+
+This script will:
+1. Add all environment variables to Vercel
+2. Deploy to production automatically
+3. Generate production URL
+
+**Manual Deployment:**
+```bash
+# Install Vercel CLI (if not installed)
 npm install -g vercel
 
-# Deploy
-vercel --prod
+# Add environment variables
+echo "YOUR_TOKEN" | vercel env add FACEBOOK_ACCESS_TOKEN production
+echo "239416516576684" | vercel env add FACEBOOK_PAGE_ID production
+echo "YOUR_KEY" | vercel env add RESEND_API_KEY production
+echo "smtp.office365.com" | vercel env add SMTP_HOST production
+echo "587" | vercel env add SMTP_PORT production
+echo "false" | vercel env add SMTP_SECURE production
+echo "info@serve.org.uk" | vercel env add SMTP_USER production
+echo "YOUR_PASSWORD" | vercel env add SMTP_PASS production
 
-# Custom domain setup
-vercel domains add serve.org.uk
+# Deploy to production
+vercel --prod
+```
+
+**Custom Domain Setup (Next Step):**
+```bash
+# Add custom domain in Vercel dashboard
+# Go to: https://vercel.com/xerud2002s-projects/serve
+# Settings → Domains → Add serve.org.uk and www.serve.org.uk
+
+# Update DNS records at domain registrar:
+# A Record: @ → Vercel IP (provided by Vercel)
+# CNAME: www → cname.vercel-dns.com
 ```
 
 #### Option 2: Netlify

@@ -1,13 +1,32 @@
 # Email Notification Setup for Contact Form
 
+## Current Status ✅
+
+**Email System**: Dual-provider (Microsoft 365 SMTP + Resend API)  
+**Admin Email**: info@serve.org.uk  
+**Status**: Configured and deployed to Vercel production
+
 ## Overview
-The contact form now sends **two email notifications**:
-1. **Admin Notification** → Sent to `info@serve.org.uk` with form submission details
+The contact form sends **two email notifications** using both email systems:
+1. **Admin Notification** → Sent to `info@serve.org.uk` (web@serve.co.uk) with form submission details
 2. **User Confirmation** → Sent to the person who filled out the form
+
+### Email System Configuration
+
+**Primary: Microsoft 365 SMTP**
+- Host: smtp.office365.com
+- Port: 587 (TLS)
+- From: info@serve.org.uk
+- Configured in Vercel environment variables
+
+**Fallback: Resend API**
+- API Key: re_SUL3c6WV_7ZMRfi2YTXBS5XDS7LC4DDqD
+- Used for transactional emails
+- Free tier: 3,000 emails/month
 
 ## Setup Instructions
 
-### Step 1: Create a Resend Account
+### Step 1: Create a Resend Account (Already Completed)
 1. Go to [https://resend.com/signup](https://resend.com/signup)
 2. Sign up for a free account (100 emails/day free tier)
 3. Verify your email address
