@@ -3,6 +3,14 @@
 ## Project Context
 Next.js 15+ charity website for SERVE (Charity #1043321), providing care services to older people and adults with disabilities in Northamptonshire. **Winner: "Best homecare team, East Midlands" 2024**. Accessibility-first design optimized for elderly/disabled users.
 
+## Production Deployment Status
+**Platform**: Vercel  
+**Live URL**: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
+**Deployment Date**: November 25, 2025  
+**Status**: Active and fully functional  
+**Environment Variables**: Configured in Vercel (Facebook, Email/SMTP)  
+**Next Step**: Connect custom domain serve.org.uk
+
 ## Architecture Overview
 
 ### Next.js App Router (Server-First)
@@ -254,6 +262,25 @@ Routes: `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
 - **Email templates**: `src/lib/emails/`
 - **API routes**: `src/app/api/*/route.ts`
 - **PWA config**: `next.config.js` (withPWA wrapper)
+- **Test scripts**: `scripts/test-*.js`
+- **Deployment script**: `vercel-env-setup.ps1`
+
+## Brand Assets
+- **Phone**: 01933 315555 | **Email**: info@serve.org.uk
+- **Address**: 8 West Street, Rushden, Northants NN10 0RT
+- **Charity**: 1043321 | **CQC**: https://www.cqc.org.uk/location/1-2165219210
+- **JustGiving**: https://www.justgiving.com/serve-jg
+
+## Recent Updates (November 2025)
+- ✅ Vercel production deployment with environment variables
+- ✅ Accessibility fixes (navigation landmarks, ARIA labels)
+- ✅ Event image display optimization (object-cover, unoptimized)
+- ✅ British English content conversion
+- ✅ Facebook Page Access Token integration
+- ✅ Performance optimizations (font preconnect, resource hints)
+- ✅ WebP image conversion (-35.3% file size)
+- ✅ PWA service worker implementation
+- ✅ Dual-email system (Microsoft 365 SMTP + Resend API)
 - **Test scripts**: `scripts/test-*.js`
 
 ## Brand Assets
