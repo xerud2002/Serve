@@ -101,13 +101,14 @@ export default function FacebookEvents() {
           >
             {/* Event Cover Image */}
             {event.coverImage ? (
-              <div className="relative h-48 w-full overflow-hidden bg-gray-100">
+              <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100">
                 <Image
                   src={event.coverImage}
                   alt={event.name}
                   fill
-                  className="object-contain group-hover:scale-105 transition-transform duration-300"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  unoptimized
                 />
               </div>
             ) : (
