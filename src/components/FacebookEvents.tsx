@@ -52,7 +52,7 @@ export default function FacebookEvents() {
         description: 'Tickets are available for our fantastic Evening with Graeme Duffin, of Wet, Wet, Wet, at the Castle Theatre, Wellingborough next month - book your ticket here',
         startTime: '2025-05-23T19:00:00+0100',
         location: 'Castle Theatre, Wellingborough',
-        coverImage: 'https://scontent.ffab1-1.fna.fbcdn.net/v/t39.30808-6/491137504_1079182867574097_3299194013258711221_n.png?stp=dst-jpg_tt6&_nc_cat=109&ccb=1-7&_nc_sid=9e60e4&_nc_ohc=oVM6lZ7-eeUQ7kNvwHxlLRB&_nc_oc=Admf1L2MakVKqov_4VN645IMre0xuqFSUUIk8k6PNgmD_omUNe77df3-mBlZT429pN0&_nc_zt=23&_nc_ht=scontent.ffab1-1.fna&edm=ABTKTjYEAAAA&oh=00_AfiI4FASMqikoalEgAuW2D5kl8XVT6he9uFXxjZ-MLDjcQ&oe=692AA593',
+        coverImage: '/images/events/graeme-duffin.webp',
       },
       {
         id: '1118818683095354',
@@ -60,7 +60,7 @@ export default function FacebookEvents() {
         description: 'Sing for Serve and presentation of the Susan Hollowell Award for volunteering at Park Road Baptist Church, Rushden',
         startTime: '2024-12-11T14:00:00+0000',
         location: 'NN10 0RT Rushden, United Kingdom',
-        coverImage: 'https://scontent.ffab1-1.fna.fbcdn.net/v/t39.30808-6/486572435_1063194565839594_2046466249559275474_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=9e60e4&_nc_ohc=nQZQT1b2uAAQ7kNvwFqEGvM&_nc_oc=AdkAZ2pDHUwayxfmKxKVo3wo76Nd8dqR6nH7VeDB5ZdTTHwk648mN80T_FviFT5p6DA&_nc_zt=23&_nc_ht=scontent.ffab1-1.fna&edm=ABTKTjYEAAAA&oh=00_AfiXMHXNd_IskrMtmAbqCHowD8ryibHE_J7Rz0DBwETssg&oe=692A8FB5',
+        coverImage: '/images/events/sing-for-serve.webp',
       },
       {
         id: '488541410754988',
@@ -69,7 +69,7 @@ export default function FacebookEvents() {
         startTime: '2024-10-04T09:30:00+0100',
         endTime: '2024-10-04T11:00:00+0100',
         location: null,
-        coverImage: 'https://scontent.ffab1-1.fna.fbcdn.net/v/t39.30808-6/485799077_1061004479391936_5249085483064067698_n.jpg?_nc_cat=109&ccb=1-7&_nc_sid=9e60e4&_nc_ohc=fcpP_FzJN9UQ7kNvwG2uq7Q&_nc_oc=AdlCyuusb7aA5g89J3eMW9Kcjf9kbnOIUjhKib_IOqrweUQ6uFy7x7MbjfUVJ7H6lEY&_nc_zt=23&_nc_ht=scontent.ffab1-1.fna&edm=ABTKTjYEAAAA&oh=00_AfjEvJYgSvR7PVMSZ4qIsWy1rzs7e0grb6MBLqf-HZJ3rA&oe=692A8F69',
+        coverImage: '/images/events/happy-to-serve.webp',
       },
     ]
   }
@@ -108,7 +108,7 @@ export default function FacebookEvents() {
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                  unoptimized
+                  unoptimized={event.coverImage.startsWith('https://')}
                 />
               </div>
             ) : (
