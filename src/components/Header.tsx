@@ -123,7 +123,7 @@ export default function Header() {
             </div>
           </div>
         </div>        {/* Main navigation */}
-        <nav className={`max-w-7xl mx-auto px-1 sm:px-2 transition-all duration-300 mt-2`} aria-label={ARIA_LABELS.mainNavigation}>
+        <div className={`max-w-7xl mx-auto px-1 sm:px-2 transition-all duration-300 mt-2`}>
           <div className={`flex items-center justify-between py-0 transition-all duration-300 h-16 sm:h-20`}>
             <div className="flex items-center">
               <Link href="/" className="flex items-center">
@@ -139,7 +139,7 @@ export default function Header() {
               </Link>
             </div>
           
-          <div className="hidden md:block">
+          <nav className="hidden md:block" aria-label={ARIA_LABELS.mainNavigation}>
             <div className="ml-10 flex items-baseline space-x-4">
               {navigation.map((item) => (
                 <Link
@@ -160,7 +160,7 @@ export default function Header() {
                 Donate
               </Link>
             </div>
-          </div>
+          </nav>
 
           <div className="md:hidden flex flex-col items-end gap-1 pr-1">
             <AccessibleButton
@@ -182,13 +182,11 @@ export default function Header() {
 
           {/* Mobile menu */}
           {mobileMenuOpen && (
-            <div 
+            <nav 
               ref={mobileMenuRef}
               className="md:hidden absolute top-full left-0 right-0 z-50 bg-white shadow-xl border-t border-gray-100" 
               id="mobile-menu"
-              role="menu"
-              aria-orientation="vertical"
-              aria-labelledby="mobile-menu-button"
+              aria-label={ARIA_LABELS.mainNavigation}
             >
               <div className={`${MOBILE_CLASSES.mobilePadding} py-4 space-y-1 bg-white`}>
                 {navigation.map((item) => (
@@ -196,7 +194,6 @@ export default function Header() {
                     key={item.name}
                     href={item.href}
                     className={`text-gray-800 hover:text-serve-blue-700 hover:bg-serve-blue-50 active:bg-serve-blue-100 block px-4 py-4 rounded-xl text-lg font-medium transition-all duration-200 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link}`}
-                    role="menuitem"
                     aria-current={item.href === '/' ? 'page' : undefined}
                     onClick={() => setMobileMenuOpen(false)}
                     onKeyDown={(e) => handleKeyboardNavigation(
@@ -211,7 +208,7 @@ export default function Header() {
                   >
                     <div className="flex items-center">
                       <span className="flex-1">{item.name}</span>
-                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </div>
@@ -238,10 +235,10 @@ export default function Header() {
                   Get In Touch
                 </Link>
               </div>
-            </div>
+            </nav>
           )}
-      </nav>
-    </header>
+        </div>
+      </header>
     </>
   )
 }
