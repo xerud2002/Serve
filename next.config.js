@@ -222,12 +222,34 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           {
+            key: 'Content-Security-Policy',
+            value: [
+              "default-src 'self'",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://va.vercel-scripts.com",
+              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+              "font-src 'self' https://fonts.gstatic.com",
+              "img-src 'self' data: https: blob:",
+              "media-src 'self' https:",
+              "connect-src 'self' https://graph.facebook.com https://vitals.vercel-insights.com https://va.vercel-scripts.com",
+              "frame-src 'self' https://www.facebook.com",
+              "worker-src 'self' blob:",
+              "manifest-src 'self'",
+              "form-action 'self'",
+              "base-uri 'self'",
+              "upgrade-insecure-requests"
+            ].join('; ')
+          },
+          {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
           },
           {
             key: 'X-Frame-Options',
             value: 'SAMEORIGIN'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
           },
           {
             key: 'Referrer-Policy',

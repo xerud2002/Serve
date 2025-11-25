@@ -24,7 +24,7 @@ export default function Footer() {
                 className="h-32 w-auto"
               />
             </div>
-            <p className="text-gray-400 text-sm mb-4 leading-relaxed">
+            <p className="text-gray-600 text-sm mb-4 leading-relaxed">
               Award-winning care services helping older people and adults with disabilities 
               maintain independence across Northamptonshire.
             </p>
@@ -39,22 +39,22 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link href="/" className="text-gray-600 hover:text-white text-sm transition-colors">
                   Home
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link href="/services" className="text-gray-600 hover:text-white text-sm transition-colors">
                   Our Services
                 </Link>
               </li>
               <li>
-                <Link href="/about" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link href="/about" className="text-gray-600 hover:text-white text-sm transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="text-gray-400 hover:text-white text-sm transition-colors">
+                <Link href="/contact" className="text-gray-600 hover:text-white text-sm transition-colors">
                   Contact
                 </Link>
               </li>
@@ -63,7 +63,7 @@ export default function Footer() {
                   href="https://www.cqc.org.uk/location/1-2165219210" 
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-gray-400 hover:text-white text-sm transition-colors"
+                  className="text-gray-600 hover:text-white text-sm transition-colors"
                 >
                   CQC Report
                 </a>
@@ -75,17 +75,17 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-start text-gray-400">
+              <div className="flex items-start text-gray-600">
                 <MapPinIcon className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
                 <span>8 West Street, Rushden, NN10 0RT</span>
               </div>
-              <div className="flex items-start text-gray-400">
+              <div className="flex items-start text-gray-600">
                 <PhoneIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
                 <a href="tel:01933315555" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors">
                   01933 315555
                 </a>
               </div>
-              <div className="flex items-start text-gray-400">
+              <div className="flex items-start text-gray-600">
                 <EnvelopeIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
                 <a href="mailto:info@serve.org.uk" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors break-all">
                   info@serve.org.uk
@@ -102,7 +102,7 @@ export default function Footer() {
                 href="https://www.facebook.com/SERVE234/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-white text-sm transition-colors"
+                className="flex items-center text-gray-600 hover:text-white text-sm transition-colors"
                 aria-label={ARIA_LABELS.facebook}
               >
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -114,7 +114,7 @@ export default function Footer() {
                 href="https://www.linkedin.com/company/serve-nvca/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center text-gray-400 hover:text-white text-sm transition-colors"
+                className="flex items-center text-gray-600 hover:text-white text-sm transition-colors"
                 aria-label={ARIA_LABELS.linkedin}
               >
                 <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 24 24">
@@ -147,17 +147,17 @@ export default function Footer() {
         {/* Bottom Bar */}
         <div className="border-t border-gray-700/50 mt-8 pt-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm">
-            <p className="text-gray-400">
+            <p className="text-gray-600">
               © 2025 SERVE. All rights reserved.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/privacy" className="text-gray-600 hover:text-white transition-colors">
                 Privacy
               </Link>
-              <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/terms" className="text-gray-600 hover:text-white transition-colors">
                 Terms
               </Link>
-              <Link href="/accessibility" className="text-gray-400 hover:text-white transition-colors">
+              <Link href="/accessibility" className="text-gray-600 hover:text-white transition-colors">
                 Accessibility
               </Link>
             </div>

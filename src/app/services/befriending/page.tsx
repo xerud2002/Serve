@@ -13,6 +13,7 @@ import {
   SparklesIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
+import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Countywide Befriending - SERVE | Combat Loneliness in Northamptonshire',
@@ -173,13 +174,13 @@ export default function BefriendingPage() {
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center space-x-2 text-sm text-gray-600">
-            <Link href="/" className="hover:text-serve-blue-600">Home</Link>
-            <span>/</span>
-            <Link href="/services" className="hover:text-serve-blue-600">Services</Link>
-            <span>/</span>
-            <span className="text-gray-900 font-medium">Countywide Befriending</span>
-          </div>
+          <Breadcrumb 
+            items={[
+              { label: 'Home', href: '/' },
+              { label: 'Services', href: '/services' },
+              { label: 'Countywide Befriending' }
+            ]}
+          />
         </div>
       </nav>
 

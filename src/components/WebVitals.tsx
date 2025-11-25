@@ -19,9 +19,20 @@ export default function WebVitals() {
     // Dynamic import to avoid bloating the bundle
     import('web-vitals').then(({ onCLS, onLCP, onFCP, onTTFB, onINP }) => {
       const logMetric = (metric: any) => {
-        // In production, send to your analytics service:
-        // analytics.track('web-vitals', metric)
+        // Send to Vercel Analytics (if available)
+        if (typeof window !== 'undefined' && (window as any).va) {
+          (window as any).va('event', {
+            name: 'web-vitals',
+            data: {
+              metric: metric.name,
+              value: Math.round(metric.value),
+              rating: metric.rating,
+              delta: Math.round(metric.delta),
+            }
+          })
+        }
         
+        // Development logging
         if (process.env.NODE_ENV === 'development') {
           console.log(`[Web Vitals] ${metric.name}:`, {
             value: metric.value,
