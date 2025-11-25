@@ -17,7 +17,7 @@ import Breadcrumb from '@/components/Breadcrumb'
 
 export const metadata: Metadata = {
   title: 'Countywide Befriending - SERVE | Combat Loneliness in Northamptonshire',
-  description: 'SERVE\'s friendly befriending service provides regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
+  description: 'Combat loneliness with regular companionship and emotional support across Northamptonshire. Refer someone today: 01933 315555.',
   keywords: 'befriending, loneliness, companionship, emotional support, Northamptonshire, vulnerable adults, social connection',
   alternates: {
     canonical: '/services/befriending',

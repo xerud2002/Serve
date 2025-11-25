@@ -2,6 +2,7 @@ import dynamic from 'next/dynamic'
 import Hero from '@/components/Hero'
 import Services from '@/components/Services'
 import CallToActionSection from '@/components/CallToActionSection'
+import ScrollReveal from '@/components/ScrollReveal'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 
 // Lazy load below-the-fold components to improve initial page load
@@ -22,11 +23,21 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Services />
-      <CallToActionSection />
-      <Events />
-      <FacebookFeed />
-      <WhyChooseSERVE />
+      <ScrollReveal>
+        <Services />
+      </ScrollReveal>
+      <ScrollReveal delay={100}>
+        <CallToActionSection />
+      </ScrollReveal>
+      <ScrollReveal delay={150}>
+        <Events />
+      </ScrollReveal>
+      <ScrollReveal delay={200}>
+        <FacebookFeed />
+      </ScrollReveal>
+      <ScrollReveal delay={250}>
+        <WhyChooseSERVE />
+      </ScrollReveal>
       <WebVitals />
     </>
   )

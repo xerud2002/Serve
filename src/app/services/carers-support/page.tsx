@@ -16,7 +16,7 @@ import FAQSchema from '@/components/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Carers Support - SERVE | Respite and Advice for Family Carers',
-  description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
+  description: 'Respite care, practical advice, and emotional support for family carers. Because carers need care too. Get help today: 01933 315555.',
   keywords: 'carers support, respite care, family carers, carer training, emotional support, Northamptonshire, caregiver help',
   alternates: {
     canonical: '/services/carers-support',

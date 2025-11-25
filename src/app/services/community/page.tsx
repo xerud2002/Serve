@@ -15,7 +15,7 @@ import FAQSchema from '@/components/FAQSchema'
 
 export const metadata: Metadata = {
   title: 'Community Services - SERVE | DBS Checks & Community Support',
-  description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
+  description: 'Hearing aid servicing, DBS checks, and community events to help you stay connected and independent. Find out more: 01933 315555.',
   keywords: 'community services, DBS checks, hearing aid, community support, Northamptonshire, social activities',
   alternates: {
     canonical: '/services/community',
