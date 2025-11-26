@@ -101,18 +101,18 @@ export default function FacebookEvents() {
           >
             {/* Event Cover Image */}
             {event.coverImage ? (
-              <div className="relative h-48 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100">
+              <div className="relative h-56 w-full overflow-hidden bg-gradient-to-br from-purple-50 to-purple-100">
                 <Image
                   src={event.coverImage}
                   alt={event.name}
                   fill
-                  className="object-cover group-hover:scale-105 transition-transform duration-300"
+                  className="object-contain group-hover:scale-105 transition-transform duration-300"
                   sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   unoptimized={event.coverImage.startsWith('https://')}
                 />
               </div>
             ) : (
-              <div className="bg-gradient-to-br from-purple-100 to-purple-200 h-48 flex items-center justify-center">
+              <div className="bg-gradient-to-br from-purple-100 to-purple-200 h-56 flex items-center justify-center">
                 <CalendarDaysIcon className="w-12 h-12 text-purple-600" />
               </div>
             )}
