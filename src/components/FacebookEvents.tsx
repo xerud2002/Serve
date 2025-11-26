@@ -26,15 +26,22 @@ export default function FacebookEvents() {
     let cancelled = false
     ;(async () => {
       try {
-        const res = await fetch('/api/facebook-events', { cache: 'no-store' })
+        const res = await fetch('/api/facebook-events', { 
+          cache: 'no-store',
+          headers: {
+            'Cache-Control': 'no-cache'
+          }
+        })
         const data = await res.json()
         const fetchedEvents = data.events || []
         
         if (!cancelled) {
-          setEvents(fetchedEvents.length ? fetchedEvents.slice(0, 3) : getFallbackEvents())
+          // Use Facebook events if available, otherwise use fallback
+          setEvents(fetchedEvents.length > 0 ? fetchedEvents.slice(0, 3) : getFallbackEvents())
           setLoading(false)
         }
-      } catch {
+      } catch (error) {
+        console.error('Error fetching events:', error)
         if (!cancelled) {
           setEvents(getFallbackEvents())
           setLoading(false)
