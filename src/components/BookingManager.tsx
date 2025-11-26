@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from 'react'
-import { CalendarIcon, ClockIcon, PhoneIcon, EnvelopeIcon, CheckCircleIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import { CalendarIcon, ClockIcon, PhoneIcon, EnvelopeIcon, CheckCircleIcon, XMarkIcon, PhotoIcon } from '@heroicons/react/24/outline'
 
 interface BookingData {
   id: string
@@ -135,8 +135,19 @@ export default function BookingManager() {
       <div className="max-w-7xl mx-auto">
         {/* Header */}
         <div className="mb-8">
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Assessment Bookings</h1>
-          <p className="text-gray-600">Manage home care assessment appointments</p>
+          <div className="flex items-center justify-between">
+            <div>
+              <h1 className="text-3xl font-bold text-gray-900 mb-2">Assessment Bookings</h1>
+              <p className="text-gray-600">Manage home care assessment appointments</p>
+            </div>
+            <a
+              href="/admin/posts"
+              className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
+            >
+              <PhotoIcon className="w-5 h-5 mr-2" />
+              Manage Posts
+            </a>
+          </div>
         </div>
 
         {/* Filters */}

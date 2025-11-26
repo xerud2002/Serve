@@ -24,6 +24,18 @@ export default function FacebookFeed() {
     let cancelled = false
     const fetchPosts = async () => {
       try {
+        // First try to get manually saved posts
+        const savedRes = await fetch('/api/posts', { cache: 'no-store' })
+        const savedData = await savedRes.json()
+        
+        if (savedData.posts && savedData.posts.length > 0) {
+          if (!cancelled) {
+            setPosts(savedData.posts.slice(0, 3))
+          }
+          return
+        }
+
+        // Fall back to Facebook API if no saved posts
         const res = await fetch('/api/facebook-posts', { cache: 'no-store' })
         const data = await res.json()
         const fetchedPosts: FacebookPost[] = Array.isArray(data?.posts) ? data.posts : []
