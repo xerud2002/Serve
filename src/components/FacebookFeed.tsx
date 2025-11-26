@@ -52,25 +52,24 @@ export default function FacebookFeed() {
   const getFallbackPosts = (): FacebookPost[] => {
     return [
       { 
-        id: '239416516576684_122104437307894', 
-        message: 'A wonderful start to the week at Ron Manning Day Centre! 🌟 Today our members enjoyed gentle exercises, creative crafts, and sharing stories over a delicious hot lunch. The laughter and friendship in our centre always brightens our day.',
-        picture: '/images/community/bigchat1.webp', 
-        created_time: '2024-11-21T10:30:00+0000',
-        permalink_url: 'https://www.facebook.com/SERVE234/posts/122104437307894' 
+        id: '239416516576684_1259528296206219', 
+        message: 'We\'re excited to announce that Lago Lounge Rushden Lakes have chosen SERVE as their December charity. They\'ve got a whole month of festive fun planned, with every event helping raise funds to support older people, adults with disabilities and their carers in our community. 🎄✨',
+        created_time: '2025-11-23T12:52:16+0000',
+        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1259528296206219' 
       },
       { 
-        id: '239416516576684_122098703641801', 
-        message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
-        picture: '/images/transport/bus.webp', 
-        created_time: '2024-11-20T14:00:00+0000',
-        permalink_url: 'https://www.facebook.com/SERVE234/posts/122098703641801' 
+        id: '239416516576684_1257799823045733', 
+        message: 'We\'re sending a very big THANK YOU to Gill Mercer and David Carver for their kindness.❤️ The Day Centre has just received the first items from our wish list and we\'re so excited. Your generosity means so much to us and will make a real difference for everyone who visits.',
+        full_picture: 'https://scontent-lhr8-2.xx.fbcdn.net/v/t39.30808-6/586051128_1255551723270543_3937705493773177457_n.jpg?stp=dst-jpg_p720x720_tt6&_nc_cat=106&ccb=1-7&_nc_sid=127cfc&_nc_ohc=g8W4TF4E8VYQ7kNvwGUtvxa&_nc_oc=AdmQrZnK4mJ2OGvIemCsyN_GvOY99m_yhakxOl9DB6-_S3AIpmcNO8t7Idyt4dOkoEB-CFtqIasvZYt6SbZ_RUdV&_nc_zt=23&_nc_ht=scontent-lhr8-2.xx&edm=AKK4YLsEAAAA&oh=00_AfizNYX8m4Ms8dDR-j9P0IRtkkr1deyLCBIPNaP5UNS2Xw&oe=692CCC6E',
+        created_time: '2025-11-21T09:14:29+0000',
+        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257799823045733' 
       },
       { 
-        id: '239416516576684_122091120309226', 
-        message: '💙 Heartwarming feedback received today: "My SERVE carer has become like family. She helps me stay independent in my own home and always has time for a chat." This is exactly why we do what we do.',
-        picture: '/images/care/care1.webp', 
-        created_time: '2024-11-19T09:15:00+0000',
-        permalink_url: 'https://www.facebook.com/SERVE234/posts/122091120309226' 
+        id: '239416516576684_1257027946456254', 
+        message: '🎄A UNIQUE CHRISTMAS GIFT WHILST ALSO SUPPORTING YOUR COMMUNITY🎄 This isn\'t just a present - it\'s a professionally written and recorded personalised song, created just for you. With a suggested minimum donation of £50, your unforgettable gift also supports our community services.',
+        full_picture: 'https://external-lhr6-1.xx.fbcdn.net/emg1/v/t13/2304500389217799052?url=https%3A%2F%2Fi1.sndcdn.com%2Favatars-HiAfP9LHKSD-tsHQOg-t500x500.jpg&fb_obo=1&utld=sndcdn.com&edm=AKK4YLsEAAAA&stp=dst-emg0_fr_q75_tt6&oh=06_Q3-5AQDPR1gcPbiZ5VHpS6x2p5mlTPbwnR2K2rIU_7osN3YH&oe=6928B3B9',
+        created_time: '2025-11-20T10:44:24+0000',
+        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257027946456254' 
       },
     ]
   }
