@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { ArrowLeftIcon, PlusIcon, TrashIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
+import Image from 'next/image'
 
 interface FacebookPost {
   id: string
@@ -27,8 +28,8 @@ export default function PostsAdmin() {
       const response = await fetch('/api/posts')
       const data = await response.json()
       setPosts(data.posts || [])
-    } catch (error) {
-      console.error('Error loading posts:', error)
+    } catch {
+      // Error loading posts - will show empty state
     } finally {
       setLoading(false)
     }
@@ -50,7 +51,7 @@ export default function PostsAdmin() {
         const data = await response.json()
         setMessage(`Error: ${data.error}`)
       }
-    } catch (error) {
+    } catch {
       setMessage('Failed to save posts')
     } finally {
       setSaving(false)
@@ -136,7 +137,7 @@ export default function PostsAdmin() {
             <div className="bg-white rounded-lg shadow-sm p-12 text-center">
               <PhotoIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">No posts yet</h3>
-              <p className="text-gray-600 mb-6">Click "Add Post" to create your first post</p>
+              <p className="text-gray-600 mb-6">Click &quot;Add Post&quot; to create your first post</p>
               <button
                 onClick={addPost}
                 className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold"
@@ -210,10 +211,12 @@ export default function PostsAdmin() {
                     />
                     {post.full_picture && (
                       <div className="mt-2 relative h-32 bg-gray-100 rounded-lg overflow-hidden">
-                        <img 
+                        <Image 
                           src={post.full_picture} 
                           alt="Preview" 
-                          className="h-full w-full object-contain"
+                          fill
+                          className="object-contain"
+                          unoptimized
                         />
                       </div>
                     )}
@@ -243,7 +246,7 @@ export default function PostsAdmin() {
           <ul className="space-y-2 text-blue-800">
             <li className="flex items-start">
               <span className="font-semibold mr-2">1.</span>
-              <span>Click "Add Post" to create a new post entry</span>
+              <span>Click &quot;Add Post&quot; to create a new post entry</span>
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">2.</span>
@@ -251,7 +254,7 @@ export default function PostsAdmin() {
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">3.</span>
-              <span>Click "Save All Posts" to update the homepage</span>
+              <span>Click &quot;Save All Posts&quot; to update the homepage</span>
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">4.</span>
