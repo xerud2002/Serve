@@ -43,7 +43,6 @@ export default function Events() {
                       <span className="bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold">
                         {featuredNews.category}
                       </span>
-                      <div className="text-gray-500 text-sm mt-2">{featuredNews.date}</div>
                     </div>
                   </div>
                   
@@ -122,7 +121,6 @@ export default function Events() {
                     }`}>
                       {item.category}
                     </span>
-                    <span className="text-gray-500 text-xs">{item.date}</span>
                   </div>
                   
                   <h3 className="text-lg font-bold text-gray-900 mb-3 leading-tight group-hover:text-serve-blue-800 transition-colors line-clamp-2">
