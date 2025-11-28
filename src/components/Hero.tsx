@@ -83,8 +83,7 @@ export default function Hero() {
           
           {/* Subtitle */}
           <p className="text-xl md:text-2xl mb-12 max-w-4xl mx-auto text-balance leading-relaxed text-blue-100">
-            For over 40 years, SERVE has been Northamptonshire&apos;s trusted partner in care. 
-            We help older people and adults with disabilities live independently at home with dignity and respect.
+            SERVE is a voluntary organisation and a registered charity. We have been providing services and assistance to older people and adults with disabilities, and their carers in Northamptonshire and the surrounding area for over 40 years. Our aim is to provide the highest quality of health and social care to enable people to remain living independently within their own homes. We deliver a service to a wide range of adults who need care and support.
           </p>
           
           {/* Action Buttons */}
