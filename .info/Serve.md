@@ -3,51 +3,36 @@ Serve
 
 
 \*E-mail
-
 web@serve.org.uk
-
 Ngta4279
 
 
 
 \*WordPress
-
 Serve Editor
-
 Serve123!Serve123
 
 
 
 \*123
-
-Customer #: 219012406
-
+Customer #: 21901240
 info@serve.org.uk
-
 Serve123@@
-
 nicholas.tite@serve.org.uk
-
 Serve123@@
 
 
 
 **\*Need**
-
 **Hosting details**
-
 **Facebook page token (Louise) - access to info@ \& email@ for testing**
-
 **Deploy on a Friday Evening**
 
 
 
-**\*Server - VPS**
-
+***Server - VPS**
 **http://92.205.108.255/**
-
 **webadmin**
-
 **Serve123@@**
 
 
