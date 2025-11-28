@@ -1,41 +1,40 @@
-Serve
+Serve Access 
 
-
-
-\*E-mail
+E-mail
 web@serve.org.uk
 Ngta4279
 
-
-
-\*WordPress
+WordPress (Old website)
 Serve Editor
 Serve123!Serve123
 
-
-
-\*123
+https://www.123-reg.co.uk
 Customer #: 21901240
 info@serve.org.uk
 Serve123@@
 nicholas.tite@serve.org.uk
 Serve123@@
 
-
-
-**\*Need**
-**Hosting details**
-**Facebook page token (Louise) - access to info@ \& email@ for testing**
-**Deploy on a Friday Evening**
+Server - VPS (where the website will be hosted)
+IP : 92.205.108.255
+Username: webadmin
+Password: Serve123@@
 
 
 
-***Server - VPS**
-**http://92.205.108.255/**
-**webadmin**
-**Serve123@@**
+Publish trustee photos and add Serve emails only.
 
+Add Serve Values Section
 
+Add Social Values Section
+
+Add Complaints procedure Area
+
+SELF MANAGE
+
+TRUSTEES: MEETING INFO (DATES/ATTENDEES)
+
+JOB AND VOLUNTEER ADVERTS including generic application form
 
 
 
