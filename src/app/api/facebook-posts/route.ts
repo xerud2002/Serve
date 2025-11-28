@@ -109,7 +109,7 @@ function getFallbackPosts() {
     },
     {
       id: 'fallback-2',
-      message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments, shopping trips, and family visits. Your dedication means independence for so many in our community.',
+      message: 'Thank you to our amazing transport volunteers! 🚐 Today alone we helped 15 people get to medical appointments and shopping trips. Your dedication means independence for so many in our community.',
       created_time: new Date(now - 1 * 24 * 60 * 60 * 1000).toISOString(), // 1 day ago
       picture: '/images/transport/bus.webp',
       permalink_url: 'https://www.facebook.com/SERVE234',

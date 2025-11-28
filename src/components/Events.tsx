@@ -11,8 +11,7 @@ export default function Events() {
     {
       id: 1,
       title: 'WINNERS AT THE GREAT BRITISH CARE AWARDS',
-      excerpt: 'SERVE has been crowned the best homecare team in the East Midlands, recognizing our exceptional dedication to care excellence and community service.',
-      date: 'October 2024',
+      excerpt: 'SERVE has been crowned the best homecare team in the East Midlands, recognised for our exceptional dedication to care excellence and community service.',
       category: 'Award',
       icon: TrophyIcon,
       link: '/news/great-british-care-awards',

@@ -106,7 +106,7 @@ const benefits = [
 const faqs = [
   {
     question: "What is carers support and who can access it?",
-    answer: "Our carers support service helps anyone caring for a family member, friend, or neighbor. Whether you're caring for someone with a disability, illness, mental health condition, or age-related needs, we're here to support you."
+    answer: "Our carers support service helps anyone caring for a family member, friend, or neighbour. Whether you're caring for someone with a disability, illness, mental health condition, or age-related needs, we're here to support you."
   },
   {
     question: "What is respite care?",

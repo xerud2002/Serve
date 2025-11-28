@@ -48,9 +48,9 @@ const services = [
     id: 'transport',
     title: 'Community Transport',
     subtitle: 'Getting you where you need to go',
-    description: 'Safe, reliable transport for medical appointments, shopping trips, and family visits.',
+    description: 'Safe, reliable transport for medical appointments and shopping trips.',
     icon: TruckIcon,
-    features: ['Medical appointments', 'Shopping trips', 'Family visits', 'Wheelchair accessible', 'Trained drivers'],
+    features: ['Medical appointments', 'Shopping trips', 'Wheelchair accessible', 'Trained drivers'],
     href: '/services/transport',
     badge: 'Door-to-Door',
     gradient: 'from-purple-600 to-purple-700'
@@ -68,7 +68,7 @@ const services = [
   },
   {
     id: 'carers-support',
-    title: 'Carers Support',
+    title: 'Support for family carers',
     subtitle: 'Support for family carers',
     description: 'Respite care and practical support for those caring for family members and loved ones.',
     icon: HandRaisedIcon,

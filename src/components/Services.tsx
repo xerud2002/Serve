@@ -33,7 +33,7 @@ export default function Services() {
     {
       id: 'transport',
       title: 'Community Transport',
-      description: 'Reliable, affordable transport to medical appointments, hospital visits, and family connections. Our drivers understand the needs of older people and those with mobility challenges.',
+      description: 'Reliable, affordable transport to medical appointments and hospital visits. Our drivers understand the needs of older people and those with mobility challenges.',
       image: '/images/transport/community-transport1.webp',
       link: '/services/transport',
       highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates']
@@ -48,7 +48,7 @@ export default function Services() {
     },
     {
       id: 'carers',
-      title: 'Carers Support',
+      title: 'Support for family carers',
       description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
       image: '/images/care/care2.webp',
       link: '/services/carers-support',
@@ -77,12 +77,12 @@ export default function Services() {
           </div>
           
           <h2 className="text-4xl md:text-5xl font-bold mb-6 leading-tight">
-            <span className="text-cyan-600">Ways We Can</span>{' '}
-            <span className="text-red-600">Assist</span>
+            <span className="text-cyan-600">Ways We Can Assist</span>{' '}
+            <span className="text-red-600">You</span>
           </h2>
           <p className={`text-lg text-gray-600 max-w-3xl mx-auto leading-relaxed text-center ${MOBILE_CLASSES.mobileSubheading}`}>
-            Everything we do is tailored to support and improve the daily lives of older people 
-            and adults living with a disability or chronic medical condition.
+            Everything we do is tailored to support and improve the daily lives of older people, 
+            adults with disabilities, and their carers.
           </p>
         </div>
 

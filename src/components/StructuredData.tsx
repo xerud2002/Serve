@@ -76,7 +76,7 @@ export default function StructuredData({ type = 'organization' }: StructuredData
             "itemOffered": {
               "@type": "Service",
               "name": "Community Transport",
-              "description": "Medical appointments and family visits transport service",
+              "description": "Medical appointments transport service",
               "provider": {
                 "@type": "Organization",
                 "name": "SERVE"

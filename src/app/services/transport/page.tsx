@@ -36,10 +36,10 @@ const transportServices = [
     features: ['Weekly grocery shopping', 'Pharmacy visits', 'Banking errands', 'Post office trips', 'Essential shopping', 'Market visits']
   },
   {
-    title: 'Social & Family Visits',
+    title: 'Social Visits',
     icon: HeartIcon,
-    description: 'Maintaining important social connections and family relationships',
-    features: ['Family visits', 'Social events', 'Day centre attendance', 'Community activities', 'Religious services', 'Friend visits']
+    description: 'Maintaining important social connections',
+    features: ['Social events', 'Day centre attendance', 'Community activities', 'Religious services', 'Friend visits']
   },
   {
     title: 'Wheelchair Accessible',
@@ -113,8 +113,7 @@ export default function TransportPage() {
               <MajorTitle primary="Community" secondary="Transport" dark accentClass="text-purple-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
-                Safe, reliable transport to medical appointments, shopping trips, 
-                and family visits. Wheelchair accessible vehicles with trained drivers.
+                Safe, reliable transport to medical appointments and shopping trips. Wheelchair accessible vehicles with trained drivers.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
