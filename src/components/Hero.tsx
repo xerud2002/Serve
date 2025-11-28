@@ -63,26 +63,26 @@ export default function Hero() {
               <Image 
                 src="/images/awards/regional-winner1.webp" 
                 alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-20 h-20 object-contain bg-transparent"
-                width={80}
-                height={80}
+                className="w-40 h-40 object-contain bg-transparent"
+                width={160}
+                height={160}
                 priority
                 fetchPriority="high"
                 quality={100}
-                sizes="(max-width: 768px) 80px, 0px"
+                sizes="(max-width: 768px) 160px, 0px"
                 style={{ backgroundColor: 'transparent' }}
               />
               {/* Regional Winner Badge 2 */}
               <Image 
                 src="/images/awards/regional-winner2.webp" 
                 alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-20 h-20 object-contain bg-transparent"
-                width={80}
-                height={80}
+                className="w-40 h-40 object-contain bg-transparent"
+                width={160}
+                height={160}
                 priority
                 fetchPriority="high"
                 quality={100}
-                sizes="(max-width: 768px) 80px, 0px"
+                sizes="(max-width: 768px) 160px, 0px"
                 style={{ backgroundColor: 'transparent' }}
               />
             </div>
