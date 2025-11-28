@@ -22,44 +22,69 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
-          {/* Winner Badge Image - Desktop: top-right, Mobile: centered */}
+          {/* Winner Badge Images - Desktop: top-right side-by-side, Mobile: centered */}
           <div className="absolute top-4 right-4 md:right-8 z-10 hidden md:block">
-            <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-              <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src="/images/servewinner .webp" 
-                  alt="SERVE Winner - Great British Care Awards"
-                  className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
-                  width={128}
-                  height={128}
-                  priority
-                  loading="eager"
-                  fetchPriority="high"
-                  quality={60}
-                  sizes="(max-width: 768px) 0px, 128px"
-                />
-              </div>
+            <div className="flex gap-4">
+              {/* Regional Winner Badge 1 */}
+              <Image 
+                src="/images/awards/regional-winner1.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                priority
+                loading="eager"
+                fetchPriority="high"
+                quality={100}
+                sizes="(max-width: 768px) 0px, 128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+              {/* Regional Winner Badge 2 */}
+              <Image 
+                src="/images/awards/regional-winner2.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                priority
+                loading="eager"
+                fetchPriority="high"
+                quality={100}
+                sizes="(max-width: 768px) 0px, 128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
             </div>
           </div>
 
-          {/* Mobile Winner Badge - Centered */}
+          {/* Mobile Winner Badges - Centered side-by-side */}
           <div className="block md:hidden mb-3">
-            <div className="relative group mx-auto w-fit">
-              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-              <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
-                <Image 
-                  src="/images/servewinner .webp" 
-                  alt="SERVE Winner - Great British Care Awards"
-                  className="w-45 h-45 object-contain"
-                  width={180}
-                  height={180}
-                  priority
-                  fetchPriority="high"
-                  quality={60}
-                  sizes="(max-width: 768px) 180px, 0px"
-                />
-              </div>
+            <div className="flex gap-3 justify-center">
+              {/* Regional Winner Badge 1 */}
+              <Image 
+                src="/images/awards/regional-winner1.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-20 h-20 object-contain bg-transparent"
+                width={80}
+                height={80}
+                priority
+                fetchPriority="high"
+                quality={100}
+                sizes="(max-width: 768px) 80px, 0px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+              {/* Regional Winner Badge 2 */}
+              <Image 
+                src="/images/awards/regional-winner2.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-20 h-20 object-contain bg-transparent"
+                width={80}
+                height={80}
+                priority
+                fetchPriority="high"
+                quality={100}
+                sizes="(max-width: 768px) 80px, 0px"
+                style={{ backgroundColor: 'transparent' }}
+              />
             </div>
           </div>
 
