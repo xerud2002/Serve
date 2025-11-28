@@ -22,84 +22,43 @@ export default function Hero() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
-          {/* Award Badges - Desktop: top-right stacked, Mobile: centered */}
+          {/* Winner Badge Image - Desktop: top-right, Mobile: centered */}
           <div className="absolute top-4 right-4 md:right-8 z-10 hidden md:block">
-            <div className="flex flex-col gap-4">
-              {/* Regional Winner Badge */}
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
-                  <Image 
-                    src="/images/awards/regional-winner.webp" 
-                    alt="Great British Care Awards - Regional Winner 2024"
-                    className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
-                    width={128}
-                    height={128}
-                    priority
-                    loading="eager"
-                    fetchPriority="high"
-                    quality={60}
-                    sizes="(max-width: 768px) 0px, 128px"
-                  />
-                </div>
-              </div>
-              {/* Highly Commended Badge */}
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-cyan-200 group-hover:scale-105 transition-transform duration-300">
-                  <Image 
-                    src="/images/awards/highly-commended.webp" 
-                    alt="Great British Care Awards - Highly Commended 2025"
-                    className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
-                    width={128}
-                    height={128}
-                    priority
-                    loading="eager"
-                    fetchPriority="high"
-                    quality={60}
-                    sizes="(max-width: 768px) 0px, 128px"
-                  />
-                </div>
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-2xl p-3 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/images/servewinner .webp" 
+                  alt="SERVE Winner - Great British Care Awards"
+                  className="w-24 h-24 lg:w-32 lg:h-32 object-contain"
+                  width={128}
+                  height={128}
+                  priority
+                  loading="eager"
+                  fetchPriority="high"
+                  quality={60}
+                  sizes="(max-width: 768px) 0px, 128px"
+                />
               </div>
             </div>
           </div>
 
-          {/* Mobile Award Badges - Centered and Stacked */}
+          {/* Mobile Winner Badge - Centered */}
           <div className="block md:hidden mb-3">
-            <div className="flex gap-3 justify-center">
-              {/* Regional Winner Badge */}
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
-                  <Image 
-                    src="/images/awards/regional-winner.webp" 
-                    alt="Great British Care Awards - Regional Winner 2024"
-                    className="w-20 h-20 object-contain"
-                    width={80}
-                    height={80}
-                    priority
-                    fetchPriority="high"
-                    quality={60}
-                    sizes="(max-width: 768px) 80px, 0px"
-                  />
-                </div>
-              </div>
-              {/* Highly Commended Badge */}
-              <div className="relative group">
-                <div className="absolute -inset-2 bg-gradient-to-r from-blue-400 via-cyan-400 to-teal-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
-                <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-cyan-200 group-hover:scale-105 transition-transform duration-300">
-                  <Image 
-                    src="/images/awards/highly-commended.webp" 
-                    alt="Great British Care Awards - Highly Commended 2025"
-                    className="w-20 h-20 object-contain"
-                    width={80}
-                    height={80}
-                    priority
-                    fetchPriority="high"
-                    quality={60}
-                    sizes="(max-width: 768px) 80px, 0px"
-                  />
-                </div>
+            <div className="relative group mx-auto w-fit">
+              <div className="absolute -inset-2 bg-gradient-to-r from-yellow-400 via-orange-400 to-pink-400 rounded-2xl opacity-30 group-hover:opacity-50 blur-lg transition-opacity duration-500"></div>
+              <div className="relative bg-white rounded-2xl p-2 shadow-xl border-2 border-yellow-200 group-hover:scale-105 transition-transform duration-300">
+                <Image 
+                  src="/images/servewinner .webp" 
+                  alt="SERVE Winner - Great British Care Awards"
+                  className="w-45 h-45 object-contain"
+                  width={180}
+                  height={180}
+                  priority
+                  fetchPriority="high"
+                  quality={60}
+                  sizes="(max-width: 768px) 180px, 0px"
+                />
               </div>
             </div>
           </div>
@@ -147,7 +106,7 @@ export default function Hero() {
               <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
               </svg>
-              <span className="text-lg">Join Us</span>
+              <span className="text-lg">Volunteer With Us</span>
             </Link>
             
             <Link
