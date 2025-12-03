@@ -44,15 +44,14 @@ export const metadata: Metadata = {
 
 const befriendingServices = [
   {
-    title: 'Regular Visits',
+    title: 'Regular Contact',
     icon: CalendarIcon,
     services: [
-      'Weekly companionship visits',
+      'Weekly face to face',
       'Consistent friendly face',
       'Flexible scheduling',
-      'Long-term relationships',
+      'Telephone calls',
       'Reliable support',
-      'Tailored visit duration'
     ]
   },
   {
@@ -74,7 +73,7 @@ const befriendingServices = [
       'Shared hobbies and interests',
       'Games and puzzles',
       'Reminiscence activities',
-      'Music and arts',
+      'Group befriending sessions in Wellingborough and Kettering',
       'Reading together',
       'Gentle exercise'
     ]
@@ -107,11 +106,11 @@ const benefits = [
 const faqs = [
   {
     question: "What is befriending and how does it work?",
-    answer: "Befriending involves regular visits from a trained volunteer who provides companionship, conversation, and emotional support. Visits are typically weekly and tailored to your interests and preferences."
+    answer: "Befriending involves regular visits from a trained volunteer who provides companionship, conversation, and emotional support. Visits and phone calls are weekly and tailored to your interests and preferences."
   },
   {
     question: "Who can access the befriending service?",
-    answer: "Our befriending service is for vulnerable adults across Northamptonshire who experience loneliness or social isolation. This includes older people, those with disabilities, or anyone who would benefit from regular companionship."
+    answer: "Our befriending service is for vulnerable adults aged 65 years and over across Northamptonshire who experience loneliness or social isolation. This includes older people, those with disabilities, who would benefit from regular companionship."
   },
   {
     question: "Is the befriending service free?",
@@ -123,11 +122,11 @@ const faqs = [
   },
   {
     question: "Can I choose my befriender?",
-    answer: "We carefully match befrienders and clients based on shared interests, personality, and preferences. We aim to create compatible, long-lasting friendships that both parties enjoy."
+    answer: "We carefully match befrienders and service users based on shared interests, personality, and preferences. We aim to create compatible, long-lasting friendships that both parties enjoy."
   },
   {
     question: "What areas do you cover?",
-    answer: "Our befriending service covers all of Northamptonshire, including Rushden, Wellingborough, Kettering, Corby, Northampton, and surrounding villages. We're truly countywide!"
+    answer: "Our befriending service covers all of Northamptonshire, including East Northants, Wellingborough, Kettering, Corby, Northampton, and surrounding villages. We're truly countywide!"
   }
 ]
 

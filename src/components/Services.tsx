@@ -41,10 +41,10 @@ export default function Services() {
     {
       id: 'befriending',
       title: 'Countywide Befriending',
-      description: 'Combat loneliness with our friendly befriending service. We provide regular companionship and emotional support to vulnerable adults across all of Northamptonshire.',
+      description: 'Combat loneliness with our friendly befriending service. We provide Regular Contact companionship and emotional support to vulnerable adults across all of Northamptonshire.',
       image: '/images/befriending/befriending1.webp',
       link: '/services/befriending',
-      highlights: ['Combat Loneliness', 'Regular Visits', 'Emotional Support', 'Countywide Coverage']
+      highlights: ['Combat Loneliness', 'Regular Contact', 'Emotional Support', 'Countywide Coverage']
     },
     {
       id: 'carers',
