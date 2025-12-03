@@ -70,10 +70,10 @@ const befriendingServices = [
     title: 'Social Activities',
     icon: SparklesIcon,
     services: [
+      'Life Stories - Capture your memories into a digital book',
       'Shared hobbies and interests',
       'Games and puzzles',
       'Reminiscence activities',
-      'Group befriending sessions in Wellingborough and Kettering',
       'Reading together',
       'Gentle exercise'
     ]
@@ -82,6 +82,7 @@ const befriendingServices = [
     title: 'Community Connection',
     icon: UserGroupIcon,
     services: [
+      'Group befriending sessions in Wellingborough and Kettering',
       'Link to local services',
       'Community event support',
       'Social group introduction',
