@@ -28,9 +28,33 @@ export default function Footer() {
               Award-winning care services helping older people and adults with disabilities 
               maintain independence across Northamptonshire.
             </p>
-            <div className="space-y-2 text-sm">
+            <div className="space-y-2 text-sm mb-4">
               <p className="text-gray-500">Charity No: 1043321</p>
               <p className="text-gray-500">Company No: 2951827</p>
+            </div>
+            <div className="flex flex-col gap-2">
+              <a 
+                href="https://www.cqc.org.uk/location/1-2165219210"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-400 hover:text-white text-xs transition-colors"
+              >
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                </svg>
+                CQC Registered Provider
+              </a>
+              <a 
+                href="https://register-of-charities.charitycommission.gov.uk/charity-search/-/charity-details/1043321"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-gray-400 hover:text-white text-xs transition-colors"
+              >
+                <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10 2a6 6 0 00-6 6v3.586l-.707.707A1 1 0 004 14h12a1 1 0 00.707-1.707L16 11.586V8a6 6 0 00-6-6zM10 18a3 3 0 01-3-3h6a3 3 0 01-3 3z"/>
+                </svg>
+                Charity Commission Registered
+              </a>
             </div>
           </div>
 
