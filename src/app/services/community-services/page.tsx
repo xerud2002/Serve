@@ -18,12 +18,12 @@ export const metadata: Metadata = {
   description: 'Hearing aid servicing, DBS checks, and community events to help you stay connected and independent. Find out more: 01933 315555.',
   keywords: 'community services, DBS checks, hearing aid, community support, Northamptonshire, social activities',
   alternates: {
-    canonical: '/services/community',
+    canonical: '/services/community-services',
   },
   openGraph: {
     title: 'Community Services - SERVE',
     description: 'Hearing aid servicing, DBS checks, and community support to help maintain independence and connections.',
-    url: '/services/community',
+    url: '/services/community-services',
     type: 'website',
     images: [{
       url: '/images/community/bigchat1.webp',
