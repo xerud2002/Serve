@@ -17,6 +17,7 @@ import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
+export const dynamic = 'force-dynamic'
 
 interface FacebookPost {
   id: string
