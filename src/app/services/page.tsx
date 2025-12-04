@@ -34,28 +34,6 @@ const services = [
     gradient: 'from-serve-blue-600 to-serve-blue-700'
   },
   {
-    id: 'day-care',
-    title: 'Day Care & Meals on Wheels',
-    subtitle: 'Ron Manning Day and Activity Centre',
-    description: 'Social activities, nutritious meals, and professional care in a friendly community environment.',
-    icon: HomeIcon,
-    features: ['Daily activities', 'Nutritious meals', 'Social interaction', 'Health monitoring', 'Transport included'],
-    href: '/services/day-care',
-    badge: 'Community Hub',
-    gradient: 'from-serve-green-600 to-serve-green-700'
-  },
-  {
-    id: 'transport',
-    title: 'Community Transport',
-    subtitle: 'Getting you where you need to go',
-    description: 'Safe, reliable transport for medical appointments and shopping trips.',
-    icon: TruckIcon,
-    features: ['Medical appointments', 'Shopping trips', 'Wheelchair accessible', 'Trained drivers'],
-    href: '/services/transport',
-    badge: 'Door-to-Door',
-    gradient: 'from-purple-600 to-purple-700'
-  },
-  {
     id: 'befriending',
     title: 'Countywide Befriending',
     subtitle: 'Companionship and support',
@@ -65,6 +43,28 @@ const services = [
     href: '/services/befriending',
     badge: 'Countywide',
     gradient: 'from-pink-600 to-pink-700'
+  },
+  {
+    id: 'day-care',
+    title: 'Day Care & Meals on Wheels',
+    subtitle: 'Ron Manning Day and Activity Centre',
+    description: 'Social activities, nutritious meals, and professional care in a friendly community environment.',
+    icon: HomeIcon,
+    features: ['Daily activities', 'Nutritious meals', 'Social interaction', 'Transport included'],
+    href: '/services/day-care',
+    badge: 'Community Hub',
+    gradient: 'from-serve-green-600 to-serve-green-700'
+  },
+  {
+    id: 'transport',
+    title: 'Community Transport',
+    subtitle: 'Getting you where you need to go',
+    description: 'Safe and reliable door-to-door transport service for medical appointments, shopping trips, and essential journeys.',
+    icon: TruckIcon,
+    features: ['Medical appointments', 'Shopping trips', 'Wheelchair accessible', 'Trained drivers'],
+    href: '/services/transport',
+    badge: 'Door-to-Door',
+    gradient: 'from-purple-600 to-purple-700'
   },
   {
     id: 'carers-support',

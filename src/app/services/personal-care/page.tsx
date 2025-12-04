@@ -35,7 +35,6 @@ const careServices = [
       'Mobility assistance',
       'Toileting support',
       'Medication prompting',
-      'Health monitoring'
     ]
   },
   {

@@ -75,19 +75,19 @@ export default function Footer() {
           <div>
             <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
             <div className="space-y-3 text-sm">
-              <div className="flex items-start text-gray-600">
-                <MapPinIcon className="w-4 h-4 mr-2 mt-0.5 flex-shrink-0" />
+              <div className="flex items-center text-gray-600">
+                <MapPinIcon className="w-5 h-5 mr-3 flex-shrink-0" />
                 <span>8 West Street, Rushden, NN10 0RT</span>
               </div>
-              <div className="flex items-start text-gray-600">
-                <PhoneIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
-                <a href="tel:01933315555" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors">
+              <div className="flex items-center text-gray-600">
+                <PhoneIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="tel:01933315555" className="hover:text-white transition-colors">
                   01933 315555
                 </a>
               </div>
-              <div className="flex items-start text-gray-600">
-                <EnvelopeIcon className="w-4 h-4 mr-2 mt-3 flex-shrink-0" />
-                <a href="mailto:info@serve.org.uk" className="inline-block py-2 px-1 -my-2 -mx-1 min-h-[44px] hover:text-white transition-colors break-all">
+              <div className="flex items-center text-gray-600">
+                <EnvelopeIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <a href="mailto:info@serve.org.uk" className="hover:text-white transition-colors">
                   info@serve.org.uk
                 </a>
               </div>
