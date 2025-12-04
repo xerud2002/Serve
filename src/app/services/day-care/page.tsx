@@ -17,6 +17,8 @@ import {
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
+import RelatedServices from '@/components/RelatedServices'
+import { relatedServicesMap } from '@/lib/relatedServicesData'
 
 export const metadata: Metadata = {
   title: 'Day Care & Meals on Wheels - SERVE | Ron Manning Day Centre Northamptonshire',
@@ -285,6 +287,9 @@ export default function DayCarePage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices services={relatedServicesMap['/services/day-care/']} />
     </div>
   )
 }

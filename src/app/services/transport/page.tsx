@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import Breadcrumb from '@/components/Breadcrumb'
 import { TransportBookingButton } from '@/components/TransportBooking'
+import RelatedServices from '@/components/RelatedServices'
+import { relatedServicesMap } from '@/lib/relatedServicesData'
 import {
   TruckIcon,
   MapPinIcon,
@@ -358,6 +360,9 @@ export default function TransportPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices services={relatedServicesMap['/services/transport/']} />
     </div>
   )
 }

@@ -11,6 +11,8 @@ import {
 import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQSchema from '@/components/FAQSchema'
+import RelatedServices from '@/components/RelatedServices'
+import { relatedServicesMap } from '@/lib/relatedServicesData'
 
 export const metadata: Metadata = {
   title: 'Community Services - SERVE | DBS Checks & Community Support',
@@ -368,6 +370,9 @@ export default function CommunityServicesPage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices services={relatedServicesMap['/services/community-services/']} />
     </div>
   )
 }

@@ -71,6 +71,9 @@ const withPWA = withPWAInit({
 const nextConfig = {
   // Modern Next.js 16 configuration
   
+  // Enable trailing slashes for better SEO
+  trailingSlash: true,
+  
   // Enable production optimizations
   compress: true, // Enable gzip compression
   poweredByHeader: false, // Remove X-Powered-By header for security

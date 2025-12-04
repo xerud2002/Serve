@@ -18,6 +18,8 @@ import {
 import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQSchema from '@/components/FAQSchema'
+import RelatedServices from '@/components/RelatedServices'
+import { relatedServicesMap } from '@/lib/relatedServicesData'
 
 export const metadata: Metadata = {
   title: 'Personal & Domestic Care - SERVE | Award-Winning Homecare in Northamptonshire',
@@ -321,6 +323,9 @@ export default function PersonalCarePage() {
           </div>
         </div>
       </section>
+
+      {/* Related Services */}
+      <RelatedServices services={relatedServicesMap['/services/personal-care/']} />
     </div>
   )
 }
