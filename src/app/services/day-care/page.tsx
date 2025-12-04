@@ -42,7 +42,7 @@ const activities = [
     title: 'Physical Activities',
     icon: HeartIcon,
     description: 'Gentle exercise and physical activities adapted to individual abilities',
-    features: ['Chair exercises', 'Gentle movement', 'Garden activities', 'Walking groups']
+    features: ['Chair exercises', 'Gentle movement', 'Garden activities']
   },
   {
     title: 'Mental Stimulation',
@@ -56,31 +56,18 @@ const activities = [
     description: 'Fresh, healthy meals prepared on-site with dietary requirements met',
     features: ['Hot daily meals', 'Special dietary needs', 'Fresh ingredients', 'Social dining']
   },
-  {
-    title: 'Health Monitoring',
-    icon: BeakerIcon,
-    description: 'Health checks and medication support from qualified staff',
-    features: ['Health monitoring', 'Medication support', 'First aid', 'Wellbeing checks']
-  }
+  
 ]
 
 const benefits = [
   'Social interaction and friendship',
-  'Professional care supervision',
   'Nutritious meals and refreshments',
   'Stimulating activities and entertainment',
-  'Transport to and from home',
+  'Transport to and from home for an additional charge',
   'Respite for family carers',
-  'Health monitoring and support',
+  'Learning new skills and hobbies',
+  'Homely atmosphere',
   'Safe, welcoming environment'
-]
-
-const schedule = [
-  { day: 'Monday', activities: 'Arts & Crafts, Music Therapy, Games', meals: 'Traditional Monday Roast' },
-  { day: 'Tuesday', activities: 'Exercise Class, Reminiscence, Bingo', meals: 'Hearty Casseroles' },
-  { day: 'Wednesday', activities: 'Garden Club, Reading Group, Quizzes', meals: 'Fresh Fish & Chips' },
-  { day: 'Thursday', activities: 'Creative Writing, Board Games, Singing', meals: 'Home-cooked Favourites' },
-  { day: 'Friday', activities: 'Social Club, Entertainment, Celebration', meals: 'Special Friday Treats' }
 ]
 
 export default function DayCarePage() {
@@ -118,8 +105,7 @@ export default function DayCarePage() {
               <MajorTitle primary="Day Care &" secondary="Meals on Wheels" dark accentClass="text-serve-green-200" />
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
-                A welcoming community hub offering social activities, nutritious meals, 
-                and professional care in a friendly, stimulating environment.
+                A welcoming space where older adults can enjoy meaningful activities, good company, and friendly support. We also operate a meals on wheels service from the centre to local residents.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
@@ -144,8 +130,8 @@ export default function DayCarePage() {
               <div className="space-y-6">
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <ClockIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">Mon - Fri</div>
-                  <div className="text-sm opacity-80">9:00 AM - 4:00 PM</div>
+                  <div className="font-bold text-lg mb-2">Mon,Wed,Fri</div>
+                  <div className="text-sm opacity-80">10:00 AM - 3:00 PM</div>
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <TruckIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
@@ -161,7 +147,7 @@ export default function DayCarePage() {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <FaceSmileIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">Social Hub</div>
+                  <div className="font-bold text-lg mb-2">Meet new people</div>
                   <div className="text-sm opacity-80">Make lasting friendships</div>
                 </div>
               </div>
@@ -222,48 +208,6 @@ export default function DayCarePage() {
                 </div>
               ))}
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Weekly Schedule */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Weekly Schedule
-            </h2>
-            <p className="text-xl text-gray-600">
-              Each day brings new activities, entertainment, and delicious meals
-            </p>
-          </div>
-
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6">
-            {schedule.map((day, index) => (
-              <div key={index} className="bg-white rounded-2xl p-6 shadow-lg">
-                <h3 className="text-xl font-bold text-serve-green-700 mb-4 text-center">
-                  {day.day}
-                </h3>
-                
-                <div className="space-y-4">
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                      <MusicalNoteIcon className="w-4 h-4 mr-2 text-serve-green-600" />
-                      Activities
-                    </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">{day.activities}</p>
-                  </div>
-                  
-                  <div>
-                    <h4 className="font-semibold text-gray-900 mb-2 flex items-center">
-                      <CakeIcon className="w-4 h-4 mr-2 text-serve-green-600" />
-                      Today&apos;s Menu
-                    </h4>
-                    <p className="text-sm text-gray-700 leading-relaxed">{day.meals}</p>
-                  </div>
-                </div>
-              </div>
-            ))}
           </div>
         </div>
       </section>

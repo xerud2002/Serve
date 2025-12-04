@@ -213,7 +213,7 @@ export default function Contact() {
                       <MapPinIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Our Address</h4>
+                      <h4 className="font-semibold mb-2">Main Office</h4>
                       <p className="opacity-90 leading-relaxed">
                         8 West Street<br />
                         Rushden, Northants<br />
@@ -221,6 +221,34 @@ export default function Contact() {
                       </p>
                       <a 
                         href="https://maps.google.com/?q=8+West+Street,+Rushden,+NN10+0RT"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-serve-blue-200 hover:text-white text-sm mt-2 group/link"
+                      >
+                        View on Map
+                        <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                        </svg>
+                      </a>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="group">
+                  <div className="flex items-start">
+                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                      <BuildingOffice2Icon className="w-6 h-6" />
+                    </div>
+                    <div>
+                      <h4 className="font-semibold mb-2">The Ron Manning Day and Activity Centre</h4>
+                      <p className="opacity-90 leading-relaxed">
+                        76 Upper Kings Avenue<br />
+                        Higham Ferrers<br />
+                        Northants<br />
+                        NN10 8JZ
+                      </p>
+                      <a 
+                        href="https://maps.google.com/?q=76+Upper+Kings+Avenue,+Higham+Ferrers,+NN10+8JZ"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="inline-flex items-center text-serve-blue-200 hover:text-white text-sm mt-2 group/link"
