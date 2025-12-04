@@ -10,7 +10,6 @@ import {
   ArrowRightIcon,
   HeartIcon,
   TruckIcon,
-  BeakerIcon,
   MusicalNoteIcon,
   PuzzlePieceIcon,
   CakeIcon,
