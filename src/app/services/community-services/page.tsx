@@ -5,7 +5,6 @@ import {
   CheckIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
-  TruckIcon,
   UserGroupIcon,
   WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline'
