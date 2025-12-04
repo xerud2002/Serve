@@ -26,7 +26,7 @@ export function useGoogleAnalytics(measurementId: string | undefined) {
 }
 
 // Track conversion events
-export function trackEvent(eventName: string, eventParams?: Record<string, any>) {
+export function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | undefined>) {
   if (typeof window === 'undefined' || !window.gtag) return
   
   window.gtag('event', eventName, eventParams)
@@ -150,8 +150,8 @@ declare global {
     gtag?: (
       command: 'config' | 'event' | 'js' | 'set',
       targetId: string | Date,
-      config?: Record<string, any>
+      config?: Record<string, string | number | boolean | undefined>
     ) => void
-    dataLayer?: any[]
+    dataLayer?: Array<Record<string, unknown>>
   }
 }

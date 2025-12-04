@@ -26,7 +26,16 @@ export default function ReviewSchema({
     return null
   }
 
-  const structuredData: any = {
+  interface StructuredData {
+    "@context": string
+    "@type": string
+    name: string
+    provider: Record<string, unknown>
+    aggregateRating?: Record<string, unknown>
+    review?: Array<Record<string, unknown>>
+  }
+
+  const structuredData: StructuredData = {
     "@context": "https://schema.org",
     "@type": "Service",
     "name": serviceName,
