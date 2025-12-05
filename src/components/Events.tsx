@@ -29,7 +29,7 @@ export default function Events() {
         
         {/* Featured Award - Moved to top */}
         {featuredNews && (
-          <div className="mb-16">
+          <div className="mb-8">
             <article className="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100 hover:shadow-2xl transition-shadow duration-300">
               <div className="grid grid-cols-1 lg:grid-cols-2 gap-0">
                 {/* Content */}
