@@ -27,46 +27,32 @@ export default function FacebookFeed() {
       try {
         setIsLoading(true)
         
-        // Check for manually saved posts in localStorage first
-        let manualPosts: FacebookPost[] = []
-        try {
-          const stored = localStorage.getItem('serve-facebook-posts')
-          if (stored) {
-            manualPosts = JSON.parse(stored)
-          }
-        } catch (err) {
-          // Error reading localStorage, will fall back to API
-        }
-        
-        // If we have manual posts, use them
-        if (manualPosts.length > 0) {
-          if (!cancelled) {
-            setPosts(manualPosts.slice(0, 3))
-            setIsLoading(false)
-          }
-          return
-        }
-        
-        // Otherwise, fetch from Facebook API
-        const res = await fetch('/api/facebook-posts', { 
+        // Load manual posts from public JSON file
+        const res = await fetch('/data/facebook-posts.json', { 
           cache: 'no-store',
           headers: { 'Cache-Control': 'no-cache' }
         })
         
-        if (!res.ok) {
-          throw new Error('Failed to fetch posts')
+        if (res.ok) {
+          const data = await res.json()
+          const manualPosts: FacebookPost[] = Array.isArray(data) ? data : []
+          
+          if (!cancelled) {
+            // If we have manual posts, use them; otherwise show fallback
+            setPosts(manualPosts.length > 0 ? manualPosts.slice(0, 3) : getFallbackPosts())
+            setIsLoading(false)
+            
+            if (process.env.NODE_ENV === 'development') {
+              console.log('[FacebookFeed] Loaded', manualPosts.length, 'manual posts')
+            }
+          }
+          return
         }
         
-        const data = await res.json()
-        const fetchedPosts: FacebookPost[] = Array.isArray(data?.posts) ? data.posts : []
-        
+        // If JSON file doesn't exist or fails, show fallback
         if (!cancelled) {
-          setPosts(fetchedPosts.length ? fetchedPosts.slice(0, 3) : getFallbackPosts())
+          setPosts(getFallbackPosts())
           setIsLoading(false)
-          
-          if (process.env.NODE_ENV === 'development') {
-            console.log('[FacebookFeed] Loaded', fetchedPosts.length, 'posts', data.fallback ? '(fallback)' : '(live)')
-          }
         }
       } catch (error) {
         if (process.env.NODE_ENV === 'development') {

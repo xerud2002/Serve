@@ -25,23 +25,14 @@ export default function PostsAdmin() {
 
   const loadPosts = async () => {
     try {
-      // Try API first
-      try {
-        const response = await fetch('/api/posts', { cache: 'no-store' })
+      // Load from public JSON file
+      const response = await fetch('/data/facebook-posts.json', { 
+        cache: 'no-store',
+        headers: { 'Cache-Control': 'no-cache' }
+      })
+      if (response.ok) {
         const data = await response.json()
-        if (data.posts) {
-          setPosts(data.posts)
-          setLoading(false)
-          return
-        }
-      } catch (apiErr) {
-        // API fetch failed, will try localStorage
-      }
-      
-      // Fallback to localStorage
-      const stored = localStorage.getItem('serve-facebook-posts')
-      if (stored) {
-        setPosts(JSON.parse(stored))
+        setPosts(Array.isArray(data) ? data : [])
       }
     } catch (err) {
       console.error('Error loading posts:', err)
@@ -54,34 +45,21 @@ export default function PostsAdmin() {
     setSaving(true)
     setMessage('')
     try {
-      // Try API first
-      try {
-        const response = await fetch('/api/posts', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ posts }),
-          cache: 'no-store'
-        })
+      const response = await fetch('/api/posts', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ posts }),
+        cache: 'no-store'
+      })
 
+      if (response.ok) {
+        setMessage('Posts saved successfully! ✓')
+      } else {
         const data = await response.json()
-        
-        if (response.ok) {
-          // Also save to localStorage as backup
-          localStorage.setItem('serve-facebook-posts', JSON.stringify(posts))
-          setMessage('Posts saved successfully!')
-          return
-        }
-      } catch (apiErr) {
-        // API fetch failed, will use localStorage fallback
+        setMessage(`Error: ${data.error || 'Failed to save'}`)
       }
-      
-      // Fallback to localStorage if API fails
-      localStorage.setItem('serve-facebook-posts', JSON.stringify(posts))
-      setMessage('Posts saved to local storage (API unavailable)')
-      
     } catch (err) {
-      console.error('Failed to save posts:', err)
-      setMessage('Failed to save posts - check console for details')
+      setMessage('Error: Could not connect to server. Make sure dev server is running.')
     } finally {
       setSaving(false)
     }

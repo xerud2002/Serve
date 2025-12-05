@@ -3,7 +3,7 @@ import { writeFile, readFile, mkdir } from 'fs/promises'
 import { join } from 'path'
 import { existsSync } from 'fs'
 
-const POSTS_FILE = join(process.cwd(), 'data', 'facebook-posts.json')
+const POSTS_FILE = join(process.cwd(), 'public', 'data', 'facebook-posts.json')
 
 export async function GET() {
   try {
@@ -34,8 +34,8 @@ export async function POST(request: NextRequest) {
       }
     }
 
-    // Ensure data directory exists
-    const dataDir = join(process.cwd(), 'data')
+    // Ensure public/data directory exists
+    const dataDir = join(process.cwd(), 'public', 'data')
     if (!existsSync(dataDir)) {
       await mkdir(dataDir, { recursive: true })
     }
