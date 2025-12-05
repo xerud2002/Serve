@@ -1,242 +1,284 @@
 # SERVE Charity Website
 
-A modern, accessible website for SERVE, a 40+ year old registered charity providing care services to older people and adults with disabilities in Northamptonshire.
+> **Winner: "Best homecare team, East Midlands" 2024**
 
+A modern, accessible, mobile-first website for SERVE - a charity supporting independence for older people and adults with disabilities in Northamptonshire.
 
-## 🏆 About SERVE
+## 🚀 Production Deployment
 
-**SERVE** has won "Best homecare team, East Midlands" at the Great British Care Awards 2024. We are a voluntary organisation and registered charity that has been providing services and assistance to older people and adults with disabilities, and their carers across Northamptonshire for over four decades.
+**Live Site**: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
+**Platform**: Vercel  
+**Status**: ✅ Deployed and Active  
+**Last Updated**: November 25, 2025
 
-- **Charity Number**: 1043321
-- **Company Number**: 2951827
-- **Location**: 8 West Street, Rushden, Northants NN10 0RT
-- **Contact**: 01933 315555 | info@serve.org.uk
+### Quick Deploy
 
-## 🌟 Our Mission & Vision
+```powershell
+# Automated deployment with environment variables
+Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+.\vercel-env-setup.ps1
+```
 
-**Mission**: To help adults who require support services to maintain their independence on a daily basis.
+## 📋 Project Overview
 
-**Vision**: A compassionate community that fully respects the rights of older people and people with disabilities, where age and differing abilities are not barriers to opportunity, fulfilment and dignity.
+- **Charity**: SERVE (Charity #1043321)
+- **CQC Registered**: Outstanding homecare provider
+- **Framework**: Next.js 15.5.6 with React 19.0.0
+- **Styling**: Tailwind CSS with custom SERVE branding
+- **Accessibility**: WCAG 2.1 Level AA compliant (10/10 criteria)
+- **Performance**: PWA-enabled with service worker caching
+- **Email**: Dual-system (Microsoft 365 SMTP + Resend API)
+- **Integration**: Facebook posts & events (SERVE234 page)
 
-## 🛠️ Technology Stack
+## 🛠️ Tech Stack
 
-This website is built with the latest modern web technologies:
-
-- **Framework**: Next.js 15.5.6 with App Router
-- **Frontend**: React 19.2.0
+- **Framework**: Next.js 15.5.6 (App Router)
+- **React**: 19.0.0
+- **TypeScript**: 5.7.3
 - **Styling**: Tailwind CSS 3.4.17
-- **Language**: TypeScript 5.7.2
-- **Icons**: Heroicons React 2.2.0
-- **Build Tool**: Next.js with SWC
-- **Deployment**: Ready for Vercel, Netlify, or static export
+- **PWA**: next-pwa 5.6.0
+- **Email**: Resend API + Nodemailer (SMTP)
+- **Facebook**: Graph API v24.0
+- **Deployment**: Vercel
+- **Image Optimization**: WebP conversion (-35.3% size reduction)
 
-## 🚀 Getting Started
+## 📦 Installation & Development
 
-### Prerequisites
-
-- Node.js 18+ 
-- npm, yarn, or pnpm
-
-### Installation
-
-1. Clone the repository:
 ```bash
-git clone <repository-url>
-cd serve-charity-website
-```
-
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
-```
 
-3. Start the development server:
-```bash
+# Run development server
 npm run dev
+# Visit http://localhost:3000
+
+# Run tests
+npm run test:all
+# Runs: test:forms + test:compatibility + test:booking
+
+# Build for production
+npm run build
+
+# Performance audit (requires dev server running)
+npm run audit:performance
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser.
+## 🔑 Environment Variables
 
-### Available Scripts
+Create a `.env.local` file with:
 
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run start` - Start production server
-- `npm run lint` - Run ESLint
+```bash
+# Facebook Integration
+FACEBOOK_ACCESS_TOKEN=your_page_access_token
+FACEBOOK_PAGE_ID=239416516576684
 
-## 🎨 Features
+# Email - Resend API
+RESEND_API_KEY=your_resend_api_key
 
-### Core Services
-- **Personal & Domestic Care** - Award-winning CQC registered homecare
-- **Day Care & Meals on Wheels** - Ron Manning Day and Activity Centre
-- **Community Transport** - Medical appointments and family visits
-- **Countywide Befriending** - Support for vulnerable adults
-- **Carers Support** - Respite services for family carers
-- **Community Services** - Hearing aid servicing, DBS checks, community events
+# Email - Microsoft 365 SMTP
+SMTP_HOST=smtp.office365.com
+SMTP_PORT=587
+SMTP_SECURE=false
+SMTP_USER=info@serve.org.uk
+SMTP_PASS=your_password
+```
 
-### Website Features
-- **Responsive Design** - Mobile-first approach
-- **Accessibility** - WCAG 2.1 AA compliant
-- **Performance** - Optimized for fast loading
-- **SEO Ready** - Structured data and meta tags
-- **Modern UI** - Clean, trustworthy design
+**Note**: All environment variables are configured in Vercel production. See `.info/DEPLOYMENT.md` for details.
 
-## 🎯 Design Principles
+## 📁 Project Structure
 
-- **Trust & Professionalism**: Clean design reflecting 40+ years of service
-- **Accessibility First**: Large text, high contrast, keyboard navigation
-- **Local Community Feel**: Warm, welcoming, personal touch
-- **Awards & Credentials**: Prominently display CQC rating and awards
+```
+Serve/
+├── public/
+│   ├── images/          # Optimized images (WebP format)
+│   └── pics/           # Additional assets
+├── src/
+│   ├── app/            # Next.js App Router pages
+│   │   ├── api/        # API routes (contact, facebook, newsletter)
+│   │   ├── about/      # About page
+│   │   ├── contact/    # Contact page
+│   │   ├── services/   # Service pages
+│   │   ├── volunteer/  # Volunteer page
+│   │   └── ...
+│   ├── components/     # React components
+│   ├── hooks/          # Custom React hooks
+│   ├── lib/            # Utilities (accessibility, forms, mobile)
+│   └── utils/          # Validation and helpers
+├── scripts/            # Test scripts
+├── .info/              # Documentation
+└── vercel-env-setup.ps1  # Automated deployment script
+```
 
-## 🆕 Latest Updates
+## ✨ Key Features
 
-- ✅ **Logo Integration**: Added official SERVE logo to header
-- ✅ **Enhanced Forms**: Functional contact and volunteer forms with validation
-- ✅ **Project Tracking**: Built-in todo list component for development progress
-- ✅ **File Cleanup**: Removed build artifacts, keeping only project files
-- ✅ **Theme Update**: Updated color palette to match brand identity
-- ✅ **MajorTitle Component**: Unified heading styling across all pages
-- ✅ **Policy Pages**: Added Privacy, Terms, and Accessibility pages
-- ✅ **Leadership Update**: CEO Tony Gibbs content and photo
+### Accessibility (WCAG 2.1 AA)
+- ✅ Semantic HTML with proper landmarks (`<nav>`, `<main>`, `<footer>`)
+- ✅ ARIA labels without duplication
+- ✅ Keyboard navigation support
+- ✅ Screen reader compatibility
+- ✅ Focus management system (`FOCUS_STYLES` from `@/lib/accessibility`)
+- ✅ Touch targets minimum 44px (`MOBILE_CLASSES.touchTarget`)
+- ✅ High contrast design
+- ✅ Alt text for all images
 
-## 📐 Component Library
+### Performance Optimizations
+- ✅ PWA with service worker (Workbox caching)
+- ✅ Image optimization (WebP/AVIF, lazy loading)
+- ✅ Font preconnect and resource hints
+- ✅ Code splitting (vendor bundles <50KB)
+- ✅ Static asset caching (1 year for fonts, 30 days for images)
+- ✅ CSS chunking (strict mode)
+- ✅ Production source maps disabled
+- ✅ 6-pointed star snowflake effects (Hero component)
 
-### MajorTitle Component
+### Facebook Integration
+- ✅ Live posts feed (6 latest posts, 1-hour caching)
+- ✅ Events display with cover images
+- ✅ Engagement metrics (likes, comments, shares)
+- ✅ Graceful fallback (empty state on API errors)
+- ✅ Client-side hourly auto-refresh
+- ✅ Object-cover image display (no whitespace)
 
-A reusable component for consistent major page headings with optional accent text:
+### Email System (Dual-Provider)
+- ✅ Admin notifications to info@serve.org.uk
+- ✅ User confirmation emails
+- ✅ Microsoft 365 SMTP (primary)
+- ✅ Resend API (fallback)
+- ✅ Template-based emails (`@/lib/emails`)
 
+### Forms
+- ✅ Contact form (`useContactForm`)
+- ✅ Volunteer application (`useVolunteerForm`)
+- ✅ Assessment booking (`useAssessmentBooking`)
+- ✅ Newsletter signup (`useNewsletterSignup`)
+- ✅ UK-specific validation (phone, postcode)
+- ✅ Accessible form fields (`AccessibleFormField`)
+
+### Mobile Optimization
+- ✅ Mobile-first responsive design
+- ✅ Touch-friendly interface (44px targets)
+- ✅ Safe area support (notched devices)
+- ✅ `useIsMobile()` hook for responsive behavior
+- ✅ Mobile-optimized navigation
+
+### Content
+- ✅ British English spelling throughout
+- ✅ Services: Personal care, Day care, Transport, Befriending
+- ✅ About page with mission and team
+- ✅ News and events
+- ✅ Volunteer opportunities
+- ✅ Donation information
+
+## 🧪 Testing
+
+```bash
+# Test form validation
+npm run test:forms
+
+# Test browser compatibility
+npm run test:compatibility
+
+# Test booking system
+npm run test:booking
+
+# Run all tests
+npm run test:all
+
+# Prepare for deployment (lint + build + test)
+npm run deploy:prepare
+```
+
+## 📚 Documentation
+
+Comprehensive documentation available in `.info/` directory:
+
+- **DEPLOYMENT.md** - Production deployment guide (Vercel setup)
+- **FACEBOOK_INTEGRATION.md** - Facebook API configuration
+- **FACEBOOK_TOKEN_SETUP.md** - Page Access Token setup
+- **EMAIL_SETUP.md** - Dual-email system configuration
+- **PROJECT_COMPLETION.md** - Full project report and achievements
+- **PERFORMANCE_AUDIT_REPORT.md** - Performance optimization details
+- **ASSESSMENT_BOOKING_SYSTEM.md** - Booking system documentation
+
+## 🎨 Design System
+
+### Colors (Tailwind)
+```css
+/* Primary */
+bg-serve-blue-600 hover:bg-serve-blue-700
+text-serve-blue-800
+
+/* Secondary palettes (50-950 scale) */
+serve-red, serve-green, serve-orange, serve-teal
+```
+
+### Typography
 ```tsx
 import MajorTitle from '@/components/MajorTitle'
 
-// Basic usage
-<MajorTitle primary="About" secondary="SERVE" dark />
-
-// With custom accent color
 <MajorTitle 
   primary="Our" 
-  secondary="Services" 
-  dark 
-  size="large" 
-  accentClass="text-serve-blue-200" 
+  secondary="Services"  // Colored accent
+  dark={true}           // White text
+  size="large"
 />
-
-// Light background variant
-<MajorTitle primary="Privacy" secondary="Policy" />
 ```
 
-**Props:**
-- `primary` (string, required): Main heading text
-- `secondary` (string, optional): Accent text displayed on second line
-- `dark` (boolean, default: false): White text for dark backgrounds
-- `size` ('default' | 'large', default: 'default'): Heading size
-- `accentClass` (string, optional): Custom Tailwind class for accent color
-- `className` (string, optional): Additional classes for the h1 element
+### Images
+```tsx
+import OptimizedImage from '@/components/OptimizedImage'
 
-**Default Styling:**
-- Default size: `text-4xl md:text-5xl`
-- Large size: `text-5xl md:text-6xl lg:text-7xl`
-- Light mode: `text-serve-blue-800` with `text-serve-blue-600` accent
-- Dark mode: `text-white` with `text-serve-blue-200` accent
-
-## 🌈 Color Palette
-
-The website uses a carefully chosen color palette that conveys trust and care:
-
-```css
-/* SERVE Blue */
---serve-blue-50: #eff6ff
---serve-blue-500: #3b82f6
---serve-blue-800: #1e40af
---serve-blue-900: #1e3a8a
-
-/* SERVE Green */
---serve-green-50: #f0fdf4
---serve-green-500: #22c55e
---serve-green-600: #16a34a
---serve-green-800: #166534
+<OptimizedImage 
+  src="/images/care/homecare.jpg"
+  alt="Homecare support"
+  width={800} height={600}
+  priority={true}  // Above-the-fold
+/>
 ```
 
-## 📱 Responsive Breakpoints
+## 🔐 Security
 
-- **Mobile**: < 768px
-- **Tablet**: 768px - 1024px  
-- **Desktop**: > 1024px
-- **Large Desktop**: > 1280px
+- ✅ HTTPS enforced
+- ✅ Security headers configured
+- ✅ Form validation and sanitization
+- ✅ Environment variables secured
+- ✅ API error handling (no sensitive data exposed)
 
-## ♿ Accessibility Features
+## 📈 Performance Targets
 
-- Semantic HTML structure
-- ARIA labels and roles
-- High contrast color ratios
-- Keyboard navigation support
-- Screen reader compatibility
-- Focus management
-- Alternative text for images
+- **FCP**: <1.5s
+- **LCP**: <2.5s
+- **CLS**: <0.1
+- **TTI**: <3.5s
+- **Accessibility**: ≥90 (Lighthouse)
 
-## 🔗 External Integrations
+## 🌐 Browser Support
 
-- **JustGiving**: https://www.justgiving.com/serve-jg
-- **Facebook**: SERVE234
-- **LinkedIn**: serve-nvca
-- **CQC Report**: https://www.cqc.org.uk/location/1-2165219210
+- Chrome (latest)
+- Firefox (latest)
+- Safari (latest)
+- Edge (latest)
+- Mobile browsers (iOS Safari, Chrome Android)
 
-## 📂 Project Structure
+## 📞 Contact
 
-```
-src/
-├── app/                  # Next.js App Router
-│   ├── globals.css      # Global styles
-│   ├── layout.tsx       # Root layout
-│   └── page.tsx         # Homepage
-├── components/          # React components
-│   ├── Header.tsx       # Navigation header
-│   ├── Hero.tsx         # Hero section
-│   ├── Services.tsx     # Services overview
-│   ├── About.tsx        # About section
-│   ├── Awards.tsx       # Awards & recognition
-│   ├── News.tsx         # News & events
-│   ├── Contact.tsx      # Contact section
-│   └── Footer.tsx       # Site footer
-```
+**SERVE**  
+8 West Street, Rushden, Northamptonshire, NN10 0RT  
+📞 01933 315555  
+📧 info@serve.org.uk  
+🌐 https://www.serve.org.uk
 
-## 🚀 Deployment
-
-### Static Export (GitHub Pages, Netlify)
-```bash
-npm run build
-```
-
-### Vercel (Recommended)
-1. Connect your GitHub repository to Vercel
-2. Deploy automatically on push to main branch
-
-### Custom Server
-```bash
-npm run build
-npm run start
-```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch: `git checkout -b feature/new-feature`
-3. Commit changes: `git commit -m 'Add new feature'`
-4. Push to branch: `git push origin feature/new-feature`
-5. Submit a pull request
+**Charity**: 1043321  
+**CQC**: https://www.cqc.org.uk/location/1-2165219210
 
 ## 📄 License
 
-This project is created for SERVE charity. All rights reserved.
+This project is proprietary to SERVE charity.
 
-## 🆘 Support
+## 🤝 Contributing
 
-For technical support or questions about this website:
-
-- **Email**: info@serve.org.uk
-- **Phone**: 01933 315555
-
-For website development issues, please open a GitHub issue.
+This is a private project for SERVE charity. For support or inquiries, contact the development team.
 
 ---
 
-**SERVE** - Supporting Independence in Northamptonshire for over 40 years.
+**Built with ❤️ for SERVE - Supporting independence in Northamptonshire since 1982**
