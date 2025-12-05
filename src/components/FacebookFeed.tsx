@@ -27,7 +27,27 @@ export default function FacebookFeed() {
       try {
         setIsLoading(true)
         
-        // Fetch from Facebook API
+        // Check for manually saved posts in localStorage first
+        let manualPosts: FacebookPost[] = []
+        try {
+          const stored = localStorage.getItem('serve-facebook-posts')
+          if (stored) {
+            manualPosts = JSON.parse(stored)
+          }
+        } catch (err) {
+          // Error reading localStorage, will fall back to API
+        }
+        
+        // If we have manual posts, use them
+        if (manualPosts.length > 0) {
+          if (!cancelled) {
+            setPosts(manualPosts.slice(0, 3))
+            setIsLoading(false)
+          }
+          return
+        }
+        
+        // Otherwise, fetch from Facebook API
         const res = await fetch('/api/facebook-posts', { 
           cache: 'no-store',
           headers: { 'Cache-Control': 'no-cache' }

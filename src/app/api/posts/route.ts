@@ -1,6 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import { writeFile, readFile } from 'fs/promises'
+import { writeFile, readFile, mkdir } from 'fs/promises'
 import { join } from 'path'
+import { existsSync } from 'fs'
 
 const POSTS_FILE = join(process.cwd(), 'data', 'facebook-posts.json')
 
@@ -9,7 +10,7 @@ export async function GET() {
     const data = await readFile(POSTS_FILE, 'utf-8')
     const posts = JSON.parse(data)
     return NextResponse.json({ posts })
-  } catch (error) {
+  } catch {
     // Return empty array if file doesn't exist yet
     return NextResponse.json({ posts: [] })
   }
@@ -27,10 +28,16 @@ export async function POST(request: NextRequest) {
     for (const post of posts) {
       if (!post.id || !post.message || !post.created_time || !post.permalink_url) {
         return NextResponse.json(
-          { error: 'Each post must have id, message, created_time, and permalink_url' },
+          { error: `Post missing required fields. Has: id=${!!post.id}, message=${!!post.message}, created_time=${!!post.created_time}, permalink_url=${!!post.permalink_url}` },
           { status: 400 }
         )
       }
+    }
+
+    // Ensure data directory exists
+    const dataDir = join(process.cwd(), 'data')
+    if (!existsSync(dataDir)) {
+      await mkdir(dataDir, { recursive: true })
     }
 
     await writeFile(POSTS_FILE, JSON.stringify(posts, null, 2), 'utf-8')
