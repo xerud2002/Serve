@@ -10,12 +10,6 @@ Write-Output "239416516576684" | vercel env add FACEBOOK_PAGE_ID production
 # Email - Resend
 Write-Output "re_SUL3c6WV_7ZMRfi2YTXBS5XDS7LC4DDqD" | vercel env add RESEND_API_KEY production
 
-# Email - SMTP
-Write-Output "smtp.office365.com" | vercel env add SMTP_HOST production
-Write-Output "587" | vercel env add SMTP_PORT production
-Write-Output "false" | vercel env add SMTP_SECURE production
-Write-Output "info@serve.org.uk" | vercel env add SMTP_USER production
-Write-Output "Serve123@@" | vercel env add SMTP_PASS production
 
 Write-Host "`nEnvironment variables added successfully!" -ForegroundColor Green
 Write-Host "Now deploying to production..." -ForegroundColor Cyan
