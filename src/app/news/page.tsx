@@ -1,51 +1,308 @@
+import dynamic from 'next/dynamic'
 import Link from 'next/link'
 import Image from 'next/image'
-import {
-  TrophyIcon,
-  CalendarDaysIcon,
-  UserGroupIcon,
+import { 
+  TrophyIcon, 
   HeartIcon,
-  BuildingOffice2Icon,
-  HandRaisedIcon,
   ArrowRightIcon,
+  CalendarDaysIcon,
   ClockIcon,
+  BuildingOffice2Icon,
   TagIcon
 } from '@heroicons/react/24/outline'
-import NewsletterSignup from '@/components/NewsletterSignup'
-
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 import MajorTitle from '@/components/MajorTitle'
+import NewsletterSignup from '@/components/NewsletterSignup'
+
+// Use the existing FacebookFeed component
+const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
+  loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
+})
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
 export const dynamic = 'force-dynamic'
 
-interface FacebookPost {
-  id: string
-  message?: string
-  story?: string
-  created_time?: string
-  picture?: string
-  full_picture?: string
-  permalink_url?: string
+const featuredNews = {
+  id: 'great-british-care-awards',
+  title: 'SERVE Wins Best Homecare Team Award 2024',
+  excerpt: 'We are thrilled to announce that SERVE has been awarded "Best Homecare Team, East Midlands" at the prestigious Great British Care Awards 2024.',
+  category: 'Awards',
+  date: 'November 2024',
+  readTime: '3 min read',
 }
 
-// Fetch Facebook posts server-side
-async function getFacebookPosts() {
-  try {
-    const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'
-    const res = await fetch(`${baseUrl}/api/facebook-posts`, { 
-      cache: 'no-store',
-      next: { revalidate: 3600 } // Revalidate every hour
-    })
-    
-    if (!res.ok) throw new Error('Failed to fetch')
-    
-    const data = await res.json()
-    return Array.isArray(data?.posts) ? data.posts : []
-  } catch (error) {
-    console.error('Error fetching Facebook posts:', error)
-    return []
+const upcomingEvents = [
+  {
+    title: 'SERVE Community Appeal - Help Us Raise £25,000',
+    date: 'Until April 2026',
+    time: 'Donate Anytime',
+    location: 'Online via JustGiving',
+    description: 'Support our Community Appeal to enhance day centre services, expand community programmes, and create more opportunities for connection and care across Northamptonshire.',
+    link: 'https://www.justgiving.com/campaign/serve-community-appeal',
+    isExternal: true,
+    featured: true
+  },
+  {
+    title: 'Community Coffee Morning',
+    date: 'Monthly',
+    time: '10:30 AM - 12:00 PM',
+    location: 'Ron Manning Day Centre',
+    description: 'Monthly coffee morning open to the community. Come and learn about our services and meet our team.'
+  },
+  {
+    title: 'Volunteer Information Session',
+    date: 'Ongoing',
+    time: 'Various Times',
+    location: 'SERVE Head Office',
+    description: 'Interested in volunteering? Contact us to attend an information session and learn how you can make a difference in your community.'
   }
+]
+
+export default function NewsPage() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      {/* Hero Section */}
+      <section className="relative py-20 bg-gradient-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white overflow-hidden">
+        <div className="absolute inset-0 opacity-10">
+          <div className="absolute inset-0" style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }} />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center">
+            <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-bold mb-8">
+              <CalendarDaysIcon className="w-5 h-5 mr-2" />
+              Latest Updates
+            </div>
+            
+            <MajorTitle primary="News &" secondary="Events" dark size="large" />
+            
+            <p className="text-xl lg:text-2xl opacity-90 max-w-3xl mx-auto leading-relaxed mt-6">
+              Stay connected with SERVE&apos;s latest news, achievements, events, and community initiatives 
+              that are making a difference across Northamptonshire.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* Featured News */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <TrophyIcon className="w-4 h-4 mr-2" />
+              Featured Achievement
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900">SERVE Excellence Recognised</h2>
+          </div>
+            
+          <article className="bg-gradient-to-r from-yellow-50 to-yellow-100 rounded-3xl p-8 lg:p-12 shadow-xl border-l-8 border-yellow-500">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
+              <div className="lg:col-span-2">
+                <div className="flex items-center mb-6">
+                  <span className="bg-yellow-200 text-yellow-800 px-4 py-2 rounded-full text-sm font-bold">
+                    {featuredNews.category}
+                  </span>
+                  <div className="text-gray-600 text-sm ml-4 flex items-center">
+                    <ClockIcon className="w-4 h-4 mr-1" />
+                    {featuredNews.date} • {featuredNews.readTime}
+                  </div>
+                </div>
+                
+                <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4 leading-tight">
+                  {featuredNews.title}
+                </h3>
+                
+                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
+                  {featuredNews.excerpt} This recognition celebrates our dedicated team&apos;s commitment to providing exceptional care services.
+                </p>
+                
+                <Link
+                  href={`/news/${featuredNews.id}`}
+                  className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                >
+                  Read Full Story
+                  <ArrowRightIcon className="ml-3 h-5 w-5" />
+                </Link>
+              </div>
+              
+              <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 rounded-2xl h-64 lg:h-full min-h-[300px] flex items-center justify-center p-8">
+                <div className="text-center text-yellow-800">
+                  <TrophyIcon className="w-32 h-32 mx-auto mb-4" />
+                  <p className="text-xl font-bold mb-2">Great British Care Awards</p>
+                  <p className="text-lg">Best Homecare Team</p>
+                  <p className="text-md">East Midlands 2024</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      {/* Facebook Feed - Latest Updates */}
+      <FacebookFeed />
+
+      {/* Upcoming Events */}
+      <section className="py-20 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <CalendarDaysIcon className="w-4 h-4 mr-2" />
+              Get Involved
+            </div>
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">Upcoming Events & Appeals</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Join us at our upcoming events or support our community appeal to help us continue making a difference
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {upcomingEvents.map((event, index) => (
+              <div 
+                key={index} 
+                className={`rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
+                  event.featured 
+                    ? 'bg-gradient-to-r from-serve-green-500 to-serve-blue-600 text-white lg:col-span-2'
+                    : 'bg-gradient-to-br from-serve-blue-50 to-white border border-gray-200'
+                }`}
+              >
+                <div className="flex items-start gap-6">
+                  <div className={`rounded-xl p-4 flex-shrink-0 ${
+                    event.featured ? 'bg-white/20' : 'bg-serve-blue-600'
+                  }`}>
+                    <CalendarDaysIcon className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex-1">
+                    <h3 className={`text-2xl font-bold mb-4 ${event.featured ? 'text-white' : 'text-gray-900'}`}>
+                      {event.title}
+                    </h3>
+                    
+                    <div className={`space-y-2 mb-6 ${event.featured ? 'text-white/90' : 'text-gray-700'}`}>
+                      <div className="flex items-center">
+                        <CalendarDaysIcon className={`w-5 h-5 mr-3 ${event.featured ? 'text-white' : 'text-serve-blue-600'}`} />
+                        <span className="font-medium">{event.date}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <ClockIcon className={`w-5 h-5 mr-3 ${event.featured ? 'text-white' : 'text-serve-blue-600'}`} />
+                        <span>{event.time}</span>
+                      </div>
+                      <div className="flex items-center">
+                        <BuildingOffice2Icon className={`w-5 h-5 mr-3 ${event.featured ? 'text-white' : 'text-serve-blue-600'}`} />
+                        <span>{event.location}</span>
+                      </div>
+                    </div>
+                    
+                    <p className={`leading-relaxed mb-6 text-lg ${event.featured ? 'text-white/90' : 'text-gray-600'}`}>
+                      {event.description}
+                    </p>
+
+                    {event.link && event.isExternal ? (
+                      <a
+                        href={event.link}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center bg-white text-serve-blue-600 hover:bg-gray-100 px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+                      >
+                        <HeartIcon className="w-5 h-5 mr-2" />
+                        Donate Now on JustGiving
+                        <ArrowRightIcon className="ml-2 h-5 w-5" />
+                      </a>
+                    ) : (
+                      <Link
+                        href="/contact"
+                        className={`inline-flex items-center px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 ${
+                          event.featured 
+                            ? 'bg-white text-serve-blue-600 hover:bg-gray-100' 
+                            : 'bg-serve-blue-600 text-white hover:bg-serve-blue-700'
+                        }`}
+                      >
+                        Get More Information
+                        <ArrowRightIcon className="ml-2 h-5 w-5" />
+                      </Link>
+                    )}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Newsletter Signup */}
+      <section className="py-16 bg-serve-blue-600">
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <NewsletterSignup variant="inline" />
+        </div>
+      </section>
+
+      {/* Previous Events Photo Gallery */}
+      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
+              <TagIcon className="w-4 h-4 mr-2" />
+              Events & Fundraising
+            </div>
+            <h2 className="text-4xl font-bold text-gray-900 mb-6">SERVE Out and About</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto mb-4">
+              Below are some images from events and fundraising that we&apos;ve been involved in over the last few years.
+            </p>
+            <p className="text-lg text-gray-500">How many of them did you hear about?</p>
+          </div>
+
+          {/* Photo Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { title: 'Cloisters Rushden Craft Fair', image: '/images/events/Cloisters-Rushden-craft-fair-scaled.webp' },
+              { title: 'Christmas Gifts from Happy Mondays in Rushden', image: '/images/events/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp' },
+              { title: 'Teddy Bear Winners', image: '/images/events/Teddy-Bear-winners-scaled.webp' },
+              { title: 'Fundraising at Asda Rushden', image: '/images/events/Fundraising-at-Asda-Rushden-scaled.webp' },
+              { title: 'Northamptonshire Chamber of Trade Expo 2024', image: '/images/events/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp' },
+              { title: 'Christmas Lights Rushden', image: '/images/events/Christmas-Lights-Rushden-scaled.webp' },
+              { title: 'Gen Kitchen Opens Our New Offices', image: '/images/events/Gen-Kitchen-opens-our-new-offices.webp' },
+              { title: 'Happy Mondays Rushden Fundraiser', image: '/images/events/Happy-Mondays-Rushden-fundraiser-scaled.webp' },
+              { title: 'Support from the Masonic Lodge', image: '/images/events/Support-from-the-Masonic-Lodge.webp' },
+              { title: 'Asda Festive Donations', image: '/images/events/Asda-festive-donations-scaled.webp' },
+              { title: 'Donations from Our Supporters', image: '/images/events/Donations-from-our-supporters-scaled.webp' },
+              { title: 'Support from David Wilson Homes', image: '/images/events/Support-from-David-Wilson-Homes-scaled.webp' },
+              { title: 'Gen Kitchen MP Meets Canto Volunteers and SERVE', image: '/images/events/Gen-Kitchen-MP-meets-Canto-volunteers-and-SERVE-2-scaled.webp' },
+              { title: 'Christmas 2023 at Wellingborough Swansgate', image: '/images/events/Christmas-2023-at-Wellingborough-Swansgate-scaled.webp' },
+              { title: 'Higham Sparkle 2023', image: '/images/events/Higham-Sparkle-2023-scaled.webp' },
+              { title: 'Fundraising from the Homemade Bread Company', image: '/images/events/Fundraising-from-the-Homemade-Bread-Company.webp' }
+            ].map((event, index) => (
+              <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
+                <div className="relative aspect-[4/3] bg-gray-200">
+                  <Image
+                    src={event.image}
+                    alt={event.title}
+                    fill
+                    className="object-cover group-hover:scale-110 transition-transform duration-500"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                  <p className="text-white font-semibold p-4 w-full text-sm leading-tight">{event.title}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <div className="text-center mt-12">
+            <p className="text-lg text-gray-600 mb-6">Want to get involved in our upcoming events?</p>
+            <Link
+              href="/contact"
+              className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
+            >
+              Contact Us to Learn More
+              <ArrowRightIcon className="ml-3 h-5 w-5" />
+            </Link>
+          </div>
+        </div>
+      </section>
+    </div>
+  )
 }
 
 const featuredNews = {
@@ -321,50 +578,71 @@ export default async function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl font-bold text-gray-900 mb-12 text-center">Latest Updates from Facebook</h2>
           
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {facebookPosts.length > 0 ? (
-              facebookPosts.slice(0, 4).map((post: FacebookPost) => {
+              facebookPosts.slice(0, 3).map((post: FacebookPost) => {
                 const postText = post.message || post.story || ''
-                const excerpt = postText.length > 200 ? postText.substring(0, 200) + '...' : postText
+                const imageUrl = post.full_picture || post.picture
+                
                 return (
-                  <div 
-                    key={post.id} 
-                    className="rounded-2xl p-8 shadow-lg bg-gradient-to-r from-blue-50 to-serve-blue-50"
+                  <article
+                    key={post.id}
+                    className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-blue-200 hover:-translate-y-1"
                   >
-                    <div className="flex items-start">
-                      <div className="rounded-xl p-3 mr-6 bg-blue-600 flex-shrink-0">
-                        <svg className="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
-                          <path fillRule="evenodd" d="M22 12c0-5.523-4.477-10-10-10S2 6.477 2 12c0 4.991 3.657 9.128 8.438 9.878v-6.987h-2.54V12h2.54V9.797c0-2.506 1.492-3.89 3.777-3.89 1.094 0 2.238.195 2.238.195v2.46h-1.26c-1.243 0-1.63.771-1.63 1.562V12h2.773l-.443 2.89h-2.33v6.988C18.343 21.128 22 16.991 22 12z" clipRule="evenodd" />
-                        </svg>
+                    {/* Image or Fallback */}
+                    {imageUrl ? (
+                      <div className="relative h-64 bg-gray-100 overflow-hidden">
+                        <Image
+                          src={imageUrl}
+                          alt={postText.substring(0, 50) || 'Facebook post'}
+                          fill
+                          className="object-cover group-hover:scale-105 transition-transform duration-300"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                          unoptimized
+                        />
                       </div>
-                      <div className="flex-1">
-                        <div className="space-y-2 mb-4 text-gray-700">
-                          <div className="flex items-center">
-                            <ClockIcon className="w-4 h-4 mr-2 text-blue-600" />
-                            <span className="font-medium">{post.created_time ? formatTimeAgo(post.created_time) : 'Recent'}</span>
+                    ) : (
+                      <div className="relative h-32 bg-gradient-to-br from-serve-blue-50 to-serve-blue-100 flex items-center justify-center overflow-hidden">
+                        <div className="text-center">
+                          <div className="w-16 h-16 mx-auto mb-3 relative">
+                            <Image
+                              src="/images/serve.webp"
+                              alt="SERVE Logo"
+                              fill
+                              className="object-contain"
+                            />
                           </div>
-                          <div className="flex items-center text-sm text-gray-600">
-                            <CalendarDaysIcon className="w-4 h-4 mr-2 text-blue-600" />
-                            <span>{post.created_time ? formatDate(post.created_time) : ''}</span>
-                          </div>
+                          <span className="text-serve-blue-800 font-semibold text-sm">SERVE</span>
                         </div>
-                        
-                        <p className="leading-relaxed mb-6 text-gray-600">
-                          {excerpt}
-                        </p>
-
-                        <a
-                          href={post.permalink_url || 'https://www.facebook.com/SERVE234'}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg"
-                        >
-                          View on Facebook
-                          <ArrowRightIcon className="ml-2 h-5 w-5" />
-                        </a>
                       </div>
+                    )}
+
+                    <div className="p-6">
+                      <div className="flex items-center justify-between mb-4">
+                        <span className="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs font-semibold">
+                          Post
+                        </span>
+                        <span className="text-gray-500 text-xs">{post.created_time ? formatTimeAgo(post.created_time) : 'Recent'}</span>
+                      </div>
+
+                      {postText && (
+                        <p className="text-gray-700 mb-4 text-sm leading-relaxed line-clamp-4">
+                          {postText}
+                        </p>
+                      )}
+
+                      <a
+                        href={post.permalink_url || 'https://www.facebook.com/SERVE234'}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-800 font-semibold text-sm group/link"
+                        aria-label="View on Facebook"
+                      >
+                        View on Facebook
+                        <ArrowRightIcon className="ml-2 h-4 w-4 group-hover/link:translate-x-1 transition-transform" />
+                      </a>
                     </div>
-                  </div>
+                  </article>
                 )
               })
             ) : (

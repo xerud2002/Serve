@@ -19,32 +19,42 @@ interface FacebookPost {
 
 export default function FacebookFeed() {
   const [posts, setPosts] = useState<FacebookPost[]>([])
+  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     let cancelled = false
     const fetchPosts = async () => {
       try {
-        // First try to get manually saved posts
-        const savedRes = await fetch('/api/posts', { cache: 'no-store' })
-        const savedData = await savedRes.json()
+        setIsLoading(true)
         
-        if (savedData.posts && savedData.posts.length > 0) {
-          if (!cancelled) {
-            setPosts(savedData.posts.slice(0, 3))
-          }
-          return
+        // Fetch from Facebook API
+        const res = await fetch('/api/facebook-posts', { 
+          cache: 'no-store',
+          headers: { 'Cache-Control': 'no-cache' }
+        })
+        
+        if (!res.ok) {
+          throw new Error('Failed to fetch posts')
         }
-
-        // Fall back to Facebook API if no saved posts
-        const res = await fetch('/api/facebook-posts', { cache: 'no-store' })
+        
         const data = await res.json()
         const fetchedPosts: FacebookPost[] = Array.isArray(data?.posts) ? data.posts : []
+        
         if (!cancelled) {
           setPosts(fetchedPosts.length ? fetchedPosts.slice(0, 3) : getFallbackPosts())
+          setIsLoading(false)
+          
+          if (process.env.NODE_ENV === 'development') {
+            console.log('[FacebookFeed] Loaded', fetchedPosts.length, 'posts', data.fallback ? '(fallback)' : '(live)')
+          }
         }
-      } catch {
+      } catch (error) {
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('[FacebookFeed] Using fallback posts:', error)
+        }
         if (!cancelled) {
           setPosts(getFallbackPosts())
+          setIsLoading(false)
         }
       }
     }
@@ -136,13 +146,13 @@ export default function FacebookFeed() {
               >
                 {/* Image or Fallback */}
                 {imageUrl ? (
-                  <div className="relative h-64 bg-gradient-to-br from-blue-100 to-blue-200 overflow-hidden">
+                  <div className="relative h-64 bg-gray-100 overflow-hidden">
                     <Image
                       src={imageUrl}
                       alt={postText.substring(0, 50) || 'Facebook post'}
                       fill
-                      className="object-contain group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                      className="object-cover group-hover:scale-105 transition-transform duration-300"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       unoptimized
                     />
                   </div>

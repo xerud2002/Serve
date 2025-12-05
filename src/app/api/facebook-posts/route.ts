@@ -30,6 +30,7 @@ export async function GET() {
     const userAccessToken = process.env.FACEBOOK_ACCESS_TOKEN
     
     if (!userAccessToken) {
+      console.warn('[Facebook Posts] No access token configured')
       return NextResponse.json({ 
         posts: getFallbackPosts(),
         fallback: true 
@@ -46,13 +47,21 @@ export async function GET() {
     )
 
     if (!accountsResponse.ok) {
+      const errorText = await accountsResponse.text()
+      console.error('[Facebook Posts] Failed to fetch page accounts:', accountsResponse.status, errorText)
       throw new Error(`Failed to fetch page accounts: ${accountsResponse.status}`)
     }
 
     const accountsData = await accountsResponse.json()
+    
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Facebook Posts] Available pages:', accountsData.data?.map((p: { id: string; name: string }) => ({ id: p.id, name: p.name })))
+    }
+    
     const servePage = accountsData.data?.find((page: { id: string; access_token?: string }) => page.id === pageId)
     
     if (!servePage || !servePage.access_token) {
+      console.error('[Facebook Posts] SERVE page not found. Looking for ID:', pageId)
       throw new Error('SERVE page not found in accounts or no access token')
     }
 
@@ -71,6 +80,8 @@ export async function GET() {
     })
 
     if (!response.ok) {
+      const errorText = await response.text()
+      console.error('[Facebook Posts] Facebook API error:', response.status, errorText)
       throw new Error(`Facebook API error: ${response.status}`)
     }
 
@@ -79,13 +90,20 @@ export async function GET() {
     // Get the latest 4 posts (already sorted by created_time desc from Facebook)
     const latestPosts = (data.data || []).slice(0, 4)
 
+    if (process.env.NODE_ENV === 'development') {
+      console.log('[Facebook Posts] Successfully fetched', latestPosts.length, 'posts')
+    }
+
     return NextResponse.json({ 
       posts: latestPosts,
       fallback: false 
     })
     
-  } catch {
+  } catch (error) {
     // Return fallback content on error
+    if (process.env.NODE_ENV === 'development') {
+      console.error('[Facebook Posts] Error:', error)
+    }
     return NextResponse.json({ 
       posts: getFallbackPosts(),
       fallback: true,
