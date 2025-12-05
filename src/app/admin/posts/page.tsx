@@ -4,6 +4,8 @@ import { useState, useEffect } from 'react'
 import { ArrowLeftIcon, PlusIcon, TrashIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
+import { savePostsToFile } from './actions'
+import { savePostsToFile } from './actions'
 
 interface FacebookPost {
   id: string
@@ -45,21 +47,15 @@ export default function PostsAdmin() {
     setSaving(true)
     setMessage('')
     try {
-      const response = await fetch('/api/posts', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ posts }),
-        cache: 'no-store'
-      })
-
-      if (response.ok) {
-        setMessage('Posts saved successfully! ✓')
+      const result = await savePostsToFile(posts)
+      
+      if (result.success) {
+        setMessage('✓ Posts saved successfully! Refresh homepage to see changes.')
       } else {
-        const data = await response.json()
-        setMessage(`Error: ${data.error || 'Failed to save'}`)
+        setMessage(`Error: ${result.error}`)
       }
     } catch (err) {
-      setMessage('Error: Could not connect to server. Make sure dev server is running.')
+      setMessage('Error: Failed to save posts')
     } finally {
       setSaving(false)
     }

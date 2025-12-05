@@ -4,7 +4,6 @@ import {
   ArrowRightIcon 
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
-import FacebookEvents from '@/components/FacebookEvents'
 
 export default function Events() {
   const news = [
@@ -142,9 +141,6 @@ export default function Events() {
               </article>
             )
           })}
-          
-          {/* Facebook Events - Dynamically loaded */}
-          <FacebookEvents />
         </div>
 
         {/* Newsletter Signup */}
