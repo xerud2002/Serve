@@ -53,7 +53,7 @@ export default function PostsAdmin() {
       } else {
         setMessage(`Error: ${result.error}`)
       }
-    } catch (err) {
+    } catch {
       setMessage('Error: Failed to save posts')
     } finally {
       setSaving(false)
