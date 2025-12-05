@@ -5,7 +5,6 @@ import { ArrowLeftIcon, PlusIcon, TrashIcon, PhotoIcon } from '@heroicons/react/
 import Link from 'next/link'
 import Image from 'next/image'
 import { savePostsToFile } from './actions'
-import { savePostsToFile } from './actions'
 
 interface FacebookPost {
   id: string
