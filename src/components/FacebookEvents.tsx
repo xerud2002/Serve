@@ -32,6 +32,11 @@ export default function FacebookEvents() {
             'Cache-Control': 'no-cache'
           }
         })
+        
+        if (!res.ok) {
+          throw new Error('Failed to fetch events')
+        }
+        
         const data = await res.json()
         const fetchedEvents = data.events || []
         
@@ -41,7 +46,10 @@ export default function FacebookEvents() {
           setLoading(false)
         }
       } catch (error) {
-        console.error('Error fetching events:', error)
+        // Silently fall back to static events - don't log in production
+        if (process.env.NODE_ENV === 'development') {
+          console.warn('Using fallback events:', error)
+        }
         if (!cancelled) {
           setEvents(getFallbackEvents())
           setLoading(false)
