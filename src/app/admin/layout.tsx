@@ -16,6 +16,12 @@ export default function AdminLayout({
   const router = useRouter()
 
   useEffect(() => {
+    // Skip authentication in development
+    if (process.env.NODE_ENV === 'development') {
+      setIsAuthenticated(true)
+      setIsLoading(false)
+      return
+    }
     checkAuth()
   }, [])
 
@@ -36,6 +42,8 @@ export default function AdminLayout({
     e.preventDefault()
     setError('')
 
+    console.log('Attempting login with:', { username, passwordLength: password.length })
+
     try {
       const response = await fetch('/api/auth', {
         method: 'POST',
@@ -43,13 +51,18 @@ export default function AdminLayout({
         body: JSON.stringify({ username, password })
       })
 
+      console.log('Response status:', response.status)
+      const data = await response.json()
+      console.log('Response data:', data)
+
       if (response.ok) {
         setIsAuthenticated(true)
         setPassword('')
       } else {
         setError('Invalid username or password')
       }
-    } catch {
+    } catch (err) {
+      console.error('Login error:', err)
       setError('Login failed. Please try again.')
     }
   }

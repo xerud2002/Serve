@@ -8,6 +8,12 @@ export async function POST(request: NextRequest) {
     const ADMIN_USERNAME = process.env.ADMIN_USERNAME || 'Serve'
     const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'Serve123@@'
 
+    console.log('Login attempt:', { 
+      receivedUsername: username, 
+      expectedUsername: ADMIN_USERNAME,
+      passwordMatch: password === ADMIN_PASSWORD 
+    })
+
     if (username === ADMIN_USERNAME && password === ADMIN_PASSWORD) {
       // Create a simple session token
       const response = NextResponse.json({ success: true })
@@ -20,11 +26,14 @@ export async function POST(request: NextRequest) {
         maxAge: 60 * 60 * 24 // 24 hours
       })
       
+      console.log('Login successful')
       return response
     }
 
+    console.log('Login failed - credentials mismatch')
     return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
-  } catch {
+  } catch (err) {
+    console.error('Auth error:', err)
     return NextResponse.json({ error: 'Authentication failed' }, { status: 500 })
   }
 }
