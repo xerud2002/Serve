@@ -3,13 +3,16 @@
 
 Write-Host "Adding environment variables to Vercel..." -ForegroundColor Cyan
 
-# Facebook Integration
-Write-Output "EAAZADjQJDkC8BQOZAyJp0AGaxDcZC3UR5Ct4qqUsvelGs1CZASarIWVBctebM7R9u6rgPP91qN2u9iCY9ZBe25J9OhfiF8OMRL0y7IVI6cpvgpLoJp76zrNXQ9tW5bvkZC6YrCUGjKqbAv9HQUXxBYs0siIkwRzCgoNGJ0t8ptv36um9N7R6gxlFlRouqDANwdqVfYGSfhXvGFbFeLQkshAyh8qBPn6JbkxqD38ixJVWMHeM0ellYtBXvoSReRvCRwvePF9OtZBePvRd4lVNFlZBZAD47EQZDZD" | vercel env add FACEBOOK_ACCESS_TOKEN production
-Write-Output "239416516576684" | vercel env add FACEBOOK_PAGE_ID production
+# Firebase Configuration
+Write-Output "AIzaSyCa85xpFNjo3zTa_NCBcnlIDYMCHL7yB3I" | vercel env add NEXT_PUBLIC_FIREBASE_API_KEY production
+Write-Output "serve-bb1fb.firebaseapp.com" | vercel env add NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN production
+Write-Output "serve-bb1fb" | vercel env add NEXT_PUBLIC_FIREBASE_PROJECT_ID production
+Write-Output "serve-bb1fb.appspot.com" | vercel env add NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET production
+Write-Output "208486040710" | vercel env add NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID production
+Write-Output "1:208486040710:web:b75f8597b2634996a0bd07" | vercel env add NEXT_PUBLIC_FIREBASE_APP_ID production
 
 # Email - Resend
 Write-Output "re_SUL3c6WV_7ZMRfi2YTXBS5XDS7LC4DDqD" | vercel env add RESEND_API_KEY production
-
 
 Write-Host "`nEnvironment variables added successfully!" -ForegroundColor Green
 Write-Host "Now deploying to production..." -ForegroundColor Cyan
@@ -18,3 +21,4 @@ Write-Host "Now deploying to production..." -ForegroundColor Cyan
 vercel --prod
 
 Write-Host "`nDeployment complete!" -ForegroundColor Green
+
