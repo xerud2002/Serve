@@ -28,6 +28,12 @@ export default function PostsAdmin() {
 
   const loadPosts = async () => {
     try {
+      if (!db) {
+        setMessage('Firebase is not configured. Please check environment variables.')
+        setLoading(false)
+        return
+      }
+
       const postsQuery = query(collection(db, 'posts'), orderBy('created_time', 'desc'))
       const querySnapshot = await getDocs(postsQuery)
       const loadedPosts: FacebookPost[] = []
@@ -52,6 +58,12 @@ export default function PostsAdmin() {
     setSaving(true)
     setMessage('')
     try {
+      if (!db) {
+        setMessage('Firebase is not configured. Please check environment variables.')
+        setSaving(false)
+        return
+      }
+
       // Save each post to Firestore
       for (const post of posts) {
         if (post.id) {
@@ -108,7 +120,7 @@ export default function PostsAdmin() {
       const post = posts[index]
       
       // If post has Firestore ID, delete from database
-      if (post.id) {
+      if (post.id && db) {
         try {
           await deleteDoc(doc(db, 'posts', post.id))
           setMessage('✓ Post deleted successfully')

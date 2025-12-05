@@ -18,6 +18,14 @@ export default function AdminLayout({
   const router = useRouter()
 
   useEffect(() => {
+    // Check if Firebase is initialized
+    if (!auth) {
+      console.error('Firebase Auth is not initialized')
+      setIsLoading(false)
+      setError('Firebase is not configured. Please check environment variables.')
+      return
+    }
+
     // Listen for auth state changes
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -36,6 +44,11 @@ export default function AdminLayout({
     e.preventDefault()
     setError('')
 
+    if (!auth) {
+      setError('Firebase is not configured. Please check environment variables.')
+      return
+    }
+
     try {
       await signInWithEmailAndPassword(auth, email, password)
       setPassword('')
@@ -48,7 +61,9 @@ export default function AdminLayout({
 
   const handleLogout = async () => {
     try {
-      await signOut(auth)
+      if (auth) {
+        await signOut(auth)
+      }
       setEmail('')
       setPassword('')
       router.push('/')

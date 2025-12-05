@@ -29,6 +29,15 @@ export default function FacebookFeed() {
       try {
         setIsLoading(true)
         
+        // Check if Firebase is configured
+        if (!db) {
+          console.warn('Firebase not configured, using fallback posts')
+          if (!cancelled) {
+            setPosts(getFallbackPosts())
+          }
+          return
+        }
+
         // Load posts from Firestore
         const postsQuery = query(
           collection(db, 'posts'), 
