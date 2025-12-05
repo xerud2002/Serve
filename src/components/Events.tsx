@@ -80,21 +80,6 @@ export default function Events() {
           </div>
         )}
         
-        <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-800 px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <CalendarDaysIcon className="w-4 h-4 mr-2" />
-            Latest Updates
-          </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-cyan-600">Upcoming &</span>{' '}
-            <span className="text-red-600">Past Events</span>
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Stay connected with SERVE&apos;s latest achievements, upcoming events, and community initiatives 
-            that are making a difference across Northamptonshire.
-          </p>
-        </div>
-
         {/* Regular News Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
           {regularNews.map((item) => {
@@ -141,30 +126,6 @@ export default function Events() {
               </article>
             )
           })}
-        </div>
-
-        {/* Newsletter Signup */}
-        <div className="bg-white rounded-3xl p-10 shadow-xl border border-gray-100 text-center">
-          <h3 className="text-2xl font-bold text-gray-900 mb-4">Stay Updated</h3>
-          <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-            Don&apos;t miss out on SERVE&apos;s latest news, events, and community updates. 
-            Join our mailing list to stay connected with our caring community.
-          </p>
-          
-          <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto mb-8">
-            <input
-              type="email"
-              placeholder="Enter your email address"
-              className="flex-1 px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
-              aria-label="Email address for newsletter"
-            />
-            <button
-              type="button"
-              className="bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-3 rounded-xl font-semibold transition-colors whitespace-nowrap"
-            >
-              Subscribe
-            </button>
-          </div>
         </div>
       </div>
     </section>
