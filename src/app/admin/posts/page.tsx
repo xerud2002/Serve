@@ -4,10 +4,12 @@ import { useState, useEffect } from 'react'
 import { ArrowLeftIcon, PlusIcon, TrashIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
-import { savePostsToFile } from './actions'
+import { db } from '@/lib/firebase'
+import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs, orderBy, query } from 'firebase/firestore'
 
 interface FacebookPost {
-  id: string
+  id?: string // Firestore document ID
+  postId: string // Facebook-style ID for compatibility
   message: string
   full_picture?: string
   created_time: string
@@ -26,17 +28,21 @@ export default function PostsAdmin() {
 
   const loadPosts = async () => {
     try {
-      // Load from public JSON file
-      const response = await fetch('/data/facebook-posts.json', { 
-        cache: 'no-store',
-        headers: { 'Cache-Control': 'no-cache' }
+      const postsQuery = query(collection(db, 'posts'), orderBy('created_time', 'desc'))
+      const querySnapshot = await getDocs(postsQuery)
+      const loadedPosts: FacebookPost[] = []
+      
+      querySnapshot.forEach((doc) => {
+        loadedPosts.push({
+          id: doc.id,
+          ...doc.data()
+        } as FacebookPost)
       })
-      if (response.ok) {
-        const data = await response.json()
-        setPosts(Array.isArray(data) ? data : [])
-      }
+      
+      setPosts(loadedPosts)
     } catch (err) {
       console.error('Error loading posts:', err)
+      setMessage('Error loading posts from database')
     } finally {
       setLoading(false)
     }
@@ -46,15 +52,35 @@ export default function PostsAdmin() {
     setSaving(true)
     setMessage('')
     try {
-      const result = await savePostsToFile(posts)
-      
-      if (result.success) {
-        setMessage('✓ Posts saved successfully! Refresh homepage to see changes.')
-      } else {
-        setMessage(`Error: ${result.error}`)
+      // Save each post to Firestore
+      for (const post of posts) {
+        if (post.id) {
+          // Update existing post
+          const postRef = doc(db, 'posts', post.id)
+          await updateDoc(postRef, {
+            postId: post.postId,
+            message: post.message,
+            full_picture: post.full_picture || '',
+            created_time: post.created_time,
+            permalink_url: post.permalink_url
+          })
+        } else {
+          // Add new post
+          await addDoc(collection(db, 'posts'), {
+            postId: post.postId,
+            message: post.message,
+            full_picture: post.full_picture || '',
+            created_time: post.created_time,
+            permalink_url: post.permalink_url
+          })
+        }
       }
-    } catch {
-      setMessage('Error: Failed to save posts')
+      
+      setMessage('✓ Posts saved successfully! Changes are live immediately.')
+      await loadPosts() // Reload to get updated IDs
+    } catch (err) {
+      console.error('Save error:', err)
+      setMessage('Error: Failed to save posts to database')
     } finally {
       setSaving(false)
     }
@@ -62,7 +88,7 @@ export default function PostsAdmin() {
 
   const addPost = () => {
     const newPost: FacebookPost = {
-      id: `239416516576684_${Date.now()}`,
+      postId: `239416516576684_${Date.now()}`,
       message: '',
       full_picture: '',
       created_time: new Date().toISOString(),
@@ -77,8 +103,23 @@ export default function PostsAdmin() {
     setPosts(updated)
   }
 
-  const deletePost = (index: number) => {
+  const deletePost = async (index: number) => {
     if (confirm('Are you sure you want to delete this post?')) {
+      const post = posts[index]
+      
+      // If post has Firestore ID, delete from database
+      if (post.id) {
+        try {
+          await deleteDoc(doc(db, 'posts', post.id))
+          setMessage('✓ Post deleted successfully')
+        } catch (err) {
+          console.error('Delete error:', err)
+          setMessage('Error deleting post from database')
+          return
+        }
+      }
+      
+      // Remove from local state
       setPosts(posts.filter((_, i) => i !== index))
     }
   }

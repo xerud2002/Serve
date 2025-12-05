@@ -6,6 +6,8 @@ import {
   ArrowRightIcon 
 } from '@heroicons/react/24/outline'
 import Image from 'next/image'
+import { db } from '@/lib/firebase'
+import { collection, getDocs, query, orderBy, limit } from 'firebase/firestore'
 
 interface FacebookPost {
   id: string
@@ -27,32 +29,34 @@ export default function FacebookFeed() {
       try {
         setIsLoading(true)
         
-        // Load manual posts from public JSON file
-        const res = await fetch('/data/facebook-posts.json', { 
-          cache: 'no-store',
-          headers: { 'Cache-Control': 'no-cache' }
+        // Load posts from Firestore
+        const postsQuery = query(
+          collection(db, 'posts'), 
+          orderBy('created_time', 'desc'),
+          limit(3)
+        )
+        const querySnapshot = await getDocs(postsQuery)
+        const firestorePosts: FacebookPost[] = []
+        
+        querySnapshot.forEach((doc) => {
+          const data = doc.data()
+          firestorePosts.push({
+            id: data.postId || doc.id,
+            message: data.message,
+            full_picture: data.full_picture,
+            created_time: data.created_time,
+            permalink_url: data.permalink_url
+          })
         })
         
-        if (res.ok) {
-          const data = await res.json()
-          const manualPosts: FacebookPost[] = Array.isArray(data) ? data : []
-          
-          if (!cancelled) {
-            // If we have manual posts, use them; otherwise show fallback
-            setPosts(manualPosts.length > 0 ? manualPosts.slice(0, 3) : getFallbackPosts())
-            setIsLoading(false)
-            
-            if (process.env.NODE_ENV === 'development') {
-              console.log('[FacebookFeed] Loaded', manualPosts.length, 'manual posts')
-            }
-          }
-          return
-        }
-        
-        // If JSON file doesn't exist or fails, show fallback
         if (!cancelled) {
-          setPosts(getFallbackPosts())
+          // If we have posts from Firestore, use them; otherwise show fallback
+          setPosts(firestorePosts.length > 0 ? firestorePosts : getFallbackPosts())
           setIsLoading(false)
+          
+          if (process.env.NODE_ENV === 'development') {
+            console.log('[FacebookFeed] Loaded', firestorePosts.length, 'posts from Firestore')
+          }
         }
       } catch (error) {
         if (process.env.NODE_ENV === 'development') {

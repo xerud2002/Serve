@@ -2,6 +2,8 @@
 
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
+import { auth } from '@/lib/firebase'
+import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
 
 export default function AdminLayout({
   children,
@@ -10,14 +12,24 @@ export default function AdminLayout({
 }) {
   const [isAuthenticated, setIsAuthenticated] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
-  const [username, setUsername] = useState('')
+  const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
   const router = useRouter()
 
   useEffect(() => {
-    // Skip auth check - rely on login form only
-    setIsLoading(false)
+    // Listen for auth state changes
+    const unsubscribe = onAuthStateChanged(auth, (user) => {
+      if (user) {
+        setIsAuthenticated(true)
+        setEmail(user.email || '')
+      } else {
+        setIsAuthenticated(false)
+      }
+      setIsLoading(false)
+    })
+
+    return () => unsubscribe()
   }, [])
 
   const handleLogin = async (e: React.FormEvent) => {
@@ -25,40 +37,23 @@ export default function AdminLayout({
     setError('')
 
     try {
-      const response = await fetch('/api/auth', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ username, password }),
-        cache: 'no-store'
-      })
-      
-      if (response.ok) {
-        setIsAuthenticated(true)
-        setPassword('')
-        window.location.reload()
-      } else {
-        setError('Invalid username or password')
-      }
-    } catch {
-      // If fetch fails, try direct authentication check
-      if (username === 'Serve' && password === 'Serve123@@') {
-        setIsAuthenticated(true)
-        setPassword('')
-      } else {
-        setError('Invalid username or password')
-      }
+      await signInWithEmailAndPassword(auth, email, password)
+      setPassword('')
+      // User state will be updated by onAuthStateChanged
+    } catch (err) {
+      console.error('Login error:', err)
+      setError('Invalid email or password')
     }
   }
 
   const handleLogout = async () => {
     try {
-      await fetch('/api/auth', { method: 'DELETE' })
-      setIsAuthenticated(false)
-      setUsername('')
+      await signOut(auth)
+      setEmail('')
       setPassword('')
       router.push('/')
-    } catch {
-      setIsAuthenticated(false)
+    } catch (err) {
+      console.error('Logout error:', err)
       router.push('/')
     }
   }
@@ -85,17 +80,17 @@ export default function AdminLayout({
 
           <form onSubmit={handleLogin} className="space-y-6">
             <div>
-              <label htmlFor="username" className="block text-sm font-medium text-gray-700 mb-2">
-                Username
+              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                Email
               </label>
               <input
-                id="username"
-                type="text"
-                value={username}
-                onChange={(e) => setUsername(e.target.value)}
+                id="email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
                 required
                 className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                placeholder="Enter username"
+                placeholder="Enter email"
               />
             </div>
 
@@ -143,7 +138,7 @@ export default function AdminLayout({
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
               <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-sm text-gray-600">Logged in as <span className="font-semibold">{username}</span></span>
+              <span className="text-sm text-gray-600">Logged in as <span className="font-semibold">{email}</span></span>
             </div>
             <button
               onClick={handleLogout}
