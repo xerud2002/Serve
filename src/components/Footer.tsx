@@ -63,11 +63,6 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-white">Quick Links</h4>
             <ul className="space-y-2">
               <li>
-                <Link href="/" className="text-gray-600 hover:text-white text-sm transition-colors">
-                  Home
-                </Link>
-              </li>
-              <li>
                 <Link href="/services" className="text-gray-600 hover:text-white text-sm transition-colors">
                   Our Services
                 </Link>
@@ -75,6 +70,21 @@ export default function Footer() {
               <li>
                 <Link href="/about" className="text-gray-600 hover:text-white text-sm transition-colors">
                   About Us
+                </Link>
+              </li>
+              <li>
+                <Link href="/volunteer" className="text-gray-600 hover:text-white text-sm transition-colors">
+                  Get Involved
+                </Link>
+              </li>
+              <li>
+                <Link href="/news" className="text-gray-600 hover:text-white text-sm transition-colors">
+                  News & Events
+                </Link>
+              </li>
+              <li>
+                <Link href="/supporters" className="text-gray-600 hover:text-white text-sm transition-colors">
+                  Our Supporters
                 </Link>
               </li>
               <li>

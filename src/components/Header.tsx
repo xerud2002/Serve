@@ -51,10 +51,10 @@ export default function Header() {
   }, [mobileMenuOpen])
 
   const navigation = [
-    { name: 'Home', href: '/' },
     { name: 'Services', href: '/services' },
     { name: 'About Us', href: '/about' },
     { name: 'Get Involved', href: '/volunteer' },
+    { name: 'News', href: '/news' },
     { name: 'Our Supporters', href: '/supporters' },
     { name: 'Contact', href: '/contact' },
   ]
