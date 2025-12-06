@@ -9,9 +9,9 @@ export const metadata = generateSEOMetadata(seoConfigs.donate)
 
 export default function DonatePage() {
   return (
-  <div className="min-h-screen bg-gradient-to-b from-gray-50 to-white">
+  <div className="min-h-screen bg-linear-to-b from-gray-50 to-white">
       {/* Hero Section */}
-  <section className="relative py-24 bg-gradient-to-br from-rose-500 via-red-600 to-rose-700 text-white overflow-hidden">
+  <section className="relative py-24 bg-linear-to-br from-rose-500 via-red-600 to-rose-700 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -60,7 +60,7 @@ export default function DonatePage() {
       </section>
 
       {/* Impact Story Section */}
-      <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50">
+      <section className="py-20 bg-linear-to-br from-blue-50 via-white to-green-50">
         <div className="max-w-6xl mx-auto px-4">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-rose-100 text-rose-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -100,7 +100,7 @@ export default function DonatePage() {
             <div className="space-y-6">
               <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-blue-500">
                 <div className="flex items-start gap-4">
-                  <div className="bg-blue-100 rounded-full p-3 flex-shrink-0">
+                  <div className="bg-blue-100 rounded-full p-3 shrink-0">
                     <CheckCircleIcon className="w-6 h-6 text-blue-600" />
                   </div>
                   <div>
@@ -112,7 +112,7 @@ export default function DonatePage() {
 
               <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-green-500">
                 <div className="flex items-start gap-4">
-                  <div className="bg-green-100 rounded-full p-3 flex-shrink-0">
+                  <div className="bg-green-100 rounded-full p-3 shrink-0">
                     <HeartIcon className="w-6 h-6 text-green-600" />
                   </div>
                   <div>
@@ -124,7 +124,7 @@ export default function DonatePage() {
 
               <div className="bg-white rounded-2xl shadow-lg p-6 border-l-4 border-purple-500">
                 <div className="flex items-start gap-4">
-                  <div className="bg-purple-100 rounded-full p-3 flex-shrink-0">
+                  <div className="bg-purple-100 rounded-full p-3 shrink-0">
                     <SparklesIcon className="w-6 h-6 text-purple-600" />
                   </div>
                   <div>
@@ -134,7 +134,7 @@ export default function DonatePage() {
                 </div>
               </div>
 
-              <div className="bg-gradient-to-br from-rose-500 to-red-600 rounded-2xl shadow-lg p-6 text-white">
+              <div className="bg-linear-to-br from-rose-500 to-red-600 rounded-2xl shadow-lg p-6 text-white">
                 <div className="text-center">
                   <p className="text-sm font-semibold mb-2 opacity-90">Local Charity</p>
                   <p className="text-3xl font-bold mb-1">100%</p>
@@ -161,15 +161,15 @@ export default function DonatePage() {
               <p className="text-gray-600 mb-6">Make an immediate impact with a single donation</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 shrink-0" />
                   Quick & easy online giving
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 shrink-0" />
                   Secure payment processing
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-rose-600 mr-3 shrink-0" />
                   Instant confirmation
                 </li>
               </ul>
@@ -195,15 +195,15 @@ export default function DonatePage() {
               <p className="text-gray-600 mb-6">Provide sustained support that transforms lives</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 shrink-0" />
                   Sustainable impact
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 shrink-0" />
                   Cancel anytime
                 </li>
                 <li className="flex items-center text-gray-700">
-                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 flex-shrink-0" />
+                  <CheckCircleIcon className="w-5 h-5 text-green-600 mr-3 shrink-0" />
                   Exclusive updates
                 </li>
               </ul>
@@ -221,27 +221,27 @@ export default function DonatePage() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Other Ways to Support</h3>
             <ul className="grid md:grid-cols-2 gap-4 text-gray-700">
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>PayPal donations</span>
               </li>
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>Direct bank transfer</span>
               </li>
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>Give as You Live</span>
               </li>
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>Corporate partnerships</span>
               </li>
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>Legacy gifts</span>
               </li>
               <li className="flex items-center">
-                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 flex-shrink-0" />
+                <CheckCircleIcon className="w-5 h-5 text-blue-600 mr-3 shrink-0" />
                 <span>Fundraising events</span>
               </li>
             </ul>
@@ -257,7 +257,7 @@ export default function DonatePage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white mx-auto max-w-4xl mb-16">
+      <section className="bg-linear-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white mx-auto max-w-4xl mb-16">
         <h3 className="text-3xl font-bold mb-6">Need Help or Have Questions?</h3>
         <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
           Our friendly team is ready to assist you with your donation or answer any questions about how your gift makes a difference.

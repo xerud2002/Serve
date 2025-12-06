@@ -90,7 +90,7 @@ export default function Hero() {
 
           {/* Award Badge - Hidden on mobile */}
           <div className="mb-8 hidden md:block">
-            <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-gradient-to-r from-yellow-400 to-yellow-500 text-yellow-900 shadow-lg transform hover:scale-105 transition-transform">
+            <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-linear-to-r from-yellow-400 to-yellow-500 text-yellow-900 shadow-lg transform hover:scale-105 transition-transform">
               <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                 <path fillRule="evenodd" d="M10 2L7.5 7H2l4.5 3.5L5 16l5-4 5 4-1.5-5.5L18 7h-5.5L10 2z" clipRule="evenodd" />
               </svg>

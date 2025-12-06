@@ -97,7 +97,7 @@ export default function TransportPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-purple-900 via-purple-800 to-purple-700 text-white overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-purple-900 via-purple-800 to-purple-700 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='m0 40l40-40h-40v40zm0 0l40-40h-40v40z'/%3E%3C/g%3E%3C/svg%3E")`,
@@ -197,7 +197,7 @@ export default function TransportPage() {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
                     {service.features.map((feature, featureIndex) => (
                       <div key={featureIndex} className="flex items-start text-gray-700">
-                        <CheckIcon className="w-4 h-4 text-purple-600 mr-2 mt-1 flex-shrink-0" />
+                        <CheckIcon className="w-4 h-4 text-purple-600 mr-2 mt-1 shrink-0" />
                         <span className="text-sm">{feature}</span>
                       </div>
                     ))}
@@ -208,7 +208,7 @@ export default function TransportPage() {
           </div>
 
           {/* Vehicle Features */}
-          <div className="bg-gradient-to-r from-purple-50 to-serve-blue-50 rounded-3xl p-12">
+          <div className="bg-linear-to-r from-purple-50 to-serve-blue-50 rounded-3xl p-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
               Our Transport Features
             </h3>
@@ -216,7 +216,7 @@ export default function TransportPage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {vehicleFeatures.map((feature, index) => (
                 <div key={index} className="flex items-center bg-white rounded-xl p-4 shadow-sm">
-                  <CheckIcon className="w-5 h-5 text-purple-600 mr-3 flex-shrink-0" />
+                  <CheckIcon className="w-5 h-5 text-purple-600 mr-3 shrink-0" />
                   <span className="text-gray-800 font-medium">{feature}</span>
                 </div>
               ))}
@@ -322,7 +322,7 @@ export default function TransportPage() {
       {/* Online booking hero removed per request */}
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-purple-700">
+      <section className="py-20 bg-linear-to-r from-purple-600 to-purple-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl font-bold mb-6">
             Need Reliable Transport?

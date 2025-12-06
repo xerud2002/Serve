@@ -88,7 +88,7 @@ export default function DayCarePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-serve-green-900 via-serve-green-800 to-serve-green-700 text-white overflow-hidden">
+      <section className="relative py-20 bg-linear-to-br from-serve-green-900 via-serve-green-800 to-serve-green-700 text-white overflow-hidden">
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
             backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
@@ -185,7 +185,7 @@ export default function DayCarePage() {
                   <ul className="space-y-2">
                     {activity.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start text-gray-700">
-                        <CheckIcon className="w-4 h-4 text-serve-green-600 mr-2 mt-1 flex-shrink-0" />
+                        <CheckIcon className="w-4 h-4 text-serve-green-600 mr-2 mt-1 shrink-0" />
                         <span className="text-sm">{feature}</span>
                       </li>
                     ))}
@@ -196,7 +196,7 @@ export default function DayCarePage() {
           </div>
 
           {/* Benefits */}
-          <div className="bg-gradient-to-r from-serve-green-50 to-serve-blue-50 rounded-3xl p-12">
+          <div className="bg-linear-to-r from-serve-green-50 to-serve-blue-50 rounded-3xl p-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
               Benefits of Our Day Care Service
             </h3>
@@ -204,7 +204,7 @@ export default function DayCarePage() {
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center bg-white rounded-xl p-4 shadow-sm">
-                  <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 flex-shrink-0" />
+                  <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 shrink-0" />
                   <span className="text-gray-800 font-medium">{benefit}</span>
                 </div>
               ))}
@@ -249,7 +249,7 @@ export default function DayCarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-serve-green-600 to-serve-green-700">
+      <section className="py-20 bg-linear-to-r from-serve-green-600 to-serve-green-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
           <h2 className="text-4xl font-bold mb-6">
             Join Our Caring Community Today

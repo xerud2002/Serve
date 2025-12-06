@@ -200,7 +200,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
         style={{ zIndex: 100000 }}
       >
         {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 lg:p-8 border-b border-gray-200 bg-gradient-to-r from-purple-50 to-serve-blue-50">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between p-4 sm:p-6 lg:p-8 border-b border-gray-200 bg-linear-to-r from-purple-50 to-serve-blue-50">
           <div className="flex-1 min-w-0">
             <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-gray-900 mb-1">Book Transport Online</h2>
             <p className="text-sm sm:text-base text-purple-600 font-medium">Quick, secure transport booking</p>
@@ -606,7 +606,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
               </div>
 
               {/* Price Summary */}
-              <div className="bg-gradient-to-r from-purple-50 to-serve-blue-50 p-6 rounded-xl border border-purple-100">
+              <div className="bg-linear-to-r from-purple-50 to-serve-blue-50 p-6 rounded-xl border border-purple-100">
                 <div className="flex items-center justify-between">
                   <div>
                     <h4 className="text-lg font-bold text-purple-900 mb-2">Estimated Cost</h4>
@@ -626,7 +626,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
               <div className="pt-4 sm:pt-6">
                 <button
                   type="submit"
-                  className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-sm sm:text-base"
+                  className="w-full bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 sm:py-5 px-6 sm:px-8 rounded-lg sm:rounded-xl transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:scale-[1.02] text-sm sm:text-base"
                 >
                   <TruckIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                   <span className="hidden sm:inline">Continue to Payment</span>
@@ -671,7 +671,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
 
           {step === 3 && (
             <div className="text-center space-y-8">
-              <div className="w-24 h-24 bg-gradient-to-br from-serve-green-100 to-serve-green-200 rounded-full flex items-center justify-center mx-auto shadow-lg">
+              <div className="w-24 h-24 bg-linear-to-br from-serve-green-100 to-serve-green-200 rounded-full flex items-center justify-center mx-auto shadow-lg">
                 <CheckCircleIcon className="w-16 h-16 text-serve-green-600" />
               </div>
               
@@ -719,15 +719,15 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
                 <h4 className="font-semibold text-purple-900 mb-3">What happens next?</h4>
                 <ul className="space-y-2 text-sm text-purple-800">
                   <li className="flex items-start">
-                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">1</span>
+                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 shrink-0">1</span>
                     You&apos;ll receive a confirmation email with all details
                   </li>
                   <li className="flex items-start">
-                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">2</span>
+                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 shrink-0">2</span>
                     Our driver will call you 30 minutes before pickup
                   </li>
                   <li className="flex items-start">
-                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 flex-shrink-0">3</span>
+                    <span className="w-5 h-5 bg-purple-600 text-white rounded-full flex items-center justify-center text-xs font-bold mr-3 mt-0.5 shrink-0">3</span>
                     Enjoy your safe, comfortable journey
                   </li>
                 </ul>
@@ -735,7 +735,7 @@ export default function TransportBooking({ isOpen, onClose }: TransportBookingPr
 
               <button
                 onClick={handleClose}
-                className="w-full bg-gradient-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
+                className="w-full bg-linear-to-r from-purple-600 to-purple-700 hover:from-purple-700 hover:to-purple-800 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-[1.02]"
               >
                 Close
               </button>

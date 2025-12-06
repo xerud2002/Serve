@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 via-white to-green-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <MajorTitle primary="Terms &" secondary="Conditions" />
         <p className="text-gray-600 mb-8">Effective Date: 1st September 2024. Adapted summary of official terms at serve.org.uk/terms-and-conditions. Full legal wording retained in master document. Using this site implies acceptance.</p>

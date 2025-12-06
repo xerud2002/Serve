@@ -65,7 +65,7 @@ export default function Services() {
   ]
 
   return (
-    <section id="services" className={`${isMobile ? 'py-12' : 'py-24'} bg-gradient-to-br from-serve-blue-50 via-white to-serve-green-50`}>
+    <section id="services" className={`${isMobile ? 'py-12' : 'py-24'} bg-linear-to-br from-serve-blue-50 via-white to-serve-green-50`}>
       <div className={`max-w-7xl mx-auto ${MOBILE_CLASSES.mobilePadding}`}>
         <div className={`text-center ${isMobile ? 'mb-10' : 'mb-16'}`}>
           {/* Badge */}
@@ -98,7 +98,7 @@ export default function Services() {
                 
                 <div className="flex flex-col flex-1 text-center">
                   {/* Service Image with rounded background */}
-                  <div className={`relative rounded-2xl ${isMobile ? 'w-64 h-64 mb-5' : 'w-80 h-80 mb-6'} mx-auto overflow-hidden flex-shrink-0 shadow-lg group-hover:shadow-xl transition-shadow bg-gray-100`}>
+                  <div className={`relative rounded-2xl ${isMobile ? 'w-64 h-64 mb-5' : 'w-80 h-80 mb-6'} mx-auto overflow-hidden shrink-0 shadow-lg group-hover:shadow-xl transition-shadow bg-gray-100`}>
                     <Image
                       src={service.image}
                       alt={service.title}
@@ -112,27 +112,27 @@ export default function Services() {
                   </div>
                   
                   {/* Title */}
-                  <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors flex-shrink-0 ${isMobile ? 'text-lg' : 'text-xl'}`}>
+                  <h3 className={`font-bold text-gray-900 mb-4 group-hover:text-serve-blue-800 transition-colors shrink-0 ${isMobile ? 'text-lg' : 'text-xl'}`}>
                     {service.title}
                   </h3>
                   
                   {/* Description */}
-                  <p className={`text-gray-600 mb-6 leading-relaxed flex-grow ${isMobile ? 'text-sm' : 'text-base'}`}>
+                  <p className={`text-gray-600 mb-6 leading-relaxed grow ${isMobile ? 'text-sm' : 'text-base'}`}>
                     {service.description}
                   </p>
                   
                   {/* Highlights with improved styling */}
-                  <div className={`grid grid-cols-2 ${isMobile ? 'gap-2 mb-6' : 'gap-3 mb-8'} flex-shrink-0`}>
+                  <div className={`grid grid-cols-2 ${isMobile ? 'gap-2 mb-6' : 'gap-3 mb-8'} shrink-0`}>
                     {service.highlights.map((highlight, index) => (
                       <div key={index} className={`flex items-center text-gray-700 bg-serve-blue-50 rounded-lg px-2 py-2 ${isMobile ? 'text-xs' : 'text-sm'}`}>
-                        <CheckCircleIcon className="w-4 h-4 text-serve-green-600 mr-2 flex-shrink-0" />
+                        <CheckCircleIcon className="w-4 h-4 text-serve-green-600 mr-2 shrink-0" />
                         <span className="text-left truncate">{highlight}</span>
                       </div>
                     ))}
                   </div>
                   
                   {/* CTA Button with improved styling */}
-                  <div className="flex-shrink-0">
+                  <div className="shrink-0">
                     <Link
                       href={service.link}
                       className={`group/btn inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 active:bg-serve-blue-800 text-white font-bold transition-all duration-300 rounded-xl shadow-lg hover:shadow-xl ${MOBILE_CLASSES.touchTarget} ${
@@ -155,7 +155,7 @@ export default function Services() {
 
         {/* Bottom CTA with improved design */}
         <div className={`text-center ${isMobile ? 'mt-10' : 'mt-16'}`}>
-          <div className="relative bg-gradient-to-br from-serve-blue-600 via-serve-blue-700 to-serve-blue-800 rounded-3xl p-10 shadow-2xl overflow-hidden">
+          <div className="relative bg-linear-to-br from-serve-blue-600 via-serve-blue-700 to-serve-blue-800 rounded-3xl p-10 shadow-2xl overflow-hidden">
             <div className="relative">
               <h3 className="text-white text-3xl font-bold mb-4">
                 Need Help Choosing?

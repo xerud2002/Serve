@@ -84,9 +84,9 @@ export default function NewsPage() {
       {/* Featured Appeal */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-serve-green-500 to-serve-blue-600 rounded-2xl p-8 lg:p-12 text-white shadow-lg">
+          <div className="bg-linear-to-r from-serve-green-500 to-serve-blue-600 rounded-2xl p-8 lg:p-12 text-white shadow-lg">
             <div className="flex items-start gap-6">
-              <div className="bg-white/20 rounded-xl p-4 flex-shrink-0">
+              <div className="bg-white/20 rounded-xl p-4 shrink-0">
                 <CalendarDaysIcon className="w-8 h-8 text-white" />
               </div>
               
@@ -153,12 +153,12 @@ export default function NewsPage() {
                 key={index} 
                 className={`rounded-2xl p-8 shadow-lg transition-all duration-300 hover:shadow-xl hover:-translate-y-1 ${
                   event.featured 
-                    ? 'bg-gradient-to-r from-serve-green-500 to-serve-blue-600 text-white lg:col-span-2'
-                    : 'bg-gradient-to-br from-serve-blue-50 to-white border border-gray-200'
+                    ? 'bg-linear-to-r from-serve-green-500 to-serve-blue-600 text-white lg:col-span-2'
+                    : 'bg-linear-to-br from-serve-blue-50 to-white border border-gray-200'
                 }`}
               >
                 <div className="flex items-start gap-6">
-                  <div className={`rounded-xl p-4 flex-shrink-0 ${
+                  <div className={`rounded-xl p-4 shrink-0 ${
                     event.featured ? 'bg-white/20' : 'bg-serve-blue-600'
                   }`}>
                     <CalendarDaysIcon className="w-8 h-8 text-white" />
@@ -227,7 +227,7 @@ export default function NewsPage() {
       </section>
 
       {/* Previous Events Photo Gallery */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-20 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-serve-blue-100 text-serve-blue-700 px-4 py-2 rounded-full text-sm font-semibold mb-4">
@@ -262,7 +262,7 @@ export default function NewsPage() {
               { title: 'Fundraising from the Homemade Bread Company', image: '/images/events/Fundraising-from-the-Homemade-Bread-Company.webp' }
             ].map((event, index) => (
               <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 cursor-pointer">
-                <div className="relative aspect-[4/3] bg-gray-200">
+                <div className="relative aspect-4/3 bg-gray-200">
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -271,7 +271,7 @@ export default function NewsPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
+                <div className="absolute inset-0 bg-linear-to-t from-black/70 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end">
                   <p className="text-white font-semibold p-4 w-full text-sm leading-tight">{event.title}</p>
                 </div>
               </div>

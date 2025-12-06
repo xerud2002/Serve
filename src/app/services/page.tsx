@@ -100,7 +100,7 @@ export default function ServicesPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-24 bg-gradient-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white overflow-hidden">
+      <section className="relative py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white overflow-hidden">
         {/* Background Pattern */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute inset-0" style={{
@@ -173,7 +173,7 @@ export default function ServicesPage() {
                   key={service.id}
                   className="group bg-white rounded-3xl shadow-xl hover:shadow-2xl transition-all duration-300 overflow-hidden border border-gray-100 hover:-translate-y-2"
                 >
-                  <div className={`bg-gradient-to-r ${service.gradient} p-8 text-white relative`}>
+                  <div className={`bg-linear-to-r ${service.gradient} p-8 text-white relative`}>
                     <div className="flex items-start justify-between mb-6">
                       <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-4">
                         <IconComponent className="w-8 h-8" />
@@ -193,7 +193,7 @@ export default function ServicesPage() {
                     <ul className="space-y-3 mb-8">
                       {service.features.map((feature, index) => (
                         <li key={index} className="flex items-center text-gray-700">
-                          <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 flex-shrink-0" />
+                          <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 shrink-0" />
                           {feature}
                         </li>
                       ))}
@@ -218,7 +218,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Contact CTA */}
-          <div className="bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 rounded-3xl p-12 text-center text-white">
+          <div className="bg-linear-to-r from-serve-blue-600 to-serve-blue-700 rounded-3xl p-12 text-center text-white">
             <h3 className="text-3xl font-bold mb-6">Ready to Get Started?</h3>
             <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
               Contact us today to discuss how our services can help you or your loved ones 

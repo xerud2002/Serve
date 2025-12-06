@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function AnnualReport2024Page() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 via-white to-green-50">
       {/* Back Button */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -34,7 +34,7 @@ export default function AnnualReport2024Page() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white">
+      <div className="bg-linear-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 mb-8">
@@ -60,7 +60,7 @@ export default function AnnualReport2024Page() {
           </h2>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100 text-center">
+            <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100 text-center">
               <div className="w-16 h-16 bg-serve-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <CurrencyPoundIcon className="w-8 h-8 text-white" />
               </div>
@@ -69,7 +69,7 @@ export default function AnnualReport2024Page() {
               <div className="text-xs text-gray-500 mt-2">Up from £1.20M</div>
             </div>
 
-            <div className="bg-gradient-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100 text-center">
+            <div className="bg-linear-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100 text-center">
               <div className="w-16 h-16 bg-serve-green-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <UserGroupIcon className="w-8 h-8 text-white" />
               </div>
@@ -78,7 +78,7 @@ export default function AnnualReport2024Page() {
               <div className="text-xs text-gray-500 mt-2">29,304 hours contributed</div>
             </div>
 
-            <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100 text-center">
+            <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100 text-center">
               <div className="w-16 h-16 bg-yellow-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <HeartIcon className="w-8 h-8 text-white" />
               </div>
@@ -87,7 +87,7 @@ export default function AnnualReport2024Page() {
               <div className="text-xs text-gray-500 mt-2">40,919 care calls</div>
             </div>
 
-            <div className="bg-gradient-to-br from-purple-50 to-white rounded-2xl p-8 border border-purple-100 text-center">
+            <div className="bg-linear-to-br from-purple-50 to-white rounded-2xl p-8 border border-purple-100 text-center">
               <div className="w-16 h-16 bg-purple-600 rounded-2xl flex items-center justify-center mx-auto mb-4">
                 <TrophyIcon className="w-8 h-8 text-white" />
               </div>
@@ -100,7 +100,7 @@ export default function AnnualReport2024Page() {
       </section>
 
       {/* Organizational Overview */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
             Our Purpose & Services
@@ -140,7 +140,7 @@ export default function AnnualReport2024Page() {
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Key Services Delivered</h3>
             <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-serve-blue-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-serve-blue-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-serve-blue-600 font-bold">1</span>
                 </div>
                 <div>
@@ -149,7 +149,7 @@ export default function AnnualReport2024Page() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-serve-green-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-serve-green-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-serve-green-600 font-bold">2</span>
                 </div>
                 <div>
@@ -158,7 +158,7 @@ export default function AnnualReport2024Page() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-yellow-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-yellow-600 font-bold">3</span>
                 </div>
                 <div>
@@ -167,7 +167,7 @@ export default function AnnualReport2024Page() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-purple-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-purple-600 font-bold">4</span>
                 </div>
                 <div>
@@ -176,7 +176,7 @@ export default function AnnualReport2024Page() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-red-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-red-600 font-bold">5</span>
                 </div>
                 <div>
@@ -185,7 +185,7 @@ export default function AnnualReport2024Page() {
                 </div>
               </div>
               <div className="flex items-start gap-3">
-                <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center flex-shrink-0 mt-1">
+                <div className="w-8 h-8 bg-indigo-100 rounded-lg flex items-center justify-center shrink-0 mt-1">
                   <span className="text-indigo-600 font-bold">6</span>
                 </div>
                 <div>
@@ -214,7 +214,7 @@ export default function AnnualReport2024Page() {
           </div>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100">
+            <div className="bg-linear-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Income Sources (£1,559,078)</h3>
               <div className="space-y-4">
                 <div>
@@ -247,7 +247,7 @@ export default function AnnualReport2024Page() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
+            <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
               <h3 className="text-xl font-bold text-gray-900 mb-6">Financial Summary</h3>
               <div className="space-y-6">
                 <div className="bg-white rounded-xl p-4 border border-gray-200">
@@ -273,7 +273,7 @@ export default function AnnualReport2024Page() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100">
+          <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100">
             <div className="flex items-center gap-3 mb-4">
               <ShieldCheckIcon className="w-8 h-8 text-yellow-600" />
               <h3 className="text-xl font-bold text-gray-900">Financial Strength</h3>
@@ -288,7 +288,7 @@ export default function AnnualReport2024Page() {
       </section>
 
       {/* Key Achievements */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <div className="flex items-center justify-center gap-3 mb-4">
@@ -383,7 +383,7 @@ export default function AnnualReport2024Page() {
           </h2>
 
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
+            <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Board of Trustees</h3>
               <p className="text-gray-700 leading-relaxed mb-4">
                 The board underwent changes during the year, with new appointments and resignations to 
@@ -397,7 +397,7 @@ export default function AnnualReport2024Page() {
               </div>
             </div>
 
-            <div className="bg-gradient-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100">
+            <div className="bg-linear-to-br from-serve-green-50 to-white rounded-2xl p-8 border border-serve-green-100">
               <h3 className="text-2xl font-bold text-gray-900 mb-6">Senior Management</h3>
               <div className="space-y-4">
                 <div className="bg-white rounded-xl p-4 border border-serve-green-200">
@@ -412,7 +412,7 @@ export default function AnnualReport2024Page() {
             </div>
           </div>
 
-          <div className="bg-gradient-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100">
+          <div className="bg-linear-to-br from-yellow-50 to-white rounded-2xl p-8 border border-yellow-100">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Risk Management</h3>
             <p className="text-gray-700 leading-relaxed mb-4">
               Trustees regularly review risks and maintain internal controls to safeguard assets and ensure 
@@ -437,7 +437,7 @@ export default function AnnualReport2024Page() {
       </section>
 
       {/* Future Plans */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="text-3xl md:text-4xl font-bold text-center text-gray-900 mb-12">
             Strategic Goals & Future Plans
@@ -498,7 +498,7 @@ export default function AnnualReport2024Page() {
       {/* Audit & Compliance */}
       <section className="py-16 bg-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
+          <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100">
             <div className="flex items-center gap-3 mb-6">
               <ShieldCheckIcon className="w-10 h-10 text-serve-blue-600" />
               <h2 className="text-3xl font-bold text-gray-900">Audit & Compliance</h2>
@@ -523,7 +523,7 @@ export default function AnnualReport2024Page() {
       </section>
 
       {/* Acknowledgements */}
-      <section className="py-16 bg-gradient-to-br from-serve-blue-700 to-serve-blue-800 text-white">
+      <section className="py-16 bg-linear-to-br from-serve-blue-700 to-serve-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <HeartIcon className="w-16 h-16 mx-auto mb-6 text-blue-200" />
           <h2 className="text-3xl md:text-4xl font-bold mb-6">

@@ -176,7 +176,7 @@ export default function FacebookFeed() {
                     />
                   </div>
                 ) : (
-                  <div className="relative h-32 bg-gradient-to-br from-serve-blue-50 to-serve-blue-100 flex items-center justify-center overflow-hidden">
+                  <div className="relative h-32 bg-linear-to-br from-serve-blue-50 to-serve-blue-100 flex items-center justify-center overflow-hidden">
                     <div className="text-center">
                       <div className="w-16 h-16 mx-auto mb-3 relative">
                         <Image

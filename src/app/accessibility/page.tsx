@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 
 export default function AccessibilityStatementPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 via-white to-green-50">
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <MajorTitle primary="Accessibility" secondary="Statement" />
         <p className="text-gray-600 mb-8">We are committed to meeting WCAG 2.1 AA guidelines ensuring inclusive access for older people and adults with disabilities. This statement outlines our approach and how you can report issues.</p>

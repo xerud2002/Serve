@@ -26,7 +26,7 @@ export default function RelatedServices({ services, currentService }: RelatedSer
   if (filteredServices.length === 0) return null
 
   return (
-    <section className="py-12 bg-gradient-to-br from-serve-blue-50 to-white">
+    <section className="py-12 bg-linear-to-br from-serve-blue-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-10">
           <h2 className="text-3xl font-bold text-serve-blue-800 mb-3">

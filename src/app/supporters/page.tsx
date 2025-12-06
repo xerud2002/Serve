@@ -188,9 +188,9 @@ export default function SupportersPage() {
   const supporters = shuffleArray(supportersData)
 
   return (
-    <main className="min-h-screen bg-gradient-to-br from-blue-50 via-white to-green-50">
+    <main className="min-h-screen bg-linear-to-br from-blue-50 via-white to-green-50">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white py-20">
+      <section className="relative bg-linear-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white py-20">
         <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-10"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-sm font-semibold mb-6 border border-white/20">
@@ -256,7 +256,7 @@ export default function SupportersPage() {
                     className="object-cover group-hover:scale-110 transition-transform duration-500"
                     sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-linear-to-t from-black/60 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-2 group-hover:text-serve-blue-700 transition-colors">
@@ -273,7 +273,7 @@ export default function SupportersPage() {
       </section>
 
       {/* Call to Action */}
-      <section className="py-16 bg-gradient-to-br from-serve-blue-700 to-serve-blue-800 text-white">
+      <section className="py-16 bg-linear-to-br from-serve-blue-700 to-serve-blue-800 text-white">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold mb-6">
             Join Our Community of Supporters

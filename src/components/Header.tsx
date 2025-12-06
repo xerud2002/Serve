@@ -72,7 +72,7 @@ export default function Header() {
                   className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-[44px] min-w-[44px] hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link} ${isMobile ? 'text-xs' : 'text-sm'}`}
                   aria-label={ARIA_LABELS.phoneNumber}
                 >
-                  <PhoneIcon className="h-4 w-4 mr-1 flex-shrink-0" aria-hidden="true" />
+                  <PhoneIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />
                   <span className="truncate">{isMobile ? '01933 315555' : '01933 315555'}</span>
                 </a>
                 {!isMobile && (
@@ -81,7 +81,7 @@ export default function Header() {
                     className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-[44px] min-w-[44px] hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
                     aria-label={ARIA_LABELS.emailAddress}
                   >
-                    <EnvelopeIcon className="h-4 w-4 mr-1 flex-shrink-0" aria-hidden="true" />
+                    <EnvelopeIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />
                     <span className="truncate">info@serve.org.uk</span>
                   </a>
                 )}
@@ -90,7 +90,7 @@ export default function Header() {
                 <Link
                   href="/donate"
                   aria-label="Donate to SERVE"
-                  className={`group relative ${isMobile ? 'p-1.5' : 'p-1.5'} rounded-lg bg-gradient-to-br from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link} flex items-center justify-center`}
+                  className={`group relative ${isMobile ? 'p-1.5' : 'p-1.5'} rounded-lg bg-linear-to-br from-rose-500 to-red-600 hover:from-rose-600 hover:to-red-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link} flex items-center justify-center`}
                 >
                   <HeartIcon className={`${isMobile ? 'h-6 w-6' : 'h-6 w-6'} text-white`} aria-hidden="true" />
                   <div className="absolute inset-0 rounded-lg bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
@@ -99,7 +99,7 @@ export default function Header() {
                   href="https://www.facebook.com/SERVE234/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`group relative ${isMobile ? 'p-1.5' : 'p-1.5'} rounded-lg bg-gradient-to-br from-serve-blue-500 to-serve-blue-600 hover:from-serve-blue-600 hover:to-serve-blue-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link} flex items-center justify-center`}
+                  className={`group relative ${isMobile ? 'p-1.5' : 'p-1.5'} rounded-lg bg-linear-to-br from-serve-blue-500 to-serve-blue-600 hover:from-serve-blue-600 hover:to-serve-blue-700 shadow-md hover:shadow-lg transform hover:scale-105 transition-all duration-300 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.link} flex items-center justify-center`}
                   aria-label={ARIA_LABELS.facebook}
                 >
                   <svg className={`${isMobile ? 'h-6 w-6' : 'h-6 w-6'} text-white`} fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">

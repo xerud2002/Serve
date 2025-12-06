@@ -10,7 +10,7 @@ import { ARIA_LABELS } from '@/lib/accessibility'
 
 export default function Footer() {
   return (
-    <footer className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
+    <footer className="bg-linear-to-br from-gray-900 via-gray-800 to-gray-900 text-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* About Section */}
@@ -110,17 +110,17 @@ export default function Footer() {
             <h4 className="text-lg font-semibold mb-4 text-white">Contact</h4>
             <div className="space-y-3 text-sm">
               <div className="flex items-center text-gray-600">
-                <MapPinIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <MapPinIcon className="w-5 h-5 mr-3 shrink-0" />
                 <span>8 West Street, Rushden, NN10 0RT</span>
               </div>
               <div className="flex items-center text-gray-600">
-                <PhoneIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <PhoneIcon className="w-5 h-5 mr-3 shrink-0" />
                 <a href="tel:01933315555" className="hover:text-white transition-colors">
                   01933 315555
                 </a>
               </div>
               <div className="flex items-center text-gray-600">
-                <EnvelopeIcon className="w-5 h-5 mr-3 flex-shrink-0" />
+                <EnvelopeIcon className="w-5 h-5 mr-3 shrink-0" />
                 <a href="mailto:info@serve.org.uk" className="hover:text-white transition-colors">
                   info@serve.org.uk
                 </a>

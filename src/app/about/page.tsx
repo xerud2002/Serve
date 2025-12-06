@@ -145,7 +145,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-gradient-to-br from-serve-blue-600 to-serve-blue-700 text-white">
+      <section className="relative py-20 bg-linear-to-br from-serve-blue-600 to-serve-blue-700 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-3xl">
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
@@ -162,7 +162,7 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-gradient-to-br from-gray-50 to-white">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
@@ -214,15 +214,15 @@ export default function AboutPage() {
                 </p>
 
                 <div className="grid md:grid-cols-3 gap-6 my-8">
-                  <div className="text-center p-6 bg-gradient-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
+                  <div className="text-center p-6 bg-linear-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
                     <div className="text-4xl font-bold text-serve-blue-600 mb-2">40+</div>
                     <p className="text-sm font-semibold text-gray-700">Years of Service</p>
                   </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
+                  <div className="text-center p-6 bg-linear-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
                     <div className="text-4xl font-bold text-serve-green-600 mb-2">1000s</div>
                     <p className="text-sm font-semibold text-gray-700">Lives Touched</p>
                   </div>
-                  <div className="text-center p-6 bg-gradient-to-br from-yellow-50 to-white rounded-xl border border-yellow-100">
+                  <div className="text-center p-6 bg-linear-to-br from-yellow-50 to-white rounded-xl border border-yellow-100">
                     <div className="text-4xl font-bold text-yellow-600 mb-2">2024</div>
                     <p className="text-sm font-semibold text-gray-700">Award Winner</p>
                   </div>
@@ -244,7 +244,7 @@ export default function AboutPage() {
       <section className="py-16 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
+            <div className="bg-linear-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
               <div className="w-12 h-12 rounded-xl bg-serve-blue-100 flex items-center justify-center mb-4">
                 <HeartIcon className="w-6 h-6 text-serve-blue-600" />
               </div>
@@ -256,7 +256,7 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100">
+            <div className="bg-linear-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100">
               <div className="w-12 h-12 rounded-xl bg-serve-green-100 flex items-center justify-center mb-4">
                 <UserGroupIcon className="w-6 h-6 text-serve-green-600" />
               </div>
@@ -288,7 +288,7 @@ export default function AboutPage() {
               const IconComponent = value.icon
               return (
                 <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mb-4">
+                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mb-4">
                     <IconComponent className="w-6 h-6 text-serve-blue-700" />
                   </div>
                   <h3 className="text-lg font-bold text-gray-900 mb-2">{value.title}</h3>
@@ -310,7 +310,7 @@ export default function AboutPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-yellow-50 to-white rounded-xl p-6 border border-yellow-100 text-center">
+            <div className="bg-linear-to-br from-yellow-50 to-white rounded-xl p-6 border border-yellow-100 text-center">
               <div className="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mx-auto mb-4">
                 <TrophyIcon className="w-6 h-6 text-yellow-600" />
               </div>
@@ -318,7 +318,7 @@ export default function AboutPage() {
               <p className="text-sm text-gray-600">Best Homecare Team, East Midlands</p>
             </div>
 
-            <div className="bg-gradient-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 text-center">
+            <div className="bg-linear-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 text-center">
               <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-4">
                 <ShieldCheckIcon className="w-6 h-6 text-blue-600" />
               </div>
@@ -335,7 +335,7 @@ export default function AboutPage() {
               </a>
             </div>
 
-            <div className="bg-gradient-to-br from-green-50 to-white rounded-xl p-6 border border-green-100 text-center">
+            <div className="bg-linear-to-br from-green-50 to-white rounded-xl p-6 border border-green-100 text-center">
               <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mx-auto mb-4">
                 <HeartIcon className="w-6 h-6 text-green-600" />
               </div>
@@ -362,7 +362,7 @@ export default function AboutPage() {
           <div className="max-w-md mx-auto mb-12">
             {teamMembers.map((member, index) => (
               <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
-                <div className="relative h-64 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200">
+                <div className="relative h-64 bg-linear-to-br from-serve-blue-100 to-serve-blue-200">
                   <Image
                     src={member.image}
                     alt={member.name}
@@ -411,7 +411,7 @@ export default function AboutPage() {
 
           {/* Trustees List - Simple Name and Position Format */}
           <div className="max-w-4xl mx-auto">
-            <div className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <div className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
               <div className="space-y-4">
                 {trustees.map((trustee, index) => (
                   <div key={index} className="py-4 border-b border-gray-200 last:border-0">
@@ -424,7 +424,7 @@ export default function AboutPage() {
           </div>
 
           {/* Governance Info */}
-          <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100 max-w-4xl mx-auto">
+          <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100 max-w-4xl mx-auto">
             <h3 className="text-xl font-bold text-gray-900 mb-4">Governance & Oversight</h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               SERVE is governed by a dedicated Board of Trustees who bring diverse expertise in healthcare, 
@@ -466,7 +466,7 @@ export default function AboutPage() {
           {/* Board Meetings Section */}
           <div className="mt-12 bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
             <div className="flex items-center gap-3 mb-6">
-              <div className="w-12 h-12 bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-serve-blue-100 to-serve-blue-200 rounded-xl flex items-center justify-center">
                 <DocumentTextIcon className="w-6 h-6 text-serve-blue-700" />
               </div>
               <h3 className="text-2xl font-bold text-gray-900">Trustee Board Meetings</h3>
@@ -581,7 +581,7 @@ export default function AboutPage() {
             </div>
 
             {/* Board Operations */}
-            <div className="bg-gradient-to-br from-serve-blue-50 to-white rounded-xl p-6 border border-serve-blue-100">
+            <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-xl p-6 border border-serve-blue-100">
               <h4 className="text-lg font-bold text-gray-900 mb-3">How the Board Operates</h4>
               <div className="space-y-3 text-sm text-gray-700">
                 <p>
@@ -621,7 +621,7 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-gradient-to-br from-serve-blue-600 to-serve-blue-700">
+      <section className="py-16 bg-linear-to-br from-serve-blue-600 to-serve-blue-700">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Get In Touch

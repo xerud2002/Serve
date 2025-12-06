@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export default function CallToActionSection() {
   return (
-    <section className="py-20 bg-gradient-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
+    <section className="py-20 bg-linear-to-br from-blue-50 via-white to-green-50 relative overflow-hidden">
       {/* Background decoration */}
       <div className="absolute inset-0 bg-[url('/images/pattern.svg')] opacity-5"></div>
       
@@ -39,7 +39,7 @@ export default function CallToActionSection() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Friendly Home Visit</h3>
@@ -61,7 +61,7 @@ export default function CallToActionSection() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Tailored Care Plan</h3>
@@ -81,7 +81,7 @@ export default function CallToActionSection() {
                   className="object-cover group-hover:scale-110 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 25vw"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 to-transparent"></div>
               </div>
               <div className="p-6">
                 <h3 className="text-lg font-bold text-gray-900 mb-2">Ongoing Support</h3>
@@ -95,7 +95,7 @@ export default function CallToActionSection() {
           {/* CTA Button */}
           <Link 
             href="/contact"
-            className="inline-flex items-center gap-3 bg-gradient-to-r from-serve-green-600 to-serve-green-700 hover:from-serve-green-700 hover:to-serve-green-800 text-white font-bold px-12 py-5 text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl"
+            className="inline-flex items-center gap-3 bg-linear-to-r from-serve-green-600 to-serve-green-700 hover:from-serve-green-700 hover:to-serve-green-800 text-white font-bold px-12 py-5 text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-2xl"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />

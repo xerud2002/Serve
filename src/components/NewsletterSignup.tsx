@@ -84,7 +84,7 @@ export default function NewsletterSignup({
 
       {error && (
         <div className="mb-4 bg-red-50 border border-red-200 rounded-lg p-3 flex items-start">
-          <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mr-2 mt-0.5 flex-shrink-0" />
+          <ExclamationTriangleIcon className="h-5 w-5 text-red-600 mr-2 mt-0.5 shrink-0" />
           <p className="text-red-700 text-sm">{error}</p>
         </div>
       )}

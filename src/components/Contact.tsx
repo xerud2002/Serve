@@ -135,7 +135,7 @@ export default function Contact() {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 bg-gradient-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
+      <section id="contact" className="py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
         <div className="absolute inset-0 opacity-5">
           <div 
             className="absolute inset-0" 
@@ -170,7 +170,7 @@ export default function Contact() {
     )
   }
   return (
-    <section id="contact" className="py-24 bg-gradient-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
+    <section id="contact" className="py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div 
@@ -519,7 +519,7 @@ export default function Contact() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-gradient-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-serve-blue-300 focus:ring-offset-2 shadow-lg hover:shadow-xl"
+                  className="w-full bg-linear-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-serve-blue-300 focus:ring-offset-2 shadow-lg hover:shadow-xl"
                 >
                   {isSubmitting ? 'Sending Message...' : 'Send Message'}
                 </button>

@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function GreatBritishCareAwardsPage() {
   return (
-    <main className="min-h-screen bg-gradient-to-b from-blue-50 via-white to-green-50">
+    <main className="min-h-screen bg-linear-to-b from-blue-50 via-white to-green-50">
       {/* Back Button */}
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
@@ -25,7 +25,7 @@ export default function GreatBritishCareAwardsPage() {
       </div>
 
       {/* Hero Section */}
-      <div className="bg-gradient-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white">
+      <div className="bg-linear-to-br from-serve-blue-700 via-serve-blue-600 to-serve-blue-800 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
           <div className="text-center">
             <div className="inline-flex items-center gap-2 bg-yellow-400 text-gray-900 px-6 py-3 rounded-full font-bold text-sm mb-8 shadow-lg">
@@ -70,7 +70,7 @@ export default function GreatBritishCareAwardsPage() {
         {/* What This Award Means */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-16 border border-gray-100">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-yellow-400 to-yellow-500 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-linear-to-br from-yellow-400 to-yellow-500 rounded-xl flex items-center justify-center">
               <TrophyIcon className="w-7 h-7 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900">What This Award Means</h2>
@@ -94,7 +94,7 @@ export default function GreatBritishCareAwardsPage() {
         {/* Photo Gallery Placeholder */}
         <div className="mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-8 text-center">Celebrating Our Success</h2>
-          <div className="bg-gradient-to-br from-gray-50 to-gray-100 rounded-2xl p-12 text-center border-2 border-dashed border-gray-300">
+          <div className="bg-linear-to-br from-gray-50 to-gray-100 rounded-2xl p-12 text-center border-2 border-dashed border-gray-300">
             <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center mx-auto mb-6">
               <svg className="w-12 h-12 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
@@ -110,7 +110,7 @@ export default function GreatBritishCareAwardsPage() {
         </div>
 
         {/* Our Journey */}
-        <div className="bg-gradient-to-br from-serve-blue-50 to-serve-green-50 rounded-2xl p-8 md:p-12 mb-16">
+        <div className="bg-linear-to-br from-serve-blue-50 to-serve-green-50 rounded-2xl p-8 md:p-12 mb-16">
           <h2 className="text-3xl font-bold text-gray-900 mb-6">Over 40 Years of Excellence</h2>
           
           <div className="space-y-4 text-gray-700 leading-relaxed">
@@ -130,7 +130,7 @@ export default function GreatBritishCareAwardsPage() {
         {/* Thank You Section */}
         <div className="bg-white rounded-2xl shadow-xl p-8 md:p-12 mb-16 border border-gray-100">
           <div className="flex items-center gap-3 mb-6">
-            <div className="w-12 h-12 bg-gradient-to-br from-red-400 to-red-500 rounded-xl flex items-center justify-center">
+            <div className="w-12 h-12 bg-linear-to-br from-red-400 to-red-500 rounded-xl flex items-center justify-center">
               <HeartIcon className="w-7 h-7 text-white" />
             </div>
             <h2 className="text-3xl font-bold text-gray-900">Thank You</h2>
@@ -167,7 +167,7 @@ export default function GreatBritishCareAwardsPage() {
         </div>
 
         {/* Call to Action */}
-        <div className="bg-gradient-to-br from-serve-blue-700 to-serve-blue-800 rounded-2xl p-8 md:p-12 text-center text-white">
+        <div className="bg-linear-to-br from-serve-blue-700 to-serve-blue-800 rounded-2xl p-8 md:p-12 text-center text-white">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
             Experience Award-Winning Care
           </h2>

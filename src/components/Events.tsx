@@ -63,7 +63,7 @@ export default function Events() {
                 </div>
                 
                 {/* Image */}
-                <div className="bg-gradient-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center relative overflow-hidden">
+                <div className="bg-linear-to-br from-serve-blue-100 to-serve-blue-200 h-64 lg:h-full flex items-center justify-center relative overflow-hidden">
                   <Image
                     src="/images/awards/regional-winner.webp"
                     alt="SERVE Regional Winner - Great British Care Awards 2024"
@@ -71,7 +71,7 @@ export default function Events() {
                     className="object-cover"
                     sizes="(max-width: 1024px) 50vw, 33vw"
                   />
-                  <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/70 to-transparent p-4">
+                  <div className="absolute bottom-0 left-0 right-0 bg-linear-to-t from-black/70 to-transparent p-4">
                     <p className="text-white font-semibold text-center">Great British Care Awards 2024</p>
                   </div>
                 </div>
@@ -90,7 +90,7 @@ export default function Events() {
                 className="group bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100 hover:border-serve-blue-200 hover:-translate-y-1"
               >
                 {/* Image Placeholder */}
-                <div className="bg-gradient-to-br from-gray-100 to-gray-200 h-48 flex items-center justify-center">
+                <div className="bg-linear-to-br from-gray-100 to-gray-200 h-48 flex items-center justify-center">
                   <IconComponent className="w-12 h-12 text-gray-600" />
                 </div>
                 

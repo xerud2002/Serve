@@ -62,9 +62,9 @@ export default function NewsPage() {
       {/* Featured Appeal */}
       <section className="py-16 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="bg-gradient-to-r from-serve-green-500 to-serve-blue-600 rounded-2xl p-8 lg:p-12 text-white shadow-lg">
+          <div className="bg-linear-to-r from-serve-green-500 to-serve-blue-600 rounded-2xl p-8 lg:p-12 text-white shadow-lg">
             <div className="flex items-start gap-6">
-              <div className="bg-white/20 rounded-xl p-4 flex-shrink-0">
+              <div className="bg-white/20 rounded-xl p-4 shrink-0">
                 <CalendarDaysIcon className="w-8 h-8 text-white" />
               </div>
               
@@ -123,7 +123,7 @@ export default function NewsPage() {
                 className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
               >
                 <div className="flex items-start gap-6">
-                  <div className="bg-serve-blue-600 rounded-xl p-4 flex-shrink-0">
+                  <div className="bg-serve-blue-600 rounded-xl p-4 shrink-0">
                     <CalendarDaysIcon className="w-6 h-6 text-white" />
                   </div>
                   <div className="flex-1">
@@ -231,7 +231,7 @@ export default function NewsPage() {
               { title: 'Christmas Lights Rushden', image: '/images/events/Christmas-Lights-Rushden-scaled.webp' }
             ].map((event, index) => (
               <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
-                <div className="relative aspect-[4/3] bg-gray-200">
+                <div className="relative aspect-4/3 bg-gray-200">
                   <Image
                     src={event.image}
                     alt={event.title}
@@ -240,7 +240,7 @@ export default function NewsPage() {
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   />
                 </div>
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
                   <p className="text-white font-semibold p-4 w-full text-sm">{event.title}</p>
                 </div>
               </div>
