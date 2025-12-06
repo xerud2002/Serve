@@ -98,13 +98,13 @@ export default function Services() {
                 
                 <div className="flex flex-col flex-1 text-center">
                   {/* Service Image with rounded background */}
-                  <div className={`relative rounded-2xl ${isMobile ? 'w-64 h-64 mb-5' : 'w-80 h-80 mb-6'} mx-auto overflow-hidden shrink-0 shadow-lg group-hover:shadow-xl transition-shadow bg-gray-100`}>
+                  <div className="relative rounded-2xl w-64 h-64 md:w-80 md:h-80 mb-5 md:mb-6 mx-auto overflow-hidden shrink-0 shadow-lg group-hover:shadow-xl transition-shadow bg-gray-100">
                     <Image
                       src={service.image}
                       alt={service.title}
                       fill
                       className="object-contain rounded-2xl group-hover:scale-105 transition-transform duration-300"
-                      sizes="(max-width: 640px) 192px, (max-width: 768px) 256px, 320px"
+                      sizes="(max-width: 768px) 256px, 320px"
                       quality={70}
                       loading={service.priority ? "eager" : "lazy"}
                       priority={service.priority}
