@@ -223,12 +223,12 @@ export default function NewsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Cloisters Rushden Craft Fair', image: '/images/events/Cloisters-Rushden-craft-fair-scaled.webp' },
-              { title: 'Christmas Gifts from Happy Mondays in Rushden', image: '/images/events/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp' },
-              { title: 'Teddy Bear Winners', image: '/images/events/Teddy-Bear-winners-scaled.webp' },
-              { title: 'Fundraising at Asda Rushden', image: '/images/events/Fundraising-at-Asda-Rushden-scaled.webp' },
-              { title: 'Northamptonshire Chamber of Trade Expo 2024', image: '/images/events/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp' },
-              { title: 'Christmas Lights Rushden', image: '/images/events/Christmas-Lights-Rushden-scaled.webp' }
+              { title: 'Cloisters Rushden Craft Fair', image: '/images/community/Cloisters-Rushden-craft-fair-scaled.webp' },
+              { title: 'Christmas Gifts from Happy Mondays', image: '/images/donations/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp' },
+              { title: 'Teddy Bear Winners', image: '/images/community/Teddy-Bear-winners-scaled.webp' },
+              { title: 'Fundraising at Asda Rushden', image: '/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp' },
+              { title: 'Chamber of Trade Expo 2024', image: '/images/community/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp' },
+              { title: 'Christmas Lights Rushden', image: '/images/donations/Christmas-Lights-Rushden-scaled.webp' }
             ].map((event, index) => (
               <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
                 <div className="relative aspect-4/3 bg-gray-200">
