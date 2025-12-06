@@ -120,8 +120,8 @@ const nextConfig = {
   
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['@heroicons/react', 'react', 'react-dom'],
-    optimizeCss: false, // Disable CSS optimization (avoids optional 'critters' dependency)
+    optimizePackageImports: ['@heroicons/react', 'react', 'react-dom', 'firebase', 'clsx'],
+    optimizeCss: true, // Enable CSS optimization with critters
     webpackBuildWorker: true, // Faster builds
     cssChunking: 'strict', // Better CSS code splitting
   },
