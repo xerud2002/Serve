@@ -1,5 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { db } from '@/lib/firebase'
+import { collection, addDoc, query, where, getDocs } from 'firebase/firestore'
 
 const resend = process.env.RESEND_API_KEY 
   ? new Resend(process.env.RESEND_API_KEY)
@@ -19,11 +21,42 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    const timestamp = new Date().toLocaleString('en-GB', {
+    const timestamp = new Date().toISOString()
+    const formattedTime = new Date().toLocaleString('en-GB', {
       dateStyle: 'full',
       timeStyle: 'short',
       timeZone: 'Europe/London'
     })
+
+    // Save to Firebase if configured
+    if (db) {
+      try {
+        // Check if email already exists
+        const existingQuery = query(collection(db, 'newsletter'), where('email', '==', email))
+        const existingDocs = await getDocs(existingQuery)
+        
+        if (existingDocs.empty) {
+          // Add new subscriber
+          await addDoc(collection(db, 'newsletter'), {
+            email,
+            firstName: firstName || '',
+            interests: interests || 'General updates',
+            frequency: frequency || 'Monthly',
+            subscribed_at: timestamp,
+            status: 'active'
+          })
+        } else {
+          // Email already subscribed
+          return NextResponse.json({
+            success: true,
+            message: 'You are already subscribed to our newsletter!'
+          })
+        }
+      } catch (firebaseError) {
+        console.error('Firebase save error:', firebaseError)
+        // Continue even if Firebase fails
+      }
+    }
 
     // If Resend is not configured, log to console (development/build time)
     if (!resend) {
@@ -50,7 +83,7 @@ export async function POST(request: NextRequest) {
             <p><strong>Interests:</strong> ${interests || 'General updates'}</p>
             <p><strong>Frequency:</strong> ${frequency || 'Monthly'}</p>
             <p style="margin-top: 20px; color: #666; font-size: 12px;">
-              Subscribed: ${timestamp}
+              Subscribed: ${formattedTime}
             </p>
           </div>
         </div>

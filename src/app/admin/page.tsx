@@ -129,8 +129,7 @@ export default function AdminDashboard() {
       icon: UserGroupIcon,
       href: '/admin/newsletter',
       color: 'bg-orange-500',
-      stats: 'Coming soon',
-      disabled: true
+      stats: 'View subscribers'
     }
   ]
 

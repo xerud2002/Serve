@@ -23,7 +23,7 @@ export default function Events() {
   const regularNews = news.filter(item => !item.featured)
 
   return (
-    <section id="events" className="py-24 bg-gray-50">
+    <section id="events" className="pt-24 pb-8 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Featured Award - Moved to top */}
