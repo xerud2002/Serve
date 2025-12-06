@@ -132,9 +132,6 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
         
-        {/* Defer non-critical resources */}
-        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
-        
         {/* PWA Meta Tags */}
         <meta name="application-name" content="SERVE Charity" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
