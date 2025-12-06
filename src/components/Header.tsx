@@ -69,7 +69,7 @@ export default function Header() {
               <div className="flex items-center space-x-3 sm:space-x-6">
                 <a 
                   href="tel:01933315555" 
-                  className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-[44px] min-w-[44px] hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link} ${isMobile ? 'text-xs' : 'text-sm'}`}
+                  className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-11 min-w-11 hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link} ${isMobile ? 'text-xs' : 'text-sm'}`}
                   aria-label={ARIA_LABELS.phoneNumber}
                 >
                   <PhoneIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />
@@ -78,7 +78,7 @@ export default function Header() {
                 {!isMobile && (
                   <a 
                     href="mailto:info@serve.org.uk" 
-                    className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-[44px] min-w-[44px] hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
+                    className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-11 min-w-11 hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
                     aria-label={ARIA_LABELS.emailAddress}
                   >
                     <EnvelopeIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />

@@ -111,7 +111,7 @@ export function MobileButton({
   
   const sizeClasses = {
     small: 'px-4 py-2 text-sm min-h-[40px]',
-    default: 'px-6 py-3 text-base min-h-[48px]',
+    default: 'px-6 py-3 text-base min-h-12',
     large: 'px-8 py-4 text-lg min-h-[56px]',
   }
   
@@ -205,7 +205,7 @@ export function MobileNavigation() {
 // Mobile-specific CSS classes
 export const MOBILE_CLASSES = {
   // Touch-friendly sizing
-  touchTarget: 'min-h-[44px] min-w-[44px]', // iOS HIG recommendation
+  touchTarget: 'min-h-11 min-w-11', // iOS HIG recommendation
   
   // Safe areas for notched devices
   safeAreaTop: 'pt-safe-top',
