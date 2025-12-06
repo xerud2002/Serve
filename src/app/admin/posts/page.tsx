@@ -152,11 +152,11 @@ export default function PostsAdmin() {
           <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
             <div>
               <Link 
-                href="/admin/bookings"
+                href="/admin"
                 className="inline-flex items-center text-blue-600 hover:text-blue-800 mb-2 text-sm"
               >
                 <ArrowLeftIcon className="w-4 h-4 mr-1" />
-                Back to Admin
+                Back to Dashboard
               </Link>
               <h1 className="text-xl sm:text-3xl font-bold text-gray-900">Manage Facebook Posts</h1>
               <p className="text-gray-600 mt-1 text-sm sm:text-base">Manually update the posts displayed on the homepage</p>
