@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
 import { db } from '@/lib/firebase'
 import { collection, addDoc, query, where, getDocs } from 'firebase/firestore'
+import { checkRateLimit, getClientIP, rateLimiters } from '@/lib/rateLimit'
 
 const resend = process.env.RESEND_API_KEY 
   ? new Resend(process.env.RESEND_API_KEY)
@@ -9,6 +10,24 @@ const resend = process.env.RESEND_API_KEY
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting: 3 requests per hour
+    const ip = getClientIP(request)
+    const rateLimit = checkRateLimit(ip, rateLimiters.newsletter)
+    
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: `Too many signup attempts. Please try again in ${Math.ceil(rateLimit.resetIn / 60)} minutes.` },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': String(rateLimit.resetIn),
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': String(rateLimit.resetIn)
+          }
+        }
+      )
+    }
+
     const body = await request.json()
     
     // Validate required fields

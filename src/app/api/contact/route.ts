@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server'
 import { Resend } from 'resend'
+import { checkRateLimit, getClientIP, rateLimiters } from '@/lib/rateLimit'
 
 const resend = process.env.RESEND_API_KEY 
   ? new Resend(process.env.RESEND_API_KEY)
@@ -7,6 +8,24 @@ const resend = process.env.RESEND_API_KEY
 
 export async function POST(request: NextRequest) {
   try {
+    // Rate limiting: 5 requests per 15 minutes
+    const ip = getClientIP(request)
+    const rateLimit = checkRateLimit(ip, rateLimiters.contact)
+    
+    if (!rateLimit.success) {
+      return NextResponse.json(
+        { error: `Too many requests. Please try again in ${Math.ceil(rateLimit.resetIn / 60)} minutes.` },
+        { 
+          status: 429,
+          headers: {
+            'Retry-After': String(rateLimit.resetIn),
+            'X-RateLimit-Remaining': '0',
+            'X-RateLimit-Reset': String(rateLimit.resetIn)
+          }
+        }
+      )
+    }
+
     const body = await request.json()
     
     // Validate required fields
