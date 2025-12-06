@@ -45,7 +45,23 @@ export default function NewsletterAdmin() {
   }, [])
 
   useEffect(() => {
-    filterSubscribers()
+    let filtered = [...subscribers]
+    
+    // Filter by status
+    if (filter !== 'all') {
+      filtered = filtered.filter(s => s.status === filter)
+    }
+    
+    // Filter by search term
+    if (searchTerm) {
+      const term = searchTerm.toLowerCase()
+      filtered = filtered.filter(s => 
+        s.email.toLowerCase().includes(term) ||
+        (s.firstName && s.firstName.toLowerCase().includes(term))
+      )
+    }
+    
+    setFilteredSubscribers(filtered)
   }, [subscribers, searchTerm, filter])
 
   const loadSubscribers = async () => {
@@ -77,26 +93,6 @@ export default function NewsletterAdmin() {
     } finally {
       setLoading(false)
     }
-  }
-
-  const filterSubscribers = () => {
-    let filtered = [...subscribers]
-    
-    // Filter by status
-    if (filter !== 'all') {
-      filtered = filtered.filter(s => s.status === filter)
-    }
-    
-    // Filter by search term
-    if (searchTerm) {
-      const term = searchTerm.toLowerCase()
-      filtered = filtered.filter(s => 
-        s.email.toLowerCase().includes(term) ||
-        (s.firstName && s.firstName.toLowerCase().includes(term))
-      )
-    }
-    
-    setFilteredSubscribers(filtered)
   }
 
   const toggleStatus = async (subscriber: Subscriber) => {
