@@ -100,7 +100,7 @@ export function useAssessmentBooking() {
       setIsSubmitting(false)
       return false
     }
-  }, [formData, paymentData])
+  }, [])
 
   const resetForm = useCallback(() => {
     setFormData(initialFormData)

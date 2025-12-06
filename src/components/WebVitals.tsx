@@ -18,10 +18,18 @@ export default function WebVitals() {
 
     // Dynamic import to avoid bloating the bundle
     import('web-vitals').then(({ onCLS, onLCP, onFCP, onTTFB, onINP }) => {
-      const logMetric = (metric: any) => {
+      // Define metric type inline to avoid importing type at runtime
+      interface WebVitalMetric {
+        name: string
+        value: number
+        rating: 'good' | 'needs-improvement' | 'poor'
+        delta: number
+      }
+      
+      const logMetric = (metric: WebVitalMetric) => {
         // Send to Vercel Analytics (if available)
-        if (typeof window !== 'undefined' && (window as any).va) {
-          (window as any).va('event', {
+        if (typeof window !== 'undefined' && (window as unknown as { va?: (event: string, data: Record<string, unknown>) => void }).va) {
+          (window as unknown as { va: (event: string, data: Record<string, unknown>) => void }).va('event', {
             name: 'web-vitals',
             data: {
               metric: metric.name,

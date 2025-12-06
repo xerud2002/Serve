@@ -115,7 +115,8 @@ export const AccessibleButton = React.forwardRef<
 AccessibleButton.displayName = 'AccessibleButton'
 
 // Color contrast checker (for development)
-export function getContrastRatio(color1: string, color2: string): number {
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
+export function getContrastRatio(_color1: string, _color2: string): number {
   // This is a simplified version - in production, you'd use a proper color contrast library
   // Returns a ratio that should be >= 4.5 for AA compliance, >= 7 for AAA
   return 4.5 // Placeholder - implement proper calculation if needed

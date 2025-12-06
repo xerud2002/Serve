@@ -6,6 +6,7 @@ import { useVolunteerForm } from '@/hooks/useVolunteerForm'
 export default function VolunteerForm() {
   const {
     formData,
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     validationErrors,
     isSubmitting,
     isSubmitted,

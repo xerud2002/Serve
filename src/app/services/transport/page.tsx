@@ -2,7 +2,6 @@
 
 import Link from 'next/link'
 import Breadcrumb from '@/components/Breadcrumb'
-import { TransportBookingButton } from '@/components/TransportBooking'
 import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
 import {
@@ -12,15 +11,12 @@ import {
   ShieldCheckIcon,
   PhoneIcon,
   CheckIcon,
-  StarIcon,
   ArrowLeftIcon,
   ArrowRightIcon,
   HeartIcon,
   UserIcon,
-  BuildingOfficeIcon,
   ShoppingBagIcon,
-  BeakerIcon,
-  HomeIcon
+  BeakerIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 
@@ -73,6 +69,8 @@ const serviceAreas = [
   { name: 'Surrounding villages', coverage: 'On request' }
 ]
 
+// Pricing data - retained for potential future use
+// eslint-disable-next-line @typescript-eslint/no-unused-vars
 const pricing = [
   { service: 'Local journeys (up to 5 miles)', price: 'From £8', description: 'Perfect for local shopping and appointments' },
   { service: 'Medium journeys (5-15 miles)', price: 'From £15', description: 'Ideal for hospital visits and family trips' },

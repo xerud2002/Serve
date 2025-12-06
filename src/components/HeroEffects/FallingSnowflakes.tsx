@@ -39,7 +39,7 @@ export default function FallingSnowflakes() {
             animationDuration: particle.duration,
             opacity: particle.opacity,
             // Add CSS custom property for wind variation
-            // @ts-ignore
+            // @ts-expect-error CSS custom property
             '--wind-offset': `${particle.windIntensity * 30 - 15}px`
           }}
         >

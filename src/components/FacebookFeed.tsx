@@ -21,6 +21,7 @@ interface FacebookPost {
 
 export default function FacebookFeed() {
   const [posts, setPosts] = useState<FacebookPost[]>([])
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {

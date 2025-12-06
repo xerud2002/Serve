@@ -65,7 +65,7 @@ export default function OptimizedImage({
 
   const imageProps = {
     src,
-    alt,
+    alt, // Required for accessibility
     className: `transition-opacity duration-300 ${isLoading ? 'opacity-50' : 'opacity-100'} ${className}`,
     onLoad: handleLoad,
     onError: handleError,
@@ -78,6 +78,7 @@ export default function OptimizedImage({
     ...(sizes && { sizes })
   }
 
+  // eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via imageProps.alt
   return <Image {...imageProps} />
 }
 

@@ -314,9 +314,9 @@ export default function SupportersPage() {
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
             </svg>
             <p className="text-lg text-gray-700 leading-relaxed">
-              This is just the beginning of our supporters gallery. We'll be adding more photos and stories 
-              celebrating our community's generosity and spirit. If you have photos from SERVE events or 
-              fundraising activities, we'd love to feature them here! info@serve.org.uk
+              This is just the beginning of our supporters gallery. We&apos;ll be adding more photos and stories 
+              celebrating our community&apos;s generosity and spirit. If you have photos from SERVE events or 
+              fundraising activities, we&apos;d love to feature them here! info@serve.org.uk
             </p>
           </div>
         </div>

@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import Link from 'next/link'
 import VolunteerForm from '@/components/VolunteerForm'
 import {
@@ -9,7 +8,6 @@ import {
   CheckIcon,
   ArrowRightIcon,
   HandRaisedIcon,
-  HomeIcon,
   TruckIcon,
   BeakerIcon,
   CalendarDaysIcon,

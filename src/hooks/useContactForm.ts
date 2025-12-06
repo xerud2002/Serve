@@ -45,7 +45,7 @@ export function useContactForm(formspreeEndpoint: string) {
       } else {
         throw new Error('Failed to submit form')
       }
-    } catch (error) {
+    } catch {
       setFormState({
         isSubmitting: false,
         isSubmitted: false,
