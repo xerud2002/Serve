@@ -9,11 +9,13 @@ import {
   TrashIcon,
   MagnifyingGlassIcon,
   ArrowDownTrayIcon,
+  ArrowUpTrayIcon,
   CheckCircleIcon,
-  XCircleIcon
+  XCircleIcon,
+  PlusIcon
 } from '@heroicons/react/24/outline'
 import { db } from '@/lib/firebase'
-import { collection, getDocs, deleteDoc, doc, updateDoc, query, orderBy } from 'firebase/firestore'
+import { collection, getDocs, deleteDoc, doc, updateDoc, query, orderBy, addDoc } from 'firebase/firestore'
 
 interface Subscriber {
   id: string
@@ -32,6 +34,11 @@ export default function NewsletterAdmin() {
   const [searchTerm, setSearchTerm] = useState('')
   const [message, setMessage] = useState('')
   const [filter, setFilter] = useState<'all' | 'active' | 'unsubscribed'>('all')
+  const [showAddForm, setShowAddForm] = useState(false)
+  const [showImportModal, setShowImportModal] = useState(false)
+  const [newSubscriber, setNewSubscriber] = useState({ email: '', firstName: '' })
+  const [importData, setImportData] = useState('')
+  const [importing, setImporting] = useState(false)
 
   useEffect(() => {
     loadSubscribers()
@@ -148,6 +155,109 @@ export default function NewsletterAdmin() {
     URL.revokeObjectURL(url)
   }
 
+  // Add single subscriber
+  const addSubscriber = async (e: React.FormEvent) => {
+    e.preventDefault()
+    if (!db || !newSubscriber.email) return
+
+    try {
+      const existing = subscribers.find(s => s.email.toLowerCase() === newSubscriber.email.toLowerCase())
+      if (existing) {
+        setMessage('This email is already subscribed')
+        setTimeout(() => setMessage(''), 3000)
+        return
+      }
+
+      const docRef = await addDoc(collection(db, 'newsletter'), {
+        email: newSubscriber.email.toLowerCase().trim(),
+        firstName: newSubscriber.firstName.trim(),
+        interests: 'General updates',
+        frequency: 'Monthly',
+        subscribed_at: new Date().toISOString(),
+        status: 'active'
+      })
+
+      setSubscribers(prev => [{
+        id: docRef.id,
+        email: newSubscriber.email.toLowerCase().trim(),
+        firstName: newSubscriber.firstName.trim(),
+        interests: 'General updates',
+        frequency: 'Monthly',
+        subscribed_at: new Date().toISOString(),
+        status: 'active'
+      }, ...prev])
+
+      setNewSubscriber({ email: '', firstName: '' })
+      setShowAddForm(false)
+      setMessage('Subscriber added successfully')
+      setTimeout(() => setMessage(''), 3000)
+    } catch (err) {
+      console.error('Error adding subscriber:', err)
+      setMessage('Error adding subscriber')
+    }
+  }
+
+  // Import subscribers from CSV/text
+  const importSubscribers = async () => {
+    if (!db || !importData.trim()) return
+
+    setImporting(true)
+    const lines = importData.trim().split('\n')
+    let added = 0
+    let skipped = 0
+    let errors = 0
+
+    for (const line of lines) {
+      const parts = line.split(',').map(p => p.trim())
+      const email = parts[0]?.toLowerCase()
+      const firstName = parts[1] || ''
+
+      // Validate email
+      if (!email || !email.includes('@')) {
+        errors++
+        continue
+      }
+
+      // Check if already exists
+      const existing = subscribers.find(s => s.email.toLowerCase() === email)
+      if (existing) {
+        skipped++
+        continue
+      }
+
+      try {
+        const docRef = await addDoc(collection(db, 'newsletter'), {
+          email,
+          firstName,
+          interests: 'General updates',
+          frequency: 'Monthly',
+          subscribed_at: new Date().toISOString(),
+          status: 'active'
+        })
+
+        setSubscribers(prev => [{
+          id: docRef.id,
+          email,
+          firstName,
+          interests: 'General updates',
+          frequency: 'Monthly',
+          subscribed_at: new Date().toISOString(),
+          status: 'active'
+        }, ...prev])
+
+        added++
+      } catch {
+        errors++
+      }
+    }
+
+    setImporting(false)
+    setImportData('')
+    setShowImportModal(false)
+    setMessage(`Import complete: ${added} added, ${skipped} duplicates skipped, ${errors} errors`)
+    setTimeout(() => setMessage(''), 5000)
+  }
+
   const formatDate = (dateString: string) => {
     try {
       return new Date(dateString).toLocaleDateString('en-GB', {
@@ -199,6 +309,20 @@ export default function NewsletterAdmin() {
               <ArrowDownTrayIcon className="w-5 h-5 mr-2" />
               Export CSV
             </button>
+            <button
+              onClick={() => setShowImportModal(true)}
+              className="inline-flex items-center justify-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold text-sm"
+            >
+              <ArrowUpTrayIcon className="w-5 h-5 mr-2" />
+              Import
+            </button>
+            <button
+              onClick={() => setShowAddForm(!showAddForm)}
+              className="inline-flex items-center justify-center bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg font-semibold text-sm"
+            >
+              <PlusIcon className="w-5 h-5 mr-2" />
+              Add
+            </button>
           </div>
           
           {message && (
@@ -206,7 +330,88 @@ export default function NewsletterAdmin() {
               {message}
             </div>
           )}
+
+          {/* Add Single Subscriber Form */}
+          {showAddForm && (
+            <form onSubmit={addSubscriber} className="mt-4 p-4 bg-gray-50 rounded-lg">
+              <h3 className="font-semibold text-gray-900 mb-3">Add New Subscriber</h3>
+              <div className="flex flex-col sm:flex-row gap-3">
+                <input
+                  type="email"
+                  placeholder="Email address *"
+                  value={newSubscriber.email}
+                  onChange={(e) => setNewSubscriber(prev => ({ ...prev, email: e.target.value }))}
+                  required
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm"
+                />
+                <input
+                  type="text"
+                  placeholder="First name (optional)"
+                  value={newSubscriber.firstName}
+                  onChange={(e) => setNewSubscriber(prev => ({ ...prev, firstName: e.target.value }))}
+                  className="flex-1 px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm"
+                />
+                <div className="flex gap-2">
+                  <button
+                    type="submit"
+                    className="px-4 py-2 bg-purple-600 hover:bg-purple-700 text-white rounded-lg font-semibold text-sm"
+                  >
+                    Add
+                  </button>
+                  <button
+                    type="button"
+                    onClick={() => setShowAddForm(false)}
+                    className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-lg font-semibold text-sm"
+                  >
+                    Cancel
+                  </button>
+                </div>
+              </div>
+            </form>
+          )}
         </div>
+
+        {/* Import Modal */}
+        {showImportModal && (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50 p-4">
+            <div className="bg-white rounded-lg shadow-xl max-w-lg w-full p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Import Subscribers</h3>
+              <p className="text-sm text-gray-600 mb-4">
+                Paste email addresses, one per line. Optionally add a name after the email, separated by a comma.
+              </p>
+              <div className="bg-gray-50 p-3 rounded-lg mb-4">
+                <p className="text-xs text-gray-500 font-mono">
+                  Example format:<br />
+                  john@example.com, John Smith<br />
+                  jane@example.com<br />
+                  bob@example.com, Bob
+                </p>
+              </div>
+              <textarea
+                value={importData}
+                onChange={(e) => setImportData(e.target.value)}
+                placeholder="Paste email addresses here..."
+                rows={8}
+                className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm font-mono"
+              />
+              <div className="flex justify-end gap-3 mt-4">
+                <button
+                  onClick={() => { setShowImportModal(false); setImportData(''); }}
+                  className="px-4 py-2 bg-gray-300 hover:bg-gray-400 text-gray-700 rounded-lg font-semibold text-sm"
+                >
+                  Cancel
+                </button>
+                <button
+                  onClick={importSubscribers}
+                  disabled={!importData.trim() || importing}
+                  className="px-4 py-2 bg-blue-600 hover:bg-blue-700 disabled:bg-gray-400 text-white rounded-lg font-semibold text-sm"
+                >
+                  {importing ? 'Importing...' : 'Import'}
+                </button>
+              </div>
+            </div>
+          </div>
+        )}
 
         {/* Stats */}
         <div className="grid grid-cols-3 gap-3 sm:gap-6 mb-4 sm:mb-6">
