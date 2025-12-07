@@ -131,6 +131,16 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
+        <link rel="dns-prefetch" href="https://scontent.flhr4-3.fna.fbcdn.net" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        
+        {/* Preload critical hero images for faster LCP */}
+        <link 
+          rel="preload" 
+          href="/images/awards/regional-winner1.webp" 
+          as="image" 
+          type="image/webp"
+        />
         
         {/* PWA Meta Tags */}
         <meta name="application-name" content="SERVE Charity" />

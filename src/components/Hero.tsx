@@ -2,7 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import { FallingSnowflakes } from './HeroEffects'
+import dynamic from 'next/dynamic'
+
+// Lazy load snowflakes effect - not critical for initial render
+const FallingSnowflakes = dynamic(() => import('./HeroEffects').then(mod => ({ default: mod.FallingSnowflakes })), {
+  ssr: false,
+  loading: () => null
+})
 
 export default function Hero() {
   return (
@@ -32,11 +38,10 @@ export default function Hero() {
                 className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
                 width={128}
                 height={128}
-                priority
                 loading="eager"
                 fetchPriority="high"
-                quality={100}
-                sizes="(max-width: 768px) 0px, 128px"
+                quality={80}
+                sizes="128px"
                 style={{ backgroundColor: 'transparent' }}
               />
               {/* Regional Winner Badge 2 */}
@@ -46,11 +51,10 @@ export default function Hero() {
                 className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
                 width={128}
                 height={128}
-                priority
                 loading="eager"
                 fetchPriority="high"
-                quality={100}
-                sizes="(max-width: 768px) 0px, 128px"
+                quality={80}
+                sizes="128px"
                 style={{ backgroundColor: 'transparent' }}
               />
             </div>
@@ -63,26 +67,26 @@ export default function Hero() {
               <Image 
                 src="/images/awards/regional-winner1.webp" 
                 alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-40 h-40 object-contain bg-transparent"
-                width={160}
-                height={160}
+                className="w-24 h-24 object-contain bg-transparent"
+                width={96}
+                height={96}
                 priority
                 fetchPriority="high"
-                quality={100}
-                sizes="(max-width: 768px) 160px, 0px"
+                quality={80}
+                sizes="96px"
                 style={{ backgroundColor: 'transparent' }}
               />
               {/* Regional Winner Badge 2 */}
               <Image 
                 src="/images/awards/regional-winner2.webp" 
                 alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-40 h-40 object-contain bg-transparent"
-                width={160}
-                height={160}
+                className="w-24 h-24 object-contain bg-transparent"
+                width={96}
+                height={96}
                 priority
                 fetchPriority="high"
-                quality={100}
-                sizes="(max-width: 768px) 160px, 0px"
+                quality={80}
+                sizes="96px"
                 style={{ backgroundColor: 'transparent' }}
               />
             </div>

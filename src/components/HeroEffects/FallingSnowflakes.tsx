@@ -15,7 +15,8 @@ export default function FallingSnowflakes() {
 
   useEffect(() => {
     // Generate 6-pointed stars with soft, transparent appearance and varying wind patterns
-    const stars = Array.from({ length: 50 }, (_, i) => ({
+    // Reduced from 50 to 25 for better mobile performance
+    const stars = Array.from({ length: 40 }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
       delay: `${Math.random() * 5}s`,

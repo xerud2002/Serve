@@ -121,7 +121,16 @@ const nextConfig = {
   
   // Experimental features for better performance
   experimental: {
-    optimizePackageImports: ['@heroicons/react', 'react', 'react-dom', 'firebase', 'clsx'],
+    optimizePackageImports: [
+      '@heroicons/react',
+      'firebase/app',
+      'firebase/auth', 
+      'firebase/firestore',
+      'clsx',
+      'resend',
+      'nodemailer',
+      'web-vitals'
+    ],
     optimizeCss: true, // Enable CSS optimization with critters
     webpackBuildWorker: true, // Faster builds
     cssChunking: 'strict', // Better CSS code splitting
