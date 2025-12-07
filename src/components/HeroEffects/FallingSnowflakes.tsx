@@ -1,34 +1,40 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, useMemo } from 'react'
+
+// Generate particles once on module load to avoid reflow
+const generateParticles = (count: number, isMobile: boolean) => 
+  Array.from({ length: count }, (_, i) => ({
+    id: i,
+    left: `${Math.random() * 100}%`,
+    delay: `${Math.random() * 8}s`,
+    duration: `${10 + Math.random() * 10}s`,
+    size: isMobile ? 10 + Math.random() * 8 : 12 + Math.random() * 14,
+    opacity: `${0.4 + Math.random() * 0.3}`,
+  }))
 
 export default function FallingSnowflakes() {
-  const [particles, setParticles] = useState<Array<{ 
-    id: number
-    left: string
-    delay: string
-    duration: string
-    size: number
-    opacity: string
-  }>>([])
+  const [isMobile, setIsMobile] = useState(false)
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
-    // Check if mobile for reduced particle count
-    const isMobile = window.innerWidth < 768
-    const particleCount = isMobile ? 15 : 25
+    // Use matchMedia instead of innerWidth to avoid reflow
+    const mediaQuery = window.matchMedia('(max-width: 767px)')
+    setIsMobile(mediaQuery.matches)
+    setIsClient(true)
     
-    const stars = Array.from({ length: particleCount }, (_, i) => ({
-      id: i,
-      left: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 8}s`,
-      duration: `${10 + Math.random() * 10}s`,
-      size: isMobile ? 10 + Math.random() * 8 : 12 + Math.random() * 14,
-      opacity: `${0.4 + Math.random() * 0.3}`,
-    }))
-    setParticles(stars)
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+    mediaQuery.addEventListener('change', handler)
+    return () => mediaQuery.removeEventListener('change', handler)
   }, [])
 
-  if (particles.length === 0) return null
+  // Memoize particles to avoid regenerating on every render
+  const particles = useMemo(() => {
+    if (!isClient) return []
+    return generateParticles(isMobile ? 12 : 20, isMobile)
+  }, [isClient, isMobile])
+
+  if (!isClient || particles.length === 0) return null
 
   return (
     <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
@@ -43,7 +49,6 @@ export default function FallingSnowflakes() {
             opacity: particle.opacity,
           }}
         >
-          {/* Simple 6-pointed snowflake using CSS */}
           <div 
             className="text-white"
             style={{ 

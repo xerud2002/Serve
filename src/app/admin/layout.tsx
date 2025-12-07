@@ -1,9 +1,9 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/navigation'
-import { auth } from '@/lib/firebase'
-import { signInWithEmailAndPassword, signOut, onAuthStateChanged } from 'firebase/auth'
+import { getAuthLazy } from '@/lib/firebase'
+import type { Auth, User } from 'firebase/auth'
 
 export default function AdminLayout({
   children,
@@ -15,32 +15,51 @@ export default function AdminLayout({
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [error, setError] = useState('')
+  const [auth, setAuth] = useState<Auth | null>(null)
   const router = useRouter()
 
   useEffect(() => {
-    // Check if Firebase is initialized
-    if (!auth) {
-      console.error('Firebase Auth is not initialized')
-      setIsLoading(false)
-      setError('Firebase is not configured. Please check environment variables.')
-      return
+    // Lazy load Firebase Auth only when admin page is accessed
+    let unsubscribe: (() => void) | undefined
+
+    const initAuth = async () => {
+      try {
+        const authInstance = await getAuthLazy()
+        if (!authInstance) {
+          setIsLoading(false)
+          setError('Firebase is not configured. Please check environment variables.')
+          return
+        }
+        
+        setAuth(authInstance)
+        
+        // Dynamically import auth functions
+        const { onAuthStateChanged } = await import('firebase/auth')
+        
+        unsubscribe = onAuthStateChanged(authInstance, (user: User | null) => {
+          if (user) {
+            setIsAuthenticated(true)
+            setEmail(user.email || '')
+          } else {
+            setIsAuthenticated(false)
+          }
+          setIsLoading(false)
+        })
+      } catch (err) {
+        console.error('Auth initialization error:', err)
+        setIsLoading(false)
+        setError('Failed to initialize authentication')
+      }
     }
 
-    // Listen for auth state changes
-    const unsubscribe = onAuthStateChanged(auth, (user) => {
-      if (user) {
-        setIsAuthenticated(true)
-        setEmail(user.email || '')
-      } else {
-        setIsAuthenticated(false)
-      }
-      setIsLoading(false)
-    })
+    initAuth()
 
-    return () => unsubscribe()
+    return () => {
+      if (unsubscribe) unsubscribe()
+    }
   }, [])
 
-  const handleLogin = async (e: React.FormEvent) => {
+  const handleLogin = useCallback(async (e: React.FormEvent) => {
     e.preventDefault()
     setError('')
 
@@ -50,18 +69,19 @@ export default function AdminLayout({
     }
 
     try {
+      const { signInWithEmailAndPassword } = await import('firebase/auth')
       await signInWithEmailAndPassword(auth, email, password)
       setPassword('')
-      // User state will be updated by onAuthStateChanged
     } catch (err) {
       console.error('Login error:', err)
       setError('Invalid email or password')
     }
-  }
+  }, [auth, email, password])
 
-  const handleLogout = async () => {
+  const handleLogout = useCallback(async () => {
     try {
       if (auth) {
+        const { signOut } = await import('firebase/auth')
         await signOut(auth)
       }
       setEmail('')
@@ -71,7 +91,7 @@ export default function AdminLayout({
       console.error('Logout error:', err)
       router.push('/')
     }
-  }
+  }, [auth, router])
 
   if (isLoading) {
     return (
