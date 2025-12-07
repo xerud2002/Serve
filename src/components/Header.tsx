@@ -126,7 +126,7 @@ export default function Header() {
         <div className={`max-w-7xl mx-auto px-1 sm:px-2 transition-all duration-300 mt-2`}>
           <div className={`flex items-center justify-between py-0 transition-all duration-300 h-16 sm:h-20`}>
             <div className="flex items-center">
-              <Link href="/" className="flex items-center">
+              <Link href="/" className="flex items-center" aria-label="SERVE - Supporting Independence, go to homepage">
                 <Image
                   src="/images/serve.webp"
                   alt="SERVE - Supporting Independence"
