@@ -161,7 +161,7 @@ export default function Footer() {
               href="https://www.justgiving.com/campaign/serve-community-appeal"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-4 py-3 min-h-[44px] rounded-lg text-sm font-semibold transition-all"
+              className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-4 py-3 min-h-11 rounded-lg text-sm font-semibold transition-all"
               aria-label="Donate to SERVE via JustGiving (opens in new tab)"
             >
               <svg className="w-4 h-4 mr-2" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
