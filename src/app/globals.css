@@ -165,25 +165,34 @@
     background-color: #f3f4f6;
   }
 
-  /* Holiday Animations */
+  /* Holiday Animations - Realistic Wind Effect */
   @keyframes snowfall {
     0% {
       transform: translateY(-10vh) translateX(0) rotate(0deg);
       opacity: 0;
     }
     10% { 
-      opacity: 0.8;
-      transform: translateY(10vh) translateX(-15px) rotate(36deg);
+      opacity: 0.7;
+      transform: translateY(10vh) translateX(20px) rotate(36deg);
     }
-    50% {
-      transform: translateY(50vh) translateX(-10px) rotate(180deg);
+    25% {
+      transform: translateY(25vh) translateX(-30px) rotate(90deg);
     }
-    90% { 
-      opacity: 0.8;
-      transform: translateY(90vh) translateX(-5px) rotate(324deg);
+    40% {
+      transform: translateY(40vh) translateX(25px) rotate(144deg);
+    }
+    55% {
+      transform: translateY(55vh) translateX(-20px) rotate(198deg);
+    }
+    70% { 
+      opacity: 0.6;
+      transform: translateY(70vh) translateX(30px) rotate(252deg);
+    }
+    85% {
+      transform: translateY(85vh) translateX(-15px) rotate(306deg);
     }
     100% {
-      transform: translateY(110vh) translateX(5px) rotate(360deg);
+      transform: translateY(110vh) translateX(10px) rotate(360deg);
       opacity: 0;
     }
   }

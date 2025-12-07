@@ -8,57 +8,51 @@ export default function FallingSnowflakes() {
     left: string
     delay: string
     duration: string
-    size: string
+    size: number
     opacity: string
-    windIntensity: number
   }>>([])
 
   useEffect(() => {
-    // Generate 6-pointed stars with soft, transparent appearance and varying wind patterns
-    // Reduced from 50 to 25 for better mobile performance
-    const stars = Array.from({ length: 40 }, (_, i) => ({
+    // Check if mobile for reduced particle count
+    const isMobile = window.innerWidth < 768
+    const particleCount = isMobile ? 15 : 25
+    
+    const stars = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       left: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 5}s`,
-      duration: `${8 + Math.random() * 12}s`,
-      size: `${12 + Math.random() * 16}px`, // Range: 12-28px
-      opacity: `${0.3 + Math.random() * 0.4}`, // Soft transparent range: 0.3-0.7
-      windIntensity: Math.random() // 0-1 for different wind patterns
+      delay: `${Math.random() * 8}s`,
+      duration: `${10 + Math.random() * 10}s`,
+      size: isMobile ? 10 + Math.random() * 8 : 12 + Math.random() * 14,
+      opacity: `${0.4 + Math.random() * 0.3}`,
     }))
     setParticles(stars)
   }, [])
 
+  if (particles.length === 0) return null
+
   return (
-    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+    <div className="absolute inset-0 pointer-events-none overflow-hidden" aria-hidden="true">
       {particles.map((particle) => (
         <div
           key={particle.id}
-          className="absolute animate-snowfall"
+          className="absolute animate-snowfall will-change-transform"
           style={{
             left: particle.left,
             animationDelay: particle.delay,
             animationDuration: particle.duration,
             opacity: particle.opacity,
-            // Add CSS custom property for wind variation
-            // @ts-expect-error CSS custom property
-            '--wind-offset': `${particle.windIntensity * 30 - 15}px`
           }}
         >
-          <svg 
-            width={particle.size} 
-            height={particle.size} 
-            viewBox="0 0 24 24" 
-            fill="white" 
-            xmlns="http://www.w3.org/2000/svg"
+          {/* Simple 6-pointed snowflake using CSS */}
+          <div 
+            className="text-white"
             style={{ 
-              filter: 'drop-shadow(0 0 2px rgba(255, 255, 255, 0.8))',
-              transform: `rotate(${particle.windIntensity * 360}deg)`
+              fontSize: `${particle.size}px`,
+              textShadow: '0 0 3px rgba(255,255,255,0.5)',
             }}
           >
-            {/* 6-pointed star (Star of David / hexagram shape) */}
-            <path d="M12 2 L14.5 7.5 L20.5 7.5 L16 11.5 L18 17 L12 13.5 L6 17 L8 11.5 L3.5 7.5 L9.5 7.5 Z" />
-            <path d="M12 22 L14.5 16.5 L20.5 16.5 L16 12.5 L18 7 L12 10.5 L6 7 L8 12.5 L3.5 16.5 L9.5 16.5 Z" />
-          </svg>
+            ❄
+          </div>
         </div>
       ))}
     </div>
