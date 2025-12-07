@@ -47,7 +47,7 @@ export default function DonatePage() {
           
           {/* Primary CTA */}
           <a
-            href="https://www.justgiving.com/serve-jg"
+            href="https://www.justgiving.com/campaign/serve-community-appeal"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-12 py-6 rounded-full text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
@@ -175,7 +175,7 @@ export default function DonatePage() {
                 </li>
               </ul>
               <a
-                href="https://www.justgiving.com/serve-jg"
+                href="https://www.justgiving.com/campaign/serve-community-appeal"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="block w-full bg-rose-600 hover:bg-rose-700 text-white font-bold py-4 rounded-xl text-center transition-all duration-200 shadow-lg hover:shadow-xl"

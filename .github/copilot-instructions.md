@@ -269,7 +269,7 @@ Routes: `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
 - **Phone**: 01933 315555 | **Email**: info@serve.org.uk
 - **Address**: 8 West Street, Rushden, Northants NN10 0RT
 - **Charity**: 1043321 | **CQC**: https://www.cqc.org.uk/location/1-2165219210
-- **JustGiving**: https://www.justgiving.com/serve-jg
+- **JustGiving**: https://www.justgiving.com/campaign/serve-community-appeal
 
 ## Recent Updates (November 2025)
 - ✅ Vercel production deployment with environment variables
@@ -287,4 +287,4 @@ Routes: `/api/facebook-photos`, `/api/facebook-events`, `/api/facebook-posts`
 - **Phone**: 01933 315555 | **Email**: info@serve.org.uk
 - **Address**: 8 West Street, Rushden, Northants NN10 0RT
 - **Charity**: 1043321 | **CQC**: https://www.cqc.org.uk/location/1-2165219210
-- **JustGiving**: https://www.justgiving.com/serve-jg
+- **JustGiving**: https://www.justgiving.com/campaign/serve-community-appeal

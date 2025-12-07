@@ -318,7 +318,7 @@ export default function Contact() {
                 <h4 className="text-lg font-semibold mb-4">Quick Actions</h4>
                 <div className="grid grid-cols-1 gap-3">
                   <a
-                    href="https://www.justgiving.com/serve-jg"
+                    href="https://www.justgiving.com/campaign/serve-community-appeal"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-6 py-3 min-h-[44px] rounded-xl font-semibold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center"

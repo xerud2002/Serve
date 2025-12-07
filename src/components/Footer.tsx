@@ -158,7 +158,7 @@ export default function Footer() {
               </a>
             </div>
             <a
-              href="https://www.justgiving.com/serve-jg"
+              href="https://www.justgiving.com/campaign/serve-community-appeal"
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-4 py-3 min-h-[44px] rounded-lg text-sm font-semibold transition-all"

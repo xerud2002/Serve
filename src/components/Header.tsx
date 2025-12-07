@@ -76,14 +76,17 @@ export default function Header() {
                   <span className="truncate">{isMobile ? '01933 315555' : '01933 315555'}</span>
                 </a>
                 {!isMobile && (
-                  <a 
-                    href="mailto:info@serve.org.uk" 
-                    className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-11 min-w-11 hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
-                    aria-label={ARIA_LABELS.emailAddress}
-                  >
-                    <EnvelopeIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />
-                    <span className="truncate">info@serve.org.uk</span>
-                  </a>
+                  <>
+                    <span className="text-serve-blue-400 mx-2" aria-hidden="true">|</span>
+                    <a 
+                      href="mailto:info@serve.org.uk" 
+                      className={`flex items-center py-2 px-3 -my-2 -mx-3 min-h-11 min-w-11 hover:text-serve-blue-200 transition-colors ${FOCUS_STYLES.link}`}
+                      aria-label={ARIA_LABELS.emailAddress}
+                    >
+                      <EnvelopeIcon className="h-4 w-4 mr-1 shrink-0" aria-hidden="true" />
+                      <span className="truncate">info@serve.org.uk</span>
+                    </a>
+                  </>
                 )}
               </div>
               <div className={`flex items-center ${isMobile ? 'space-x-2' : 'space-x-2'} scale-75`}>
