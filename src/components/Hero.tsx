@@ -5,7 +5,7 @@ import Link from 'next/link'
 import dynamic from 'next/dynamic'
 
 // Lazy load snowflakes effect - not critical for initial render
-const FallingSnowflakes = dynamic(() => import('./HeroEffects').then(mod => ({ default: mod.FallingSnowflakes })), {
+const FallingSnowflakes = dynamic(() => import('./HeroEffects/FallingSnowflakes'), {
   ssr: false,
   loading: () => null
 })
