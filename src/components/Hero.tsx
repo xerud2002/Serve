@@ -2,13 +2,13 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
-import dynamic from 'next/dynamic'
+// Removed snowflakes effect to fix hydration errors
+// import dynamic from 'next/dynamic'
 
-// Lazy load snowflakes effect - not critical for initial render
-const FallingSnowflakes = dynamic(() => import('./HeroEffects/FallingSnowflakes'), {
-  ssr: false,
-  loading: () => null
-})
+// const FallingSnowflakes = dynamic(() => import('./HeroEffects/FallingSnowflakes'), {
+//   ssr: false,
+//   loading: () => null
+// })
 
 export default function Hero() {
   return (
@@ -23,75 +23,10 @@ export default function Hero() {
         />
       </div>
 
-      {/* Hero Effect - Winter/Christmas snowflakes */}
-      <FallingSnowflakes />
+      {/* Hero Effect - Removed to fix hydration errors */}
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="text-center">
-          {/* Winner Badge Images - Desktop: top-right side-by-side, Mobile: centered */}
-          <div className="absolute top-4 right-4 md:right-8 z-10 hidden md:block">
-            <div className="flex gap-4">
-              {/* Regional Winner Badge 1 */}
-              <Image 
-                src="/images/awards/regional-winner1.webp" 
-                alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
-                width={128}
-                height={128}
-                loading="eager"
-                fetchPriority="high"
-                quality={80}
-                sizes="128px"
-                style={{ backgroundColor: 'transparent' }}
-              />
-              {/* Regional Winner Badge 2 */}
-              <Image 
-                src="/images/awards/regional-winner2.webp" 
-                alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
-                width={128}
-                height={128}
-                loading="eager"
-                fetchPriority="high"
-                quality={80}
-                sizes="128px"
-                style={{ backgroundColor: 'transparent' }}
-              />
-            </div>
-          </div>
-
-          {/* Mobile Winner Badges - Centered side-by-side */}
-          <div className="block md:hidden mb-3">
-            <div className="flex gap-3 justify-center">
-              {/* Regional Winner Badge 1 */}
-              <Image 
-                src="/images/awards/regional-winner1.webp" 
-                alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-20 h-20 object-contain bg-transparent"
-                width={80}
-                height={80}
-                priority
-                fetchPriority="high"
-                quality={75}
-                sizes="80px"
-                style={{ backgroundColor: 'transparent' }}
-              />
-              {/* Regional Winner Badge 2 */}
-              <Image 
-                src="/images/awards/regional-winner2.webp" 
-                alt="SERVE - Great British Care Awards Regional Winner"
-                className="w-20 h-20 object-contain bg-transparent"
-                width={80}
-                height={80}
-                priority
-                fetchPriority="high"
-                quality={75}
-                sizes="80px"
-                style={{ backgroundColor: 'transparent' }}
-              />
-            </div>
-          </div>
-
           {/* Award Badge - Hidden on mobile */}
           <div className="mb-8 hidden md:block">
             <span className="inline-flex items-center px-6 py-3 rounded-full text-sm font-semibold bg-linear-to-r from-yellow-400 to-yellow-500 text-yellow-900 shadow-lg transform hover:scale-105 transition-transform">
@@ -147,6 +82,70 @@ export default function Hero() {
               </svg>
               <span className="text-lg">Get Care Support</span>
             </Link>
+          </div>
+          
+          {/* Winner Badge Images - Desktop: centered side-by-side */}
+          <div className="mb-12 hidden md:block">
+            <div className="flex gap-4 justify-center">
+              {/* Regional Winner Badge 1 */}
+              <Image 
+                src="/images/awards/regional-winner1.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                loading="eager"
+                fetchPriority="high"
+                quality={80}
+                sizes="128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+              {/* Regional Winner Badge 2 */}
+              <Image 
+                src="/images/awards/regional-winner2.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-24 h-24 lg:w-32 lg:h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                loading="eager"
+                fetchPriority="high"
+                quality={80}
+                sizes="128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+            </div>
+          </div>
+
+          {/* Mobile Winner Badges - Centered side-by-side */}
+          <div className="block md:hidden mb-8">
+            <div className="flex gap-3 justify-center">
+              {/* Regional Winner Badge 1 */}
+              <Image 
+                src="/images/awards/regional-winner1.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-32 h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                priority
+                fetchPriority="high"
+                quality={75}
+                sizes="128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+              {/* Regional Winner Badge 2 */}
+              <Image 
+                src="/images/awards/regional-winner2.webp" 
+                alt="SERVE - Great British Care Awards Regional Winner"
+                className="w-32 h-32 object-contain bg-transparent"
+                width={128}
+                height={128}
+                priority
+                fetchPriority="high"
+                quality={75}
+                sizes="128px"
+                style={{ backgroundColor: 'transparent' }}
+              />
+            </div>
           </div>
           
           {/* Stats */}
