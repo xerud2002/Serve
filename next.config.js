@@ -119,6 +119,9 @@ const nextConfig = {
     } : false,
   },
   
+  // Turbopack configuration (Next.js 16 default)
+  turbopack: {}, // Empty config to acknowledge Turbopack while keeping webpack config
+  
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: [
