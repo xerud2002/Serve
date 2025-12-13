@@ -68,10 +68,10 @@ const services = [
   {
     id: 'carers-support',
     title: 'Support for family carers',
-    subtitle: 'Support for family carers',
-    description: 'Respite care and practical support for those caring for family members and loved ones.',
+    subtitle: 'Advice and emotional support',
+    description: 'Practical advice and emotional support for those caring for family members. Because carers need care too.',
     icon: HandRaisedIcon,
-    features: ['Respite care', 'Carer training', 'Support groups', 'Information & advice', 'Emergency support'],
+    features: ['Practical advice', 'Emotional support', 'One-to-one support', 'Peer support groups', 'Benefits guidance'],
     href: '/services/carers-support',
     badge: 'Family Focus',
     gradient: 'from-orange-600 to-orange-700'
