@@ -89,6 +89,7 @@ const nextConfig = {
     dangerouslyAllowSVG: true,
     contentDispositionType: 'attachment',
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    qualities: [70, 75, 80, 90], // Supported image quality levels
     remotePatterns: [
       {
         protocol: 'https',
@@ -118,6 +119,9 @@ const nextConfig = {
       exclude: ['error', 'warn'],
     } : false,
   },
+  
+  // Turbopack configuration (Next.js 16 default)
+  turbopack: {}, // Empty config to acknowledge Turbopack while keeping webpack config
   
   // Experimental features for better performance
   experimental: {
