@@ -352,7 +352,7 @@ export default function VolunteerPage() {
               return (
                 <div key={opportunity.id} className={`bg-linear-to-br ${colors.bg} rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${colors.border}`}>
                   <div className="flex items-start gap-6 mb-6">
-                    <div className={`${colors.iconBg} rounded-xl p-4 flex-shrink-0`}>
+                    <div className={`${colors.iconBg} rounded-xl p-4 shrink-0`}>
                       <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                     </div>
                     <div className="flex-1">

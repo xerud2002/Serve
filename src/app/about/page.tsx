@@ -460,7 +460,7 @@ export default function AboutPage() {
                         className="w-14 h-14 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center shrink-0">
                         <span className="text-serve-blue-600 font-bold text-lg">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </span>
@@ -506,7 +506,7 @@ export default function AboutPage() {
                         className="w-14 h-14 rounded-full object-cover"
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center flex-shrink-0">
+                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center shrink-0">
                         <span className="text-serve-blue-600 font-bold text-lg">
                           {trustee.name.split(' ').map(n => n[0]).join('')}
                         </span>
