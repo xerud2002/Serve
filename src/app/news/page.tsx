@@ -19,23 +19,6 @@ const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
 export const metadata = generateSEOMetadata(seoConfigs.news)
 export const revalidate = 0
 
-const upcomingEvents = [
-  {
-    title: 'Community Coffee Morning',
-    date: 'Monthly',
-    time: '10:30 AM - 12:00 PM',
-    location: 'Ron Manning Day Centre',
-    description: 'Monthly coffee morning open to the community. Come and learn about our services and meet our team.'
-  },
-  {
-    title: 'Volunteer Information Session',
-    date: 'Ongoing',
-    time: 'Various Times',
-    location: 'SERVE Head Office',
-    description: 'Interested in volunteering? Contact us to attend an information session and learn how you can make a difference in your community.'
-  }
-]
-
 export default function NewsPage() {
   return (
     <div className="min-h-screen bg-white">
@@ -108,104 +91,8 @@ export default function NewsPage() {
         </div>
       </section>
 
-      {/* Upcoming Events */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">Upcoming Events</h2>
-            <p className="text-lg text-gray-600">Join us at our upcoming events and activities</p>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {upcomingEvents.map((event, index) => (
-              <div 
-                key={index} 
-                className="bg-gray-50 rounded-2xl p-8 border border-gray-200 hover:shadow-lg transition-shadow"
-              >
-                <div className="flex items-start gap-6">
-                  <div className="bg-serve-blue-600 rounded-xl p-4 shrink-0">
-                    <CalendarDaysIcon className="w-6 h-6 text-white" />
-                  </div>
-                  <div className="flex-1">
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">
-                      {event.title}
-                    </h3>
-                    
-                    <div className="space-y-2 mb-6 text-gray-600">
-                      <div className="flex items-center">
-                        <CalendarDaysIcon className="w-4 h-4 mr-2 text-gray-400" />
-                        <span className="text-sm">{event.date}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <ClockIcon className="w-4 h-4 mr-2 text-gray-400" />
-                        <span className="text-sm">{event.time}</span>
-                      </div>
-                      <div className="flex items-center">
-                        <BuildingOffice2Icon className="w-4 h-4 mr-2 text-gray-400" />
-                        <span className="text-sm">{event.location}</span>
-                      </div>
-                    </div>
-                    
-                    <p className="text-gray-600 mb-6">
-                      {event.description}
-                    </p>
-
-                    <Link
-                      href="/contact"
-                      className="inline-flex items-center text-serve-blue-600 hover:text-serve-blue-700 font-semibold"
-                    >
-                      Get More Information
-                      <ArrowRightIcon className="ml-2 h-4 w-4" />
-                    </Link>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* Latest News from Facebook */}
       <FacebookFeed />
-
-      {/* Featured Achievement */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-yellow-100 text-yellow-800 px-4 py-2 rounded-full text-sm font-semibold mb-4">
-              <TrophyIcon className="w-4 h-4 mr-2" />
-              Award Winner
-            </div>
-            <h2 className="text-3xl font-bold text-gray-900">SERVE Wins Best Homecare Team Award 2024</h2>
-          </div>
-            
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200">
-            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-center">
-              <div className="lg:col-span-2">
-                <p className="text-lg text-gray-700 mb-8 leading-relaxed">
-                  We are thrilled to announce that SERVE has been awarded &ldquo;Best Homecare Team, East Midlands&rdquo; at the prestigious Great British Care Awards 2024. This recognition celebrates our dedicated team&apos;s commitment to providing exceptional care services.
-                </p>
-                
-                <Link
-                  href="/news/great-british-care-awards"
-                  className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-semibold transition-colors"
-                >
-                  Read Full Story
-                  <ArrowRightIcon className="ml-3 h-5 w-5" />
-                </Link>
-              </div>
-              
-              <div className="bg-yellow-50 rounded-2xl p-8 flex items-center justify-center border border-yellow-200">
-                <div className="text-center text-yellow-800">
-                  <TrophyIcon className="w-24 h-24 mx-auto mb-4" />
-                  <p className="text-lg font-bold">Great British Care Awards</p>
-                  <p className="text-sm">Winner 2024</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
 
       {/* Previous Events Photo Gallery */}
       <section className="py-16 bg-white">
@@ -223,11 +110,7 @@ export default function NewsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { title: 'Cloisters Rushden Craft Fair', image: '/images/community/Cloisters-Rushden-craft-fair-scaled.webp' },
-              { title: 'Christmas Gifts from Happy Mondays', image: '/images/donations/Christmas-gifts-from-Happy-Mondays-in-Rushden-scaled.webp' },
-              { title: 'Teddy Bear Winners', image: '/images/community/Teddy-Bear-winners-scaled.webp' },
               { title: 'Fundraising at Asda Rushden', image: '/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp' },
-              { title: 'Chamber of Trade Expo 2024', image: '/images/community/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp' },
               { title: 'Christmas Lights Rushden', image: '/images/donations/Christmas-Lights-Rushden-scaled.webp' }
             ].map((event, index) => (
               <div key={index} className="group relative bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">

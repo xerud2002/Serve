@@ -46,19 +46,9 @@ export default function SupportersPage() {
       description: "Magical Christmas event bringing our community together"
     },
     {
-      title: "Rushden Armed Forces Day 2023",
-      image: "/images/fundraising/Rushden-Armed-Forces-Day-2023-scaled.webp",
-      description: "Proud participation in our local community events"
-    },
-    {
       title: "Fundraising from the Homemade Bread Company",
       image: "/images/fundraising/Fundraising-from-the-Homemade-Bread-Company.webp",
       description: "Delicious partnership with local bakers"
-    },
-    {
-      title: "SERVE Easter Raffle",
-      image: "/images/fundraising/Serve-Easter-raffle.webp",
-      description: "Spring celebrations with our community"
     },
     {
       title: "Community Fundraising Event",
@@ -92,24 +82,9 @@ export default function SupportersPage() {
       description: "Musical performances raising spirits and funds"
     },
     {
-      title: "Northamptonshire Chamber of Trade Expo 2024",
-      image: "/images/community/Northamptonshire-Chamber-of-Trade-Expo-2024-scaled.webp",
-      description: "Connecting with local businesses and partners"
-    },
-    {
-      title: "Teddy Bear Winners",
-      image: "/images/community/Teddy-Bear-winners-scaled.webp",
-      description: "Celebrating our fundraising raffle winners"
-    },
-    {
       title: "SERVE Race Night",
       image: "/images/community/Serve-Race-Night.webp",
       description: "Exciting evening of entertainment and fundraising"
-    },
-    {
-      title: "Cloisters Rushden Craft Fair",
-      image: "/images/community/Cloisters-Rushden-craft-fair-scaled.webp",
-      description: "Supporting local artisans while raising funds"
     },
     {
       title: "Community Newsletter Feature",
@@ -121,17 +96,7 @@ export default function SupportersPage() {
       image: "/images/community/WhatsApp Image 2025-05-11 at 11.47.19_fa01ef94.webp",
       description: "Building relationships across Northamptonshire"
     },
-    {
-      title: "Community Day Centre Activities",
-      image: "/images/community/bigchat7.webp",
-      description: "Bringing people together at our day centre"
-    },
     // Donations & Support
-    {
-      title: "Asda Festive Donations",
-      image: "/images/donations/Asda-festive-donations-scaled.webp",
-      description: "Generous Christmas donations from Asda"
-    },
     {
       title: "Christmas 2023 at Wellingborough Swansgate",
       image: "/images/donations/Christmas-2023-at-Wellingborough-Swansgate-scaled.webp",
@@ -156,11 +121,6 @@ export default function SupportersPage() {
       title: "Donations from Our Supporters",
       image: "/images/donations/Donations-from-our-supporters-scaled.webp",
       description: "Generous contributions making a real difference"
-    },
-    {
-      title: "Gen Kitchen Opens Our New Offices",
-      image: "/images/donations/Gen-Kitchen-opens-our-new-offices.webp",
-      description: "Celebrating new beginnings with community partners"
     },
     {
       title: "Partnership with Wellingborough Wills",
@@ -216,7 +176,7 @@ export default function SupportersPage() {
             <p>
               For over 40 years, SERVE has been fortunate to receive incredible support from individuals, 
               businesses, and organizations across Northamptonshire and beyond. Your contributions have helped 
-              us provide essential care services to older people and adults with disabilities.
+              us provide essential care services to older people, adults with disabilities and their carers.
             </p>
             <p>
               Every donation, every volunteer hour, every event attended, and every kind word shared has made 

@@ -227,10 +227,14 @@ export default function VolunteerForm() {
                 required
               >
                 <option value="">Please select a volunteer role</option>
+                <option value="Community Transport Office Assistant">Community Transport Office Assistant</option>
+                <option value="Community Transport Volunteer Driver">Community Transport Volunteer Driver</option>
+                <option value="Day Centre Volunteer">Day Centre Volunteer</option>
+                <option value="Day Centre Minibus Driver">Day Centre Minibus Driver (MIDAS)</option>
+                <option value="Meals on Wheels Driver">Meals on Wheels Driver</option>
+                <option value="Trustee">Trustee</option>
                 <option value="Befriending Volunteer">Befriending Volunteer</option>
-                <option value="Community Transport Assistant">Community Transport Assistant</option>
-                <option value="Events & Activities Volunteer">Events & Activities Volunteer</option>
-                <option value="Administrative Support">Administrative Support</option>
+                <option value="Event Setup & Pack Down">Event Setup & Pack Down</option>
                 <option value="Multiple roles interest me">Multiple roles interest me</option>
                 <option value="Other">Other (please specify in motivation)</option>
               </select>
