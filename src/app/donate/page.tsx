@@ -30,18 +30,22 @@ export default function DonatePage() {
           </p>
           
           {/* Impact Stats */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-              <div className="text-4xl font-bold mb-2">£25</div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30">
+              <div className="text-3xl font-bold mb-2">£5</div>
+              <div className="text-sm opacity-90">Provides a hot meal at day centre</div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30">
+              <div className="text-3xl font-bold mb-2">£20</div>
               <div className="text-sm opacity-90">Provides a hot meal delivery</div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-              <div className="text-4xl font-bold mb-2">£50</div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30">
+              <div className="text-3xl font-bold mb-2">£50</div>
               <div className="text-sm opacity-90">Funds transport to appointments</div>
             </div>
-            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-6 border border-white/30">
-              <div className="text-4xl font-bold mb-2">£100</div>
-              <div className="text-sm opacity-90">Supports a day of care services</div>
+            <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30">
+              <div className="text-3xl font-bold mb-2">£100</div>
+              <div className="text-sm opacity-90">Support activities at our day centre</div>
             </div>
           </div>
           
@@ -258,7 +262,7 @@ export default function DonatePage() {
       </section>
 
       {/* Contact CTA */}
-      <section className="bg-linear-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white mx-auto max-w-4xl mb-16">
+      <section className="bg-linear-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-center text-white mx-auto max-w-4xl mb-10">
         <h3 className="text-3xl font-bold mb-6">Need Help or Have Questions?</h3>
         <p className="text-lg opacity-90 mb-8 max-w-2xl mx-auto">
           Our friendly team is ready to assist you with your donation or answer any questions about how your gift makes a difference.
@@ -280,6 +284,9 @@ export default function DonatePage() {
           </Link>
         </div>
       </section>
+      
+      {/* White spacer above footer */}
+      <div className="h-10 bg-white"></div>
     </div>
   );
 }
