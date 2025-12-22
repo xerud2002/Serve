@@ -9,7 +9,11 @@ import {
   TrophyIcon,
   PhoneIcon,
   ArrowRightIcon,
-  DocumentTextIcon
+  DocumentTextIcon,
+  SparklesIcon,
+  HandRaisedIcon,
+  GlobeAltIcon,
+  CheckBadgeIcon
 } from '@heroicons/react/24/outline'
 import MajorTitle from '@/components/MajorTitle'
 
@@ -28,27 +32,38 @@ const teamMembers = [
 const managementTeam = [
   {
     name: 'Louise Wiltshire',
-    role: 'Executive Assistant'
+    role: 'Executive Assistant',
+    image: '' // Add photo path: '/images/team/louise.webp'
   },
   {
     name: 'Sam Horne',
-    role: 'Registered Care Manager'
+    role: 'Registered Care Manager',
+    image: '' // Add photo path: '/images/team/sam.webp'
   },
   {
     name: 'Cheryl Smith',
-    role: 'Befriending Manager'
+    role: 'Befriending Manager',
+    image: '' // Add photo path: '/images/team/cheryl.webp'
   },
   {
     name: 'Mario Brown',
-    role: 'Policy and Compliance Manager/Transport Manager'
+    role: 'Policy and Compliance Manager',
+    image: '' // Add photo path: '/images/team/mario.webp'
   },
   {
     name: 'Emily Lennox',
-    role: 'Finance Manager'
+    role: 'Finance Manager',
+    image: '' // Add photo path: '/images/team/emily.webp'
   },
   {
     name: 'Sean Silver',
-    role: 'Project Manager'
+    role: 'Project Manager',
+    image: '' // Add photo path: '/images/team/sean.webp'
+  },
+  {
+    name: 'Kerry Redman',
+    role: 'Deputy Care Manager',
+    image: '' // Add photo path: '/images/team/kerry.webp'
   }
 ]
 
@@ -56,88 +71,84 @@ const trustees = [
   {
     name: 'Anita Harvey',
     role: 'Director / Chair',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/anita.webp'
     dateAppointed: 'January 2024',
     expertise: 'Board Leadership & Governance'
   },
   {
     name: 'Zara Cunliffe',
     role: 'Director / Deputy Chair',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/zara.webp'
     dateAppointed: 'April 2016',
     expertise: 'Legal & Compliance'
   },
   {
     name: 'Jess Bermudez',
     role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/jess.webp'
     dateAppointed: 'July 2019',
     expertise: 'Heritage & Community'
   },
   {
     name: 'Maureen Core',
     role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/maureen.webp'
     dateAppointed: 'June 2016',
     expertise: 'Care Services & Operations'
   },
   {
     name: 'Mike Huland',
     role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/mike.webp'
     dateAppointed: 'September 2025',
     expertise: 'Strategic Development'
   },
   {
     name: 'Jimmy James',
     role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/jimmy.webp'
     dateAppointed: 'July 2019',
     expertise: 'Heritage & Community'
   },
   {
-    name: 'Simon Partridge',
-    role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'November 2022',
-    expertise: 'Finance & Risk Management'
-  },
-  {
     name: 'Rachel Wilson',
     role: 'Director / Trustee',
-    image: '/images/trustees/placeholder.svg',
+    image: '', // Add photo path: '/images/trustees/rachel.webp'
     dateAppointed: 'January 2024',
     expertise: 'Community & Social Care'
   },
-  {
-    name: 'I & J Rep Coopted Trustees',
-    role: 'Coopted Trustees',
-    image: '/images/trustees/placeholder.svg',
-    dateAppointed: 'January 2024',
-    expertise: 'Community & Social Care'
-  }
 ]
 
 const values = [
   {
-    title: 'Independence',
-    description: 'Supporting people to live independently in their own homes.',
-    icon: HeartIcon
+    title: 'Empowerment',
+    description: 'We believe in enabling people to take control of their own lives, building confidence, skills, and independence.',
+    icon: SparklesIcon,
+    color: 'blue'
   },
   {
-    title: 'Dignity',
-    description: 'Treating everyone with respect and compassion.',
-    icon: UserGroupIcon
+    title: 'Respect',
+    description: 'We treat every individual with dignity, fairness, and appreciation for their unique contributions.',
+    icon: HandRaisedIcon,
+    color: 'green'
   },
   {
-    title: 'Quality',
-    description: 'Maintaining the highest standards in all our services.',
-    icon: TrophyIcon
+    title: 'Inclusion',
+    description: 'We welcome diversity and ensure that everyone has equal access, voice, and opportunity.',
+    icon: GlobeAltIcon,
+    color: 'purple'
   },
   {
-    title: 'Community',
-    description: 'Building strong connections and belonging.',
-    icon: ShieldCheckIcon
+    title: 'Integrity',
+    description: 'We are honest, transparent, and accountable in all that we do, earning trust through our actions.',
+    icon: CheckBadgeIcon,
+    color: 'amber'
+  },
+  {
+    title: 'Care',
+    description: 'We provide thoughtful, compassionate support that puts people\'s wellbeing at the centre of our work.',
+    icon: HeartIcon,
+    color: 'red'
   }
 ]
 
@@ -154,8 +165,8 @@ export default function AboutPage() {
             </div>
             <MajorTitle primary="About" secondary="SERVE" dark />
             <p className="text-xl text-blue-100 leading-relaxed">
-              For over 40 years, SERVE has been providing award-winning care services to help older people 
-              and adults with disabilities maintain their independence across Northamptonshire.
+              For over 40 years, SERVE has been providing award-winning care services to help older people, 
+             adults with disabilities and their carers maintain their independence across Northamptonshire.
             </p>
           </div>
         </div>
@@ -213,18 +224,34 @@ export default function AboutPage() {
                   we provide is built on the foundation of respect, compassion, and excellence.
                 </p>
 
-                <div className="grid md:grid-cols-3 gap-6 my-8">
-                  <div className="text-center p-6 bg-linear-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
-                    <div className="text-4xl font-bold text-serve-blue-600 mb-2">40+</div>
-                    <p className="text-sm font-semibold text-gray-700">Years of Service</p>
+                {/* Stats Grid */}
+                <div className="my-8 space-y-4">
+                  {/* Row 1: Service Stats */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="text-center p-6 bg-linear-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
+                      <div className="text-4xl font-bold text-serve-blue-600 mb-2">40+</div>
+                      <p className="text-sm font-semibold text-gray-700">Years of Service</p>
+                    </div>
+                    <div className="text-center p-6 bg-linear-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
+                      <div className="text-4xl font-bold text-serve-green-600 mb-2">1000s</div>
+                      <p className="text-sm font-semibold text-gray-700">Lives Touched</p>
+                    </div>
                   </div>
-                  <div className="text-center p-6 bg-linear-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
-                    <div className="text-4xl font-bold text-serve-green-600 mb-2">1000s</div>
-                    <p className="text-sm font-semibold text-gray-700">Lives Touched</p>
-                  </div>
-                  <div className="text-center p-6 bg-linear-to-br from-yellow-50 to-white rounded-xl border border-yellow-100">
-                    <div className="text-4xl font-bold text-yellow-600 mb-2">2024</div>
-                    <p className="text-sm font-semibold text-gray-700">Award Winner</p>
+                  
+                  {/* Row 2: Awards */}
+                  <div className="grid grid-cols-3 gap-4">
+                    <div className="text-center p-5 bg-linear-to-br from-yellow-50 to-white rounded-xl border border-yellow-200">
+                      <div className="text-3xl font-bold text-yellow-600 mb-2">2024</div>
+                      <p className="text-sm font-semibold text-gray-700">Award Winner</p>
+                    </div>
+                    <div className="text-center p-5 bg-linear-to-br from-amber-50 to-white rounded-xl border border-amber-200">
+                      <div className="text-3xl font-bold text-amber-600 mb-2">2025</div>
+                      <p className="text-sm font-semibold text-gray-700">Highly Commended</p>
+                    </div>
+                    <div className="text-center p-5 bg-linear-to-br from-orange-50 to-white rounded-xl border border-orange-200">
+                      <div className="text-3xl font-bold text-orange-600 mb-2">2025</div>
+                      <p className="text-sm font-semibold text-gray-700">Award Finalist</p>
+                    </div>
                   </div>
                 </div>
 
@@ -272,7 +299,7 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-gray-50">
+      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -283,16 +310,54 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {values.map((value, index) => {
+          {/* Top row - 3 values */}
+          <div className="grid md:grid-cols-3 gap-6 mb-6">
+            {values.slice(0, 3).map((value, index) => {
               const IconComponent = value.icon
+              const colorStyles = {
+                blue: 'from-serve-blue-50 to-white border-serve-blue-100 bg-serve-blue-100 text-serve-blue-600',
+                green: 'from-serve-green-50 to-white border-serve-green-100 bg-serve-green-100 text-serve-green-600',
+                purple: 'from-purple-50 to-white border-purple-100 bg-purple-100 text-purple-600',
+              }
+              const colors = colorStyles[value.color as keyof typeof colorStyles] || colorStyles.blue
+              const [cardBg, iconBg, iconText] = [
+                colors.split(' ').slice(0, 3).join(' '),
+                colors.split(' ')[3],
+                colors.split(' ')[4]
+              ]
               return (
-                <div key={index} className="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow">
-                  <div className="w-12 h-12 rounded-xl bg-linear-to-br from-serve-blue-100 to-serve-blue-200 flex items-center justify-center mb-4">
-                    <IconComponent className="w-6 h-6 text-serve-blue-700" />
+                <div key={index} className={`bg-linear-to-br ${cardBg} rounded-2xl p-6 border shadow-sm hover:shadow-lg transition-all duration-300 group`}>
+                  <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <IconComponent className={`w-7 h-7 ${iconText}`} />
                   </div>
-                  <h3 className="text-lg font-bold text-gray-900 mb-2">{value.title}</h3>
-                  <p className="text-gray-600 text-sm leading-relaxed">{value.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Bottom row - 2 values centered */}
+          <div className="grid md:grid-cols-2 gap-6 max-w-3xl mx-auto">
+            {values.slice(3).map((value, index) => {
+              const IconComponent = value.icon
+              const colorStyles = {
+                amber: 'from-amber-50 to-white border-amber-100 bg-amber-100 text-amber-600',
+                red: 'from-red-50 to-white border-red-100 bg-red-100 text-red-600',
+              }
+              const colors = colorStyles[value.color as keyof typeof colorStyles] || colorStyles.amber
+              const [cardBg, iconBg, iconText] = [
+                colors.split(' ').slice(0, 3).join(' '),
+                colors.split(' ')[3],
+                colors.split(' ')[4]
+              ]
+              return (
+                <div key={index} className={`bg-linear-to-br ${cardBg} rounded-2xl p-6 border shadow-sm hover:shadow-lg transition-all duration-300 group`}>
+                  <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
+                    <IconComponent className={`w-7 h-7 ${iconText}`} />
+                  </div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               )
             })}
@@ -314,8 +379,8 @@ export default function AboutPage() {
               <div className="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mx-auto mb-4">
                 <TrophyIcon className="w-6 h-6 text-yellow-600" />
               </div>
-              <h3 className="text-lg font-bold text-gray-900 mb-2">Award Winner 2024</h3>
-              <p className="text-sm text-gray-600">Best Homecare Team, East Midlands</p>
+              <h3 className="text-lg font-bold text-gray-900 mb-2">Highly Commended 2025</h3>
+              <p className="text-sm text-gray-600">Best Care Manager, East Midlands</p>
             </div>
 
             <div className="bg-linear-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 text-center">
@@ -383,11 +448,28 @@ export default function AboutPage() {
           <div className="max-w-4xl mx-auto mb-12">
             <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Management Team</h3>
             <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-              <div className="grid md:grid-cols-2 gap-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 {managementTeam.map((member, index) => (
-                  <div key={index} className="py-3 border-b border-gray-200 last:border-0">
-                    <h4 className="text-base font-bold text-gray-900">{member.name}</h4>
-                    <p className="text-sm font-semibold text-serve-blue-600 mt-1">{member.role}</p>
+                  <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-200 last:border-0">
+                    {member.image ? (
+                      <Image
+                        src={member.image}
+                        alt={member.name}
+                        width={56}
+                        height={56}
+                        className="w-14 h-14 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center flex-shrink-0">
+                        <span className="text-serve-blue-600 font-bold text-lg">
+                          {member.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
+                    <div>
+                      <h4 className="text-base font-bold text-gray-900">{member.name}</h4>
+                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{member.role}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -409,14 +491,31 @@ export default function AboutPage() {
             </p>
           </div>
 
-          {/* Trustees List - Simple Name and Position Format */}
-          <div className="max-w-4xl mx-auto">
+          {/* Trustees List */}
+          <div className="max-w-4xl mx-auto mb-8">
             <div className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
-              <div className="space-y-4">
+              <div className="grid md:grid-cols-2 gap-6">
                 {trustees.map((trustee, index) => (
-                  <div key={index} className="py-4 border-b border-gray-200 last:border-0">
-                    <h3 className="text-lg font-bold text-gray-900">{trustee.name}</h3>
-                    <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
+                  <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-200 last:border-0">
+                    {trustee.image ? (
+                      <Image
+                        src={trustee.image}
+                        alt={trustee.name}
+                        width={56}
+                        height={56}
+                        className="w-14 h-14 rounded-full object-cover"
+                      />
+                    ) : (
+                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center flex-shrink-0">
+                        <span className="text-serve-blue-600 font-bold text-lg">
+                          {trustee.name.split(' ').map(n => n[0]).join('')}
+                        </span>
+                      </div>
+                    )}
+                    <div>
+                      <h3 className="text-base font-bold text-gray-900">{trustee.name}</h3>
+                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
+                    </div>
                   </div>
                 ))}
               </div>
@@ -436,7 +535,7 @@ export default function AboutPage() {
               <ul className="space-y-2 text-gray-700 text-sm">
                 <li className="flex items-start">
                   <span className="text-serve-blue-600 mr-2">•</span>
-                  <span>Strategic planning and organizational development</span>
+                  <span>Strategic planning and organisational development</span>
                 </li>
                 <li className="flex items-start">
                   <span className="text-serve-blue-600 mr-2">•</span>
@@ -473,8 +572,7 @@ export default function AboutPage() {
             </div>
 
             <p className="text-gray-700 mb-8">
-              In the interests of transparency and accountability, we publish details of our trustee board meetings, 
-              including minutes of past meetings and schedules for upcoming meetings.
+              In the interests of transparency and accountability, we publish details of our trustee board meetings.
             </p>
 
             {/* Upcoming Meetings */}
@@ -486,96 +584,60 @@ export default function AboutPage() {
                 Upcoming Meetings
               </h4>
               <div className="bg-serve-blue-50 rounded-xl p-6 border border-serve-blue-200">
-                <div className="space-y-4">
-                  {/* Sample upcoming meeting - update with real dates */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <p className="font-semibold text-gray-900">Quarterly Board Meeting - Q4 2025</p>
-                        <p className="text-sm text-gray-600 mt-1">
-                          <span className="font-medium">Date:</span> To be confirmed
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Time:</span> To be confirmed
-                        </p>
-                        <p className="text-sm text-gray-600">
-                          <span className="font-medium">Location:</span> SERVE Office, Rushden
-                        </p>
+                <div className="space-y-6">
+                  {/* Board of Directors / Trustees Meetings */}
+                  <div>
+                    <h5 className="font-bold text-gray-900 mb-4">Board of Directors / Trustees Meeting</h5>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 26th January 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
                       </div>
-                      <span className="text-xs bg-serve-green-100 text-serve-green-700 px-3 py-1 rounded-full font-semibold">
-                        Scheduled
-                      </span>
-                    </div>
-                  </div>
-                  
-                  {/* Add more upcoming meetings here */}
-                  <p className="text-sm text-gray-500 italic text-center">
-                    Meeting dates are scheduled quarterly. Check back for updates.
-                  </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Past Meeting Minutes */}
-            <div className="mb-8">
-              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
-                <svg className="w-5 h-5 text-serve-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                </svg>
-                Meeting Minutes
-              </h4>
-              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
-                <div className="space-y-3">
-                  {/* Sample meeting minutes - update with real data */}
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div>
-                      <p className="font-semibold text-gray-900">Board Meeting Minutes - September 2025</p>
-                      <p className="text-sm text-gray-600 mt-1">
-                        <span className="font-medium">Date:</span> September 15, 2025
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        <span className="font-medium">Attendees:</span> 6 of 7 trustees present
-                      </p>
-                      <p className="text-sm text-gray-600 mt-2">
-                        <span className="font-medium">Key Decisions:</span> Approved Q3 financials, Strategic plan review, New service expansion discussion
-                      </p>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 30th March 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 26th May 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 27th July 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 28th September 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 30th November 2026</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
                     </div>
                   </div>
 
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div>
-                      <p className="font-semibold text-gray-900">Board Meeting Minutes - June 2025</p>
-                      <p className="text-sm text-gray-600 mt-1">
-                        <span className="font-medium">Date:</span> June 20, 2025
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        <span className="font-medium">Attendees:</span> 7 of 7 trustees present
-                      </p>
-                      <p className="text-sm text-gray-600 mt-2">
-                        <span className="font-medium">Key Decisions:</span> Annual report approval, Budget review, CQC compliance update
-                      </p>
+                  {/* Annual General Meeting */}
+                  <div>
+                    <h5 className="font-bold text-gray-900 mb-4">Annual General Meeting</h5>
+                    <div className="bg-white rounded-lg p-4 shadow-sm border-2 border-serve-blue-200">
+                      <div className="flex items-start justify-between">
+                        <div>
+                          <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 10th September 2026</p>
+                          <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> All day</p>
+                          <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                        </div>
+                        <span className="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">
+                          AGM
+                        </span>
+                      </div>
                     </div>
                   </div>
-
-                  <div className="bg-white rounded-lg p-4 shadow-sm">
-                    <div>
-                      <p className="font-semibold text-gray-900">Board Meeting Minutes - March 2025</p>
-                      <p className="text-sm text-gray-600 mt-1">
-                        <span className="font-medium">Date:</span> March 18, 2025
-                      </p>
-                      <p className="text-sm text-gray-600">
-                        <span className="font-medium">Attendees:</span> 7 of 7 trustees present
-                      </p>
-                      <p className="text-sm text-gray-600 mt-2">
-                        <span className="font-medium">Key Decisions:</span> Q1 performance review, Volunteer recruitment initiative, Fundraising strategy
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Placeholder for more minutes */}
-                  <p className="text-sm text-gray-500 italic text-center pt-4">
-                    Additional meeting minutes available upon request
-                  </p>
                 </div>
               </div>
             </div>
@@ -585,8 +647,8 @@ export default function AboutPage() {
               <h4 className="text-lg font-bold text-gray-900 mb-3">How the Board Operates</h4>
               <div className="space-y-3 text-sm text-gray-700">
                 <p>
-                  <span className="font-semibold">Meeting Frequency:</span> The Board of Trustees meets quarterly 
-                  to review organizational performance, approve strategic initiatives, and ensure compliance with 
+                  <span className="font-semibold">Meeting Frequency:</span> The Board of Trustees meets BiMonthly 
+                  to review organisational performance, approve strategic initiatives, and ensure compliance with 
                   all regulatory requirements.
                 </p>
                 <p>
@@ -607,7 +669,7 @@ export default function AboutPage() {
               </div>
               <div className="mt-4 pt-4 border-t border-serve-blue-200">
                 <p className="text-sm text-gray-600">
-                  <span className="font-semibold">Contact:</span> For inquiries about board meetings or to request 
+                  <span className="font-semibold">Contact:</span> For enquiries about board meetings or to request 
                   past minutes, please email{' '}
                   <a href="mailto:info@serve.org.uk" className="text-serve-blue-600 hover:text-serve-blue-700 font-semibold">
                     info@serve.org.uk

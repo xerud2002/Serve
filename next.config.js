@@ -135,9 +135,8 @@ const nextConfig = {
       'nodemailer',
       'web-vitals'
     ],
-    optimizeCss: true, // Enable CSS optimization with critters
+    // optimizeCss disabled - causes MIME type issues with CSS loading
     webpackBuildWorker: true, // Faster builds
-    cssChunking: 'strict', // Better CSS code splitting
   },
   
   // Webpack optimizations to reduce bundle size
