@@ -210,12 +210,12 @@ export default function CommunityServicesPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Community</span>{' '}
                 <span className="bg-linear-to-r from-emerald-300 via-serve-green-400 to-emerald-300 bg-clip-text text-transparent">Services</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
                 A range of community support including hearing aid servicing, DBS 
                 checks, and other services that help maintain independence and community connections.
               </p>

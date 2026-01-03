@@ -242,11 +242,11 @@ export default function Contact() {
             Contact SERVE
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Get in</span>{' '}
             <span className="bg-linear-to-r from-serve-green-300 via-emerald-400 to-serve-green-300 bg-clip-text text-transparent">Touch</span>
           </h1>
-          <p className="text-xl lg:text-2xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed mb-8">
+          <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed mb-8">
             Whether you need our care services, want to volunteer, or have questions about our work, 
             we&apos;re here to help. Reach out to us today.
           </p>
@@ -684,10 +684,10 @@ export default function Contact() {
               <ChatBubbleBottomCenterTextIcon className="w-4 h-4 mr-2" />
               Frequently Asked Questions
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Quick Answers</span>
             </h2>
-            <p className="text-xl text-blue-100/90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-blue-100/90 max-w-3xl mx-auto">
               Find answers to common questions about SERVE's services
             </p>
           </div>
@@ -742,7 +742,7 @@ export default function Contact() {
           <h3 className="text-3xl md:text-4xl font-bold mb-4">
             <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Need Immediate Help?</span>
           </h3>
-          <p className="text-lg text-blue-100/90 mb-8 max-w-2xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl text-blue-100/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             If you require urgent care services or have an emergency, please call us directly.
           </p>
           <a
@@ -761,10 +761,10 @@ export default function Contact() {
               <MapPinIcon className="w-4 h-4 mr-2" />
               Find Our Locations
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4">
               <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Visit Us</span>
             </h2>
-            <p className="text-xl text-blue-100/90 max-w-3xl mx-auto">
+            <p className="text-base md:text-lg lg:text-xl text-blue-100/90 max-w-3xl mx-auto">
               We have two locations across Northamptonshire to serve you better
             </p>
           </div>
@@ -781,7 +781,7 @@ export default function Contact() {
                   <p className="text-sm text-blue-100/70">Administrative & Care Coordination</p>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl overflow-hidden aspect-[4/3] mb-4 shadow-lg">
+              <div className="bg-white rounded-2xl overflow-hidden aspect-4/3 mb-4 shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.5!2d-0.5994!3d52.2894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48770e5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2s8%20West%20St%2C%20Rushden%20NN10%200RT!5e0!3m2!1sen!2suk!4v1234567890"
                   width="100%"
@@ -820,7 +820,7 @@ export default function Contact() {
                   <p className="text-sm text-blue-100/70">Day Care & Community Activities</p>
                 </div>
               </div>
-              <div className="bg-white rounded-2xl overflow-hidden aspect-[4/3] mb-4 shadow-lg">
+              <div className="bg-white rounded-2xl overflow-hidden aspect-4/3 mb-4 shadow-lg">
                 <iframe 
                   src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.5!2d-0.5880!3d52.3058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48770e5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2s76%20Upper%20Kings%20Ave%2C%20Higham%20Ferrers%20NN10%208JZ!5e0!3m2!1sen!2suk!4v1234567890"
                   width="100%"

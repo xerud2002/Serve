@@ -40,17 +40,17 @@ export default function Hero() {
             </div>
             
             {/* Main Heading */}
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
               <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">
                 Supporting Independence
               </span>
-              <span className="block text-3xl md:text-4xl lg:text-5xl mt-3 bg-linear-to-r from-serve-green-300 via-serve-green-400 to-serve-green-300 bg-clip-text text-transparent">
+              <span className="block text-2xl md:text-3xl lg:text-4xl xl:text-5xl mt-3 bg-linear-to-r from-serve-green-300 via-serve-green-400 to-serve-green-300 bg-clip-text text-transparent">
                 in Northamptonshire
               </span>
             </h1>
             
             {/* Subtitle */}
-            <p className="text-lg md:text-xl mb-10 max-w-2xl mx-auto lg:mx-0 text-blue-100/90 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl mb-10 max-w-2xl mx-auto lg:mx-0 text-blue-100/90 leading-relaxed">
               SERVE is a voluntary organisation and a registered charity. We have been providing services and assistance to older people and adults with disabilities, and their carers in Northamptonshire and the surrounding area for over 40 years. Our aim is to provide the highest quality of health and social care to enable people to remain living independently within their own homes. We deliver a service to a wide range of adults who need care and support.
             </p>
             
@@ -64,27 +64,27 @@ export default function Hero() {
                 <svg className="w-6 h-6" fill="currentColor" stroke="none" viewBox="0 0 24 24" aria-hidden="true">
                   <path d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12z" />
                 </svg>
-                <span className="text-lg">Donate Now</span>
+                <span className="text-base md:text-lg">Donate Now</span>
               </Link>
               
               <Link
                 href="/volunteer"
-                className="group bg-linear-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-yellow-950 font-bold px-8 py-4 rounded-2xl shadow-xl shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                className="group bg-linear-to-r from-yellow-400 to-amber-500 hover:from-yellow-500 hover:to-amber-600 text-yellow-950 font-bold px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-xl shadow-yellow-500/30 hover:shadow-yellow-500/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M15 19.128a9.38 9.38 0 002.625.372 9.337 9.337 0 004.121-.952 4.125 4.125 0 00-7.533-2.493M15 19.128v-.003c0-1.113-.285-2.16-.786-3.07M15 19.128v.106A12.318 12.318 0 018.624 21c-2.331 0-4.512-.645-6.374-1.766l-.001-.109a6.375 6.375 0 0111.964-3.07M12 6.375a3.375 3.375 0 11-6.75 0 3.375 3.375 0 016.75 0zm8.25 2.25a2.625 2.625 0 11-5.25 0 2.625 2.625 0 015.25 0z" />
                 </svg>
-                <span className="text-lg">Volunteer With Us</span>
+                <span className="text-base md:text-lg">Volunteer With Us</span>
               </Link>
               
               <Link
                 href="/services"
-                className="group bg-linear-to-r from-serve-green-500 to-serve-green-600 hover:from-serve-green-600 hover:to-serve-green-700 text-white font-bold px-8 py-4 rounded-2xl shadow-xl shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
+                className="group bg-linear-to-r from-serve-green-500 to-serve-green-600 hover:from-serve-green-600 hover:to-serve-green-700 text-white font-bold px-6 py-3 md:px-8 md:py-4 rounded-2xl shadow-xl shadow-green-500/30 hover:shadow-green-500/50 transition-all duration-300 transform hover:scale-105 flex items-center justify-center gap-3"
               >
-                <svg className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" strokeWidth="2" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285z" />
                 </svg>
-                <span className="text-lg">Get Care Support</span>
+                <span className="text-base md:text-lg">Get Care Support</span>
               </Link>
             </div>
           </div>

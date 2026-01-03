@@ -209,12 +209,12 @@ export default function BefriendingPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Countywide</span>{' '}
                 <span className="bg-linear-to-r from-purple-300 via-purple-400 to-purple-300 bg-clip-text text-transparent">Befriending</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
                 Combat loneliness with our friendly befriending service. We provide regular 
                 companionship and emotional support to vulnerable adults across all of Northamptonshire.
               </p>

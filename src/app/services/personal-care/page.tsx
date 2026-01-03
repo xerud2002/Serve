@@ -163,12 +163,12 @@ export default function PersonalCarePage() {
                 Best Homecare Team 2024 - Great British Care Awards
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Personal &</span>{' '}
                 <span className="bg-linear-to-r from-rose-300 via-rose-400 to-rose-300 bg-clip-text text-transparent">Domestic Care</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
                 Award-winning, CQC registered personal care services helping you maintain 
                 independence and dignity in your own home.
               </p>

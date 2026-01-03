@@ -182,12 +182,12 @@ export default function AboutPage() {
               Award-Winning Care Since 1980s
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
               <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">About</span>{' '}
               <span className="bg-linear-to-r from-serve-green-300 via-serve-green-400 to-serve-green-300 bg-clip-text text-transparent">SERVE</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-blue-100/90 leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 leading-relaxed">
               For over 40 years, SERVE has been providing award-winning care services to help older people, 
              adults with disabilities and their carers maintain their independence across Northamptonshire.
             </p>

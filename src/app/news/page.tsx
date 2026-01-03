@@ -52,27 +52,27 @@ export default function NewsPage() {
               Award-Winning Care Services
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-black mb-8 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-8 leading-tight">
               <span className="block bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">News &</span>
               <span className="block bg-linear-to-r from-yellow-300 via-amber-400 to-orange-300 bg-clip-text text-transparent mt-2">Events</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed mb-12">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed mb-12">
               Stay updated with the latest news, celebrations, and opportunities to get involved with SERVE
             </p>
 
             {/* Quick stats */}
             <div className="flex flex-wrap justify-center gap-4 max-w-3xl mx-auto">
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-3">
-                <div className="text-2xl font-black text-yellow-300">40+</div>
+                <div className="text-2xl md:text-3xl font-black text-yellow-300">40+</div>
                 <div className="text-sm text-blue-200">Years of Service</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-3">
-                <div className="text-2xl font-black text-yellow-300">2024</div>
+                <div className="text-2xl md:text-3xl font-black text-yellow-300">2024</div>
                 <div className="text-sm text-blue-200">Award Winners</div>
               </div>
               <div className="bg-white/10 backdrop-blur-md border border-white/20 rounded-xl px-6 py-3">
-                <div className="text-2xl font-black text-yellow-300">CQC</div>
+                <div className="text-2xl md:text-3xl font-black text-yellow-300">CQC</div>
                 <div className="text-sm text-blue-200">Good Rating</div>
               </div>
             </div>
@@ -96,7 +96,7 @@ export default function NewsPage() {
               Community in Action
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
               <span className="bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">SERVE Out</span>{' '}
               <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">and About</span>
             </h2>

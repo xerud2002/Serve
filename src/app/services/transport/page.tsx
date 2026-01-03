@@ -122,12 +122,12 @@ export default function TransportPage() {
                 Door-to-Door Service
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">Community</span>{' '}
                 <span className="bg-linear-to-r from-serve-blue-300 via-serve-blue-400 to-serve-blue-300 bg-clip-text text-transparent">Transport</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
                 Safe, reliable transport to medical appointments and shopping trips. Wheelchair accessible vehicles with trained drivers.
               </p>
 
@@ -191,7 +191,7 @@ export default function TransportPage() {
               Accessible Transport
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="bg-linear-to-r from-purple-500 to-violet-600 bg-clip-text text-transparent">Transport Services</span>{' '}
               <span className="bg-linear-to-r from-serve-blue-500 to-cyan-500 bg-clip-text text-transparent">We Offer</span>
             </h2>

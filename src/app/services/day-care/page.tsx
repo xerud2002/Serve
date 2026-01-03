@@ -115,12 +115,12 @@ export default function DayCarePage() {
                 Ron Manning Day and Activity Centre
               </div>
 
-              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Day Care &</span>{' '}
                 <span className="bg-linear-to-r from-amber-300 via-orange-400 to-amber-300 bg-clip-text text-transparent">Meals on Wheels</span>
               </h1>
               
-              <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
                 A welcoming space where older adults can enjoy meaningful activities, good company, and friendly support. We also operate a meals on wheels service from the centre to local residents.
               </p>
 
@@ -176,7 +176,7 @@ export default function DayCarePage() {
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
               Daily Activities & Services
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">

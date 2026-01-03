@@ -216,7 +216,7 @@ export default function VolunteerPage() {
                 Join Our Caring Community
               </div>
 
-              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
                 <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Volunteer</span>{' '}
                 <span className="bg-linear-to-r from-yellow-300 via-amber-400 to-yellow-300 bg-clip-text text-transparent">with SERVE</span>
               </h1>

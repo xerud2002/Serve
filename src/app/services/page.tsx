@@ -137,12 +137,12 @@ export default function ServicesPage() {
               Award-Winning Care Services
             </div>
             
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
               <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Our</span>{' '}
               <span className="bg-linear-to-r from-serve-green-300 via-serve-green-400 to-serve-green-300 bg-clip-text text-transparent">Services</span>
             </h1>
             
-            <p className="text-xl lg:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed">
+            <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed">
               For over 40 years, SERVE has provided comprehensive, award-winning care services 
               to help people maintain their independence and dignity at home in Northamptonshire.
             </p>
@@ -152,7 +152,7 @@ export default function ServicesPage() {
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-6 mb-12">
             {stats.map((stat, index) => (
               <div key={index} className="bg-white/10 backdrop-blur-md rounded-2xl p-6 border border-white/20 text-center hover:bg-white/15 transition-all duration-300 hover:scale-105">
-                <div className={`text-3xl lg:text-4xl font-black bg-linear-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
+                <div className={`text-2xl md:text-3xl lg:text-4xl font-black bg-linear-to-r ${stat.gradient} bg-clip-text text-transparent mb-2`}>
                   {stat.value}
                 </div>
                 <div className="text-sm text-blue-200">{stat.label}</div>
@@ -187,7 +187,7 @@ export default function ServicesPage() {
               Comprehensive Care Solutions
             </div>
             
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Comprehensive Care</span>{' '}
               <span className="bg-linear-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">Services</span>
             </h2>

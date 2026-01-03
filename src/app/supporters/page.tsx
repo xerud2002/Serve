@@ -187,12 +187,12 @@ export default function SupportersPage() {
             Thank You to Our Amazing Community
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Our</span>{' '}
             <span className="bg-linear-to-r from-rose-300 via-rose-400 to-rose-300 bg-clip-text text-transparent">Supporters</span>
           </h1>
           
-          <p className="text-xl lg:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed">
             A heartfelt thank you to everyone who has supported SERVE over the years. Your generosity, time, and dedication make our work possible.
           </p>
         </div>

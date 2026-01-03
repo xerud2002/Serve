@@ -32,31 +32,31 @@ export default function DonatePage() {
             Every Gift Transforms Lives
           </div>
           
-          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-linear-to-r from-white via-rose-100 to-white bg-clip-text text-transparent">Make a</span>{' '}
             <span className="bg-linear-to-r from-blue-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent">Difference</span>
           </h1>
           
-          <p className="text-xl lg:text-2xl mb-12 leading-relaxed text-rose-50/90 max-w-3xl mx-auto">
+          <p className="text-base md:text-lg lg:text-xl xl:text-2xl mb-12 leading-relaxed text-rose-50/90 max-w-3xl mx-auto">
             Your generosity helps us provide life-changing care, transport, and support to vulnerable adults across Northamptonshire.
           </p>
           
           {/* Impact Stats */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-12">
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1">
-              <div className="text-3xl font-bold mb-2">£5</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">£5</div>
               <div className="text-sm opacity-90">Provides a hot meal at day centre</div>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1">
-              <div className="text-3xl font-bold mb-2">£20</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">£20</div>
               <div className="text-sm opacity-90">Provides a hot meal delivery</div>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1">
-              <div className="text-3xl font-bold mb-2">£50</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">£50</div>
               <div className="text-sm opacity-90">Funds transport to appointments</div>
             </div>
             <div className="bg-white/20 backdrop-blur-sm rounded-2xl p-5 border border-white/30 hover:bg-white/30 transition-all hover:-translate-y-1">
-              <div className="text-3xl font-bold mb-2">£100</div>
+              <div className="text-2xl md:text-3xl font-bold mb-2">£100</div>
               <div className="text-sm opacity-90">Support activities at our day centre</div>
             </div>
           </div>
@@ -66,12 +66,12 @@ export default function DonatePage() {
             href="https://www.justgiving.com/campaign/serve-community-appeal"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-12 py-6 rounded-2xl text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
+            className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-8 py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 rounded-2xl text-lg md:text-xl lg:text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
             aria-label="Donate to SERVE via JustGiving (opens in new tab)"
           >
-            <HeartIcon className="w-8 h-8" aria-hidden="true" />
+            <HeartIcon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" aria-hidden="true" />
             <span>Donate via JustGiving</span>
-            <ArrowRightIcon className="w-6 h-6" aria-hidden="true" />
+            <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
           </a>
         </div>
       </section>
@@ -88,7 +88,7 @@ export default function DonatePage() {
               <HeartIcon className="w-4 h-4 mr-2" />
               Real Impact in Our Community
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
               <span className="bg-linear-to-r from-rose-600 to-pink-500 bg-clip-text text-transparent">Where Your Donations Go</span>
             </h2>
           </div>
