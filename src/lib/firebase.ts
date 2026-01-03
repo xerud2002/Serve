@@ -1,5 +1,6 @@
 import { initializeApp, getApps, FirebaseApp } from 'firebase/app'
 import { getFirestore, Firestore } from 'firebase/firestore'
+import { getStorage, FirebaseStorage } from 'firebase/storage'
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -22,10 +23,12 @@ if (!isConfigValid && typeof window !== 'undefined') {
 // Initialize Firebase only if it hasn't been initialized yet and config is valid
 let app: FirebaseApp | null = null
 let db: Firestore | null = null
+let storage: FirebaseStorage | null = null
 
 if (isConfigValid) {
   app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
   db = getFirestore(app)
+  storage = getStorage(app)
 }
 
 // Lazy load auth only when needed (admin pages)
@@ -39,6 +42,5 @@ export const getAuthLazy = async () => {
   return authPromise
 }
 
-export { app, db }
-
+export { app, db, storage }
 

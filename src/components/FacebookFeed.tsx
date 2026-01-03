@@ -18,6 +18,7 @@ interface FacebookPost {
   picture?: string
   full_picture?: string
   permalink_url?: string
+  postType?: 'News' | 'Event'
 }
 
 export default function FacebookFeed() {
@@ -44,7 +45,7 @@ export default function FacebookFeed() {
         const postsQuery = query(
           collection(db, 'posts'), 
           orderBy('created_time', 'desc'),
-          limit(3)
+          limit(4)
         )
         const querySnapshot = await getDocs(postsQuery)
         const firestorePosts: FacebookPost[] = []
@@ -56,7 +57,8 @@ export default function FacebookFeed() {
             message: data.message,
             full_picture: data.full_picture,
             created_time: data.created_time,
-            permalink_url: data.permalink_url
+            permalink_url: data.permalink_url,
+            postType: data.postType || 'News'
           })
         })
         
@@ -168,7 +170,7 @@ export default function FacebookFeed() {
         </div>
 
         {/* Posts Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           {posts.map((post, index) => {
             const imageUrl = post.full_picture || post.picture
             const postText = post.message || post.story || ''
@@ -185,12 +187,12 @@ export default function FacebookFeed() {
                 <div className="relative bg-white rounded-2xl overflow-hidden h-full flex flex-col">
                   {/* Image or Fallback */}
                   {imageUrl ? (
-                    <div className="relative h-56 bg-gray-100 overflow-hidden">
+                    <div className="relative h-64 bg-gray-100 overflow-hidden">
                       <Image
                         src={imageUrl}
                         alt={postText.substring(0, 50) || 'Facebook post'}
                         fill
-                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        className="object-contain group-hover:scale-105 transition-transform duration-500"
                         sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         unoptimized
                       />
@@ -216,7 +218,7 @@ export default function FacebookFeed() {
                   <div className="p-6 flex flex-col grow">
                     <div className="flex items-center justify-between mb-4">
                       <span className={`bg-linear-to-r ${colors.badge} text-white px-4 py-1.5 rounded-full text-xs font-bold shadow-sm`}>
-                        Facebook
+                        {post.postType || 'News'}
                       </span>
                       <span className="text-gray-500 text-sm font-medium">{formatDate(post.created_time)}</span>
                     </div>

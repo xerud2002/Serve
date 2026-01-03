@@ -102,38 +102,33 @@ export default function Hero() {
 
           {/* Right column - Award badges and stats with modern card design */}
           <div className="flex flex-col gap-6 max-w-md mx-auto lg:max-w-none">
-            {/* Award Badges - Floating card effect */}
-            <div className="relative">
-              <div className="absolute -inset-2 bg-linear-to-br from-yellow-400/20 to-amber-500/20 rounded-3xl blur-xl" />
-              <div className="relative bg-white/5 backdrop-blur-xl rounded-3xl border border-white/10 p-6 shadow-2xl">
-                <div className="flex gap-4 justify-center">
-                  <div className="group flex-shrink-0">
-                    <Image 
-                      src="/images/awards/regional-winner1.webp" 
-                      alt="SERVE - Great British Care Awards Regional Winner"
-                      className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
-                      width={128}
-                      height={128}
-                      loading="eager"
-                      fetchPriority="high"
-                      quality={90}
-                      sizes="128px"
-                    />
-                  </div>
-                  <div className="group flex-shrink-0">
-                    <Image 
-                      src="/images/awards/regional-winner2.webp" 
-                      alt="SERVE - Great British Care Awards Regional Winner"
-                      className="w-24 h-24 sm:w-28 sm:h-28 lg:w-32 lg:h-32 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
-                      width={128}
-                      height={128}
-                      loading="eager"
-                      fetchPriority="high"
-                      quality={90}
-                      sizes="128px"
-                    />
-                  </div>
-                </div>
+            {/* Award Badges */}
+            <div className="flex gap-4 justify-center">
+              <div className="group flex-shrink-0">
+                <Image 
+                  src="/images/awards/regional-winner1.webp" 
+                  alt="SERVE - Great British Care Awards Regional Winner"
+                  className="w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+                  width={192}
+                  height={192}
+                  loading="eager"
+                  fetchPriority="high"
+                  quality={90}
+                  sizes="192px"
+                />
+              </div>
+              <div className="group flex-shrink-0">
+                <Image 
+                  src="/images/awards/regional-winner2.webp" 
+                  alt="SERVE - Great British Care Awards Regional Winner"
+                  className="w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+                  width={192}
+                  height={192}
+                  loading="eager"
+                  fetchPriority="high"
+                  quality={90}
+                  sizes="192px"
+                />
               </div>
             </div>
             

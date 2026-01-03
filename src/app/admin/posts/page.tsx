@@ -4,8 +4,9 @@ import { useState, useEffect } from 'react'
 import { ArrowLeftIcon, PlusIcon, TrashIcon, PhotoIcon } from '@heroicons/react/24/outline'
 import Link from 'next/link'
 import Image from 'next/image'
-import { db } from '@/lib/firebase'
+import { db, storage } from '@/lib/firebase'
 import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs, orderBy, query } from 'firebase/firestore'
+import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
 
 interface FacebookPost {
   id?: string // Firestore document ID
@@ -14,12 +15,14 @@ interface FacebookPost {
   full_picture?: string
   created_time: string
   permalink_url: string
+  postType?: 'News' | 'Event'
 }
 
 export default function PostsAdmin() {
   const [posts, setPosts] = useState<FacebookPost[]>([])
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
+  const [uploading, setUploading] = useState<number | null>(null)
   const [message, setMessage] = useState('')
 
   useEffect(() => {
@@ -74,7 +77,8 @@ export default function PostsAdmin() {
             message: post.message,
             full_picture: post.full_picture || '',
             created_time: post.created_time,
-            permalink_url: post.permalink_url
+            permalink_url: post.permalink_url,
+            postType: post.postType || 'News'
           })
         } else {
           // Add new post
@@ -83,7 +87,8 @@ export default function PostsAdmin() {
             message: post.message,
             full_picture: post.full_picture || '',
             created_time: post.created_time,
-            permalink_url: post.permalink_url
+            permalink_url: post.permalink_url,
+            postType: post.postType || 'News'
           })
         }
       }
@@ -100,13 +105,52 @@ export default function PostsAdmin() {
 
   const addPost = () => {
     const newPost: FacebookPost = {
-      postId: `239416516576684_${Date.now()}`,
+      postId: `post_${Date.now()}`,
       message: '',
       full_picture: '',
       created_time: new Date().toISOString(),
-      permalink_url: 'https://www.facebook.com/SERVE234'
+      permalink_url: 'https://www.facebook.com/SERVE234',
+      postType: 'News'
     }
     setPosts([newPost, ...posts])
+  }
+
+  const handleImageUpload = async (index: number, file: File) => {
+    if (!storage) {
+      setMessage('Firebase Storage is not configured. Please check environment variables.')
+      return
+    }
+
+    setUploading(index)
+    try {
+      // Create a unique filename
+      const filename = `posts/${Date.now()}_${file.name.replace(/\s+/g, '_')}`
+      const storageRef = ref(storage, filename)
+      
+      // Upload file with metadata
+      const metadata = {
+        contentType: file.type,
+        customMetadata: {
+          uploadedBy: 'admin',
+          uploadedAt: new Date().toISOString()
+        }
+      }
+      
+      await uploadBytes(storageRef, file, metadata)
+      
+      // Get download URL
+      const downloadURL = await getDownloadURL(storageRef)
+      
+      // Update post with new image URL
+      updatePost(index, 'full_picture', downloadURL)
+      
+      setMessage('✓ Image uploaded successfully!')
+    } catch (err) {
+      console.error('Upload error:', err)
+      setMessage(`Error uploading image: ${err instanceof Error ? err.message : 'Unknown error'}`)
+    } finally {
+      setUploading(null)
+    }
   }
 
   const updatePost = (index: number, field: keyof FacebookPost, value: string) => {
@@ -221,78 +265,80 @@ export default function PostsAdmin() {
                 <div className="grid grid-cols-1 gap-4">
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Post Type *
+                    </label>
+                    <select
+                      value={post.postType || 'News'}
+                      onChange={(e) => updatePost(index, 'postType', e.target.value as 'News' | 'Event')}
+                      className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
+                    >
+                      <option value="News">News</option>
+                      <option value="Event">Event</option>
+                    </select>
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
                       Post Message *
                     </label>
                     <textarea
                       value={post.message}
                       onChange={(e) => updatePost(index, 'message', e.target.value)}
-                      rows={4}
+                      rows={6}
                       className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
                       placeholder="Enter the post message..."
                     />
                   </div>
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Post ID *
-                      </label>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Photo (optional)
+                    </label>
+                    <div className="space-y-3">
                       <input
-                        type="text"
-                        value={post.postId}
-                        onChange={(e) => updatePost(index, 'postId', e.target.value)}
-                        className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
-                        placeholder="239416516576684_1234567890"
+                        type="file"
+                        accept="image/*"
+                        onChange={(e) => {
+                          const file = e.target.files?.[0]
+                          if (file) handleImageUpload(index, file)
+                        }}
+                        disabled={uploading === index}
+                        className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
                       />
-                    </div>
-
-                    <div>
-                      <label className="block text-sm font-medium text-gray-700 mb-2">
-                        Created Time *
-                      </label>
-                      <input
-                        type="datetime-local"
-                        value={post.created_time ? post.created_time.substring(0, 16) : ''}
-                        onChange={(e) => updatePost(index, 'created_time', new Date(e.target.value).toISOString())}
-                        className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
-                      />
+                      {uploading === index && (
+                        <div className="text-sm text-blue-600">Uploading image...</div>
+                      )}
+                      {post.full_picture && (
+                        <div className="relative">
+                          <div className="relative h-48 sm:h-64 bg-gray-100 rounded-lg overflow-hidden">
+                            <Image 
+                              src={post.full_picture} 
+                              alt="Post preview" 
+                              fill
+                              className="object-contain"
+                              unoptimized
+                            />
+                          </div>
+                          <button
+                            onClick={() => updatePost(index, 'full_picture', '')}
+                            className="absolute top-2 right-2 bg-red-600 hover:bg-red-700 text-white p-2 rounded-lg"
+                          >
+                            <TrashIcon className="w-4 h-4" />
+                          </button>
+                        </div>
+                      )}
                     </div>
                   </div>
 
                   <div>
                     <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Image URL (optional)
+                      Created Time *
                     </label>
                     <input
-                      type="url"
-                      value={post.full_picture || ''}
-                      onChange={(e) => updatePost(index, 'full_picture', e.target.value)}
+                      type="datetime-local"
+                      value={post.created_time ? post.created_time.substring(0, 16) : ''}
+                      onChange={(e) => updatePost(index, 'created_time', new Date(e.target.value).toISOString())}
                       className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
-                      placeholder="https://..."
-                    />
-                    {post.full_picture && (
-                      <div className="mt-2 relative h-24 sm:h-32 bg-gray-100 rounded-lg overflow-hidden">
-                        <Image 
-                          src={post.full_picture} 
-                          alt="Preview" 
-                          fill
-                          className="object-contain"
-                          unoptimized
-                        />
-                      </div>
-                    )}
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium text-gray-700 mb-2">
-                      Facebook Post URL *
-                    </label>
-                    <input
-                      type="url"
-                      value={post.permalink_url}
-                      onChange={(e) => updatePost(index, 'permalink_url', e.target.value)}
-                      className="w-full px-3 sm:px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent text-gray-900 bg-white text-sm sm:text-base"
-                      placeholder="https://www.facebook.com/..."
                     />
                   </div>
                 </div>
@@ -311,15 +357,19 @@ export default function PostsAdmin() {
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">2.</span>
-              <span>Fill in the post details (message, image URL from Facebook, post URL)</span>
+              <span>Write your post message and optionally upload a photo from your device</span>
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">3.</span>
-              <span>Click &quot;Save All Posts&quot; to update the homepage</span>
+              <span>Set the post date/time (defaults to current time)</span>
             </li>
             <li className="flex items-start">
               <span className="font-semibold mr-2">4.</span>
-              <span>Posts are displayed on the homepage in the order shown here (top = newest)</span>
+              <span>Click &quot;Save All Posts&quot; to publish changes to the homepage</span>
+            </li>
+            <li className="flex items-start">
+              <span className="font-semibold mr-2">5.</span>
+              <span>Posts appear on the News page in chronological order (newest first)</span>
             </li>
           </ul>
         </div>
