@@ -536,13 +536,13 @@ export default function AnnualReport2024Page() {
           </p>
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <Link 
-              href="/get-involved/volunteer"
+              href="/volunteer"
               className="bg-white text-serve-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Volunteer With Us
             </Link>
             <Link 
-              href="/get-involved/donate"
+              href="/donate"
               className="bg-serve-green-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-serve-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Donate
