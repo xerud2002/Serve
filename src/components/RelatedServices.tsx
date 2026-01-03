@@ -86,7 +86,7 @@ export default function RelatedServices({ services, currentService }: RelatedSer
                 </h3>
 
                 {/* Description */}
-                <p className="text-gray-600 mb-5 line-clamp-3 flex-grow leading-relaxed">
+                <p className="text-gray-600 mb-5 line-clamp-3 grow leading-relaxed">
                   {service.description}
                 </p>
 

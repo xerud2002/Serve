@@ -12,8 +12,13 @@ import {
   ChatBubbleBottomCenterTextIcon,
   BuildingOffice2Icon,
   CheckCircleIcon,
-  ExclamationTriangleIcon
+  ExclamationTriangleIcon,
+  ShieldCheckIcon,
+  TrophyIcon,
+  UsersIcon,
+  ChevronDownIcon
 } from '@heroicons/react/24/outline'
+import { CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { validateForm, contactFormRules, type ValidationError } from '@/utils/validation'
 
 export default function Contact() {
@@ -30,6 +35,34 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [isSubmitted, setIsSubmitted] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(null)
+
+  const faqs = [
+    {
+      question: "What services does SERVE provide?",
+      answer: "We offer personal care, day care services, community transport, befriending, carers support, and meals on wheels across Northamptonshire."
+    },
+    {
+      question: "How do I arrange a care assessment?",
+      answer: "Call us on 01933 315555 or fill out the contact form selecting 'Care Services Information'. We'll arrange a free, no-obligation assessment at your convenience."
+    },
+    {
+      question: "What areas do you cover?",
+      answer: "We serve communities across Northamptonshire, including Rushden, Higham Ferrers, Wellingborough, Kettering, and surrounding areas."
+    },
+    {
+      question: "Are you CQC registered?",
+      answer: "Yes, SERVE is registered with the Care Quality Commission (CQC). We're proud of our 'Good' rating and commitment to high-quality care."
+    },
+    {
+      question: "How can I volunteer with SERVE?",
+      answer: "Visit our volunteer page or select 'Volunteering Opportunities' in the contact form. We'll guide you through our simple application process."
+    },
+    {
+      question: "Do you accept donations?",
+      answer: "Yes! You can donate via JustGiving through our Community Appeal or contact us about other ways to support our work."
+    }
+  ]
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     const { name, value, type } = e.target
@@ -204,7 +237,7 @@ export default function Contact() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-serve-green-400 via-serve-green-500 to-serve-green-400 text-white shadow-lg shadow-green-500/25 mb-8">
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-serve-green-400 via-serve-green-500 to-serve-green-400 text-white shadow-lg shadow-green-500/25 mb-6">
             <ChatBubbleBottomCenterTextIcon className="w-5 h-5 mr-2" />
             Contact SERVE
           </div>
@@ -213,10 +246,18 @@ export default function Contact() {
             <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Get in</span>{' '}
             <span className="bg-linear-to-r from-serve-green-300 via-emerald-400 to-serve-green-300 bg-clip-text text-transparent">Touch</span>
           </h1>
-          <p className="text-xl lg:text-2xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
+          <p className="text-xl lg:text-2xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed mb-8">
             Whether you need our care services, want to volunteer, or have questions about our work, 
             we&apos;re here to help. Reach out to us today.
           </p>
+          
+          {/* Trust Indicator */}
+          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-6 py-3 text-sm">
+            <CheckBadgeIcon className="w-5 h-5 text-serve-green-300 mr-2" />
+            <span className="text-blue-100/90">
+              <span className="font-semibold text-white">CQC Registered</span> • Charity #1043321 • Typically respond within 24 hours
+            </span>
+          </div>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
@@ -574,6 +615,124 @@ export default function Contact() {
           </div>
         </div>
 
+        {/* Trust Badges */}
+        <div className="mt-20 grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+            <div className="bg-linear-to-br from-serve-blue-500 to-cyan-500 rounded-full p-4 w-20 h-20 mx-auto mb-4 shadow-lg">
+              <ShieldCheckIcon className="w-12 h-12 text-white" />
+            </div>
+            <h4 className="text-xl font-bold mb-2">CQC Registered</h4>
+            <p className="text-blue-100/80 text-sm leading-relaxed">
+              Regulated by the Care Quality Commission with a 'Good' rating
+            </p>
+            <a 
+              href="https://www.cqc.org.uk/location/1-2165219210"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center text-cyan-300 hover:text-white text-sm mt-3 group/link font-medium"
+            >
+              View Our CQC Report
+              <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+            <div className="bg-linear-to-br from-amber-500 to-orange-500 rounded-full p-4 w-20 h-20 mx-auto mb-4 shadow-lg">
+              <TrophyIcon className="w-12 h-12 text-white" />
+            </div>
+            <h4 className="text-xl font-bold mb-2">Award-Winning Care</h4>
+            <p className="text-blue-100/80 text-sm leading-relaxed">
+              Regional finalists for care excellence and community impact
+            </p>
+            <Link 
+              href="/news/great-british-care-awards"
+              className="inline-flex items-center text-amber-300 hover:text-white text-sm mt-3 group/link font-medium"
+            >
+              See Our Awards
+              <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+
+          <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 border border-white/10 text-center hover:bg-white/15 transition-all duration-300">
+            <div className="bg-linear-to-br from-rose-500 to-pink-500 rounded-full p-4 w-20 h-20 mx-auto mb-4 shadow-lg">
+              <UsersIcon className="w-12 h-12 text-white" />
+            </div>
+            <h4 className="text-xl font-bold mb-2">40+ Years Experience</h4>
+            <p className="text-blue-100/80 text-sm leading-relaxed">
+              Trusted by the community since the 1980s, registered charity 1043321
+            </p>
+            <Link 
+              href="/about"
+              className="inline-flex items-center text-rose-300 hover:text-white text-sm mt-3 group/link font-medium"
+            >
+              Our Story
+              <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
+          </div>
+        </div>
+
+        {/* FAQ Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-amber-100/20 text-amber-200 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm border border-amber-300/30">
+              <ChatBubbleBottomCenterTextIcon className="w-4 h-4 mr-2" />
+              Frequently Asked Questions
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Quick Answers</span>
+            </h2>
+            <p className="text-xl text-blue-100/90 max-w-3xl mx-auto">
+              Find answers to common questions about SERVE's services
+            </p>
+          </div>
+
+          <div className="max-w-4xl mx-auto space-y-4">
+            {faqs.map((faq, index) => (
+              <div 
+                key={index}
+                className="bg-white/10 backdrop-blur-sm rounded-2xl border border-white/10 overflow-hidden hover:bg-white/15 transition-all duration-300"
+              >
+                <button
+                  onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
+                  className="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-serve-green-400 focus:ring-inset"
+                  aria-expanded={openFaqIndex === index}
+                >
+                  <span className="text-lg font-bold pr-8">{faq.question}</span>
+                  <ChevronDownIcon 
+                    className={`w-6 h-6 shrink-0 transition-transform duration-300 ${
+                      openFaqIndex === index ? 'transform rotate-180' : ''
+                    }`}
+                  />
+                </button>
+                {openFaqIndex === index && (
+                  <div className="px-8 pb-6 pt-2">
+                    <p className="text-blue-100/90 leading-relaxed">{faq.answer}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          <div className="text-center mt-10">
+            <p className="text-blue-100/80 mb-4">Still have questions?</p>
+            <a
+              href="#contact"
+              className="inline-flex items-center text-serve-green-300 hover:text-white font-semibold group/link"
+            >
+              Use the contact form above
+              <svg className="ml-2 w-5 h-5 group-hover/link:-translate-y-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 10l7-7m0 0l7 7m-7-7v18" />
+              </svg>
+            </a>
+          </div>
+        </div>
+
         {/* Emergency Contact */}
         <div className="mt-16 text-center bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-xl">
           <div className="inline-flex items-center bg-linear-to-r from-rose-500 to-pink-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg">
@@ -593,6 +752,102 @@ export default function Contact() {
             <PhoneIcon className="w-7 h-7 mr-3" />
             Call Now: 01933 315555
           </a>
+        </div>
+
+        {/* Map Section */}
+        <div className="mt-20">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center bg-purple-100/20 text-purple-200 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm border border-purple-300/30">
+              <MapPinIcon className="w-4 h-4 mr-2" />
+              Find Our Locations
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Visit Us</span>
+            </h2>
+            <p className="text-xl text-blue-100/90 max-w-3xl mx-auto">
+              We have two locations across Northamptonshire to serve you better
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {/* Main Office Map */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/10 overflow-hidden hover:bg-white/15 transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="bg-linear-to-br from-serve-blue-500 to-cyan-500 rounded-xl p-3 mr-4 shadow-lg">
+                  <BuildingOffice2Icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Main Office</h3>
+                  <p className="text-sm text-blue-100/70">Administrative & Care Coordination</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl overflow-hidden aspect-[4/3] mb-4 shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.5!2d-0.5994!3d52.2894!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48770e5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2s8%20West%20St%2C%20Rushden%20NN10%200RT!5e0!3m2!1sen!2suk!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="SERVE Main Office Location"
+                />
+              </div>
+              <p className="text-sm text-blue-100/90 leading-relaxed mb-2">
+                8 West Street, Rushden, Northants NN10 0RT
+              </p>
+              <a 
+                href="https://maps.google.com/?q=8+West+Street,+Rushden,+NN10+0RT"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-cyan-300 hover:text-white text-sm font-medium group/link"
+              >
+                Get Directions
+                <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+
+            {/* Day Centre Map */}
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-6 border border-white/10 overflow-hidden hover:bg-white/15 transition-all duration-300">
+              <div className="flex items-center mb-4">
+                <div className="bg-linear-to-br from-purple-500 to-violet-500 rounded-xl p-3 mr-4 shadow-lg">
+                  <BuildingOffice2Icon className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h3 className="text-xl font-bold">Ron Manning Day Centre</h3>
+                  <p className="text-sm text-blue-100/70">Day Care & Community Activities</p>
+                </div>
+              </div>
+              <div className="bg-white rounded-2xl overflow-hidden aspect-[4/3] mb-4 shadow-lg">
+                <iframe 
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2432.5!2d-0.5880!3d52.3058!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x48770e5f5f5f5f5f%3A0x5f5f5f5f5f5f5f5f!2s76%20Upper%20Kings%20Ave%2C%20Higham%20Ferrers%20NN10%208JZ!5e0!3m2!1sen!2suk!4v1234567890"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Ron Manning Day and Activity Centre Location"
+                />
+              </div>
+              <p className="text-sm text-blue-100/90 leading-relaxed mb-2">
+                76 Upper Kings Avenue, Higham Ferrers, Northants NN10 8JZ
+              </p>
+              <a 
+                href="https://maps.google.com/?q=76+Upper+Kings+Avenue,+Higham+Ferrers,+NN10+8JZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center text-purple-300 hover:text-white text-sm font-medium group/link"
+              >
+                Get Directions
+                <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                </svg>
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </section>

@@ -126,7 +126,7 @@ export default function Services() {
                 
                 <div className="relative p-6 flex flex-col flex-1">
                   {/* Service Image */}
-                  <div className={`relative rounded-2xl w-full aspect-[4/3] mb-5 overflow-hidden bg-linear-to-br ${service.bgGradient} shrink-0`}>
+                  <div className={`relative rounded-2xl w-full aspect-4/3 mb-5 overflow-hidden bg-linear-to-br ${service.bgGradient} shrink-0`}>
                     <Image
                       src={service.image}
                       alt={service.title}

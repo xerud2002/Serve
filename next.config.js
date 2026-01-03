@@ -244,7 +244,7 @@ const nextConfig = {
               "img-src 'self' data: https: blob:",
               "media-src 'self' https:",
               "connect-src 'self' https://graph.facebook.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.google.com",
-              "frame-src 'self' https://www.facebook.com https://*.firebaseapp.com https://accounts.google.com",
+              "frame-src 'self' https://www.facebook.com https://*.firebaseapp.com https://accounts.google.com https://www.google.com",
               "worker-src 'self' blob:",
               "manifest-src 'self'",
               "form-action 'self'",
