@@ -473,12 +473,12 @@ export default function AboutPage() {
           <div className="max-w-md mx-auto mb-12">
             {teamMembers.map((member, index) => (
               <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-serve-blue-100">
-                <div className="relative h-64 bg-linear-to-br from-serve-blue-100 to-cyan-200">
+                <div className="relative h-[350px] bg-linear-to-br from-serve-blue-100 to-cyan-200">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    className="object-cover object-top group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6 text-center">

@@ -95,36 +95,91 @@ export default function CallToActionSection() {
           ))}
         </div>
         
-        {/* CTA Card */}
-        <div className="relative">
-          <div className="absolute inset-0 bg-linear-to-r from-serve-green-500 via-serve-green-600 to-emerald-600 rounded-2xl md:rounded-3xl blur-xl opacity-30" />
-          <div className="relative bg-linear-to-br from-serve-green-500 via-serve-green-600 to-emerald-600 rounded-2xl md:rounded-3xl p-6 md:p-10 lg:p-14 shadow-2xl overflow-hidden">
-            {/* Decorative elements */}
-            <div className="absolute top-0 right-0 w-48 md:w-72 h-48 md:h-72 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
-            <div className="absolute bottom-0 left-0 w-32 md:w-56 h-32 md:h-56 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
+        {/* CTA Card - Modern Design */}
+        <div className="relative max-w-5xl mx-auto">
+          {/* Glow effect */}
+          <div className="absolute -inset-1 bg-linear-to-r from-serve-green-400 via-emerald-400 to-teal-400 rounded-3xl blur-2xl opacity-40 group-hover:opacity-60 transition-opacity duration-300" />
+          
+          {/* Main card */}
+          <div className="relative bg-linear-to-br from-serve-green-600 via-serve-green-700 to-emerald-700 rounded-3xl p-8 md:p-12 lg:p-16 shadow-2xl overflow-hidden">
+            {/* Decorative mesh gradients */}
+            <div className="absolute top-0 right-0 w-64 md:w-96 h-64 md:h-96 bg-white/5 rounded-full -translate-y-1/3 translate-x-1/3 blur-3xl" />
+            <div className="absolute bottom-0 left-0 w-48 md:w-72 h-48 md:h-72 bg-emerald-400/10 rounded-full translate-y-1/3 -translate-x-1/3 blur-3xl" />
+            <div className="absolute top-1/2 left-1/2 w-40 md:w-64 h-40 md:h-64 bg-teal-300/5 rounded-full -translate-x-1/2 -translate-y-1/2 blur-3xl" />
             
-            <div className="relative text-center">
-              <div className="inline-flex items-center bg-white/20 backdrop-blur text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-semibold mb-4 md:mb-6">
-                <svg className="w-3.5 h-3.5 md:w-4 md:h-4 mr-1.5 md:mr-2" fill="currentColor" viewBox="0 0 20 20">
-                  <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
-                </svg>
-                Free, No-Obligation Assessment
+            {/* Dot pattern overlay */}
+            <div className="absolute inset-0 opacity-[0.03]">
+              <div 
+                className="absolute inset-0" 
+                style={{
+                  backgroundImage: `radial-gradient(circle, white 1px, transparent 1px)`,
+                  backgroundSize: '32px 32px'
+                }} 
+              />
+            </div>
+            
+            <div className="relative text-center space-y-6">
+              {/* Badge */}
+              <div className="inline-flex">
+                <div className="relative group/badge">
+                  <div className="absolute -inset-0.5 bg-white/30 rounded-full blur-sm" />
+                  <div className="relative inline-flex items-center gap-2 bg-white/20 backdrop-blur-md border border-white/30 text-white px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                    <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd"/>
+                    </svg>
+                    Free, No-Obligation Assessment
+                  </div>
+                </div>
               </div>
               
-              <h3 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-3 md:mb-4">Ready to Take the First Step?</h3>
-              <p className="text-green-100 text-base md:text-lg mb-6 md:mb-8 max-w-2xl mx-auto px-2">
+              {/* Heading */}
+              <h3 className="text-3xl md:text-4xl lg:text-5xl font-black text-white leading-tight">
+                Ready to Take the First Step?
+              </h3>
+              
+              {/* Description */}
+              <p className="text-white/95 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed font-light">
                 Contact us today to arrange a friendly home visit. There&apos;s no pressure, just compassionate advice tailored to your situation.
               </p>
               
-              <Link 
-                href="/contact"
-                className="inline-flex items-center gap-2 md:gap-3 bg-white text-serve-green-700 hover:bg-green-50 font-bold px-6 md:px-10 py-4 md:py-5 text-base md:text-lg shadow-xl hover:shadow-2xl transform hover:scale-105 transition-all duration-300 rounded-xl md:rounded-2xl"
-              >
-                <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                Request a Home Assessment
-              </Link>
+              {/* CTA Button */}
+              <div className="pt-2">
+                <Link 
+                  href="/contact"
+                  className="group/btn relative inline-flex items-center gap-3 bg-white hover:bg-green-50 text-serve-green-700 font-bold px-8 md:px-10 py-4 md:py-5 text-base md:text-lg shadow-2xl hover:shadow-white/20 transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 rounded-2xl overflow-hidden"
+                >
+                  {/* Button shimmer effect */}
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                  
+                  <svg className="relative w-6 h-6 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                  </svg>
+                  <span className="relative">Request a Home Assessment</span>
+                </Link>
+              </div>
+              
+              {/* Trust indicators */}
+              <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6 pt-4 text-white/80 text-sm">
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium">Award-Winning Team</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M2.166 4.999A11.954 11.954 0 0010 1.944 11.954 11.954 0 0017.834 5c.11.65.166 1.32.166 2.001 0 5.225-3.34 9.67-8 11.317C5.34 16.67 2 12.225 2 7c0-.682.057-1.35.166-2.001zm11.541 3.708a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium">CQC Registered</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <svg className="w-5 h-5 text-emerald-300" fill="currentColor" viewBox="0 0 20 20">
+                    <path d="M10 12a2 2 0 100-4 2 2 0 000 4z" />
+                    <path fillRule="evenodd" d="M.458 10C1.732 5.943 5.522 3 10 3s8.268 2.943 9.542 7c-1.274 4.057-5.064 7-9.542 7S1.732 14.057.458 10zM14 10a4 4 0 11-8 0 4 4 0 018 0z" clipRule="evenodd" />
+                  </svg>
+                  <span className="font-medium">40+ Years Experience</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
