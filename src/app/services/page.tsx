@@ -13,7 +13,6 @@ import {
   ShieldCheckIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
-import NewsletterSignup from '@/components/NewsletterSignup'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 
@@ -252,13 +251,8 @@ export default function ServicesPage() {
             })}
           </div>
 
-          {/* Newsletter Signup */}
-          <div className="mb-16">
-            <NewsletterSignup variant="inline" />
-          </div>
-
           {/* Contact CTA */}
-          <div className="relative">
+          <div className="relative mb-16">
             <div className="absolute inset-0 bg-linear-to-r from-serve-blue-600 via-serve-blue-700 to-serve-blue-800 rounded-3xl blur-xl opacity-30" />
             <div className="relative bg-linear-to-br from-serve-blue-600 via-serve-blue-700 to-serve-blue-800 rounded-3xl p-10 lg:p-14 text-center text-white shadow-2xl overflow-hidden">
               {/* Decorative circles */}

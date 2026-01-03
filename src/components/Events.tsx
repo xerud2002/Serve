@@ -56,16 +56,6 @@ export default function Events() {
                           <TrophyIcon className="w-10 h-10 text-white" />
                         </div>
                       </div>
-                      <div className="flex items-center gap-2">
-                        <span className="bg-linear-to-r from-yellow-100 to-amber-100 text-amber-800 px-5 py-2 rounded-full text-sm font-bold border border-amber-200">
-                          🏆 {featuredNews.category}
-                        </span>
-                        <div className="flex gap-0.5">
-                          {[...Array(5)].map((_, i) => (
-                            <StarIcon key={i} className="w-5 h-5 text-yellow-400" />
-                          ))}
-                        </div>
-                      </div>
                     </div>
                     
                     <h3 className="text-3xl lg:text-4xl font-black mb-6 leading-tight">

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState } from 'react'
-import { useContactForm } from './useContactForm'
 
 interface NewsletterFormData {
   email: string
@@ -10,7 +9,7 @@ interface NewsletterFormData {
   frequency: string
 }
 
-export function useNewsletterSignup(formspreeEndpoint: string) {
+export function useNewsletterSignup(apiEndpoint: string) {
   const [formData, setFormData] = useState<NewsletterFormData>({
     email: '',
     firstName: '',
@@ -18,9 +17,10 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
     frequency: 'monthly'
   })
   const [emailError, setEmailError] = useState<string>('')
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [error, setError] = useState<string>('')
   
-  const { isSubmitting, isSubmitted, error, submitForm, resetForm } = useContactForm(formspreeEndpoint)
-
   const validateEmail = (email: string): boolean => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
     if (!email.trim()) {
@@ -56,6 +56,7 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
     // Clear email error when user types
     if (name === 'email') {
       setEmailError('')
+      setError('')
     }
   }
 
@@ -66,20 +67,32 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
       return
     }
 
-    // Prepare submission data
-    const submissionData = {
-      type: 'newsletter_signup',
-      email: formData.email,
-      firstName: formData.firstName || 'Not provided',
-      interests: formData.interests.length > 0 ? formData.interests.join(', ') : 'General updates',
-      frequency: formData.frequency,
-      source: 'website',
-      subscribed_at: new Date().toISOString()
-    }
-    
-    const success = await submitForm(submissionData)
-    if (success) {
-      // Clear form
+    setIsSubmitting(true)
+    setError('')
+
+    try {
+      const response = await fetch(apiEndpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: formData.email,
+          firstName: formData.firstName || '',
+          interests: formData.interests.length > 0 ? formData.interests.join(', ') : 'General updates',
+          frequency: formData.frequency,
+        }),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to subscribe')
+      }
+
+      setIsSubmitted(true)
+      
+      // Clear form on success
       setFormData({
         email: '',
         firstName: '',
@@ -87,10 +100,15 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
         frequency: 'monthly'
       })
       setEmailError('')
+      
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'An unexpected error occurred')
+    } finally {
+      setIsSubmitting(false)
     }
   }
 
-  const clearForm = () => {
+  const resetForm = () => {
     setFormData({
       email: '',
       firstName: '',
@@ -98,7 +116,8 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
       frequency: 'monthly'
     })
     setEmailError('')
-    resetForm()
+    setIsSubmitted(false)
+    setError('')
   }
 
   return {
@@ -109,6 +128,6 @@ export function useNewsletterSignup(formspreeEndpoint: string) {
     error,
     handleInputChange,
     handleSubmit,
-    clearForm
+    resetForm
   }
 }

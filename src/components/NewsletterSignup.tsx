@@ -22,7 +22,7 @@ export default function NewsletterSignup({
     error,
     handleInputChange,
     handleSubmit,
-    clearForm
+    resetForm
   } = useNewsletterSignup('/api/newsletter')
 
   if (isSubmitted) {
@@ -38,7 +38,7 @@ export default function NewsletterSignup({
           </div>
         </div>
         <button
-          onClick={clearForm}
+          onClick={resetForm}
           className={`text-sm underline hover:no-underline transition-all ${
             variant === 'footer' ? 'text-gray-300 hover:text-white' : 'text-gray-600 hover:text-gray-900'
           }`}
