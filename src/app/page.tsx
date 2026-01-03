@@ -12,9 +12,6 @@ const WhyChooseSERVE = dynamic(() => import('@/components/WhyChooseSERVE'), {
 const Events = dynamic(() => import('@/components/Events'), {
   loading: () => <div className="min-h-[600px] bg-white animate-pulse" />
 })
-const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
-  loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
-})
 const WebVitals = dynamic(() => import('@/components/WebVitals'))
 
 export const metadata = generateSEOMetadata(seoConfigs.home)
@@ -33,9 +30,6 @@ export default function Home() {
         <Events />
       </ScrollReveal>
       <ScrollReveal delay={200}>
-        <FacebookFeed />
-      </ScrollReveal>
-      <ScrollReveal delay={250}>
         <WhyChooseSERVE />
       </ScrollReveal>
       <WebVitals />

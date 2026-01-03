@@ -290,7 +290,7 @@ export default function CommunityServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16 max-w-6xl mx-auto">
             {communityServices.map((category, index) => {
               const IconComponent = category.icon
               const gradients = [
@@ -417,13 +417,6 @@ export default function CommunityServicesPage() {
               className="inline-flex items-center text-white/80 hover:text-white transition-colors group"
             >
               <ArrowLeftIcon className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
-              Back to All Services
-            </Link>
-          </div>
-        </div>
-      </section>
-            >
-              <ArrowLeftIcon className="w-5 h-5 mr-2" />
               Back to All Services
             </Link>
           </div>

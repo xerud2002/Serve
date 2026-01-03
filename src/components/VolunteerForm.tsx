@@ -15,7 +15,7 @@ export default function VolunteerForm() {
     handleSubmit,
     getFieldError,
     clearForm
-  } = useVolunteerForm('https://formspree.io/f/YOUR_VOLUNTEER_FORM_ID')
+  } = useVolunteerForm('/api/volunteer')
 
   if (isSubmitted) {
     return (

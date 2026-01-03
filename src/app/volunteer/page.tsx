@@ -493,27 +493,23 @@ export default function VolunteerPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {process.map((step, index) => {
-              const IconComponent = step.icon
               const gradients = [
-                { bg: 'from-serve-green-50 to-emerald-50', iconBg: 'from-serve-green-500 to-emerald-500', stepBg: 'from-serve-green-600 to-emerald-600', border: 'border-serve-green-200' },
-                { bg: 'from-teal-50 to-cyan-50', iconBg: 'from-teal-500 to-cyan-500', stepBg: 'from-teal-600 to-cyan-600', border: 'border-teal-200' },
-                { bg: 'from-serve-blue-50 to-cyan-50', iconBg: 'from-serve-blue-500 to-cyan-500', stepBg: 'from-serve-blue-600 to-cyan-600', border: 'border-serve-blue-200' },
-                { bg: 'from-purple-50 to-violet-50', iconBg: 'from-purple-500 to-violet-500', stepBg: 'from-purple-600 to-violet-600', border: 'border-purple-200' },
-                { bg: 'from-amber-50 to-orange-50', iconBg: 'from-amber-500 to-orange-500', stepBg: 'from-amber-600 to-orange-600', border: 'border-amber-200' },
-                { bg: 'from-lime-50 to-green-50', iconBg: 'from-lime-500 to-green-500', stepBg: 'from-lime-600 to-green-600', border: 'border-lime-200' },
+                { bg: 'from-serve-green-50 to-emerald-50', stepBg: 'from-serve-green-600 to-emerald-600', border: 'border-serve-green-200' },
+                { bg: 'from-teal-50 to-cyan-50', stepBg: 'from-teal-600 to-cyan-600', border: 'border-teal-200' },
+                { bg: 'from-serve-blue-50 to-cyan-50', stepBg: 'from-serve-blue-600 to-cyan-600', border: 'border-serve-blue-200' },
+                { bg: 'from-purple-50 to-violet-50', stepBg: 'from-purple-600 to-violet-600', border: 'border-purple-200' },
+                { bg: 'from-amber-50 to-orange-50', stepBg: 'from-amber-600 to-orange-600', border: 'border-amber-200' },
+                { bg: 'from-lime-50 to-green-50', stepBg: 'from-lime-600 to-green-600', border: 'border-lime-200' },
               ]
               const colors = gradients[index % gradients.length]
               
               return (
                 <div key={index} className="relative">
-                  <div className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 text-center h-full border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
-                    <div className={`bg-linear-to-r ${colors.stepBg} text-white rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform`}>
+                  <div className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 h-full border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative`}>
+                    <div className={`absolute top-6 right-6 bg-linear-to-r ${colors.stepBg} text-white rounded-2xl w-14 h-14 flex items-center justify-center text-2xl font-black shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                       {step.step}
                     </div>
-                    <div className={`bg-linear-to-r ${colors.iconBg} rounded-xl p-3 w-fit mx-auto mb-4 shadow-md`}>
-                      <IconComponent className="w-6 h-6 text-white" />
-                    </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
+                    <h3 className="text-xl font-bold text-gray-900 mb-4 pr-16">{step.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{step.description}</p>
                   </div>
                   
