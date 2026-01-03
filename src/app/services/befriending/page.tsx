@@ -187,17 +187,32 @@ export default function BefriendingPage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='m0 40l40-40h-40v40zm0 0l40-40h-40v40z'/%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+      <section className="relative py-20 lg:py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-purple-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-violet-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-serve-green-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }} 
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <MajorTitle primary="Countywide" secondary="Befriending" dark accentClass="text-serve-blue-200" />
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Countywide</span>{' '}
+                <span className="bg-linear-to-r from-purple-300 via-purple-400 to-purple-300 bg-clip-text text-transparent">Befriending</span>
+              </h1>
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Combat loneliness with our friendly befriending service. We provide regular 
@@ -253,13 +268,22 @@ export default function BefriendingPage() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-violet-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              How Our Befriending Service Helps
+            <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-violet-50 text-purple-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Combating Loneliness
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-purple-600 to-violet-500 bg-clip-text text-transparent">How Our Befriending</span>{' '}
+              <span className="bg-linear-to-r from-serve-blue-500 to-cyan-500 bg-clip-text text-transparent">Service Helps</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Our befriending service tackles loneliness through regular visits, meaningful 
               conversation, and genuine human connection across all of Northamptonshire.
             </p>
@@ -268,18 +292,26 @@ export default function BefriendingPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {befriendingServices.map((category, index) => {
               const IconComponent = category.icon
+              const gradients = [
+                { bg: 'from-purple-50 to-violet-50', icon: 'bg-purple-100', iconText: 'text-purple-600', border: 'border-purple-200' },
+                { bg: 'from-rose-50 to-pink-50', icon: 'bg-rose-100', iconText: 'text-rose-600', border: 'border-rose-200' },
+                { bg: 'from-amber-50 to-yellow-50', icon: 'bg-amber-100', iconText: 'text-amber-600', border: 'border-amber-200' },
+                { bg: 'from-teal-50 to-cyan-50', icon: 'bg-teal-100', iconText: 'text-teal-600', border: 'border-teal-200' },
+              ]
+              const colors = gradients[index % gradients.length]
+              
               return (
-                <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                  <div className="bg-serve-blue-100 rounded-xl p-4 w-fit mb-6">
-                    <IconComponent className="w-8 h-8 text-serve-blue-600" />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                  <div className={`${colors.icon} rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform`}>
+                    <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
                   
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {category.services.map((service, serviceIndex) => (
                       <li key={serviceIndex} className="flex items-start text-gray-700">
-                        <CheckIcon className="w-4 h-4 text-serve-green-600 mr-2 mt-1 shrink-0" />
+                        <CheckIcon className={`w-5 h-5 ${colors.iconText} mr-2 mt-0.5 shrink-0`} />
                         <span className="text-sm">{service}</span>
                       </li>
                     ))}
@@ -290,29 +322,41 @@ export default function BefriendingPage() {
           </div>
 
           {/* Benefits */}
-          <div className="bg-linear-to-r from-serve-blue-50 to-serve-green-50 rounded-3xl p-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Why Choose SERVE Befriending?
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center bg-white rounded-xl p-4 shadow-sm">
-                  <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 shrink-0" />
-                  <span className="text-gray-800 font-medium">{benefit}</span>
-                </div>
-              ))}
+          <div className="relative">
+            <div className="absolute inset-0 bg-linear-to-r from-purple-500 to-violet-600 rounded-3xl blur-xl opacity-20" />
+            <div className="relative bg-linear-to-r from-purple-50 via-white to-violet-50 rounded-3xl p-10 lg:p-14 border border-purple-100">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-10 text-center">
+                <span className="bg-linear-to-r from-purple-600 to-violet-600 bg-clip-text text-transparent">Why Choose SERVE Befriending?</span>
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-purple-100">
+                    <div className="bg-linear-to-r from-purple-500 to-violet-500 rounded-lg p-2 mr-3">
+                      <CheckIcon className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-800 font-medium text-sm">{benefit}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-64 h-64 bg-purple-100/50 rounded-full blur-3xl translate-x-1/2" />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+            <div className="inline-flex items-center bg-linear-to-r from-violet-100 to-purple-50 text-violet-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Common Questions
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-purple-600 to-violet-500 bg-clip-text text-transparent">Frequently Asked</span>{' '}
+              <span className="bg-linear-to-r from-serve-blue-500 to-cyan-500 bg-clip-text text-transparent">Questions</span>
             </h2>
             <p className="text-xl text-gray-600">
               Common questions about our befriending service
@@ -321,8 +365,8 @@ export default function BefriendingPage() {
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-white rounded-2xl p-8 shadow-sm">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{faq.question}</h3>
+              <div key={index} className="group bg-linear-to-br from-white to-purple-50/30 rounded-3xl p-8 shadow-lg border border-purple-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-purple-700 transition-colors">{faq.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -331,12 +375,20 @@ export default function BefriendingPage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-r from-serve-blue-600 to-serve-blue-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            Combat Loneliness Today
+      <section className="py-20 lg:py-28 relative overflow-hidden">
+        <div className="absolute inset-0 bg-linear-to-br from-purple-600 via-violet-600 to-purple-700" />
+        
+        {/* Animated orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-20 -right-20 w-72 h-72 bg-white/10 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-white/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        </div>
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative">
+          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
+            <span className="bg-linear-to-r from-white via-purple-100 to-white bg-clip-text text-transparent">Combat Loneliness Today</span>
           </h2>
-          <p className="text-xl opacity-90 mb-10 leading-relaxed">
+          <p className="text-xl lg:text-2xl text-purple-100 mb-10 leading-relaxed max-w-3xl mx-auto">
             Contact us to arrange befriending support. Our friendly volunteers are ready to 
             provide companionship and help you build meaningful social connections.
           </p>
@@ -344,14 +396,14 @@ export default function BefriendingPage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center bg-linear-to-r from-serve-green-500 to-emerald-600 hover:from-serve-green-600 hover:to-emerald-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/30"
             >
               <PhoneIcon className="w-6 h-6 mr-3" />
               Call Now: 01933 315555
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-blue-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-purple-900 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 border border-white/20"
             >
               Request Befriending Support
               <ArrowRightIcon className="ml-3 h-5 w-5" />

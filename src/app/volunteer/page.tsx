@@ -189,22 +189,37 @@ export default function VolunteerPage() {
   return (
     <div className="min-h-screen bg-gray-50">
       {/* Hero Section */}
-      <section className="relative py-20 bg-linear-to-br from-serve-green-900 via-serve-green-800 to-serve-green-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.4'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+      <section className="relative py-20 lg:py-28 bg-linear-to-br from-serve-green-900 via-serve-green-800 to-serve-green-900 text-white overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-yellow-400/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-green-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-serve-blue-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-rose-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }} 
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-6 py-3 rounded-full text-sm font-bold mb-8">
+              <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-yellow-400 via-amber-400 to-yellow-500 text-yellow-900 shadow-lg shadow-yellow-500/25 mb-8">
                 <HeartIcon className="w-5 h-5 mr-2" />
                 Join Our Caring Community
               </div>
 
-              <MajorTitle primary="Volunteer with" secondary="SERVE" dark accentClass="text-serve-green-200" />
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+                <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Volunteer</span>{' '}
+                <span className="bg-linear-to-r from-yellow-300 via-amber-400 to-yellow-300 bg-clip-text text-transparent">with SERVE</span>
+              </h1>
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Make a meaningful difference in your community by volunteering with SERVE. 
@@ -260,11 +275,18 @@ export default function VolunteerPage() {
       </section>
 
       {/* Volunteering with SERVE - Social Impact */}
-      <section className="py-16 bg-linear-to-br from-serve-blue-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-linear-to-br from-serve-blue-50 via-white to-cyan-50/30 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-serve-blue-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">
-              Volunteering with SERVE
+            <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-cyan-50 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Making A Difference
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-4">
+              <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Volunteering with SERVE</span>
             </h2>
             <p className="text-xl text-serve-blue-600 font-semibold">
               Serve&apos;s Social Impact
@@ -272,23 +294,23 @@ export default function VolunteerPage() {
           </div>
 
           {/* Social Impact Stats */}
-          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-gray-100">
+          <div className="bg-white rounded-3xl shadow-xl p-8 md:p-12 border border-serve-blue-100">
             <div className="text-center mb-10">
-              <h3 className="text-2xl md:text-3xl font-bold text-serve-blue-700 mb-2">
-                Overall Social Impact
+              <h3 className="text-2xl md:text-3xl font-bold mb-2">
+                <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Overall Social Impact</span>
               </h3>
               <p className="text-lg text-gray-600">April – October 2025</p>
             </div>
 
             {/* Key Stats */}
             <div className="grid md:grid-cols-2 gap-6 mb-10">
-              <div className="bg-linear-to-br from-serve-blue-50 to-blue-50 rounded-2xl p-6 text-center border border-serve-blue-100">
+              <div className="group bg-linear-to-br from-serve-blue-50 via-white to-cyan-50 rounded-3xl p-8 text-center border border-serve-blue-100 hover:shadow-lg transition-all">
                 <div className="text-sm font-semibold text-serve-blue-600 mb-2">✨ Total Volunteer Hours</div>
-                <div className="text-4xl md:text-5xl font-bold text-serve-blue-700">11,815.5</div>
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">11,815.5</div>
               </div>
-              <div className="bg-linear-to-br from-serve-green-50 to-green-50 rounded-2xl p-6 text-center border border-serve-green-100">
+              <div className="group bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-3xl p-8 text-center border border-serve-green-100 hover:shadow-lg transition-all">
                 <div className="text-sm font-semibold text-serve-green-600 mb-2">✨ Total Social Value Generated</div>
-                <div className="text-4xl md:text-5xl font-bold text-serve-green-700">£144,267.26</div>
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">£144,267.26</div>
                 <div className="text-sm text-gray-500 mt-1">(approx.)</div>
               </div>
             </div>
@@ -297,28 +319,28 @@ export default function VolunteerPage() {
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Breakdown by Service</h4>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="bg-serve-blue-600 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">58.1%</div>
+                <div className="bg-linear-to-r from-serve-blue-600 to-serve-blue-700 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">58.1%</div>
                   <div className="text-sm opacity-90">Community Transport Scheme</div>
                 </div>
-                <div className="bg-serve-red-500 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">31.5%</div>
+                <div className="bg-linear-to-r from-rose-500 to-red-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">31.5%</div>
                   <div className="text-sm opacity-90">Befriending Service</div>
                 </div>
-                <div className="bg-serve-green-600 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">7.62%</div>
+                <div className="bg-linear-to-r from-serve-green-500 to-emerald-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">7.62%</div>
                   <div className="text-sm opacity-90">Day Centre</div>
                 </div>
-                <div className="bg-serve-teal-500 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">1.46%</div>
+                <div className="bg-linear-to-r from-teal-500 to-cyan-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">1.46%</div>
                   <div className="text-sm opacity-90">Trustees & Strategic Guidance</div>
                 </div>
-                <div className="bg-amber-500 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">0.88%</div>
+                <div className="bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">0.88%</div>
                   <div className="text-sm opacity-90">Fundraising Events</div>
                 </div>
-                <div className="bg-orange-500 text-white rounded-xl p-4 text-center">
-                  <div className="text-3xl font-bold mb-1">0.44%</div>
+                <div className="bg-linear-to-r from-orange-500 to-red-500 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-4xl font-bold mb-2">0.44%</div>
                   <div className="text-sm opacity-90">Community Engagement Events</div>
                 </div>
               </div>
@@ -328,35 +350,42 @@ export default function VolunteerPage() {
       </section>
 
       {/* Volunteer Opportunities */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-80 h-80 bg-serve-green-100/30 rounded-full blur-3xl translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Volunteering Opportunities
+            <div className="inline-flex items-center bg-linear-to-r from-serve-green-100 to-emerald-50 text-serve-green-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Find Your Role
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent">Volunteering Opportunities</span>
             </h2>
           </div>
 
           <div className="space-y-8">
             {volunteerOpportunities.map((opportunity) => {
               const IconComponent = opportunity.icon
-              const colorStyles: Record<string, { bg: string; iconBg: string; iconText: string; border: string }> = {
-                blue: { bg: 'from-blue-50 to-white', iconBg: 'bg-blue-100', iconText: 'text-blue-600', border: 'border-blue-200' },
-                green: { bg: 'from-serve-green-50 to-white', iconBg: 'bg-serve-green-100', iconText: 'text-serve-green-600', border: 'border-serve-green-200' },
-                purple: { bg: 'from-purple-50 to-white', iconBg: 'bg-purple-100', iconText: 'text-purple-600', border: 'border-purple-200' },
-                amber: { bg: 'from-amber-50 to-white', iconBg: 'bg-amber-100', iconText: 'text-amber-600', border: 'border-amber-200' },
-                red: { bg: 'from-red-50 to-white', iconBg: 'bg-red-100', iconText: 'text-red-600', border: 'border-red-200' },
-                teal: { bg: 'from-teal-50 to-white', iconBg: 'bg-teal-100', iconText: 'text-teal-600', border: 'border-teal-200' },
+              const colorStyles: Record<string, { bg: string; iconBg: string; iconText: string; border: string; gradient: string }> = {
+                blue: { bg: 'from-serve-blue-50 to-cyan-50', iconBg: 'from-serve-blue-500 to-cyan-500', iconText: 'text-white', border: 'border-serve-blue-200', gradient: 'from-serve-blue-600 to-cyan-500' },
+                green: { bg: 'from-serve-green-50 to-emerald-50', iconBg: 'from-serve-green-500 to-emerald-500', iconText: 'text-white', border: 'border-serve-green-200', gradient: 'from-serve-green-600 to-emerald-500' },
+                purple: { bg: 'from-purple-50 to-violet-50', iconBg: 'from-purple-500 to-violet-500', iconText: 'text-white', border: 'border-purple-200', gradient: 'from-purple-600 to-violet-500' },
+                amber: { bg: 'from-amber-50 to-orange-50', iconBg: 'from-amber-500 to-orange-500', iconText: 'text-white', border: 'border-amber-200', gradient: 'from-amber-600 to-orange-500' },
+                red: { bg: 'from-rose-50 to-red-50', iconBg: 'from-rose-500 to-red-500', iconText: 'text-white', border: 'border-rose-200', gradient: 'from-rose-600 to-red-500' },
+                teal: { bg: 'from-teal-50 to-cyan-50', iconBg: 'from-teal-500 to-cyan-500', iconText: 'text-white', border: 'border-teal-200', gradient: 'from-teal-600 to-cyan-500' },
               }
               const colors = colorStyles[opportunity.color] || colorStyles.blue
               
               return (
-                <div key={opportunity.id} className={`bg-linear-to-br ${colors.bg} rounded-3xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border ${colors.border}`}>
+                <div key={opportunity.id} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${colors.border}`}>
                   <div className="flex items-start gap-6 mb-6">
-                    <div className={`${colors.iconBg} rounded-xl p-4 shrink-0`}>
+                    <div className={`bg-linear-to-r ${colors.iconBg} rounded-2xl p-4 shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
                       <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold text-gray-900 mb-3">{opportunity.title}</h3>
+                      <h3 className="text-2xl font-bold mb-3">
+                        <span className={`bg-linear-to-r ${colors.gradient} bg-clip-text text-transparent`}>{opportunity.title}</span>
+                      </h3>
                       <p className="text-gray-700 leading-relaxed">{opportunity.description}</p>
                     </div>
                   </div>
@@ -367,7 +396,7 @@ export default function VolunteerPage() {
                         <ul className="space-y-3">
                           {opportunity.tasks.map((task, idx) => (
                             <li key={idx} className="flex items-start text-gray-700">
-                              <CheckIcon className={`w-5 h-5 ${colors.iconText} mr-3 mt-0.5 shrink-0`} />
+                              <CheckIcon className={`w-5 h-5 mr-3 mt-0.5 shrink-0`} style={{ color: opportunity.color === 'blue' ? '#0284c7' : opportunity.color === 'green' ? '#16a34a' : opportunity.color === 'purple' ? '#9333ea' : opportunity.color === 'amber' ? '#d97706' : opportunity.color === 'red' ? '#dc2626' : '#0891b2' }} />
                               <span>{task}</span>
                             </li>
                           ))}
@@ -389,7 +418,7 @@ export default function VolunteerPage() {
                       </div>
                     )}
 
-                    <p className="text-gray-600 italic bg-white/50 rounded-xl p-4 border border-gray-100">
+                    <p className="text-gray-600 italic bg-white rounded-2xl p-4 border border-gray-100 shadow-sm">
                       {opportunity.commitment}
                     </p>
                   </div>
@@ -401,11 +430,17 @@ export default function VolunteerPage() {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-serve-green-100/40 rounded-full blur-3xl -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-100/40 rounded-full blur-3xl translate-x-1/2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Why Volunteer with SERVE?
+            <div className="inline-flex items-center bg-linear-to-r from-amber-100 to-yellow-50 text-amber-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              The Benefits
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">Why Volunteer with SERVE?</span>
             </h2>
             <p className="text-xl text-gray-600">
               Discover the rewards and benefits of becoming a SERVE volunteer
@@ -415,10 +450,20 @@ export default function VolunteerPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {benefits.map((benefit, index) => {
               const IconComponent = benefit.icon
+              const gradients = [
+                { bg: 'from-serve-blue-50 to-cyan-50', iconBg: 'from-serve-blue-500 to-cyan-500', border: 'border-serve-blue-200' },
+                { bg: 'from-serve-green-50 to-emerald-50', iconBg: 'from-serve-green-500 to-emerald-500', border: 'border-serve-green-200' },
+                { bg: 'from-purple-50 to-violet-50', iconBg: 'from-purple-500 to-violet-500', border: 'border-purple-200' },
+                { bg: 'from-amber-50 to-orange-50', iconBg: 'from-amber-500 to-orange-500', border: 'border-amber-200' },
+                { bg: 'from-rose-50 to-red-50', iconBg: 'from-rose-500 to-red-500', border: 'border-rose-200' },
+                { bg: 'from-teal-50 to-cyan-50', iconBg: 'from-teal-500 to-cyan-500', border: 'border-teal-200' },
+              ]
+              const colors = gradients[index % gradients.length]
+              
               return (
-                <div key={index} className="bg-white rounded-2xl p-8 shadow-lg text-center hover:shadow-xl transition-shadow">
-                  <div className="bg-serve-blue-100 rounded-full p-4 w-fit mx-auto mb-6">
-                    <IconComponent className="w-8 h-8 text-serve-blue-600" />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 shadow-lg text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border ${colors.border}`}>
+                  <div className={`bg-linear-to-r ${colors.iconBg} rounded-2xl p-4 w-fit mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <IconComponent className="w-8 h-8 text-white" />
                   </div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
                   <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
@@ -430,11 +475,16 @@ export default function VolunteerPage() {
       </section>
 
       {/* Process */}
-      <section className="py-20 bg-white">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-serve-green-100/30 rounded-full blur-3xl -translate-x-1/2" />
+
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              How to Become a Volunteer
+            <div className="inline-flex items-center bg-linear-to-r from-serve-green-100 to-emerald-50 text-serve-green-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Simple 6-Step Process
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent">How to Become a Volunteer</span>
             </h2>
             <p className="text-xl text-gray-600">
               Our simple, supportive process to get you started as a SERVE volunteer
@@ -444,14 +494,24 @@ export default function VolunteerPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {process.map((step, index) => {
               const IconComponent = step.icon
+              const gradients = [
+                { bg: 'from-serve-green-50 to-emerald-50', iconBg: 'from-serve-green-500 to-emerald-500', stepBg: 'from-serve-green-600 to-emerald-600', border: 'border-serve-green-200' },
+                { bg: 'from-teal-50 to-cyan-50', iconBg: 'from-teal-500 to-cyan-500', stepBg: 'from-teal-600 to-cyan-600', border: 'border-teal-200' },
+                { bg: 'from-serve-blue-50 to-cyan-50', iconBg: 'from-serve-blue-500 to-cyan-500', stepBg: 'from-serve-blue-600 to-cyan-600', border: 'border-serve-blue-200' },
+                { bg: 'from-purple-50 to-violet-50', iconBg: 'from-purple-500 to-violet-500', stepBg: 'from-purple-600 to-violet-600', border: 'border-purple-200' },
+                { bg: 'from-amber-50 to-orange-50', iconBg: 'from-amber-500 to-orange-500', stepBg: 'from-amber-600 to-orange-600', border: 'border-amber-200' },
+                { bg: 'from-lime-50 to-green-50', iconBg: 'from-lime-500 to-green-500', stepBg: 'from-lime-600 to-green-600', border: 'border-lime-200' },
+              ]
+              const colors = gradients[index % gradients.length]
+              
               return (
                 <div key={index} className="relative">
-                  <div className="bg-gray-50 rounded-2xl p-8 text-center h-full">
-                    <div className="bg-serve-green-600 text-white rounded-full w-12 h-12 flex items-center justify-center mx-auto mb-6 text-xl font-bold">
+                  <div className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 text-center h-full border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                    <div className={`bg-linear-to-r ${colors.stepBg} text-white rounded-2xl w-14 h-14 flex items-center justify-center mx-auto mb-6 text-xl font-bold shadow-lg group-hover:scale-110 transition-transform`}>
                       {step.step}
                     </div>
-                    <div className="bg-serve-green-100 rounded-xl p-3 w-fit mx-auto mb-4">
-                      <IconComponent className="w-6 h-6 text-serve-green-600" />
+                    <div className={`bg-linear-to-r ${colors.iconBg} rounded-xl p-3 w-fit mx-auto mb-4 shadow-md`}>
+                      <IconComponent className="w-6 h-6 text-white" />
                     </div>
                     <h3 className="text-xl font-bold text-gray-900 mb-4">{step.title}</h3>
                     <p className="text-gray-600 leading-relaxed">{step.description}</p>
@@ -473,23 +533,32 @@ export default function VolunteerPage() {
       <VolunteerForm />
 
       {/* CTA Section */}
-      <section className="py-20 bg-serve-green-600 text-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-4xl font-bold mb-10">
-            Questions About Volunteering?
+      <section className="py-20 lg:py-28 bg-linear-to-br from-serve-green-600 via-serve-green-700 to-emerald-700 text-white relative overflow-hidden">
+        {/* Animated decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-serve-green-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-emerald-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
+            We&apos;re Here To Help
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-10">
+            Questions About <span className="text-emerald-200">Volunteering?</span>
           </h2>
           
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center bg-white text-serve-green-700 hover:bg-serve-green-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <PhoneIcon className="w-6 h-6 mr-3" />
               Call: 01933 315555
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-green-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Send a Message
               <ArrowRightIcon className="ml-3 h-5 w-5" />

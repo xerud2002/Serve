@@ -156,15 +156,38 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative py-20 bg-linear-to-br from-serve-blue-600 to-serve-blue-700 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20 lg:py-28 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-serve-green-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }} 
+          />
+        </div>
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm border border-white/20 rounded-full px-4 py-2 mb-6">
-              <TrophyIcon className="w-5 h-5" />
-              <span className="text-sm font-semibold">Award-Winning Care Since 1980s</span>
+            <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-yellow-400 via-amber-400 to-yellow-500 text-yellow-900 shadow-lg shadow-yellow-500/25 mb-8">
+              <TrophyIcon className="w-5 h-5 mr-2" />
+              Award-Winning Care Since 1980s
             </div>
-            <MajorTitle primary="About" secondary="SERVE" dark />
-            <p className="text-xl text-blue-100 leading-relaxed">
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">About</span>{' '}
+              <span className="bg-linear-to-r from-serve-green-300 via-serve-green-400 to-serve-green-300 bg-clip-text text-transparent">SERVE</span>
+            </h1>
+            
+            <p className="text-xl lg:text-2xl text-blue-100/90 leading-relaxed">
               For over 40 years, SERVE has been providing award-winning care services to help older people, 
              adults with disabilities and their carers maintain their independence across Northamptonshire.
             </p>
@@ -173,19 +196,26 @@ export default function AboutPage() {
       </section>
 
       {/* Our Story */}
-      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-serve-blue-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-cyan-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-                Our Story
+              <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-cyan-50 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                40+ Years of Excellence
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Our Story</span>
               </h2>
               <p className="text-lg text-gray-600">
                 Four decades of compassionate care and community support
               </p>
             </div>
 
-            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-gray-100">
+            <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-lg border border-serve-blue-100">
               <div className="prose prose-lg max-w-none">
                 <p className="text-gray-700 leading-relaxed mb-6">
                   Since the 1980s, SERVE has been a cornerstone of care in Northamptonshire, born from a simple 
@@ -200,7 +230,7 @@ export default function AboutPage() {
                   and dreams.
                 </p>
 
-                <div className="bg-serve-blue-50 rounded-2xl p-6 my-8 border-l-4 border-serve-blue-600">
+                <div className="bg-linear-to-r from-serve-blue-50 via-white to-cyan-50 rounded-2xl p-6 my-8 border-l-4 border-serve-blue-600">
                   <p className="text-gray-800 italic leading-relaxed">
                     &quot;Every day, our dedicated team works tirelessly to make a real difference in people&apos;s lives. 
                     Whether it&apos;s helping someone maintain their independence through personal care, connecting 
@@ -228,28 +258,28 @@ export default function AboutPage() {
                 <div className="my-8 space-y-4">
                   {/* Row 1: Service Stats */}
                   <div className="grid grid-cols-2 gap-4">
-                    <div className="text-center p-6 bg-linear-to-br from-serve-blue-50 to-white rounded-xl border border-serve-blue-100">
-                      <div className="text-4xl font-bold text-serve-blue-600 mb-2">40+</div>
+                    <div className="text-center p-6 bg-linear-to-br from-serve-blue-50 via-white to-cyan-50 rounded-2xl border border-serve-blue-100 hover:shadow-lg transition-shadow group">
+                      <div className="text-4xl font-bold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform inline-block">40+</div>
                       <p className="text-sm font-semibold text-gray-700">Years of Service</p>
                     </div>
-                    <div className="text-center p-6 bg-linear-to-br from-serve-green-50 to-white rounded-xl border border-serve-green-100">
-                      <div className="text-4xl font-bold text-serve-green-600 mb-2">1000s</div>
+                    <div className="text-center p-6 bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-2xl border border-serve-green-100 hover:shadow-lg transition-shadow group">
+                      <div className="text-4xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform inline-block">1000s</div>
                       <p className="text-sm font-semibold text-gray-700">Lives Touched</p>
                     </div>
                   </div>
                   
                   {/* Row 2: Awards */}
                   <div className="grid grid-cols-3 gap-4">
-                    <div className="text-center p-5 bg-linear-to-br from-yellow-50 to-white rounded-xl border border-yellow-200">
-                      <div className="text-3xl font-bold text-yellow-600 mb-2">2024</div>
+                    <div className="text-center p-5 bg-linear-to-br from-yellow-50 via-white to-amber-50 rounded-2xl border border-yellow-200 hover:shadow-lg transition-shadow group">
+                      <div className="text-3xl font-bold bg-linear-to-r from-yellow-600 to-amber-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform inline-block">2024</div>
                       <p className="text-sm font-semibold text-gray-700">Award Winner</p>
                     </div>
-                    <div className="text-center p-5 bg-linear-to-br from-amber-50 to-white rounded-xl border border-amber-200">
-                      <div className="text-3xl font-bold text-amber-600 mb-2">2025</div>
+                    <div className="text-center p-5 bg-linear-to-br from-amber-50 via-white to-orange-50 rounded-2xl border border-amber-200 hover:shadow-lg transition-shadow group">
+                      <div className="text-3xl font-bold bg-linear-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform inline-block">2025</div>
                       <p className="text-sm font-semibold text-gray-700">Highly Commended</p>
                     </div>
-                    <div className="text-center p-5 bg-linear-to-br from-orange-50 to-white rounded-xl border border-orange-200">
-                      <div className="text-3xl font-bold text-orange-600 mb-2">2025</div>
+                    <div className="text-center p-5 bg-linear-to-br from-orange-50 via-white to-red-50 rounded-2xl border border-orange-200 hover:shadow-lg transition-shadow group">
+                      <div className="text-3xl font-bold bg-linear-to-r from-orange-600 to-red-500 bg-clip-text text-transparent mb-2 group-hover:scale-110 transition-transform inline-block">2025</div>
                       <p className="text-sm font-semibold text-gray-700">Award Finalist</p>
                     </div>
                   </div>
@@ -268,14 +298,18 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-80 h-80 bg-serve-blue-100/30 rounded-full blur-3xl translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid md:grid-cols-2 gap-8">
-            <div className="bg-linear-to-br from-blue-50 to-white rounded-2xl p-8 border border-blue-100">
-              <div className="w-12 h-12 rounded-xl bg-serve-blue-100 flex items-center justify-center mb-4">
-                <HeartIcon className="w-6 h-6 text-serve-blue-600" />
+            <div className="group bg-linear-to-br from-serve-blue-50 via-white to-cyan-50 rounded-3xl p-8 border border-serve-blue-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-linear-to-r from-serve-blue-500 to-cyan-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <HeartIcon className="w-7 h-7 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Our Mission</span>
+              </h2>
               <p className="text-gray-700 leading-relaxed">
                 To help adults who require support services to maintain their independence on a daily basis. 
                 We provide practical help, emotional support, and social connections that enable people to 
@@ -283,11 +317,13 @@ export default function AboutPage() {
               </p>
             </div>
 
-            <div className="bg-linear-to-br from-green-50 to-white rounded-2xl p-8 border border-green-100">
-              <div className="w-12 h-12 rounded-xl bg-serve-green-100 flex items-center justify-center mb-4">
-                <UserGroupIcon className="w-6 h-6 text-serve-green-600" />
+            <div className="group bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-3xl p-8 border border-serve-green-100 hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-14 h-14 rounded-2xl bg-linear-to-r from-serve-green-500 to-emerald-500 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <UserGroupIcon className="w-7 h-7 text-white" />
               </div>
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Vision</h2>
+              <h2 className="text-2xl font-bold mb-4">
+                <span className="bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent">Our Vision</span>
+              </h2>
               <p className="text-gray-700 leading-relaxed">
                 A compassionate community that fully respects the rights of older people and people with 
                 disabilities, where age and differing abilities are not barriers to opportunity, 
@@ -299,11 +335,17 @@ export default function AboutPage() {
       </section>
 
       {/* Core Values */}
-      <section className="py-16 bg-linear-to-br from-gray-50 to-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Core Values
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-purple-100/40 rounded-full blur-3xl -translate-x-1/2" />
+        <div className="absolute bottom-0 right-0 w-72 h-72 bg-amber-100/40 rounded-full blur-3xl translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-violet-50 text-purple-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              What We Stand For
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-purple-600 to-violet-500 bg-clip-text text-transparent">Our Core Values</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Every decision we make is guided by these fundamental principles
@@ -315,22 +357,19 @@ export default function AboutPage() {
             {values.slice(0, 3).map((value, index) => {
               const IconComponent = value.icon
               const colorStyles = {
-                blue: 'from-serve-blue-50 to-white border-serve-blue-100 bg-serve-blue-100 text-serve-blue-600',
-                green: 'from-serve-green-50 to-white border-serve-green-100 bg-serve-green-100 text-serve-green-600',
-                purple: 'from-purple-50 to-white border-purple-100 bg-purple-100 text-purple-600',
+                blue: { bg: 'from-serve-blue-50 to-cyan-50', border: 'border-serve-blue-200', iconBg: 'from-serve-blue-500 to-cyan-500', iconText: 'text-white', textGradient: 'from-serve-blue-600 to-cyan-500' },
+                green: { bg: 'from-serve-green-50 to-emerald-50', border: 'border-serve-green-200', iconBg: 'from-serve-green-500 to-emerald-500', iconText: 'text-white', textGradient: 'from-serve-green-600 to-emerald-500' },
+                purple: { bg: 'from-purple-50 to-violet-50', border: 'border-purple-200', iconBg: 'from-purple-500 to-violet-500', iconText: 'text-white', textGradient: 'from-purple-600 to-violet-500' },
               }
               const colors = colorStyles[value.color as keyof typeof colorStyles] || colorStyles.blue
-              const [cardBg, iconBg, iconText] = [
-                colors.split(' ').slice(0, 3).join(' '),
-                colors.split(' ')[3],
-                colors.split(' ')[4]
-              ]
               return (
-                <div key={index} className={`bg-linear-to-br ${cardBg} rounded-2xl p-6 border shadow-sm hover:shadow-lg transition-all duration-300 group`}>
-                  <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <IconComponent className={`w-7 h-7 ${iconText}`} />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 border ${colors.border} shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                  <div className={`w-16 h-16 rounded-2xl bg-linear-to-r ${colors.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <h3 className="text-xl font-bold mb-3">
+                    <span className={`bg-linear-to-r ${colors.textGradient} bg-clip-text text-transparent`}>{value.title}</span>
+                  </h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               )
@@ -342,21 +381,18 @@ export default function AboutPage() {
             {values.slice(3).map((value, index) => {
               const IconComponent = value.icon
               const colorStyles = {
-                amber: 'from-amber-50 to-white border-amber-100 bg-amber-100 text-amber-600',
-                red: 'from-red-50 to-white border-red-100 bg-red-100 text-red-600',
+                amber: { bg: 'from-amber-50 to-orange-50', border: 'border-amber-200', iconBg: 'from-amber-500 to-orange-500', iconText: 'text-white', textGradient: 'from-amber-600 to-orange-500' },
+                red: { bg: 'from-rose-50 to-red-50', border: 'border-rose-200', iconBg: 'from-rose-500 to-red-500', iconText: 'text-white', textGradient: 'from-rose-600 to-red-500' },
               }
               const colors = colorStyles[value.color as keyof typeof colorStyles] || colorStyles.amber
-              const [cardBg, iconBg, iconText] = [
-                colors.split(' ').slice(0, 3).join(' '),
-                colors.split(' ')[3],
-                colors.split(' ')[4]
-              ]
               return (
-                <div key={index} className={`bg-linear-to-br ${cardBg} rounded-2xl p-6 border shadow-sm hover:shadow-lg transition-all duration-300 group`}>
-                  <div className={`w-14 h-14 rounded-xl ${iconBg} flex items-center justify-center mb-4 group-hover:scale-110 transition-transform`}>
-                    <IconComponent className={`w-7 h-7 ${iconText}`} />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 border ${colors.border} shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                  <div className={`w-16 h-16 rounded-2xl bg-linear-to-r ${colors.iconBg} flex items-center justify-center mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">{value.title}</h3>
+                  <h3 className="text-xl font-bold mb-3">
+                    <span className={`bg-linear-to-r ${colors.textGradient} bg-clip-text text-transparent`}>{value.title}</span>
+                  </h3>
                   <p className="text-gray-600 leading-relaxed">{value.description}</p>
                 </div>
               )
@@ -366,43 +402,48 @@ export default function AboutPage() {
       </section>
 
       {/* Recognition */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Recognition & Quality
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 left-0 w-80 h-80 bg-yellow-100/30 rounded-full blur-3xl -translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-yellow-100 to-amber-50 text-yellow-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Award-Winning Care
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-yellow-600 to-amber-500 bg-clip-text text-transparent">Recognition & Quality</span>
             </h2>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            <div className="bg-linear-to-br from-yellow-50 to-white rounded-xl p-6 border border-yellow-100 text-center">
-              <div className="w-12 h-12 rounded-xl bg-yellow-100 flex items-center justify-center mx-auto mb-4">
-                <TrophyIcon className="w-6 h-6 text-yellow-600" />
+          <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+            <div className="group bg-linear-to-br from-yellow-50 via-white to-amber-50 rounded-3xl p-8 border border-yellow-200 text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 rounded-2xl bg-linear-to-r from-yellow-500 to-amber-500 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <TrophyIcon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Highly Commended 2025</h3>
               <p className="text-sm text-gray-600">Best Care Manager, East Midlands</p>
             </div>
 
-            <div className="bg-linear-to-br from-blue-50 to-white rounded-xl p-6 border border-blue-100 text-center">
-              <div className="w-12 h-12 rounded-xl bg-blue-100 flex items-center justify-center mx-auto mb-4">
-                <ShieldCheckIcon className="w-6 h-6 text-blue-600" />
+            <div className="group bg-linear-to-br from-serve-blue-50 via-white to-cyan-50 rounded-3xl p-8 border border-serve-blue-200 text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 rounded-2xl bg-linear-to-r from-serve-blue-500 to-cyan-500 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <ShieldCheckIcon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">CQC Registered</h3>
-              <p className="text-sm text-gray-600 mb-3">Care Quality Commission regulated</p>
+              <p className="text-sm text-gray-600 mb-4">Care Quality Commission regulated</p>
               <a 
                 href="https://www.cqc.org.uk/location/1-2165219210"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sm font-semibold text-serve-blue-600 hover:text-serve-blue-700 inline-flex items-center"
+                className="inline-flex items-center text-sm font-semibold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent hover:opacity-80"
               >
                 View Report
-                <ArrowRightIcon className="w-4 h-4 ml-1" />
+                <ArrowRightIcon className="w-4 h-4 ml-1 text-serve-blue-600" />
               </a>
             </div>
 
-            <div className="bg-linear-to-br from-green-50 to-white rounded-xl p-6 border border-green-100 text-center">
-              <div className="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center mx-auto mb-4">
-                <HeartIcon className="w-6 h-6 text-green-600" />
+            <div className="group bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-3xl p-8 border border-serve-green-200 text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2">
+              <div className="w-16 h-16 rounded-2xl bg-linear-to-r from-serve-green-500 to-emerald-500 flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg">
+                <HeartIcon className="w-8 h-8 text-white" />
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">40+ Years</h3>
               <p className="text-sm text-gray-600">Trusted community service</p>
@@ -412,11 +453,16 @@ export default function AboutPage() {
       </section>
 
       {/* Our Team */}
-      <section className="py-16 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Our Leadership Team
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-serve-blue-100/40 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-cyan-50 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Meet The Team
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Our Leadership Team</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Dedicated professionals committed to delivering exceptional care and support
@@ -426,18 +472,18 @@ export default function AboutPage() {
           {/* CEO Section */}
           <div className="max-w-md mx-auto mb-12">
             {teamMembers.map((member, index) => (
-              <div key={index} className="bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all group">
-                <div className="relative h-64 bg-linear-to-br from-serve-blue-100 to-serve-blue-200">
+              <div key={index} className="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border border-serve-blue-100">
+                <div className="relative h-64 bg-linear-to-br from-serve-blue-100 to-cyan-200">
                   <Image
                     src={member.image}
                     alt={member.name}
                     fill
-                    className="object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                 </div>
                 <div className="p-6 text-center">
                   <h3 className="text-lg font-bold text-gray-900 mb-1">{member.name}</h3>
-                  <p className="text-sm font-semibold text-serve-blue-600 mb-2">{member.role}</p>
+                  <p className="text-sm font-semibold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent mb-2">{member.role}</p>
                   <p className="text-xs text-gray-600">{member.description}</p>
                 </div>
               </div>
@@ -446,29 +492,31 @@ export default function AboutPage() {
 
           {/* Management Team List */}
           <div className="max-w-4xl mx-auto mb-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">Management Team</h3>
-            <div className="bg-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+            <h3 className="text-2xl font-bold text-gray-900 mb-6 text-center">
+              <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Management Team</span>
+            </h3>
+            <div className="bg-white rounded-3xl p-8 border border-serve-blue-100 shadow-lg">
               <div className="grid md:grid-cols-2 gap-6">
                 {managementTeam.map((member, index) => (
-                  <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-200 last:border-0">
+                  <div key={index} className="flex items-center gap-4 py-4 px-4 rounded-2xl bg-linear-to-r from-slate-50 to-serve-blue-50/30 hover:shadow-md transition-all duration-300 border border-serve-blue-100/50">
                     {member.image ? (
                       <Image
                         src={member.image}
                         alt={member.name}
                         width={56}
                         height={56}
-                        className="w-14 h-14 rounded-full object-cover"
+                        className="w-14 h-14 rounded-xl object-cover shadow-md"
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center shrink-0">
-                        <span className="text-serve-blue-600 font-bold text-lg">
+                      <div className="w-14 h-14 rounded-xl bg-linear-to-r from-serve-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-md">
+                        <span className="text-white font-bold text-lg">
                           {member.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
                     )}
                     <div>
                       <h4 className="text-base font-bold text-gray-900">{member.name}</h4>
-                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{member.role}</p>
+                      <p className="text-sm font-semibold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent mt-1">{member.role}</p>
                     </div>
                   </div>
                 ))}
@@ -479,11 +527,16 @@ export default function AboutPage() {
       </section>
 
       {/* Board of Trustees */}
-      <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Board of Trustees
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-0 left-0 w-80 h-80 bg-serve-blue-100/30 rounded-full blur-3xl -translate-x-1/2" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-indigo-100 to-purple-50 text-indigo-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Strategic Governance
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">Board of Trustees</span>
             </h2>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Our trustees provide strategic guidance and governance to ensure SERVE continues 
@@ -492,29 +545,29 @@ export default function AboutPage() {
           </div>
 
           {/* Trustees List */}
-          <div className="max-w-4xl mx-auto mb-8">
-            <div className="bg-linear-to-br from-gray-50 to-white rounded-2xl p-8 border border-gray-200 shadow-sm">
+          <div className="max-w-4xl mx-auto mb-12">
+            <div className="bg-linear-to-br from-indigo-50 via-white to-purple-50/30 rounded-3xl p-8 border border-indigo-100 shadow-lg">
               <div className="grid md:grid-cols-2 gap-6">
                 {trustees.map((trustee, index) => (
-                  <div key={index} className="flex items-center gap-4 py-3 border-b border-gray-200 last:border-0">
+                  <div key={index} className="flex items-center gap-4 py-4 px-4 rounded-2xl bg-white hover:shadow-md transition-all duration-300 border border-indigo-100/50">
                     {trustee.image ? (
                       <Image
                         src={trustee.image}
                         alt={trustee.name}
                         width={56}
                         height={56}
-                        className="w-14 h-14 rounded-full object-cover"
+                        className="w-14 h-14 rounded-xl object-cover shadow-md"
                       />
                     ) : (
-                      <div className="w-14 h-14 rounded-full bg-serve-blue-100 flex items-center justify-center shrink-0">
-                        <span className="text-serve-blue-600 font-bold text-lg">
+                      <div className="w-14 h-14 rounded-xl bg-linear-to-r from-indigo-500 to-purple-500 flex items-center justify-center shrink-0 shadow-md">
+                        <span className="text-white font-bold text-lg">
                           {trustee.name.split(' ').map(n => n[0]).join('')}
                         </span>
                       </div>
                     )}
                     <div>
                       <h3 className="text-base font-bold text-gray-900">{trustee.name}</h3>
-                      <p className="text-sm font-semibold text-serve-blue-600 mt-1">{trustee.role}</p>
+                      <p className="text-sm font-semibold bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent mt-1">{trustee.role}</p>
                     </div>
                   </div>
                 ))}
@@ -523,8 +576,10 @@ export default function AboutPage() {
           </div>
 
           {/* Governance Info */}
-          <div className="bg-linear-to-br from-serve-blue-50 to-white rounded-2xl p-8 border border-serve-blue-100 max-w-4xl mx-auto">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Governance & Oversight</h3>
+          <div className="bg-linear-to-br from-indigo-50 via-white to-purple-50 rounded-3xl p-8 lg:p-10 border border-indigo-100 max-w-4xl mx-auto shadow-lg">
+            <h3 className="text-xl font-bold text-gray-900 mb-4">
+              <span className="bg-linear-to-r from-indigo-600 to-purple-500 bg-clip-text text-transparent">Governance & Oversight</span>
+            </h3>
             <p className="text-gray-700 leading-relaxed mb-6">
               SERVE is governed by a dedicated Board of Trustees who bring diverse expertise in healthcare, 
               social care, finance, and community development. Our trustees volunteer their time and skills 
@@ -683,25 +738,34 @@ export default function AboutPage() {
       </section>
 
       {/* CTA */}
-      <section className="py-16 bg-linear-to-br from-serve-blue-600 to-serve-blue-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-            Get In Touch
+      <section className="py-20 lg:py-28 bg-linear-to-br from-serve-blue-600 via-serve-blue-700 to-cyan-700 relative overflow-hidden">
+        {/* Animated decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-cyan-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
+          <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-semibold text-white mb-6">
+            We&apos;re Here To Help
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
+            Get In <span className="text-cyan-200">Touch</span>
           </h2>
-          <p className="text-xl text-blue-100 mb-8">
+          <p className="text-xl text-blue-100 mb-10 max-w-2xl mx-auto">
             Want to learn more about our services or how we can help?
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center justify-center bg-white text-serve-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl font-semibold transition-all"
+              className="inline-flex items-center justify-center bg-white text-serve-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <PhoneIcon className="w-5 h-5 mr-2" />
               01933 315555
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-4 rounded-xl font-semibold transition-all"
+              className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Contact Us
               <ArrowRightIcon className="w-5 h-5 ml-2" />

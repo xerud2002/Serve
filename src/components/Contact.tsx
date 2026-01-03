@@ -135,7 +135,14 @@ export default function Contact() {
 
   if (isSubmitted) {
     return (
-      <section id="contact" className="py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
+      <section id="contact" className="py-20 lg:py-28 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-serve-green-500/30 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-emerald-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        </div>
+
         <div className="absolute inset-0 opacity-5">
           <div 
             className="absolute inset-0" 
@@ -147,19 +154,24 @@ export default function Contact() {
         
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center">
-            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20">
-              <CheckCircleIcon className="h-20 w-20 text-green-400 mx-auto mb-8" />
-              <h2 className="text-4xl font-bold mb-6">Message Sent Successfully!</h2>
-              <p className="text-xl opacity-90 mb-8 max-w-2xl mx-auto">
+            <div className="bg-white/10 backdrop-blur-sm rounded-3xl p-12 border border-white/20 shadow-2xl">
+              <div className="bg-linear-to-r from-serve-green-500 to-emerald-500 rounded-full p-5 w-24 h-24 mx-auto mb-8 shadow-lg shadow-green-500/30">
+                <CheckCircleIcon className="h-14 w-14 text-white" />
+              </div>
+              <h2 className="text-4xl md:text-5xl font-bold mb-6">
+                <span className="bg-linear-to-r from-white to-green-100 bg-clip-text text-transparent">Message Sent Successfully!</span>
+              </h2>
+              <p className="text-xl text-blue-100/90 mb-8 max-w-2xl mx-auto leading-relaxed">
                 Thank you for contacting SERVE. We&apos;ve received your message and will get back to you within 1-2 business days.
               </p>
-              <div className="space-y-3 text-lg opacity-80 mb-10">
-                <p>For urgent matters, please call us at <strong className="text-green-400">01933 315555</strong></p>
-                <p>Office hours: Monday - Friday, 9:00 AM - 5:00 PM</p>
+              <div className="bg-white/10 rounded-2xl p-6 mb-10 max-w-md mx-auto">
+                <p className="text-lg mb-2">For urgent matters, please call us at</p>
+                <a href="tel:01933315555" className="text-2xl font-bold text-serve-green-300 hover:text-serve-green-200 transition-colors">01933 315555</a>
+                <p className="text-sm opacity-75 mt-2">Office hours: Monday - Friday, 9:00 AM - 5:00 PM</p>
               </div>
               <button
                 onClick={resetForm}
-                className="bg-serve-blue-600 hover:bg-serve-blue-700 text-white py-4 px-8 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="bg-linear-to-r from-serve-green-500 to-emerald-500 hover:from-serve-green-600 hover:to-emerald-600 text-white py-4 px-10 rounded-2xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/25"
               >
                 Send Another Message
               </button>
@@ -170,7 +182,16 @@ export default function Contact() {
     )
   }
   return (
-    <section id="contact" className="py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white relative overflow-hidden">
+    <section id="contact" className="py-20 lg:py-28 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white relative overflow-hidden">
+      {/* Animated gradient orbs */}
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="absolute -top-40 -right-40 w-96 h-96 bg-serve-green-500/20 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-purple-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-amber-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        <div className="absolute bottom-1/4 right-1/3 w-48 h-48 bg-cyan-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2.5s' }} />
+      </div>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
         <div 
@@ -183,15 +204,16 @@ export default function Contact() {
       
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
         <div className="text-center mb-16">
-          <div className="inline-flex items-center bg-white/10 backdrop-blur-sm text-white px-4 py-2 rounded-full text-sm font-semibold mb-6">
-            <ChatBubbleBottomCenterTextIcon className="w-4 h-4 mr-2" />
+          <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-serve-green-400 via-serve-green-500 to-serve-green-400 text-white shadow-lg shadow-green-500/25 mb-8">
+            <ChatBubbleBottomCenterTextIcon className="w-5 h-5 mr-2" />
             Contact SERVE
           </div>
-          <h2 className="text-4xl lg:text-5xl font-bold mb-6">
-            <span className="text-white">Get in</span>{' '}
-            <span className="text-serve-green-300">Touch</span>
-          </h2>
-          <p className="text-xl opacity-90 max-w-3xl mx-auto">
+          
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+            <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Get in</span>{' '}
+            <span className="bg-linear-to-r from-serve-green-300 via-emerald-400 to-serve-green-300 bg-clip-text text-transparent">Touch</span>
+          </h1>
+          <p className="text-xl lg:text-2xl text-blue-100/90 max-w-3xl mx-auto leading-relaxed">
             Whether you need our care services, want to volunteer, or have questions about our work, 
             we&apos;re here to help. Reach out to us today.
           </p>
@@ -200,20 +222,22 @@ export default function Contact() {
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-1">
-            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
+            <div className="bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10 shadow-xl">
               <h3 className="text-2xl font-bold mb-8 flex items-center">
-                <BuildingOffice2Icon className="w-6 h-6 mr-3" />
+                <div className="bg-linear-to-r from-serve-green-500 to-emerald-500 rounded-xl p-2 mr-3 shadow-lg">
+                  <BuildingOffice2Icon className="w-5 h-5" />
+                </div>
                 Visit Us
               </h3>
               
               <div className="space-y-8">
                 <div className="group">
                   <div className="flex items-start">
-                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                    <div className="bg-linear-to-r from-serve-blue-500/30 to-cyan-500/30 rounded-xl p-3 mr-4 group-hover:from-serve-blue-500/50 group-hover:to-cyan-500/50 transition-all border border-white/10">
                       <MapPinIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Main Office</h4>
+                      <h4 className="font-semibold mb-2 text-serve-green-300">Main Office</h4>
                       <p className="opacity-90 leading-relaxed">
                         8 West Street<br />
                         Rushden, Northants<br />
@@ -223,7 +247,7 @@ export default function Contact() {
                         href="https://maps.google.com/?q=8+West+Street,+Rushden,+NN10+0RT"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-serve-blue-200 hover:text-white text-sm mt-2 group/link"
+                        className="inline-flex items-center text-cyan-300 hover:text-white text-sm mt-2 group/link"
                       >
                         View on Map
                         <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -236,11 +260,11 @@ export default function Contact() {
 
                 <div className="group">
                   <div className="flex items-start">
-                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                    <div className="bg-linear-to-r from-purple-500/30 to-violet-500/30 rounded-xl p-3 mr-4 group-hover:from-purple-500/50 group-hover:to-violet-500/50 transition-all border border-white/10">
                       <BuildingOffice2Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">The Ron Manning Day and Activity Centre</h4>
+                      <h4 className="font-semibold mb-2 text-purple-300">The Ron Manning Day and Activity Centre</h4>
                       <p className="opacity-90 leading-relaxed">
                         76 Upper Kings Avenue<br />
                         Higham Ferrers<br />
@@ -251,7 +275,7 @@ export default function Contact() {
                         href="https://maps.google.com/?q=76+Upper+Kings+Avenue,+Higham+Ferrers,+NN10+8JZ"
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="inline-flex items-center text-serve-blue-200 hover:text-white text-sm mt-2 group/link"
+                        className="inline-flex items-center text-purple-300 hover:text-white text-sm mt-2 group/link"
                       >
                         View on Map
                         <svg className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -264,13 +288,13 @@ export default function Contact() {
                 
                 <div className="group">
                   <div className="flex items-start">
-                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                    <div className="bg-linear-to-r from-serve-green-500/30 to-emerald-500/30 rounded-xl p-3 mr-4 group-hover:from-serve-green-500/50 group-hover:to-emerald-500/50 transition-all border border-white/10">
                       <PhoneIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Phone</h4>
-                      <p className="opacity-90">
-                        <a href="tel:01933315555" className="hover:text-serve-blue-200 transition-colors text-lg">
+                      <h4 className="font-semibold mb-2 text-serve-green-300">Phone</h4>
+                      <p>
+                        <a href="tel:01933315555" className="text-xl font-bold hover:text-serve-green-300 transition-colors">
                           01933 315555
                         </a>
                       </p>
@@ -281,13 +305,13 @@ export default function Contact() {
                 
                 <div className="group">
                   <div className="flex items-start">
-                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                    <div className="bg-linear-to-r from-amber-500/30 to-orange-500/30 rounded-xl p-3 mr-4 group-hover:from-amber-500/50 group-hover:to-orange-500/50 transition-all border border-white/10">
                       <EnvelopeIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Email</h4>
-                      <p className="opacity-90">
-                        <a href="mailto:info@serve.org.uk" className="hover:text-serve-blue-200 transition-colors">
+                      <h4 className="font-semibold mb-2 text-amber-300">Email</h4>
+                      <p>
+                        <a href="mailto:info@serve.org.uk" className="hover:text-amber-300 transition-colors font-medium">
                           info@serve.org.uk
                         </a>
                       </p>
@@ -298,15 +322,15 @@ export default function Contact() {
 
                 <div className="group">
                   <div className="flex items-start">
-                    <div className="bg-white/10 rounded-xl p-3 mr-4 group-hover:bg-white/20 transition-colors">
+                    <div className="bg-linear-to-r from-rose-500/30 to-pink-500/30 rounded-xl p-3 mr-4 group-hover:from-rose-500/50 group-hover:to-pink-500/50 transition-all border border-white/10">
                       <ClockIcon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h4 className="font-semibold mb-2">Office Hours</h4>
+                      <h4 className="font-semibold mb-2 text-rose-300">Office Hours</h4>
                       <div className="opacity-90 text-sm space-y-1">
-                        <p>Monday - Friday: 9:00 AM - 5:00 PM</p>
-                        <p>Saturday: Closed</p>
-                        <p>Sunday: Closed</p>
+                        <p className="flex justify-between"><span>Mon - Fri:</span> <span className="font-medium">9:00 AM - 5:00 PM</span></p>
+                        <p className="flex justify-between"><span>Saturday:</span> <span className="opacity-75">Closed</span></p>
+                        <p className="flex justify-between"><span>Sunday:</span> <span className="opacity-75">Closed</span></p>
                       </div>
                     </div>
                   </div>
@@ -315,13 +339,15 @@ export default function Contact() {
 
               {/* Quick Actions */}
               <div className="mt-10 pt-8 border-t border-white/20">
-                <h4 className="text-lg font-semibold mb-4">Quick Actions</h4>
-                <div className="grid grid-cols-1 gap-3">
+                <h4 className="text-lg font-semibold mb-4 flex items-center">
+                  <span className="bg-linear-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">Quick Actions</span>
+                </h4>
+                <div className="grid grid-cols-1 gap-4">
                   <a
                     href="https://www.justgiving.com/campaign/serve-community-appeal"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="group bg-serve-green-600 hover:bg-serve-green-700 text-white px-6 py-3 min-h-11 rounded-xl font-semibold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                    className="group bg-linear-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-6 py-4 rounded-2xl font-bold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg shadow-rose-500/20"
                     aria-label="Donate to SERVE via JustGiving (opens in new tab)"
                   >
                     <HeartIcon className="w-5 h-5 mr-2" />
@@ -329,10 +355,10 @@ export default function Contact() {
                   </a>
                   <Link
                     href="/volunteer"
-                    className="group border-2 border-white/30 text-white hover:bg-white hover:text-serve-blue-900 px-6 py-3 rounded-xl font-semibold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center"
+                    className="group bg-linear-to-r from-serve-green-500 to-emerald-500 hover:from-serve-green-600 hover:to-emerald-600 text-white px-6 py-4 rounded-2xl font-bold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg shadow-green-500/20"
                   >
                     <UserPlusIcon className="w-5 h-5 mr-2" />
-                    Volunteer
+                    Volunteer With Us
                   </Link>
                 </div>
               </div>
@@ -341,11 +367,17 @@ export default function Contact() {
 
           {/* Contact Form */}
           <div className="lg:col-span-2">
-            <div className="bg-white text-gray-900 rounded-3xl p-8 lg:p-12 shadow-2xl">
-              <div className="text-center mb-8">
-                <h3 className="text-3xl font-bold text-gray-900 mb-4">Send us a Message</h3>
-                <p className="text-gray-600">
-                  Have questions about our services or want to get involved? We&apos;d love to hear from you.
+            <div className="bg-white text-gray-900 rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100">
+              <div className="text-center mb-10">
+                <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-cyan-50 text-serve-blue-700 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+                  <EnvelopeIcon className="w-4 h-4 mr-2" />
+                  Send a Message
+                </div>
+                <h3 className="text-3xl md:text-4xl font-bold mb-4">
+                  <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">We&apos;d Love to Hear From You</span>
+                </h3>
+                <p className="text-gray-600 max-w-lg mx-auto">
+                  Have questions about our services or want to get involved? Fill out the form below and we&apos;ll get back to you soon.
                 </p>
               </div>
               
@@ -495,7 +527,7 @@ export default function Contact() {
                 </div>
 
                 {/* Privacy Notice */}
-                <div className="bg-gray-50 p-4 rounded-xl">
+                <div className="bg-linear-to-br from-gray-50 to-slate-50 p-5 rounded-2xl border border-gray-100">
                   <div className="flex items-start">
                     <input
                       type="checkbox"
@@ -503,31 +535,39 @@ export default function Contact() {
                       name="privacy"
                       checked={formData.privacy}
                       onChange={handleInputChange}
-                      className={`mt-1 h-4 w-4 text-serve-blue-600 border-gray-300 rounded focus:ring-serve-blue-500 ${
+                      className={`mt-1 h-5 w-5 text-serve-blue-600 border-gray-300 rounded focus:ring-serve-blue-500 ${
                         getFieldError('privacy') ? 'border-red-500' : ''
                       }`}
                       required
                     />
-                    <label htmlFor="privacy" className="ml-3 text-sm text-gray-600">
-                      I agree to SERVE&apos;s privacy policy and consent to my personal data being processed 
+                    <label htmlFor="privacy" className="ml-3 text-sm text-gray-600 leading-relaxed">
+                      I agree to SERVE&apos;s <Link href="/privacy" className="text-serve-blue-600 hover:underline font-medium">privacy policy</Link> and consent to my personal data being processed 
                       to respond to my inquiry. *
                     </label>
                   </div>
                   {getFieldError('privacy') && (
-                    <p className="mt-1 text-sm text-red-600 ml-7">{getFieldError('privacy')}</p>
+                    <p className="mt-1 text-sm text-red-600 ml-8">{getFieldError('privacy')}</p>
                   )}
                 </div>
                 
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-linear-to-r from-serve-blue-600 to-serve-blue-700 hover:from-serve-blue-700 hover:to-serve-blue-800 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-4 rounded-xl text-lg font-semibold transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-serve-blue-300 focus:ring-offset-2 shadow-lg hover:shadow-xl"
+                  className="w-full bg-linear-to-r from-serve-blue-600 via-serve-blue-700 to-cyan-600 hover:from-serve-blue-700 hover:via-serve-blue-800 hover:to-cyan-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-8 py-5 rounded-2xl text-lg font-bold transition-all duration-300 transform hover:scale-105 focus:ring-4 focus:ring-serve-blue-300 focus:ring-offset-2 shadow-xl hover:shadow-2xl"
                 >
-                  {isSubmitting ? 'Sending Message...' : 'Send Message'}
+                  {isSubmitting ? (
+                    <span className="flex items-center justify-center">
+                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                      </svg>
+                      Sending Message...
+                    </span>
+                  ) : 'Send Message'}
                 </button>
 
                 <p className="text-center text-sm text-gray-500 mt-4">
-                  We typically respond to all inquiries within 24 hours during business days.
+                  We typically respond to all inquiries within <span className="font-semibold text-serve-blue-600">24 hours</span> during business days.
                 </p>
               </form>
             </div>
@@ -535,16 +575,22 @@ export default function Contact() {
         </div>
 
         {/* Emergency Contact */}
-        <div className="mt-16 text-center bg-white/5 backdrop-blur-sm rounded-3xl p-8 border border-white/10">
-          <h3 className="text-2xl font-bold mb-4">Need Immediate Assistance?</h3>
-          <p className="text-lg opacity-90 mb-6 max-w-2xl mx-auto">
+        <div className="mt-16 text-center bg-linear-to-br from-white/10 to-white/5 backdrop-blur-sm rounded-3xl p-10 border border-white/20 shadow-xl">
+          <div className="inline-flex items-center bg-linear-to-r from-rose-500 to-pink-500 text-white px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-lg">
+            <PhoneIcon className="w-4 h-4 mr-2" />
+            Urgent Assistance
+          </div>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4">
+            <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Need Immediate Help?</span>
+          </h3>
+          <p className="text-lg text-blue-100/90 mb-8 max-w-2xl mx-auto leading-relaxed">
             If you require urgent care services or have an emergency, please call us directly.
           </p>
           <a
             href="tel:01933315555"
-            className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-4 rounded-xl text-xl font-bold transition-all duration-300 transform hover:scale-105"
+            className="inline-flex items-center bg-linear-to-r from-serve-green-500 to-emerald-500 hover:from-serve-green-600 hover:to-emerald-600 text-white px-10 py-5 rounded-2xl text-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-xl shadow-green-500/25"
           >
-            <PhoneIcon className="w-6 h-6 mr-3" />
+            <PhoneIcon className="w-7 h-7 mr-3" />
             Call Now: 01933 315555
           </a>
         </div>

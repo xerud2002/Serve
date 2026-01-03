@@ -135,23 +135,38 @@ export default function PersonalCarePage() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative py-20 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-700 text-white overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg width='40' height='40' viewBox='0 0 40 40' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23ffffff' fill-opacity='0.3'%3E%3Cpath d='m0 40l40-40h-40v40zm0 0l40-40h-40v40z'/%3E%3C/g%3E%3C/svg%3E")`,
-          }} />
+      <section className="relative py-20 lg:py-24 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white overflow-hidden">
+        {/* Animated gradient orbs */}
+        <div className="absolute inset-0 overflow-hidden">
+          <div className="absolute -top-40 -right-40 w-96 h-96 bg-rose-500/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute top-1/2 -left-40 w-80 h-80 bg-serve-blue-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+          <div className="absolute -bottom-20 right-1/4 w-72 h-72 bg-yellow-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+          <div className="absolute top-1/4 left-1/3 w-64 h-64 bg-serve-green-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1.5s' }} />
+        </div>
+
+        {/* Subtle pattern overlay */}
+        <div className="absolute inset-0 opacity-5">
+          <div 
+            className="absolute inset-0" 
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
+            }} 
+          />
         </div>
 
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
               {/* Award Badge */}
-              <div className="inline-flex items-center bg-yellow-500/20 backdrop-blur-sm text-yellow-300 px-6 py-3 rounded-full text-sm font-bold mb-8">
+              <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-yellow-400 via-amber-400 to-yellow-500 text-yellow-900 shadow-lg shadow-yellow-500/25 mb-8">
                 <TrophyIcon className="w-5 h-5 mr-2" />
                 Best Homecare Team 2024 - Great British Care Awards
               </div>
 
-              <MajorTitle primary="Personal &" secondary="Domestic Care" dark accentClass="text-serve-blue-200" />
+              <h1 className="text-5xl md:text-6xl font-bold mb-6 leading-tight">
+                <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Personal &</span>{' '}
+                <span className="bg-linear-to-r from-rose-300 via-rose-400 to-rose-300 bg-clip-text text-transparent">Domestic Care</span>
+              </h1>
               
               <p className="text-xl lg:text-2xl opacity-90 mb-8 leading-relaxed">
                 Award-winning, CQC registered personal care services helping you maintain 
@@ -207,13 +222,22 @@ export default function PersonalCarePage() {
       </section>
 
       {/* Services Overview */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 left-0 w-72 h-72 bg-rose-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-red-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Comprehensive Care Services
+            <div className="inline-flex items-center bg-linear-to-r from-rose-100 to-red-50 text-rose-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              CQC Registered Care
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">Comprehensive Care</span>{' '}
+              <span className="bg-linear-to-r from-serve-blue-500 to-cyan-500 bg-clip-text text-transparent">Services</span>
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Our personal care services are designed to help you maintain independence 
               while receiving the support you need in the comfort of your own home.
             </p>
@@ -222,18 +246,26 @@ export default function PersonalCarePage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {careServices.map((category, index) => {
               const IconComponent = category.icon
+              const gradients = [
+                { bg: 'from-rose-50 to-red-50', icon: 'bg-rose-100', iconText: 'text-rose-600', border: 'border-rose-200' },
+                { bg: 'from-amber-50 to-orange-50', icon: 'bg-amber-100', iconText: 'text-amber-600', border: 'border-amber-200' },
+                { bg: 'from-purple-50 to-violet-50', icon: 'bg-purple-100', iconText: 'text-purple-600', border: 'border-purple-200' },
+                { bg: 'from-teal-50 to-cyan-50', icon: 'bg-teal-100', iconText: 'text-teal-600', border: 'border-teal-200' },
+              ]
+              const colors = gradients[index % gradients.length]
+              
               return (
-                <div key={index} className="bg-gray-50 rounded-2xl p-8 hover:shadow-lg transition-shadow">
-                  <div className="bg-serve-blue-100 rounded-xl p-4 w-fit mb-6">
-                    <IconComponent className="w-8 h-8 text-serve-blue-600" />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2`}>
+                  <div className={`${colors.icon} rounded-2xl p-4 w-fit mb-6 group-hover:scale-110 transition-transform`}>
+                    <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
                   </div>
                   
                   <h3 className="text-xl font-bold text-gray-900 mb-4">{category.title}</h3>
                   
-                  <ul className="space-y-2">
+                  <ul className="space-y-3">
                     {category.services.map((service, serviceIndex) => (
                       <li key={serviceIndex} className="flex items-start text-gray-700">
-                        <CheckIcon className="w-4 h-4 text-serve-green-600 mr-2 mt-1 shrink-0" />
+                        <CheckIcon className={`w-5 h-5 ${colors.iconText} mr-2 mt-0.5 shrink-0`} />
                         <span className="text-sm">{service}</span>
                       </li>
                     ))}
@@ -244,29 +276,40 @@ export default function PersonalCarePage() {
           </div>
 
           {/* Benefits */}
-          <div className="bg-linear-to-r from-serve-blue-50 to-serve-green-50 rounded-3xl p-12">
-            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">
-              Why Choose SERVE for Personal Care?
-            </h3>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {benefits.map((benefit, index) => (
-                <div key={index} className="flex items-center bg-white rounded-xl p-4 shadow-sm">
-                  <CheckIcon className="w-5 h-5 text-serve-green-600 mr-3 shrink-0" />
-                  <span className="text-gray-800 font-medium">{benefit}</span>
-                </div>
-              ))}
+          <div className="relative">
+            <div className="absolute inset-0 bg-linear-to-r from-rose-500 to-red-600 rounded-3xl blur-xl opacity-20" />
+            <div className="relative bg-linear-to-r from-rose-50 via-white to-red-50 rounded-3xl p-10 lg:p-14 border border-rose-100">
+              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-10 text-center">
+                <span className="bg-linear-to-r from-rose-600 to-red-600 bg-clip-text text-transparent">Why Choose SERVE for Personal Care?</span>
+              </h3>
+              
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+                {benefits.map((benefit, index) => (
+                  <div key={index} className="flex items-center bg-white rounded-2xl p-4 shadow-md hover:shadow-lg transition-shadow border border-rose-100">
+                    <div className="bg-linear-to-r from-rose-500 to-red-500 rounded-lg p-2 mr-3">
+                      <CheckIcon className="w-4 h-4 text-white" />
+                    </div>
+                    <span className="text-gray-800 font-medium text-sm">{benefit}</span>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-20 lg:py-28 bg-white relative overflow-hidden">
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-rose-100/40 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-6">
-              Frequently Asked Questions
+            <div className="inline-flex items-center bg-linear-to-r from-rose-100 to-red-50 text-rose-700 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              Your Questions Answered
+            </div>
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-rose-500 to-red-600 bg-clip-text text-transparent">Frequently Asked</span>{' '}
+              <span className="text-gray-900">Questions</span>
             </h2>
             <p className="text-xl text-gray-600">
               Common questions about our personal care services
@@ -275,8 +318,8 @@ export default function PersonalCarePage() {
 
           <div className="space-y-6">
             {faqs.map((faq, index) => (
-              <div key={index} className="bg-gray-50 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-gray-900 mb-4">{faq.question}</h3>
+              <div key={index} className="group bg-linear-to-br from-slate-50 to-rose-50/30 rounded-2xl p-8 border border-rose-100 hover:border-rose-200 hover:shadow-lg transition-all duration-300">
+                <h3 className="text-xl font-bold text-gray-900 mb-4 group-hover:text-rose-700 transition-colors">{faq.question}</h3>
                 <p className="text-gray-700 leading-relaxed">{faq.answer}</p>
               </div>
             ))}
@@ -285,12 +328,21 @@ export default function PersonalCarePage() {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-linear-to-r from-serve-blue-600 to-serve-blue-700">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white">
-          <h2 className="text-4xl font-bold mb-6">
-            Ready to Start Your Care Journey?
+      <section className="py-20 lg:py-28 bg-linear-to-br from-rose-600 via-red-600 to-rose-700 relative overflow-hidden">
+        {/* Animated decorative elements */}
+        <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" />
+        <div className="absolute bottom-0 right-0 w-80 h-80 bg-rose-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-red-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-white relative">
+          <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
+            Start Your Care Journey Today
+          </div>
+          
+          <h2 className="text-4xl md:text-5xl font-bold mb-6">
+            Ready to Start Your <span className="text-rose-200">Care Journey?</span>
           </h2>
-          <p className="text-xl opacity-90 mb-10 leading-relaxed">
+          <p className="text-xl opacity-90 mb-10 leading-relaxed max-w-2xl mx-auto">
             Contact us today for a free, no-obligation assessment. Our experienced team 
             will work with you to create a personalised care plan that meets your unique needs.
           </p>
@@ -298,14 +350,14 @@ export default function PersonalCarePage() {
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center bg-serve-green-600 hover:bg-serve-green-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+              className="inline-flex items-center bg-white text-rose-600 hover:bg-rose-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <PhoneIcon className="w-6 h-6 mr-3" />
               Call Now: 01933 315555
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-blue-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Request Free Assessment
               <ArrowRightIcon className="ml-3 h-5 w-5" />
@@ -315,9 +367,9 @@ export default function PersonalCarePage() {
           <div className="mt-12 pt-8 border-t border-white/20">
             <Link
               href="/services"
-              className="inline-flex items-center text-white/80 hover:text-white transition-colors"
+              className="inline-flex items-center text-white/80 hover:text-white transition-colors group"
             >
-              <ArrowLeftIcon className="w-5 h-5 mr-2" />
+              <ArrowLeftIcon className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />
               Back to All Services
             </Link>
           </div>
