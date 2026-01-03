@@ -32,7 +32,7 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
     tags = []
   } = config
 
-  const baseUrl = 'https://serve.org.uk'
+  const baseUrl = 'https://serve-delta.vercel.app'
   const defaultImage = '/images/serve.webp'
 
   const seoImages = images.length > 0 ? images : [
