@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'Rushden',
     'East Midlands'
   ],
-  authors: [{ name: 'SERVE Charity', url: 'https://serve.org.uk' }],
+  authors: [{ name: 'SERVE Charity', url: 'https://serve-delta.vercel.app' }],
   creator: 'SERVE Charity',
   publisher: 'SERVE Charity',
   formatDetection: {
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     icon: [
       { url: '/favicon.png', type: 'image/png' },
     ],
-    apple: '/icons/icon-192x192.png',
+    apple: '/apple-touch-icon.png',
   },
   manifest: '/manifest.json',
   appleWebApp: {
@@ -60,14 +60,14 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'SERVE Charity',
   },
-  metadataBase: new URL('https://serve.org.uk'),
+  metadataBase: new URL('https://serve-delta.vercel.app'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://serve.org.uk',
+    url: 'https://serve-delta.vercel.app',
     siteName: 'SERVE - Supporting Independence',
     title: 'SERVE | Supporting Independence in Northamptonshire',
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',

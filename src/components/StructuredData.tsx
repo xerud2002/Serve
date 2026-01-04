@@ -9,8 +9,8 @@ export default function StructuredData({ type = 'organization' }: StructuredData
       "@type": "Organization",
       "name": "SERVE",
       "legalName": "SERVE",
-      "url": "https://serve.org.uk",
-      "logo": "https://serve.org.uk/images/serve.webp",
+      "url": "https://serve-delta.vercel.app",
+      "logo": "https://serve-delta.vercel.app/images/serve.webp",
       "description": "SERVE is an award-winning registered charity providing care services to older people and adults with disabilities in Northamptonshire. Winner of Best Homecare Team, East Midlands 2024.",
       "foundingDate": "1980",
       "address": {
