@@ -134,6 +134,14 @@ export default function RootLayout({
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
         <link rel="dns-prefetch" href="https://scontent.flhr4-3.fna.fbcdn.net" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
+        
+        {/* Ahrefs Web Analytics */}
+        <script 
+          src="https://analytics.ahrefs.com/analytics.js" 
+          data-key="8k73rflY1LOF0LFR29DDcg" 
+          async 
+        />
         
         {/* Preload critical hero images for faster LCP */}
         <link 
