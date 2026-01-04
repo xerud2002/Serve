@@ -16,6 +16,7 @@ export default function Footer() {
     { name: 'Our Services', href: '/services', color: 'from-blue-400 to-cyan-400' },
     { name: 'About Us', href: '/about', color: 'from-purple-400 to-pink-400' },
     { name: 'Get Involved', href: '/volunteer', color: 'from-green-400 to-emerald-400' },
+    { name: 'Corporate Fundraising', href: '/corporate-fundraising', color: 'from-amber-400 to-yellow-400' },
     { name: 'News & Events', href: '/news', color: 'from-orange-400 to-amber-400' },
     { name: 'Our Supporters', href: '/supporters', color: 'from-teal-400 to-cyan-400' },
     { name: 'Contact', href: '/contact', color: 'from-rose-400 to-red-400' },
