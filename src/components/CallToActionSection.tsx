@@ -149,7 +149,7 @@ export default function CallToActionSection() {
                   className="group/btn relative inline-flex items-center gap-3 bg-white hover:bg-green-50 text-serve-green-700 font-bold px-8 md:px-10 py-4 md:py-5 text-base md:text-lg shadow-2xl hover:shadow-white/20 transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 rounded-2xl overflow-hidden"
                 >
                   {/* Button shimmer effect */}
-                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent translate-x-[-100%] group-hover/btn:translate-x-[100%] transition-transform duration-700" />
+                  <div className="absolute inset-0 bg-linear-to-r from-transparent via-white/30 to-transparent -translate-x-full group-hover/btn:translate-x-full transition-transform duration-700" />
                   
                   <svg className="relative w-6 h-6 group-hover/btn:scale-110 transition-transform" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
