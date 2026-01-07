@@ -153,11 +153,11 @@ export default function Header() {
                   <Image
                     src="/images/serve.webp"
                     alt="SERVE - Supporting Independence"
-                    width={320}
-                    height={160}
-                    className={`w-auto transition-all duration-300 ${isScrolled ? 'h-16 sm:h-20' : 'h-20 sm:h-28'}`}
+                    width={288}
+                    height={144}
+                    className={`w-auto transition-all duration-300 ${isScrolled ? 'h-14 sm:h-[4.5rem]' : 'h-[4.5rem] sm:h-[6.3rem]'}`}
                     priority
-                    sizes="(max-width: 640px) 128px, 200px"
+                    sizes="(max-width: 640px) 115px, 180px"
                   />
                   {/* Hover glow effect */}
                   <div className="absolute inset-0 bg-linear-to-r from-serve-blue-500/0 via-serve-blue-500/10 to-serve-blue-500/0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-xl" />
