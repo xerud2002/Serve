@@ -46,9 +46,9 @@ export default function Footer() {
                 <Image 
                   src="/images/serve.webp"
                   alt="SERVE charity logo - Supporting Independence"
-                  width={220}
-                  height={110}
-                  className="h-[5.67rem] w-auto filter brightness-0 invert"
+                  width={176}
+                  height={88}
+                  className="h-[4.5rem] w-auto filter brightness-0 invert"
                 />
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-serve-blue-500 via-serve-green-500 to-serve-red-500 rounded-full" />
               </div>
