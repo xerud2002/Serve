@@ -151,29 +151,29 @@ export default function NewsPage() {
                     <h3 className="text-xl font-black">{event.title}</h3>
                   </div>
                   
-                  <div className="p-6 space-y-4 flex-grow">
+                  <div className="p-6 space-y-4 grow">
                     <div className="flex items-start gap-3">
-                      <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
                       <div>
                         <p className="font-semibold text-gray-900">{event.date}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <ClockIcon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <ClockIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
                       <div>
                         <p className="text-gray-700">{event.time}</p>
                       </div>
                     </div>
                     
                     <div className="flex items-start gap-3">
-                      <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
                       <div>
                         <p className="text-gray-700">{event.location}</p>
                       </div>
                     </div>
                     
-                    <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-[4.5rem]">
+                    <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-18">
                       {event.description}
                     </p>
                   </div>
