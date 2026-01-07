@@ -113,8 +113,8 @@ export const analytics = {
 }
 
 export default function GoogleAnalytics({ measurementId }: GoogleAnalyticsProps) {
-  // Don't load analytics in development or if no measurement ID
-  if (!measurementId || process.env.NODE_ENV === 'development') {
+  // Don't load analytics if no measurement ID
+  if (!measurementId) {
     return null
   }
 
