@@ -34,7 +34,7 @@ export default function Hero() {
               <div className="relative group inline-flex">
                 <div className="absolute -inset-1 bg-linear-to-r from-yellow-400 to-amber-500 rounded-full blur opacity-40 group-hover:opacity-70 transition duration-300" />
                 <span className="relative inline-flex items-center gap-1.5 sm:gap-2 px-3 py-1.5 sm:px-4 sm:py-2 rounded-full text-[10px] sm:text-xs md:text-sm font-bold bg-linear-to-r from-yellow-400 via-amber-400 to-yellow-500 text-yellow-950 shadow-lg">
-                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+                  <svg className="w-3.5 h-3.5 sm:w-4 sm:h-4 md:w-5 md:h-5 shrink-0" fill="currentColor" viewBox="0 0 20 20">
                     <path fillRule="evenodd" d="M10 2L7.5 7H2l4.5 3.5L5 16l5-4 5 4-1.5-5.5L18 7h-5.5L10 2z" clipRule="evenodd" />
                   </svg>
                   <span className="hidden md:inline whitespace-nowrap">Winner: Best Homecare Team, East Midlands 2024</span>
@@ -104,7 +104,7 @@ export default function Hero() {
           <div className="flex flex-col gap-6 max-w-md mx-auto lg:max-w-none">
             {/* Award Badges */}
             <div className="flex gap-4 justify-center">
-              <div className="group flex-shrink-0">
+              <div className="group shrink-0">
                 <Image 
                   src="/images/awards/regional-winner1.webp" 
                   alt="SERVE - Great British Care Awards Regional Winner"
@@ -117,7 +117,7 @@ export default function Hero() {
                   sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
                 />
               </div>
-              <div className="group flex-shrink-0">
+              <div className="group shrink-0">
                 <Image 
                   src="/images/awards/regional-winner2.webp" 
                   alt="SERVE - Great British Care Awards Regional Winner"
