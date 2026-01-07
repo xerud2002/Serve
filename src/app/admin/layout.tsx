@@ -165,22 +165,58 @@ export default function AdminLayout({
   return (
     <div className="min-h-screen bg-gray-50">
       <div className="bg-white border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
-          <div>
-            <h1 className="text-lg sm:text-2xl font-bold text-gray-900">SERVE Admin</h1>
-            <p className="text-gray-600 text-xs sm:text-sm">Manage bookings and charity operations</p>
-          </div>
-          <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
-            <div className="flex items-center gap-2">
-              <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-              <span className="text-xs sm:text-sm text-gray-600 truncate max-w-[150px] sm:max-w-none">{email}</span>
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 py-3 sm:py-4">
+          <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 sm:gap-0">
+            <div>
+              <h1 className="text-lg sm:text-2xl font-bold text-gray-900">SERVE Admin</h1>
+              <p className="text-gray-600 text-xs sm:text-sm">Manage bookings and charity operations</p>
             </div>
-            <button
-              onClick={handleLogout}
-              className="text-red-600 hover:text-red-800 font-semibold text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg hover:bg-red-50 transition-colors"
+            <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
+              <div className="flex items-center gap-2">
+                <div className="w-2 h-2 bg-green-500 rounded-full"></div>
+                <span className="text-xs sm:text-sm text-gray-600 truncate max-w-[150px] sm:max-w-none">{email}</span>
+              </div>
+              <button
+                onClick={handleLogout}
+                className="text-red-600 hover:text-red-800 font-semibold text-xs sm:text-sm px-3 sm:px-4 py-2 rounded-lg hover:bg-red-50 transition-colors"
+              >
+                Logout
+              </button>
+            </div>
+          </div>
+          
+          {/* Navigation */}
+          <div className="mt-4 flex flex-wrap gap-2">
+            <a
+              href="/admin"
+              className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             >
-              Logout
-            </button>
+              Dashboard
+            </a>
+            <a
+              href="/admin/bookings"
+              className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              Bookings
+            </a>
+            <a
+              href="/admin/newsletter"
+              className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              Newsletter
+            </a>
+            <a
+              href="/admin/posts"
+              className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              Posts
+            </a>
+            <a
+              href="/admin/events"
+              className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
+            >
+              Events
+            </a>
           </div>
         </div>
       </div>

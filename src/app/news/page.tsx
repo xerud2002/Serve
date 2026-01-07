@@ -15,6 +15,8 @@ import {
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 import dynamic from 'next/dynamic'
+import { db } from '@/lib/firebase'
+import { collection, getDocs, query, orderBy, where } from 'firebase/firestore'
 
 const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
   loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
@@ -23,7 +25,42 @@ const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
 export const metadata = generateSEOMetadata(seoConfigs.news)
 export const revalidate = 0
 
-export default function NewsPage() {
+interface Event {
+  id: string
+  title: string
+  date: string
+  time: string
+  location: string
+  description: string
+  tag: string
+  gradient: string
+  type: 'upcoming' | 'past'
+  image?: string
+  badge?: string
+  order: number
+}
+
+async function getEvents(type: 'upcoming' | 'past'): Promise<Event[]> {
+  if (!db) return []
+  
+  try {
+    const eventsRef = collection(db, 'events')
+    const q = query(eventsRef, where('type', '==', type), orderBy('order', 'asc'))
+    const snapshot = await getDocs(q)
+    return snapshot.docs.map(doc => ({
+      id: doc.id,
+      ...doc.data()
+    })) as Event[]
+  } catch (error) {
+    console.error('Error fetching events:', error)
+    return []
+  }
+}
+
+export default async function NewsPage() {
+  const upcomingEvents = await getEvents('upcoming')
+  const pastEvents = await getEvents('past')
+
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
@@ -103,83 +140,53 @@ export default function NewsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              {
-                title: 'Volunteer Open Day',
-                date: 'Friday, February 14, 2026',
-                time: '10:00 AM - 2:00 PM',
-                location: 'SERVE Office, Rushden',
-                description: 'Interested in volunteering? Come meet our team and learn about opportunities to make a difference.',
-                tag: 'Volunteering',
-                gradient: 'from-serve-blue-500 to-serve-blue-600'
-              },
-              {
-                title: 'Spring Afternoon Tea',
-                date: 'Saturday, April 5, 2026',
-                time: '2:00 PM - 5:00 PM',
-                location: '8 West Street, Rushden',
-                description: 'Traditional afternoon tea with homemade cakes, sandwiches, and live entertainment. All proceeds support our care services.',
-                tag: 'Fundraising',
-                gradient: 'from-pink-500 to-rose-500'
-              },
-              {
-                title: 'Coffee Morning',
-                date: 'Every Thursday',
-                time: '10:30 AM - 12:00 PM',
-                location: 'SERVE Day Centre',
-                description: 'Weekly social gathering for service users, carers, and community members. Drop in for a chat!',
-                tag: 'Social',
-                gradient: 'from-serve-teal-500 to-serve-green-500'
-              },
-              {
-                title: 'Summer Fair 2026',
-                date: 'Saturday, July 12, 2026',
-                time: '11:00 AM - 4:00 PM',
-                location: '8 West Street, Rushden',
-                description: 'Join us for our annual summer fair with games, refreshments, and entertainment for all ages.',
-                tag: 'Fundraising',
-                gradient: 'from-amber-500 to-orange-500'
-              }
-            ].map((event, index) => (
-              <div key={index} className="group relative h-full flex">
-                <div className="absolute -inset-0.5 bg-linear-to-r from-serve-blue-400 to-serve-teal-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
-                  <div className={`bg-linear-to-r ${event.gradient} p-6 text-white`}>
-                    <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold mb-3">
-                      {event.tag}
-                    </span>
-                    <h3 className="text-xl font-black">{event.title}</h3>
-                  </div>
-                  
-                  <div className="p-6 space-y-4 grow">
-                    <div className="flex items-start gap-3">
-                      <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                      <div>
-                        <p className="font-semibold text-gray-900">{event.date}</p>
-                      </div>
+            {upcomingEvents.length > 0 ? (
+              upcomingEvents.map((event) => (
+                <div key={event.id} className="group relative h-full flex">
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-serve-blue-400 to-serve-teal-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
+                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
+                    <div className={`bg-linear-to-r ${event.gradient} p-6 text-white`}>
+                      <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold mb-3">
+                        {event.tag}
+                      </span>
+                      <h3 className="text-xl font-black">{event.title}</h3>
                     </div>
                     
-                    <div className="flex items-start gap-3">
-                      <ClockIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-gray-700">{event.time}</p>
+                    <div className="p-6 space-y-4 grow">
+                      <div className="flex items-start gap-3">
+                        <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="font-semibold text-gray-900">{event.date}</p>
+                        </div>
                       </div>
-                    </div>
-                    
-                    <div className="flex items-start gap-3">
-                      <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                      <div>
-                        <p className="text-gray-700">{event.location}</p>
+                      
+                      <div className="flex items-start gap-3">
+                        <ClockIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-gray-700">{event.time}</p>
+                        </div>
                       </div>
+                      
+                      <div className="flex items-start gap-3">
+                        <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
+                        <div>
+                          <p className="text-gray-700">{event.location}</p>
+                        </div>
+                      </div>
+                      
+                      <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-18">
+                        {event.description}
+                      </p>
                     </div>
-                    
-                    <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-18">
-                      {event.description}
-                    </p>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 bg-white rounded-3xl shadow-lg">
+                <CalendarDaysIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 text-lg">No upcoming events at the moment. Check back soon!</p>
               </div>
-            ))}
+            )}
           </div>
         </div>
       </section>
@@ -207,75 +214,61 @@ export default function NewsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-            {[
-              {
-                title: 'Great British Care Awards 2024',
-                date: 'October 2024',
-                image: '/images/awards/Great-British-Care-Awards-East-Midlands-scaled.webp',
-                description: 'SERVE wins "Best Homecare Team, East Midlands" at the prestigious Great British Care Awards',
-                tag: 'Award',
-                badge: 'Winner'
-              },
-              {
-                title: 'Christmas Lights Rushden',
-                date: 'December 2025',
-                image: '/images/donations/Christmas-Lights-Rushden-scaled.webp',
-                description: 'Celebrating the festive season with our community at the annual Christmas lights switch-on',
-                tag: 'Community',
-                badge: null
-              },
-              {
-                title: 'Fundraising at Asda Rushden',
-                date: 'November 2025',
-                image: '/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp',
-                description: 'Successful community fundraising event supporting local care services',
-                tag: 'Fundraising',
-                badge: null
-              }
-            ].map((event, index) => (
-              <div key={index} className="group relative">
-                <div className="absolute -inset-0.5 bg-linear-to-r from-purple-400 to-blue-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
-                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
-                  <div className="relative aspect-4/3 bg-gray-200 overflow-hidden">
-                    <Image
-                      src={event.image}
-                      alt={event.title}
-                      fill
-                      className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                    />
-                    <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
-                    
-                    {/* Tag */}
-                    <div className="absolute top-4 left-4">
-                      <span className="bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg">
-                        {event.tag}
-                      </span>
-                    </div>
-                    
-                    {/* Badge */}
-                    {event.badge && (
-                      <div className="absolute top-4 right-4">
-                        <div className="flex items-center gap-1 bg-linear-to-r from-yellow-400 to-amber-500 text-gray-900 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
-                          <StarIconSolid className="w-4 h-4" />
-                          {event.badge}
+            {pastEvents.length > 0 ? (
+              pastEvents.map((event) => (
+                <div key={event.id} className="group relative">
+                  <div className="absolute -inset-0.5 bg-linear-to-r from-purple-400 to-blue-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
+                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500">
+                    <div className="relative aspect-4/3 bg-gray-200 overflow-hidden">
+                      {event.image ? (
+                        <Image
+                          src={event.image}
+                          alt={event.title}
+                          fill
+                          className="object-cover group-hover:scale-110 transition-transform duration-700"
+                          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        />
+                      ) : (
+                        <div className="w-full h-full bg-gradient-to-br from-gray-300 to-gray-400" />
+                      )}
+                      <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
+                      
+                      {/* Tag */}
+                      <div className="absolute top-4 left-4">
+                        <span className="bg-white/90 backdrop-blur-sm text-gray-900 px-4 py-2 rounded-full text-sm font-bold shadow-lg">
+                          {event.tag}
+                        </span>
+                      </div>
+                      
+                      {/* Badge */}
+                      {event.badge && (
+                        <div className="absolute top-4 right-4">
+                          <div className="flex items-center gap-1 bg-linear-to-r from-yellow-400 to-amber-500 text-gray-900 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
+                            <StarIconSolid className="w-4 h-4" />
+                            {event.badge}
+                          </div>
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    {/* Content */}
-                    <div className="absolute bottom-0 left-0 right-0 p-6">
-                      <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
-                        <CalendarDaysIcon className="w-4 h-4" />
-                        {event.date}
+                      {/* Content */}
+                      <div className="absolute bottom-0 left-0 right-0 p-6">
+                        <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
+                          <CalendarDaysIcon className="w-4 h-4" />
+                          {event.date}
+                        </div>
+                        <h3 className="text-2xl font-black text-white mb-2">{event.title}</h3>
+                        <p className="text-white/90 text-sm">{event.description}</p>
                       </div>
-                      <h3 className="text-2xl font-black text-white mb-2">{event.title}</h3>
-                      <p className="text-white/90 text-sm">{event.description}</p>
                     </div>
                   </div>
                 </div>
+              ))
+            ) : (
+              <div className="col-span-full text-center py-12 bg-white rounded-3xl shadow-lg">
+                <SparklesIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
+                <p className="text-gray-600 text-lg">No past events to display yet.</p>
               </div>
-            ))}
+            )}
           </div>
 
           <div className="text-center">
