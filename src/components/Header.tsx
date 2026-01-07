@@ -41,7 +41,13 @@ export default function Header() {
   // Handle click outside to close mobile menu
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (mobileMenuOpen && mobileMenuRef.current && !mobileMenuRef.current.contains(event.target as Node)) {
+      if (
+        mobileMenuOpen && 
+        mobileMenuRef.current && 
+        menuButtonRef.current &&
+        !mobileMenuRef.current.contains(event.target as Node) &&
+        !menuButtonRef.current.contains(event.target as Node)
+      ) {
         setMobileMenuOpen(false)
       }
     }
@@ -205,11 +211,22 @@ export default function Header() {
             {/* Mobile Menu */}
             <nav 
               ref={mobileMenuRef}
-              className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${mobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}
+              className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${mobileMenuOpen ? 'max-h-[700px] opacity-100' : 'max-h-0 opacity-0'}`}
               id="mobile-menu"
               aria-label={ARIA_LABELS.mainNavigation}
             >
-              <div className="py-4 space-y-1">
+              {/* Close button inside menu */}
+              <div className="flex justify-end pt-2 pb-2">
+                <button
+                  onClick={() => setMobileMenuOpen(false)}
+                  className={`p-3 rounded-xl text-gray-500 hover:text-gray-700 hover:bg-gray-100 active:bg-gray-200 transition-all duration-200 ${MOBILE_CLASSES.touchTarget}`}
+                  aria-label="Close menu"
+                >
+                  <XMarkIcon className="w-6 h-6" aria-hidden="true" />
+                </button>
+              </div>
+              
+              <div className="py-2 space-y-1">
                 {navigation.map((item, index) => (
                   <Link
                     key={item.name}
