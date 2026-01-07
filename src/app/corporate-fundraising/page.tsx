@@ -31,9 +31,23 @@ import {
 import { CheckIcon } from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
-  title: 'Corporate Fundraising | Partner with SERVE',
-  description: 'Discover how working with a charity is good for business. Corporate sponsorship, cause-related marketing, team building, and community engagement opportunities in Northamptonshire.',
-  keywords: ['corporate fundraising', 'business partnership', 'charity sponsorship', 'CSR', 'corporate social responsibility', 'Northamptonshire', 'business community', 'cause marketing'],
+  title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
+  description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement. CSR programs, sponsorship, and cause-related marketing in Northamptonshire.',
+  keywords: ['corporate fundraising Northamptonshire', 'business charity partnership', 'CSR programs', 'corporate social responsibility', 'charity sponsorship', 'cause-related marketing', 'employee volunteering', 'community engagement', 'business philanthropy', 'corporate giving'],
+  openGraph: {
+    title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
+    description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement.',
+    url: 'https://serve.org.uk/corporate-fundraising',
+    siteName: 'SERVE - Supporting Independence',
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@serve_charity',
+    title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
+    description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement.',
+  },
 }
 
 // Benefits of partnering with Serve - exact content from original

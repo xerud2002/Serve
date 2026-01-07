@@ -1,9 +1,9 @@
 # SERVE Website - Deployment Summary
 
-**Date**: November 25, 2025  
+**Date**: January 7, 2026  
 **Status**: ✅ Successfully Deployed  
 **Platform**: Vercel  
-**Production URL**: https://serve-bueejlay6-xerud2002s-projects.vercel.app
+**Production URL**: https://serve.org.uk
 
 ---
 
@@ -236,8 +236,7 @@ npm run deploy:prepare     # Lint + build + test
 8 West Street, Rushden, Northamptonshire, NN10 0RT  
 📞 01933 315555  
 📧 info@serve.org.uk  
-🌐 Currently: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
-🌐 Target: https://www.serve.org.uk
+🌐 https://serve.org.uk
 
 **Charity**: 1043321  
 **CQC**: https://www.cqc.org.uk/location/1-2165219210

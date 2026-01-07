@@ -40,7 +40,7 @@ export const metadata: Metadata = {
     'Rushden',
     'East Midlands'
   ],
-  authors: [{ name: 'SERVE Charity', url: 'https://serve-delta.vercel.app' }],
+  authors: [{ name: 'SERVE Charity', url: 'https://serve.org.uk' }],
   creator: 'SERVE Charity',
   publisher: 'SERVE Charity',
   formatDetection: {
@@ -60,14 +60,14 @@ export const metadata: Metadata = {
     statusBarStyle: 'default',
     title: 'SERVE Charity',
   },
-  metadataBase: new URL('https://serve-delta.vercel.app'),
+  metadataBase: new URL('https://serve.org.uk'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
     type: 'website',
     locale: 'en_GB',
-    url: 'https://serve-delta.vercel.app',
+    url: 'https://serve.org.uk',
     siteName: 'SERVE - Supporting Independence',
     title: 'SERVE | Supporting Independence in Northamptonshire',
     description: 'Award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner Best Homecare Team 2024.',

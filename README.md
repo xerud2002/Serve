@@ -6,10 +6,10 @@ A modern, accessible, mobile-first website for SERVE - a charity supporting inde
 
 ## 🚀 Production Deployment
 
-**Live Site**: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
+**Live Site**: https://serve.org.uk  
 **Platform**: Vercel  
 **Status**: ✅ Deployed and Active  
-**Last Updated**: November 25, 2025
+**Last Updated**: January 7, 2026
 
 ### Quick Deploy
 
@@ -266,7 +266,7 @@ import OptimizedImage from '@/components/OptimizedImage'
 8 West Street, Rushden, Northamptonshire, NN10 0RT  
 📞 01933 315555  
 📧 info@serve.org.uk  
-🌐 https://www.serve.org.uk
+🌐 https://serve.org.uk
 
 **Charity**: 1043321  
 **CQC**: https://www.cqc.org.uk/location/1-2165219210

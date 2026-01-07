@@ -284,7 +284,7 @@ export function getUserConfirmationEmail(data: ContactFormData): string {
                     📧 <a href="mailto:info@serve.org.uk" style="color: #0284c7; text-decoration: none;">info@serve.org.uk</a>
                   </p>
                   <p style="margin: 0 0 15px; color: #6b7280; font-size: 13px; line-height: 1.5;">
-                    🌐 <a href="https://serve-delta.vercel.app" style="color: #0284c7; text-decoration: none;">serve-delta.vercel.app</a>
+                    🌐 <a href="https://serve.org.uk" style="color: #0284c7; text-decoration: none;">serve.org.uk</a>
                   </p>
                   
                   <!-- Social links -->

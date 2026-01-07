@@ -5,8 +5,8 @@
 ### Current Deployment Status ✅
 
 **Platform**: Vercel  
-**Production URL**: https://serve-bueejlay6-xerud2002s-projects.vercel.app  
-**Deployment Date**: November 25, 2025  
+**Production URL**: https://serve.org.uk  
+**Deployment Date**: January 7, 2026  
 **Status**: Live and fully functional
 
 ### Environment Configuration

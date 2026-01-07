@@ -19,7 +19,7 @@ Since gsutil has permission issues, configure CORS manually through Google Cloud
 ```json
 [
   {
-    "origin": ["http://localhost:3000", "http://localhost:3001", "https://serve.org.uk", "https://*.vercel.app"],
+    "origin": ["http://localhost:3000", "http://localhost:3001", "https://serve.org.uk", "https://www.serve.org.uk", "https://*.vercel.app"],
     "method": ["GET", "HEAD", "PUT", "POST", "DELETE"],
     "maxAgeSeconds": 3600
   }

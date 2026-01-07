@@ -13,8 +13,21 @@ import {
 } from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
-  title: 'Our Supporters | SERVE',
-  description: 'A warm welcome and heartfelt thanks to all our supporters, donors, volunteers, and event participants who make SERVE\'s mission possible.',
+  title: 'Our Supporters & Donors | Thank You | SERVE Charity',
+  description: 'Heartfelt thanks to our supporters, donors, volunteers, and partners. See how local businesses and individuals have helped SERVE support independence in Northamptonshire.',
+  keywords: ['charity supporters', 'SERVE donors', 'charity partners Northamptonshire', 'business supporters', 'community donors', 'charity fundraising supporters', 'volunteer appreciation', 'Ricoh', 'David Wilson Homes'],
+  openGraph: {
+    title: 'Our Supporters & Donors | Thank You | SERVE Charity',
+    description: 'Heartfelt thanks to our supporters who make our work possible.',
+    url: 'https://serve.org.uk/supporters',
+    siteName: 'SERVE - Supporting Independence',
+    locale: 'en_GB',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@serve_charity',
+  },
 }
 
 // Fisher-Yates shuffle algorithm

@@ -100,7 +100,7 @@ export default function CarersSupportPage() {
     "provider": {
       "@type": "Organization",
       "name": "SERVE",
-      "url": "https://serve-delta.vercel.app",
+      "url": "https://serve.org.uk",
       "telephone": "+44-1933-315555",
       "address": {
         "@type": "PostalAddress",

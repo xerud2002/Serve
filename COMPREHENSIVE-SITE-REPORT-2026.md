@@ -1,8 +1,8 @@
 # SERVE Charity Website - Comprehensive Site Report 2026
 
-**Generated:** January 3, 2026  
+**Generated:** January 7, 2026  
 **Organization:** SERVE (Charity #1043321)  
-**Website:** https://serve-bueejlay6-xerud2002s-projects.vercel.app  
+**Website:** https://serve.org.uk  
 **CQC Registration:** https://www.cqc.org.uk/location/1-2165219210
 
 ---

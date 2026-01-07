@@ -5,8 +5,28 @@ import type { Metadata } from 'next'
 import OptimizedImage from '@/components/OptimizedImage'
 
 export const metadata: Metadata = {
-  title: 'Great British Care Awards 2024 - Best Homecare Team Winner | SERVE',
-  description: 'SERVE wins Best Homecare Team, East Midlands at the Great British Care Awards 2024. Celebrating excellence in care and our dedicated team.',
+  title: 'Great British Care Awards 2024 Winner - Best Homecare Team | SERVE',
+  description: 'SERVE wins Best Homecare Team, East Midlands at Great British Care Awards 2024. Celebrating excellence in homecare and our outstanding team in Northamptonshire.',
+  keywords: ['Great British Care Awards', 'Best Homecare Team 2024', 'care awards winner', 'homecare excellence', 'SERVE awards', 'East Midlands care awards', 'award-winning homecare', 'care team recognition', 'Northamptonshire care provider'],
+  openGraph: {
+    title: 'Great British Care Awards 2024 Winner | SERVE',
+    description: 'SERVE wins Best Homecare Team, East Midlands at the prestigious Great British Care Awards 2024.',
+    url: 'https://serve.org.uk/news/great-british-care-awards',
+    siteName: 'SERVE - Supporting Independence',
+    locale: 'en_GB',
+    type: 'article',
+    publishedTime: '2024-10-15T00:00:00.000Z',
+    images: [{
+      url: '/images/awards/Great-British-Care-Awards-East-Midlands-scaled.webp',
+      width: 1200,
+      height: 630,
+      alt: 'SERVE team at Great British Care Awards 2024',
+    }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    site: '@serve_charity',
+  },
 }
 
 export default function GreatBritishCareAwardsPage() {

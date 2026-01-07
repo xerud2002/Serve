@@ -16,7 +16,7 @@ export default function PrivacyPolicyPage() {
 
         <div className="prose prose-gray max-w-none">
           <p className="text-gray-700 leading-relaxed mb-8">
-            At Serve your privacy is critically important to us. This privacy policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website <a href="https://www.serve.org.uk" className="text-serve-blue-600 hover:text-serve-blue-700 underline">www.serve.org.uk</a>. Please read this privacy policy carefully. If you do not agree with the terms of this policy, please do not access the site.
+            At Serve your privacy is critically important to us. This privacy policy explains how we collect, use, disclose, and safeguard your personal information when you visit our website <a href="https://serve.org.uk" className="text-serve-blue-600 hover:text-serve-blue-700 underline">serve.org.uk</a>. Please read this privacy policy carefully. If you do not agree with the terms of this policy, please do not access the site.
           </p>
         </div>
 
