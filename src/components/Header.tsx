@@ -186,15 +186,20 @@ export default function Header() {
 
               {/* Mobile Menu Button */}
               <div className="lg:hidden">
-                <AccessibleButton
+                <button
                   ref={menuButtonRef}
-                  className={`relative p-3 rounded-xl text-gray-700 hover:text-serve-blue-700 hover:bg-serve-blue-50 active:bg-serve-blue-100 transition-all duration-200 ${MOBILE_CLASSES.touchTarget}`}
-                  ariaControls="mobile-menu"
-                  ariaExpanded={mobileMenuOpen}
-                  ariaLabel={mobileMenuOpen ? ARIA_LABELS.closeMenu : ARIA_LABELS.openMenu}
-                  onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                  type="button"
+                  className={`relative p-3 rounded-xl text-gray-700 hover:text-serve-blue-700 hover:bg-serve-blue-50 active:bg-serve-blue-100 transition-all duration-200 ${MOBILE_CLASSES.touchTarget} ${FOCUS_STYLES.button}`}
+                  aria-controls="mobile-menu"
+                  aria-expanded={mobileMenuOpen}
+                  aria-label={mobileMenuOpen ? ARIA_LABELS.closeMenu : ARIA_LABELS.openMenu}
+                  onClick={(e) => {
+                    e.preventDefault()
+                    e.stopPropagation()
+                    setMobileMenuOpen(!mobileMenuOpen)
+                  }}
                 >
-                  <div className="relative w-6 h-6">
+                  <div className="relative w-6 h-6 pointer-events-none">
                     <Bars3Icon 
                       className={`absolute inset-0 h-6 w-6 transition-all duration-300 ${mobileMenuOpen ? 'opacity-0 rotate-90 scale-50' : 'opacity-100 rotate-0 scale-100'}`} 
                       aria-hidden="true" 
@@ -204,7 +209,7 @@ export default function Header() {
                       aria-hidden="true" 
                     />
                   </div>
-                </AccessibleButton>
+                </button>
               </div>
             </div>
 
