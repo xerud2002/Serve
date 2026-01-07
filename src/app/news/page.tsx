@@ -174,7 +174,7 @@ export default async function NewsPage() {
                         </div>
                       </div>
                       
-                      <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-18">
+                      <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-[4.5rem]">
                         {event.description}
                       </p>
                     </div>
