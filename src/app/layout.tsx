@@ -6,7 +6,6 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
-import AhrefsAnalytics from '@/components/AhrefsAnalytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 
 const inter = Inter({ 
@@ -133,23 +132,15 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://graph.facebook.com" />
-        <link rel="dns-prefetch" href="https://scontent.flhr4-3.fna.fbcdn.net" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
-        <link rel="dns-prefetch" href="https://analytics.ahrefs.com" />
         
-        {/* Ahrefs Web Analytics */}
-        <script 
-          src="https://analytics.ahrefs.com/analytics.js" 
-          data-key="8k73rflY1LOF0LFR29DDcg" 
-          async 
-        />
-        
-        {/* Preload critical hero images for faster LCP */}
+        {/* Preload critical hero image for faster LCP - smaller size for mobile */}
         <link 
           rel="preload" 
           href="/images/awards/regional-winner1.webp" 
           as="image" 
           type="image/webp"
+          media="(min-width: 640px)"
         />
         
         {/* PWA Meta Tags */}
@@ -165,7 +156,6 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        <AhrefsAnalytics dataKey={process.env.NEXT_PUBLIC_AHREFS_DATA_KEY} />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>

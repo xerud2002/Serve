@@ -108,26 +108,25 @@ export default function Hero() {
                 <Image 
                   src="/images/awards/regional-winner1.webp" 
                   alt="SERVE - Great British Care Awards Regional Winner"
-                  className="w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
-                  width={192}
-                  height={192}
+                  className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+                  width={176}
+                  height={176}
                   loading="eager"
                   fetchPriority="high"
-                  quality={90}
-                  sizes="192px"
+                  quality={75}
+                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
                 />
               </div>
               <div className="group flex-shrink-0">
                 <Image 
                   src="/images/awards/regional-winner2.webp" 
                   alt="SERVE - Great British Care Awards Regional Winner"
-                  className="w-36 h-36 sm:w-40 sm:h-40 lg:w-48 lg:h-48 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
-                  width={192}
-                  height={192}
-                  loading="eager"
-                  fetchPriority="high"
-                  quality={90}
-                  sizes="192px"
+                  className="w-28 h-28 sm:w-36 sm:h-36 lg:w-44 lg:h-44 object-contain drop-shadow-2xl transition-transform duration-300 group-hover:scale-110"
+                  width={176}
+                  height={176}
+                  loading="lazy"
+                  quality={75}
+                  sizes="(max-width: 640px) 112px, (max-width: 1024px) 144px, 176px"
                 />
               </div>
             </div>
