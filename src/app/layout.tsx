@@ -6,6 +6,7 @@ import Header from '@/components/Header'
 import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
+import AhrefsAnalytics from '@/components/AhrefsAnalytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
 
 const inter = Inter({ 
@@ -164,6 +165,7 @@ export default function RootLayout({
       </head>
       <body className={`${inter.className} antialiased`}>
         <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
+        <AhrefsAnalytics dataKey={process.env.NEXT_PUBLIC_AHREFS_DATA_KEY} />
         <LayoutWrapper>
           {children}
         </LayoutWrapper>
