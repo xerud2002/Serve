@@ -48,7 +48,7 @@ export default function Footer() {
                   alt="SERVE charity logo - Supporting Independence"
                   width={176}
                   height={88}
-                  className="h-18 w-auto filter brightness-0 invert"
+                  className="h-[4.5rem] w-auto filter brightness-0 invert"
                 />
                 <div className="absolute -bottom-2 left-0 right-0 h-1 bg-linear-to-r from-serve-blue-500 via-serve-green-500 to-serve-red-500 rounded-full" />
               </div>
