@@ -7,6 +7,7 @@ import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
+import InstallPrompt from '@/components/InstallPrompt'
 
 const inter = Inter({ 
   subsets: ['latin'],
@@ -185,6 +186,7 @@ export default function RootLayout({
           {children}
         </LayoutWrapper>
         <CookieConsent />
+        <InstallPrompt />
       </body>
     </html>
   )
