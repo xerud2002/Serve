@@ -33,8 +33,10 @@ export default function StructuredData({ type = 'organization' }: StructuredData
         "https://www.linkedin.com/company/serve-nvca/",
         "https://www.cqc.org.uk/location/1-2165219210"
       ],
-      "nonprofitStatus": "Nonprofit501c3Equivalent",
-      "taxID": "1043321",
+      "areaServed": {
+        "@type": "AdministrativeArea",
+        "name": "Northamptonshire"
+      },
       "award": [
         {
           "@type": "Award",
