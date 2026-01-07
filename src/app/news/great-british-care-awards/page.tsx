@@ -8,6 +8,9 @@ export const metadata: Metadata = {
   title: 'Great British Care Awards 2024 Winner - Best Homecare Team | SERVE',
   description: 'SERVE wins Best Homecare Team, East Midlands at Great British Care Awards 2024. Celebrating excellence in homecare and our outstanding team in Northamptonshire.',
   keywords: ['Great British Care Awards', 'Best Homecare Team 2024', 'care awards winner', 'homecare excellence', 'SERVE awards', 'East Midlands care awards', 'award-winning homecare', 'care team recognition', 'Northamptonshire care provider'],
+  alternates: {
+    canonical: '/news/great-british-care-awards/',
+  },
   openGraph: {
     title: 'Great British Care Awards 2024 Winner | SERVE',
     description: 'SERVE wins Best Homecare Team, East Midlands at the prestigious Great British Care Awards 2024.',

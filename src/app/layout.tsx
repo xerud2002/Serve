@@ -61,9 +61,6 @@ export const metadata: Metadata = {
     title: 'SERVE Charity',
   },
   metadataBase: new URL('https://serve.org.uk'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_GB',

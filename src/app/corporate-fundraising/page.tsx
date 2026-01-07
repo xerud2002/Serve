@@ -34,6 +34,9 @@ export const metadata: Metadata = {
   title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
   description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement. CSR programs, sponsorship, and cause-related marketing in Northamptonshire.',
   keywords: ['corporate fundraising Northamptonshire', 'business charity partnership', 'CSR programs', 'corporate social responsibility', 'charity sponsorship', 'cause-related marketing', 'employee volunteering', 'community engagement', 'business philanthropy', 'corporate giving'],
+  alternates: {
+    canonical: '/corporate-fundraising/',
+  },
   openGraph: {
     title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
     description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement.',

@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: 'Our Supporters & Donors | Thank You | SERVE Charity',
   description: 'Heartfelt thanks to our supporters, donors, volunteers, and partners. See how local businesses and individuals have helped SERVE support independence in Northamptonshire.',
   keywords: ['charity supporters', 'SERVE donors', 'charity partners Northamptonshire', 'business supporters', 'community donors', 'charity fundraising supporters', 'volunteer appreciation', 'Ricoh', 'David Wilson Homes'],
+  alternates: {
+    canonical: '/supporters/',
+  },
   openGraph: {
     title: 'Our Supporters & Donors | Thank You | SERVE Charity',
     description: 'Heartfelt thanks to our supporters who make our work possible.',

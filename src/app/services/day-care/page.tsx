@@ -24,6 +24,9 @@ export const metadata: Metadata = {
   title: 'Day Care & Meals on Wheels - SERVE | Ron Manning Day Centre Northamptonshire',
   description: 'Enjoy social activities, nutritious meals, and professional care at our friendly day centre. Transport included. Book your visit: 01933 315555.',
   keywords: 'day care, meals on wheels, day centre, social activities, community care, Northamptonshire, elderly care',
+  alternates: {
+    canonical: '/services/day-care/',
+  },
 }
 
 const activities = [

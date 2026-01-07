@@ -15,6 +15,9 @@ import MajorTitle from '@/components/MajorTitle'
 export const metadata: Metadata = {
   title: 'Annual Report 2023-2024 | SERVE',
   description: 'SERVE annual report and audited financial statements for the year ending March 31, 2024.',
+  alternates: {
+    canonical: '/about/annual-report-2024/',
+  },
 }
 
 export default function AnnualReport2024Page() {

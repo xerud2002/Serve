@@ -4,7 +4,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms & Conditions | SERVE',
-  description: 'Terms and conditions of use for the SERVE charity website, including acceptable use, copyright, liability limitations and user rights.'
+  description: 'Terms and conditions of use for the SERVE charity website, including acceptable use, copyright, liability limitations and user rights.',
+  alternates: {
+    canonical: '/terms/',
+  },
 }
 
 export default function TermsPage() {

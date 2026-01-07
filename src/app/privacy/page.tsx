@@ -4,7 +4,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Privacy Policy | SERVE',
-  description: 'How SERVE collects, uses, stores and protects personal data. GDPR and UK data protection rights for service users, supporters and volunteers.'
+  description: 'How SERVE collects, uses, stores and protects personal data. GDPR and UK data protection rights for service users, supporters and volunteers.',
+  alternates: {
+    canonical: '/privacy/',
+  },
 }
 
 export default function PrivacyPolicyPage() {

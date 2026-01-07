@@ -25,6 +25,9 @@ export const metadata: Metadata = {
   title: 'Personal & Domestic Care - SERVE | Award-Winning Homecare in Northamptonshire',
   description: 'Award-winning CQC registered personal care helping you stay independent at home with dignity. Call 01933 315555 for a free assessment today.',
   keywords: 'personal care, homecare, domestic care, CQC registered, Northamptonshire, award winning, home support',
+  alternates: {
+    canonical: '/services/personal-care/',
+  },
 }
 
 const careServices = [

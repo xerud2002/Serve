@@ -4,7 +4,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Cookie Policy | SERVE',
-  description: 'Information about how SERVE uses cookies and similar technologies on our website, including cookie types, consent management and your rights.'
+  description: 'Information about how SERVE uses cookies and similar technologies on our website, including cookie types, consent management and your rights.',
+  alternates: {
+    canonical: '/cookies/',
+  },
 }
 
 export default function CookiePolicyPage() {

@@ -3,7 +3,10 @@ import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Accessibility Statement | SERVE',
-  description: 'Accessibility commitment for SERVE charity website: standards, testing methods, known limitations, and feedback channels.'
+  description: 'Accessibility commitment for SERVE charity website: standards, testing methods, known limitations, and feedback channels.',
+  alternates: {
+    canonical: '/accessibility/',
+  },
 }
 
 export default function AccessibilityStatementPage() {
