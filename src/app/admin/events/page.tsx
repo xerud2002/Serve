@@ -41,11 +41,14 @@ export default function AdminEventsPage() {
   })
 
   const gradientOptions = [
-    { label: 'Blue', value: 'from-serve-blue-500 to-serve-blue-600' },
-    { label: 'Pink/Rose', value: 'from-pink-500 to-rose-500' },
-    { label: 'Teal/Green', value: 'from-serve-teal-500 to-serve-green-500' },
-    { label: 'Amber/Orange', value: 'from-amber-500 to-orange-500' },
-    { label: 'Purple/Blue', value: 'from-purple-600 to-blue-600' }
+    { label: 'Blue', value: 'from-serve-blue-500 to-serve-blue-700' },
+    { label: 'Teal', value: 'from-serve-teal-500 to-serve-teal-700' },
+    { label: 'Green', value: 'from-serve-green-500 to-serve-green-700' },
+    { label: 'Orange', value: 'from-serve-orange-500 to-serve-orange-700' },
+    { label: 'Red', value: 'from-serve-red-500 to-serve-red-700' },
+    { label: 'Blue to Teal', value: 'from-serve-blue-500 to-serve-teal-500' },
+    { label: 'Teal to Green', value: 'from-serve-teal-500 to-serve-green-500' },
+    { label: 'Orange to Red', value: 'from-serve-orange-500 to-serve-red-500' }
   ]
 
   useEffect(() => {
