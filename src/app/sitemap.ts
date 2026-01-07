@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   return [
     // Homepage - highest priority
     {
-      url: baseUrl,
+      url: `${baseUrl}/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 1.0,
@@ -15,7 +15,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Main Services Hub
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/services/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -23,37 +23,37 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Individual Services - High Priority
     {
-      url: `${baseUrl}/services/personal-care`,
+      url: `${baseUrl}/services/personal-care/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/day-care`,
+      url: `${baseUrl}/services/day-care/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/transport`,
+      url: `${baseUrl}/services/transport/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/befriending`,
+      url: `${baseUrl}/services/befriending/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/community-services`,
+      url: `${baseUrl}/services/community-services/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/carers-support`,
+      url: `${baseUrl}/services/carers-support/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
@@ -61,13 +61,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // About & Company Info
     {
-      url: `${baseUrl}/about`,
+      url: `${baseUrl}/about/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/about/annual-report-2024`,
+      url: `${baseUrl}/about/annual-report-2024/`,
       lastModified: new Date('2025-03-01'),
       changeFrequency: 'yearly',
       priority: 0.6,
@@ -75,7 +75,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Contact - High Priority for conversions
     {
-      url: `${baseUrl}/contact`,
+      url: `${baseUrl}/contact/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.9,
@@ -83,19 +83,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Get Involved - High Priority
     {
-      url: `${baseUrl}/volunteer`,
+      url: `${baseUrl}/volunteer/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/donate`,
+      url: `${baseUrl}/donate/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/corporate-fundraising`,
+      url: `${baseUrl}/corporate-fundraising/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.75,
@@ -103,13 +103,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // News & Events
     {
-      url: `${baseUrl}/news`,
+      url: `${baseUrl}/news/`,
       lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/news/great-british-care-awards`,
+      url: `${baseUrl}/news/great-british-care-awards/`,
       lastModified: new Date('2024-10-15'),
       changeFrequency: 'yearly',
       priority: 0.7,
@@ -117,7 +117,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Supporters
     {
-      url: `${baseUrl}/supporters`,
+      url: `${baseUrl}/supporters/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.6,
@@ -125,28 +125,30 @@ export default function sitemap(): MetadataRoute.Sitemap {
     
     // Legal Pages - Lower Priority
     {
-      url: `${baseUrl}/privacy`,
+      url: `${baseUrl}/privacy/`,
       lastModified: new Date('2024-09-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/cookies`,
+      url: `${baseUrl}/cookies/`,
       lastModified: new Date('2024-09-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/terms`,
+      url: `${baseUrl}/terms/`,
       lastModified: new Date('2024-09-01'),
       changeFrequency: 'yearly',
       priority: 0.3,
     },
     {
-      url: `${baseUrl}/accessibility`,
+      url: `${baseUrl}/accessibility/`,
       lastModified: new Date('2024-09-01'),
       changeFrequency: 'yearly',
       priority: 0.4,
     },
+  ]
+}
   ]
 }

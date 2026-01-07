@@ -104,7 +104,7 @@ export default function StructuredData({ type = 'organization' }: StructuredData
     if (type === 'local-business') {
       return {
         ...baseData,
-        "@type": ["Organization", "LocalBusiness"],
+        "@type": "LocalBusiness",
         "priceRange": "Contact for pricing",
         "paymentAccepted": "Cash, Check, Direct Debit",
         "currenciesAccepted": "GBP",
@@ -113,10 +113,6 @@ export default function StructuredData({ type = 'organization' }: StructuredData
           "@type": "GeoCoordinates",
           "latitude": 52.2928,
           "longitude": -0.6024
-        },
-        "areaServed": {
-          "@type": "AdministrativeArea",
-          "name": "Northamptonshire"
         }
       }
     }
