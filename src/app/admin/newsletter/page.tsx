@@ -72,11 +72,20 @@ export default function NewsletterAdmin() {
         return
       }
 
-      const subscribersQuery = query(
-        collection(db, 'newsletter'),
-        orderBy('subscribed_at', 'desc')
-      )
-      const querySnapshot = await getDocs(subscribersQuery)
+      // Try with ordering first, fallback to no ordering if index not ready
+      let querySnapshot
+      try {
+        const subscribersQuery = query(
+          collection(db, 'newsletter'),
+          orderBy('subscribed_at', 'desc')
+        )
+        querySnapshot = await getDocs(subscribersQuery)
+      } catch {
+        // Fallback: no ordering (index may not exist)
+        console.warn('Newsletter index not ready, loading without order')
+        querySnapshot = await getDocs(collection(db, 'newsletter'))
+      }
+      
       const loadedSubscribers: Subscriber[] = []
       
       querySnapshot.forEach((docSnapshot) => {
