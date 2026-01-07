@@ -50,7 +50,7 @@ export default function CookiePolicyPage() {
 
               <div>
                 <h3 className="font-semibold text-gray-800 mb-2">5.2 Statistics Cookies</h3>
-                <p>We use statistics cookies to optimize the website experience for our users. With these statistics cookies we get insights in the usage of our website. We ask your permission to place statistics cookies.</p>
+                <p>We use statistics cookies to optimise the website experience for our users. With these statistics cookies we get insights in the usage of our website. We ask your permission to place statistics cookies.</p>
               </div>
 
               <div>

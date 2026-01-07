@@ -71,10 +71,10 @@ export default function PrivacyPolicyPage() {
             <div className="space-y-3 text-gray-700 leading-relaxed">
               <p>We use the information collected for the following purposes:</p>
               <ul className="list-disc pl-6 space-y-2">
-                <li><strong>To provide and improve our services:</strong> We use your personal data to provide you with our services, including responding to inquiries and requests.</li>
+                <li><strong>To provide and improve our services:</strong> We use your personal data to provide you with our services, including responding to enquiries and requests.</li>
                 <li><strong>To process donations:</strong> We use your information to manage donations, including any gift aid claims.</li>
                 <li><strong>To communicate with you:</strong> We may send you emails about our services, events, and news if you have opted in.</li>
-                <li><strong>For website analytics and improvement:</strong> We use your browsing data to analyze usage patterns to improve the performance and user experience of our Site.</li>
+                <li><strong>For website analytics and improvement:</strong> We use your browsing data to analyse usage patterns to improve the performance and user experience of our Site.</li>
                 <li><strong>Compliance with legal obligations:</strong> We may need to process your personal data to comply with our legal obligations under UK law and the GDPR.</li>
               </ul>
             </div>
@@ -87,7 +87,7 @@ export default function PrivacyPolicyPage() {
               <p>We process your personal information under the following legal bases:</p>
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Consent:</strong> For activities like sending newsletters or promotional materials, we rely on your consent.</li>
-                <li><strong>Legitimate Interests:</strong> For most of our processing, including analyzing website performance and responding to inquiries, we rely on legitimate interests to provide, maintain, and improve our services.</li>
+                <li><strong>Legitimate Interests:</strong> For most of our processing, including analysing website performance and responding to enquiries, we rely on legitimate interests to provide, maintain, and improve our services.</li>
                 <li><strong>Legal Obligations:</strong> In some cases, we are required to process your data to comply with legal or regulatory obligations.</li>
               </ul>
             </div>
@@ -126,7 +126,7 @@ export default function PrivacyPolicyPage() {
               <ul className="list-disc pl-6 space-y-2">
                 <li><strong>Essential Cookies:</strong> Necessary for the operation of the Site.</li>
                 <li><strong>Analytical/Performance Cookies:</strong> Help us improve the website by tracking user behaviour.</li>
-                <li><strong>Functional Cookies:</strong> Used to recognize you when you return to our website, improving your user experience.</li>
+                <li><strong>Functional Cookies:</strong> Used to recognise you when you return to our website, improving your user experience.</li>
               </ul>
               <p>For more details, refer to our <Link href="/cookies" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Cookie Policy</Link>.</p>
             </div>

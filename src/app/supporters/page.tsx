@@ -150,7 +150,7 @@ export default function SupportersPage() {
     {
       title: "Support from the Masonic Lodge",
       image: "/images/donations/Support-from-the-Masonic-Lodge.webp",
-      description: "Community organizations supporting our mission"
+      description: "Community organisations supporting our mission"
     }
   ]
 
@@ -217,7 +217,7 @@ export default function SupportersPage() {
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
                 For over 40 years, SERVE has been fortunate to receive incredible support from individuals, 
-                businesses, and organizations across Northamptonshire and beyond. Your contributions have helped 
+                businesses, and organisations across Northamptonshire and beyond. Your contributions have helped 
                 us provide essential care services to older people, adults with disabilities and their carers.
               </p>
               <p>

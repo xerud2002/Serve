@@ -106,7 +106,7 @@ const faqs = [
   },
   {
     question: "Can I suggest activities or trips?",
-    answer: "Absolutely! We love hearing suggestions from our community. If there's somewhere you'd like to visit or an activity you'd enjoy, let us know and we'll do our best to organize it."
+    answer: "Absolutely! We love hearing suggestions from our community. If there's somewhere you'd like to visit or an activity you'd enjoy, let us know and we'll do our best to organise it."
   }
 ]
 

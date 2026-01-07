@@ -538,7 +538,7 @@ export default function Contact() {
                     <option value="Volunteering Opportunities">Volunteering Opportunities</option>
                     <option value="Donations & Fundraising">Donations & Fundraising</option>
                     <option value="Corporate Partnership">Corporate Partnership</option>
-                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="General Enquiry">General Enquiry</option>
                     <option value="Other">Other</option>
                   </select>
                   {getFieldError('subject') && (
@@ -559,7 +559,7 @@ export default function Contact() {
                     className={`w-full px-4 py-4 border-2 rounded-xl focus:ring-2 focus:ring-serve-blue-500 focus:border-serve-blue-500 transition-all duration-300 bg-gray-50 hover:bg-white text-gray-900 placeholder-gray-400 resize-none ${
                       getFieldError('message') ? 'border-red-500' : 'border-gray-200'
                     }`}
-                    placeholder="Please tell us more about your inquiry..."
+                    placeholder="Please tell us more about your enquiry..."
                     required
                   />
                   {getFieldError('message') && (
@@ -583,7 +583,7 @@ export default function Contact() {
                     />
                     <label htmlFor="privacy" className="ml-3 text-sm text-gray-600 leading-relaxed">
                       I agree to SERVE&apos;s <Link href="/privacy" className="text-serve-blue-600 hover:underline font-medium">privacy policy</Link> and consent to my personal data being processed 
-                      to respond to my inquiry. *
+                      to respond to my enquiry. *
                     </label>
                   </div>
                   {getFieldError('privacy') && (
@@ -608,7 +608,7 @@ export default function Contact() {
                 </button>
 
                 <p className="text-center text-sm text-gray-500 mt-4">
-                  We typically respond to all inquiries within <span className="font-semibold text-serve-blue-600">24 hours</span> during business days.
+                  We typically respond to all enquiries within <span className="font-semibold text-serve-blue-600">24 hours</span> during business days.
                 </p>
               </form>
             </div>

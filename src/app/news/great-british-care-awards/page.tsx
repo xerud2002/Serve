@@ -142,7 +142,7 @@ export default function GreatBritishCareAwardsPage() {
             
             <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
               <p>
-                The Great British Care Awards celebrate excellence in the care sector, recognizing individuals and 
+                The Great British Care Awards celebrate excellence in the care sector, recognising individuals and 
                 teams who make a real difference in people&apos;s lives. Winning this regional award places SERVE among 
                 the very best homecare providers in the East Midlands.
               </p>
