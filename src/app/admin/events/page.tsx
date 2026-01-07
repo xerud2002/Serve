@@ -190,7 +190,7 @@ export default function AdminEventsPage() {
                     required
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
                 
@@ -202,7 +202,7 @@ export default function AdminEventsPage() {
                     placeholder="e.g., Volunteering, Fundraising, Social"
                     value={formData.tag}
                     onChange={(e) => setFormData({ ...formData, tag: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
 
@@ -214,7 +214,7 @@ export default function AdminEventsPage() {
                     placeholder="e.g., Friday, February 14, 2026"
                     value={formData.date}
                     onChange={(e) => setFormData({ ...formData, date: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
 
@@ -226,7 +226,7 @@ export default function AdminEventsPage() {
                     placeholder="e.g., 10:00 AM - 2:00 PM"
                     value={formData.time}
                     onChange={(e) => setFormData({ ...formData, time: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
 
@@ -238,7 +238,7 @@ export default function AdminEventsPage() {
                     placeholder="e.g., SERVE Office, Rushden"
                     value={formData.location}
                     onChange={(e) => setFormData({ ...formData, location: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
 
@@ -247,7 +247,7 @@ export default function AdminEventsPage() {
                   <select
                     value={formData.gradient}
                     onChange={(e) => setFormData({ ...formData, gradient: e.target.value })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   >
                     {gradientOptions.map(opt => (
                       <option key={opt.value} value={opt.value}>{opt.label}</option>
@@ -260,7 +260,7 @@ export default function AdminEventsPage() {
                   <select
                     value={formData.type}
                     onChange={(e) => setFormData({ ...formData, type: e.target.value as 'upcoming' | 'past' })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   >
                     <option value="upcoming">Upcoming Event</option>
                     <option value="past">Past Event</option>
@@ -273,7 +273,7 @@ export default function AdminEventsPage() {
                     type="number"
                     value={formData.order}
                     onChange={(e) => setFormData({ ...formData, order: parseInt(e.target.value) })}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
               </div>
@@ -287,7 +287,7 @@ export default function AdminEventsPage() {
                       placeholder="/images/events/event-name.webp"
                       value={formData.image}
                       onChange={(e) => setFormData({ ...formData, image: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                     />
                   </div>
 
@@ -298,7 +298,7 @@ export default function AdminEventsPage() {
                       placeholder="e.g., Winner"
                       value={formData.badge}
                       onChange={(e) => setFormData({ ...formData, badge: e.target.value })}
-                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                     />
                   </div>
                 </div>
@@ -311,7 +311,7 @@ export default function AdminEventsPage() {
                   rows={3}
                   value={formData.description}
                   onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                 />
               </div>
 
