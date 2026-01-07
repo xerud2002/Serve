@@ -209,11 +209,19 @@ export default function AdminEventsPage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
                   <input
-                    type="text"
+                    type="date"
                     required
-                    placeholder="e.g., Friday, February 14, 2026"
                     value={formData.date}
-                    onChange={(e) => setFormData({ ...formData, date: e.target.value })}
+                    onChange={(e) => {
+                      const date = new Date(e.target.value)
+                      const formatted = date.toLocaleDateString('en-GB', { 
+                        weekday: 'long', 
+                        year: 'numeric', 
+                        month: 'long', 
+                        day: 'numeric' 
+                      })
+                      setFormData({ ...formData, date: formatted })
+                    }}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
@@ -221,11 +229,17 @@ export default function AdminEventsPage() {
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Time *</label>
                   <input
-                    type="text"
+                    type="time"
                     required
-                    placeholder="e.g., 10:00 AM - 2:00 PM"
                     value={formData.time}
-                    onChange={(e) => setFormData({ ...formData, time: e.target.value })}
+                    onChange={(e) => {
+                      const [hours, minutes] = e.target.value.split(':')
+                      const hour = parseInt(hours)
+                      const ampm = hour >= 12 ? 'PM' : 'AM'
+                      const hour12 = hour % 12 || 12
+                      const formatted = `${hour12}:${minutes} ${ampm}`
+                      setFormData({ ...formData, time: formatted })
+                    }}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
