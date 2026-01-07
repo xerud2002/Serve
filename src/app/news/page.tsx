@@ -80,11 +80,112 @@ export default function NewsPage() {
         </div>
       </section>
 
-      {/* Latest News from Facebook */}
-      <FacebookFeed />
+      {/* Upcoming Events Section */}
+      <section className="py-20 lg:py-24 bg-linear-to-br from-serve-blue-50 via-white to-serve-teal-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-96 h-96 bg-serve-blue-200/30 rounded-full blur-3xl translate-x-1/3 -translate-y-1/3" />
+        <div className="absolute bottom-0 left-0 w-80 h-80 bg-serve-teal-200/30 rounded-full blur-3xl -translate-x-1/3 translate-y-1/3" />
+        
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-serve-teal-100 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-serve-blue-200">
+              <CalendarDaysIcon className="w-4 h-4 mr-2" />
+              Coming Soon
+            </div>
+            
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
+              <span className="bg-linear-to-r from-serve-blue-600 to-serve-teal-600 bg-clip-text text-transparent">Upcoming</span>{' '}
+              <span className="bg-linear-to-r from-serve-teal-600 to-serve-green-600 bg-clip-text text-transparent">Events</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Join us at our upcoming events and activities - everyone is welcome!
+            </p>
+          </div>
 
-      {/* Previous Events Gallery */}
-      <section className="py-20 lg:py-24 bg-linear-to-br from-white via-gray-50 to-white relative overflow-hidden">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            {[
+              {
+                title: 'Volunteer Open Day',
+                date: 'Friday, February 14, 2026',
+                time: '10:00 AM - 2:00 PM',
+                location: 'SERVE Office, Rushden',
+                description: 'Interested in volunteering? Come meet our team and learn about opportunities to make a difference.',
+                tag: 'Volunteering',
+                gradient: 'from-serve-blue-500 to-serve-blue-600'
+              },
+              {
+                title: 'Spring Afternoon Tea',
+                date: 'Saturday, April 5, 2026',
+                time: '2:00 PM - 5:00 PM',
+                location: '8 West Street, Rushden',
+                description: 'Traditional afternoon tea with homemade cakes, sandwiches, and live entertainment. All proceeds support our care services.',
+                tag: 'Fundraising',
+                gradient: 'from-pink-500 to-rose-500'
+              },
+              {
+                title: 'Coffee Morning',
+                date: 'Every Thursday',
+                time: '10:30 AM - 12:00 PM',
+                location: 'SERVE Day Centre',
+                description: 'Weekly social gathering for service users, carers, and community members. Drop in for a chat!',
+                tag: 'Social',
+                gradient: 'from-serve-teal-500 to-serve-green-500'
+              },
+              {
+                title: 'Summer Fair 2026',
+                date: 'Saturday, July 12, 2026',
+                time: '11:00 AM - 4:00 PM',
+                location: '8 West Street, Rushden',
+                description: 'Join us for our annual summer fair with games, refreshments, and entertainment for all ages.',
+                tag: 'Fundraising',
+                gradient: 'from-amber-500 to-orange-500'
+              }
+            ].map((event, index) => (
+              <div key={index} className="group relative h-full flex">
+                <div className="absolute -inset-0.5 bg-linear-to-r from-serve-blue-400 to-serve-teal-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
+                <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
+                  <div className={`bg-linear-to-r ${event.gradient} p-6 text-white`}>
+                    <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold mb-3">
+                      {event.tag}
+                    </span>
+                    <h3 className="text-xl font-black">{event.title}</h3>
+                  </div>
+                  
+                  <div className="p-6 space-y-4 flex-grow">
+                    <div className="flex items-start gap-3">
+                      <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="font-semibold text-gray-900">{event.date}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <ClockIcon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-gray-700">{event.time}</p>
+                      </div>
+                    </div>
+                    
+                    <div className="flex items-start gap-3">
+                      <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 flex-shrink-0 mt-0.5" />
+                      <div>
+                        <p className="text-gray-700">{event.location}</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-[4.5rem]">
+                      {event.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Past Events Section */}
+      <section className="py-20 lg:py-24 bg-linear-to-br from-gray-50 via-white to-gray-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-0 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl -translate-x-1/2" />
         <div className="absolute top-1/4 right-0 w-80 h-80 bg-blue-100/50 rounded-full blur-3xl translate-x-1/2" />
@@ -92,32 +193,44 @@ export default function NewsPage() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
             <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-blue-100 text-purple-800 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-purple-200">
-              <TagIcon className="w-4 h-4 mr-2" />
-              Community in Action
+              <SparklesIcon className="w-4 h-4 mr-2" />
+              Celebrating Success
             </div>
             
             <h2 className="text-3xl md:text-4xl lg:text-5xl font-black mb-6">
-              <span className="bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">SERVE Out</span>{' '}
-              <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">and About</span>
+              <span className="bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Past</span>{' '}
+              <span className="bg-linear-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">Events</span>
             </h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Highlights from our community events, fundraising activities, and celebrations over the years
+              Look back at our recent celebrations, achievements, and community activities
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
             {[
-              { 
-                title: 'Fundraising at Asda Rushden', 
-                image: '/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp',
-                description: 'Community fundraising event supporting local care services',
-                tag: 'Fundraising'
+              {
+                title: 'Great British Care Awards 2024',
+                date: 'October 2024',
+                image: '/images/awards/Great-British-Care-Awards-East-Midlands-scaled.webp',
+                description: 'SERVE wins "Best Homecare Team, East Midlands" at the prestigious Great British Care Awards',
+                tag: 'Award',
+                badge: 'Winner'
               },
-              { 
-                title: 'Christmas Lights Rushden', 
+              {
+                title: 'Christmas Lights Rushden',
+                date: 'December 2025',
                 image: '/images/donations/Christmas-Lights-Rushden-scaled.webp',
-                description: 'Celebrating the festive season with our community',
-                tag: 'Events'
+                description: 'Celebrating the festive season with our community at the annual Christmas lights switch-on',
+                tag: 'Community',
+                badge: null
+              },
+              {
+                title: 'Fundraising at Asda Rushden',
+                date: 'November 2025',
+                image: '/images/fundraising/Fundraising-at-Asda-Rushden-scaled.webp',
+                description: 'Successful community fundraising event supporting local care services',
+                tag: 'Fundraising',
+                badge: null
               }
             ].map((event, index) => (
               <div key={index} className="group relative">
@@ -129,7 +242,7 @@ export default function NewsPage() {
                       alt={event.title}
                       fill
                       className="object-cover group-hover:scale-110 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, 50vw"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                     <div className="absolute inset-0 bg-linear-to-t from-black/80 via-black/40 to-transparent" />
                     
@@ -139,9 +252,23 @@ export default function NewsPage() {
                         {event.tag}
                       </span>
                     </div>
+                    
+                    {/* Badge */}
+                    {event.badge && (
+                      <div className="absolute top-4 right-4">
+                        <div className="flex items-center gap-1 bg-linear-to-r from-yellow-400 to-amber-500 text-gray-900 px-3 py-1.5 rounded-full text-xs font-bold shadow-lg">
+                          <StarIconSolid className="w-4 h-4" />
+                          {event.badge}
+                        </div>
+                      </div>
+                    )}
 
                     {/* Content */}
                     <div className="absolute bottom-0 left-0 right-0 p-6">
+                      <div className="flex items-center gap-2 text-white/80 text-sm mb-2">
+                        <CalendarDaysIcon className="w-4 h-4" />
+                        {event.date}
+                      </div>
                       <h3 className="text-2xl font-black text-white mb-2">{event.title}</h3>
                       <p className="text-white/90 text-sm">{event.description}</p>
                     </div>
@@ -153,16 +280,19 @@ export default function NewsPage() {
 
           <div className="text-center">
             <Link
-              href="/contact"
-              className="inline-flex items-center gap-3 bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/30"
+              href="/about/annual-report-2024"
+              className="inline-flex items-center gap-3 bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/30 min-h-[44px]"
             >
-              <NewspaperIcon className="w-5 h-5" />
-              Get Involved with SERVE
+              <TrophyIcon className="w-5 h-5" />
+              View All Our Achievements
               <ArrowRightIcon className="w-5 h-5" />
             </Link>
           </div>
         </div>
       </section>
+
+      {/* Latest News from Facebook */}
+      <FacebookFeed />
     </div>
   )
 }

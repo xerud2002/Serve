@@ -142,13 +142,11 @@ export default function CorporateFundraisingPage() {
               SERVE WORKING WITH BUSINESSES
             </div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Corporate Fundraising
+            <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-8 leading-tight">
+              <span className="block bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Discover how working</span>
+              <span className="block bg-linear-to-r from-yellow-300 via-amber-400 to-orange-300 bg-clip-text text-transparent mt-2">with a charity is good for business</span>
             </h1>
             
-            <h2 className="text-2xl lg:text-3xl font-semibold text-amber-300 mb-8">
-              Discover how working with a charity is good for business
-            </h2>
 
             <div className="text-lg lg:text-xl opacity-90 mb-8 leading-relaxed space-y-4 text-left max-w-3xl mx-auto">
               <p>

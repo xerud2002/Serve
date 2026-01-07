@@ -90,13 +90,6 @@ const trustees = [
     expertise: 'Heritage & Community'
   },
   {
-    name: 'Maureen Core',
-    role: 'Director / Trustee',
-    image: '', // Add photo path: '/images/trustees/maureen.webp'
-    dateAppointed: 'June 2016',
-    expertise: 'Care Services & Operations'
-  },
-  {
     name: 'Mike Huland',
     role: 'Director / Trustee',
     image: '', // Add photo path: '/images/trustees/mike.webp'

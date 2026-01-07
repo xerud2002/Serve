@@ -33,7 +33,7 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Email template for SERVE (web@serve.org.uk)
+    // Email template for SERVE (info@serve.org.uk)
     const adminEmailHtml = `
 <!DOCTYPE html>
 <html>
@@ -258,7 +258,7 @@ export async function POST(request: NextRequest) {
     // Graceful degradation if Resend is not configured
     if (!resend) {
       console.log('📧 Resend not configured. Email would have been sent with:', {
-        to: 'web@serve.org.uk',
+        to: 'info@serve.org.uk',
         subject: `New Volunteer Application: ${firstName} ${lastName}`,
         from: 'SERVE <noreply@serve.org.uk>',
       })
@@ -273,7 +273,7 @@ export async function POST(request: NextRequest) {
     // Send email to SERVE
     await resend.emails.send({
       from: 'SERVE <noreply@serve.org.uk>',
-      to: 'web@serve.org.uk',
+      to: 'info@serve.org.uk',
       subject: `🌟 New Volunteer Application: ${firstName} ${lastName}`,
       html: adminEmailHtml,
     })

@@ -89,7 +89,7 @@ export async function POST(request: NextRequest) {
     // Send admin notification
     await resend.emails.send({
       from: 'SERVE Newsletter <noreply@serve.org.uk>',
-      to: 'web@serve.org.uk',
+      to: 'info@serve.org.uk',
       subject: 'New Newsletter Subscription',
       html: `
         <!DOCTYPE html>
