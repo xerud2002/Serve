@@ -281,7 +281,7 @@ export default function NewsPage() {
           <div className="text-center">
             <Link
               href="/about/annual-report-2024"
-              className="inline-flex items-center gap-3 bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/30 min-h-[44px]"
+              className="inline-flex items-center gap-3 bg-linear-to-r from-purple-600 via-blue-600 to-cyan-600 hover:from-purple-700 hover:via-blue-700 hover:to-cyan-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-purple-500/30 min-h-11"
             >
               <TrophyIcon className="w-5 h-5" />
               View All Our Achievements
