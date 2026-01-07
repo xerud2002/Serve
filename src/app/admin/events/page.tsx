@@ -5,7 +5,7 @@ import { db } from '@/lib/firebase'
 import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy } from 'firebase/firestore'
 import { PlusIcon, TrashIcon, PencilIcon, CalendarIcon } from '@heroicons/react/24/outline'
 
-interface Event {
+interface EventData {
   id?: string
   title: string
   date: string
@@ -21,12 +21,12 @@ interface Event {
 }
 
 export default function AdminEventsPage() {
-  const [events, setEvents] = useState<Event[]>([])
+  const [events, setEvents] = useState<EventData[]>([])
   const [isLoading, setIsLoading] = useState(true)
-  const [editingEvent, setEditingEvent] = useState<Event | null>(null)
+  const [editingEvent, setEditingEvent] = useState<EventData | null>(null)
   const [showForm, setShowForm] = useState(false)
 
-  const [formData, setFormData] = useState<Event>({
+  const [formData, setFormData] = useState<Omit<EventData, 'id'>>({
     title: '',
     date: '',
     time: '',
@@ -66,7 +66,7 @@ export default function AdminEventsPage() {
       const eventsData = snapshot.docs.map(doc => ({
         id: doc.id,
         ...doc.data()
-      })) as Event[]
+      })) as EventData[]
       setEvents(eventsData)
     } catch (error) {
       console.error('Error loading events:', error)
@@ -97,9 +97,21 @@ export default function AdminEventsPage() {
     }
   }
 
-  const handleEdit = (event: Event) => {
+  const handleEdit = (event: EventData) => {
     setEditingEvent(event)
-    setFormData(event)
+    setFormData({
+      title: event.title,
+      date: event.date,
+      time: event.time,
+      location: event.location,
+      description: event.description,
+      tag: event.tag,
+      gradient: event.gradient,
+      type: event.type,
+      image: event.image || '',
+      badge: event.badge || '',
+      order: event.order
+    })
     setShowForm(true)
   }
 
