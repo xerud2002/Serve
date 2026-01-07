@@ -337,7 +337,7 @@ export default function AdminEventsPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {events.filter(e => e.type === 'upcoming').map((event) => (
               <div key={event.id} className="bg-white rounded-lg shadow-md overflow-hidden">
-                <div className={`bg-gradient-to-r ${event.gradient} p-4 text-white`}>
+                <div className={`bg-linear-to-r ${event.gradient} p-4 text-white`}>
                   <span className="inline-block bg-white/20 px-3 py-1 rounded-full text-xs font-bold">{event.tag}</span>
                   <h3 className="text-lg font-bold mt-2">{event.title}</h3>
                 </div>
