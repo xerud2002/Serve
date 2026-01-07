@@ -121,8 +121,36 @@ export default function RootLayout({
       <head>
         {/* Critical CSS - Inline for faster render */}
         <style dangerouslySetInnerHTML={{__html: `
-          body { margin: 0; font-family: system-ui, -apple-system, sans-serif; }
-          .antialiased { -webkit-font-smoothing: antialiased; }
+          *,::after,::before{box-sizing:border-box}
+          body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+          img,video{max-width:100%;height:auto}
+          .antialiased{-webkit-font-smoothing:antialiased}
+          /* Critical hero styles */
+          .min-h-\\[90vh\\]{min-height:90vh}
+          .relative{position:relative}
+          .absolute{position:absolute}
+          .inset-0{inset:0}
+          .overflow-hidden{overflow:hidden}
+          .text-white{color:#fff}
+          .text-center{text-align:center}
+          .flex{display:flex}
+          .grid{display:grid}
+          .items-center{align-items:center}
+          .justify-center{justify-content:center}
+          .gap-4{gap:1rem}
+          .px-4{padding-left:1rem;padding-right:1rem}
+          .py-16{padding-top:4rem;padding-bottom:4rem}
+          .max-w-7xl{max-width:80rem}
+          .mx-auto{margin-left:auto;margin-right:auto}
+          .font-black{font-weight:900}
+          .font-bold{font-weight:700}
+          .text-4xl{font-size:2.25rem;line-height:2.5rem}
+          .leading-tight{line-height:1.25}
+          .mb-2{margin-bottom:0.5rem}
+          .mb-3{margin-bottom:0.75rem}
+          .space-y-6>:not(:first-child){margin-top:1.5rem}
+          @media(min-width:640px){.sm\\:text-5xl{font-size:3rem;line-height:1}}
+          @media(min-width:1024px){.lg\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}.lg\\:text-left{text-align:left}}
         `}} />
         
         {/* Performance optimizations - Preconnect to required origins */}

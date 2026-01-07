@@ -6,15 +6,18 @@ import Link from 'next/link'
 export default function Hero() {
   return (
     <section className="relative min-h-[90vh] bg-linear-to-br from-serve-blue-950 via-serve-blue-900 to-slate-900 text-white overflow-hidden">
-      {/* Modern mesh gradient background */}
-      <div className="absolute inset-0 overflow-hidden">
+      {/* Modern mesh gradient background - hidden on mobile for performance */}
+      <div className="absolute inset-0 overflow-hidden hidden sm:block">
         <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-serve-green-500/10 rounded-full blur-[128px]" />
         <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[128px]" />
         <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-[100px]" />
       </div>
 
-      {/* Dot grid pattern */}
-      <div className="absolute inset-0 opacity-[0.03]">
+      {/* Simplified background for mobile */}
+      <div className="absolute inset-0 bg-serve-blue-900/50 sm:hidden" />
+
+      {/* Dot grid pattern - hidden on mobile for performance */}
+      <div className="absolute inset-0 opacity-[0.03] hidden sm:block">
         <div 
           className="absolute inset-0" 
           style={{
@@ -133,15 +136,15 @@ export default function Hero() {
             
             {/* Stats Cards - Modern bento box style */}
             <div className="grid grid-cols-3 gap-2 sm:gap-3">
-              <div className="group relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center transition-all duration-300 hover:bg-white/10 hover:border-serve-green-400/50 hover:-translate-y-1 cursor-pointer shadow-lg hover:shadow-xl">
+              <div className="bg-white/5 sm:backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center sm:transition-all sm:duration-300 sm:hover:bg-white/10 sm:hover:border-serve-green-400/50 sm:hover:-translate-y-1 shadow-lg">
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-black bg-linear-to-br from-serve-green-300 to-cyan-400 bg-clip-text text-transparent mb-1">40+</div>
                 <div className="text-[9px] sm:text-[10px] lg:text-xs text-blue-200/90 font-medium leading-tight px-1">Years Serving<br/>Our Community</div>
               </div>
-              <div className="group relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center transition-all duration-300 hover:bg-white/10 hover:border-amber-400/50 hover:-translate-y-1 cursor-pointer shadow-lg hover:shadow-xl">
+              <div className="bg-white/5 sm:backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center sm:transition-all sm:duration-300 sm:hover:bg-white/10 sm:hover:border-amber-400/50 sm:hover:-translate-y-1 shadow-lg">
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-black bg-linear-to-br from-yellow-300 to-amber-400 bg-clip-text text-transparent mb-1">Award</div>
                 <div className="text-[9px] sm:text-[10px] lg:text-xs text-blue-200/90 font-medium leading-tight px-1">Winning<br/>Care Team</div>
               </div>
-              <div className="group relative bg-white/5 backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center transition-all duration-300 hover:bg-white/10 hover:border-rose-400/50 hover:-translate-y-1 cursor-pointer shadow-lg hover:shadow-xl">
+              <div className="bg-white/5 sm:backdrop-blur-xl rounded-2xl border border-white/10 p-3 sm:p-4 lg:p-5 text-center sm:transition-all sm:duration-300 sm:hover:bg-white/10 sm:hover:border-rose-400/50 sm:hover:-translate-y-1 shadow-lg">
                 <div className="text-2xl sm:text-3xl lg:text-4xl font-black bg-linear-to-br from-rose-300 to-pink-400 bg-clip-text text-transparent mb-1">Local</div>
                 <div className="text-[9px] sm:text-[10px] lg:text-xs text-blue-200/90 font-medium leading-tight px-1">Northants<br/>Charity</div>
               </div>
