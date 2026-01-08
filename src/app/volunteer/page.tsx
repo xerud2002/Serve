@@ -310,7 +310,7 @@ export default function VolunteerPage() {
               </div>
               <div className="group bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-3xl p-8 text-center border border-serve-green-100 hover:shadow-lg transition-all">
                 <div className="text-sm font-semibold text-serve-green-600 mb-2">✨ Total Social Value Generated</div>
-                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">£144,267.26</div>
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">£144,268</div>
                 <div className="text-sm text-gray-500 mt-1">(approx.)</div>
               </div>
             </div>
