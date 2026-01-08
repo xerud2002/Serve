@@ -226,47 +226,47 @@ export default function VolunteerPage() {
                 Help us support older people and adults with disabilities across Northamptonshire.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-4">
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href="tel:01933315555"
-                  className="inline-flex items-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
                 >
-                  <PhoneIcon className="w-6 h-6 mr-3" />
+                  <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                   Call: 01933 315555
                 </a>
                 <Link
                   href="#volunteer-form"
-                  className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-green-900 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/20"
+                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-green-900 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/20"
                 >
                   Apply to Volunteer
-                  <ArrowRightIcon className="ml-3 h-5 w-5" />
+                  <ArrowRightIcon className="ml-2 sm:ml-3 h-5 w-5" />
                 </Link>
               </div>
             </div>
 
-            <div className="grid grid-cols-2 gap-6">
-              <div className="space-y-6">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-                  <UserGroupIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">200+ Volunteers</div>
-                  <div className="text-sm opacity-80">Active community members</div>
+            <div className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-6">
+              <div className="space-y-3 sm:space-y-6">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+                  <UserGroupIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-4 text-serve-green-200" />
+                  <div className="font-bold text-sm sm:text-lg mb-1 sm:mb-2">200+ Volunteers</div>
+                  <div className="text-xs sm:text-sm opacity-80">Active community members</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-                  <ClockIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">Flexible Hours</div>
-                  <div className="text-sm opacity-80">Fit around your life</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+                  <ClockIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-4 text-serve-green-200" />
+                  <div className="font-bold text-sm sm:text-lg mb-1 sm:mb-2">Flexible Hours</div>
+                  <div className="text-xs sm:text-sm opacity-80">Fit around your life</div>
                 </div>
               </div>
-              <div className="space-y-6 pt-12">
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-                  <AcademicCapIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">Full Training</div>
-                  <div className="text-sm opacity-80">Comprehensive support</div>
+              <div className="space-y-3 sm:space-y-6 pt-6 sm:pt-12">
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+                  <AcademicCapIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-4 text-serve-green-200" />
+                  <div className="font-bold text-sm sm:text-lg mb-1 sm:mb-2">Full Training</div>
+                  <div className="text-xs sm:text-sm opacity-80">Comprehensive support</div>
                 </div>
-                <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
-                  <FaceSmileIcon className="w-12 h-12 mx-auto mb-4 text-serve-green-200" />
-                  <div className="font-bold text-lg mb-2">Rewarding Work</div>
-                  <div className="text-sm opacity-80">Make a real difference</div>
+                <div className="bg-white/10 backdrop-blur-sm rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center">
+                  <FaceSmileIcon className="w-8 h-8 sm:w-12 sm:h-12 mx-auto mb-2 sm:mb-4 text-serve-green-200" />
+                  <div className="font-bold text-sm sm:text-lg mb-1 sm:mb-2">Rewarding Work</div>
+                  <div className="text-xs sm:text-sm opacity-80">Make a real difference</div>
                 </div>
               </div>
             </div>
@@ -318,30 +318,30 @@ export default function VolunteerPage() {
             {/* Breakdown by Service */}
             <div>
               <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Breakdown by Service</h4>
-              <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div className="bg-linear-to-r from-serve-blue-600 to-serve-blue-700 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">58.1%</div>
-                  <div className="text-sm opacity-90">Community Transport Scheme</div>
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
+                <div className="bg-linear-to-r from-serve-blue-600 to-serve-blue-700 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">58.1%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community Transport Scheme</div>
                 </div>
-                <div className="bg-linear-to-r from-rose-500 to-red-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">31.5%</div>
-                  <div className="text-sm opacity-90">Befriending Service</div>
+                <div className="bg-linear-to-r from-rose-500 to-red-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">31.5%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Befriending Service</div>
                 </div>
-                <div className="bg-linear-to-r from-serve-green-500 to-emerald-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">7.62%</div>
-                  <div className="text-sm opacity-90">Day Centre</div>
+                <div className="bg-linear-to-r from-serve-green-500 to-emerald-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">7.62%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Day Centre</div>
                 </div>
-                <div className="bg-linear-to-r from-teal-500 to-cyan-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">1.46%</div>
-                  <div className="text-sm opacity-90">Trustees & Strategic Guidance</div>
+                <div className="bg-linear-to-r from-teal-500 to-cyan-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">1.46%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Trustees & Strategic</div>
                 </div>
-                <div className="bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">0.88%</div>
-                  <div className="text-sm opacity-90">Fundraising Events</div>
+                <div className="bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">0.88%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Fundraising Events</div>
                 </div>
-                <div className="bg-linear-to-r from-orange-500 to-red-500 text-white rounded-2xl p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-4xl font-bold mb-2">0.44%</div>
-                  <div className="text-sm opacity-90">Community Engagement Events</div>
+                <div className="bg-linear-to-r from-orange-500 to-red-500 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">0.44%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community Events</div>
                 </div>
               </div>
             </div>
@@ -377,20 +377,20 @@ export default function VolunteerPage() {
               const colors = colorStyles[opportunity.color] || colorStyles.blue
               
               return (
-                <div key={opportunity.id} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${colors.border}`}>
-                  <div className="flex items-start gap-6 mb-6">
-                    <div className={`bg-linear-to-r ${colors.iconBg} rounded-2xl p-4 shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
-                      <IconComponent className={`w-8 h-8 ${colors.iconText}`} />
+                <div key={opportunity.id} className={`group bg-linear-to-br ${colors.bg} rounded-2xl sm:rounded-3xl p-5 sm:p-8 lg:p-10 shadow-lg hover:shadow-2xl transition-all duration-500 hover:-translate-y-1 border ${colors.border}`}>
+                  <div className="flex flex-col sm:flex-row items-start gap-4 sm:gap-6 mb-4 sm:mb-6">
+                    <div className={`bg-linear-to-r ${colors.iconBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 shrink-0 group-hover:scale-110 transition-transform shadow-lg`}>
+                      <IconComponent className={`w-6 h-6 sm:w-8 sm:h-8 ${colors.iconText}`} />
                     </div>
                     <div className="flex-1">
-                      <h3 className="text-2xl font-bold mb-3">
+                      <h3 className="text-xl sm:text-2xl font-bold mb-2 sm:mb-3">
                         <span className={`bg-linear-to-r ${colors.gradient} bg-clip-text text-transparent`}>{opportunity.title}</span>
                       </h3>
-                      <p className="text-gray-700 leading-relaxed">{opportunity.description}</p>
+                      <p className="text-sm sm:text-base text-gray-700 leading-relaxed">{opportunity.description}</p>
                     </div>
                   </div>
 
-                  <div className="ml-0 md:ml-20">
+                  <div className="ml-0 sm:ml-16 md:ml-20">
                     {opportunity.tasks && (
                       <div className="mb-6">
                         <ul className="space-y-3">
@@ -447,7 +447,7 @@ export default function VolunteerPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {benefits.map((benefit, index) => {
               const IconComponent = benefit.icon
               const gradients = [
@@ -461,12 +461,12 @@ export default function VolunteerPage() {
               const colors = gradients[index % gradients.length]
               
               return (
-                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 shadow-lg text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border ${colors.border}`}>
-                  <div className={`bg-linear-to-r ${colors.iconBg} rounded-2xl p-4 w-fit mx-auto mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
-                    <IconComponent className="w-8 h-8 text-white" />
+                <div key={index} className={`group bg-linear-to-br ${colors.bg} rounded-2xl sm:rounded-3xl p-5 sm:p-8 shadow-lg text-center hover:shadow-xl transition-all duration-500 hover:-translate-y-2 border ${colors.border}`}>
+                  <div className={`bg-linear-to-r ${colors.iconBg} rounded-xl sm:rounded-2xl p-3 sm:p-4 w-fit mx-auto mb-4 sm:mb-6 group-hover:scale-110 transition-transform shadow-lg`}>
+                    <IconComponent className="w-6 h-6 sm:w-8 sm:h-8 text-white" />
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{benefit.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{benefit.description}</p>
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-2 sm:mb-4">{benefit.title}</h3>
+                  <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{benefit.description}</p>
                 </div>
               )
             })}
@@ -491,7 +491,7 @@ export default function VolunteerPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-8">
             {process.map((step, index) => {
               const gradients = [
                 { bg: 'from-serve-green-50 to-emerald-50', stepBg: 'from-serve-green-600 to-emerald-600', border: 'border-serve-green-200' },
@@ -505,12 +505,12 @@ export default function VolunteerPage() {
               
               return (
                 <div key={index} className="relative">
-                  <div className={`group bg-linear-to-br ${colors.bg} rounded-3xl p-8 h-full border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative`}>
-                    <div className={`absolute top-6 right-6 bg-linear-to-r ${colors.stepBg} text-white rounded-2xl w-14 h-14 flex items-center justify-center text-2xl font-black shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
+                  <div className={`group bg-linear-to-br ${colors.bg} rounded-2xl sm:rounded-3xl p-5 sm:p-8 h-full border ${colors.border} hover:shadow-xl transition-all duration-500 hover:-translate-y-2 relative`}>
+                    <div className={`absolute top-4 sm:top-6 right-4 sm:right-6 bg-linear-to-r ${colors.stepBg} text-white rounded-xl sm:rounded-2xl w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center text-xl sm:text-2xl font-black shadow-lg group-hover:scale-110 group-hover:rotate-6 transition-all duration-300`}>
                       {step.step}
                     </div>
-                    <h3 className="text-xl font-bold text-gray-900 mb-4 pr-16">{step.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{step.description}</p>
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3 sm:mb-4 pr-12 sm:pr-16">{step.title}</h3>
+                    <p className="text-sm sm:text-base text-gray-600 leading-relaxed">{step.description}</p>
                   </div>
                   
                   {index < process.length - 1 && (
@@ -544,20 +544,20 @@ export default function VolunteerPage() {
             Questions About <span className="text-emerald-200">Volunteering?</span>
           </h2>
           
-          <div className="flex flex-col sm:flex-row gap-6 justify-center">
+          <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center bg-white text-serve-green-700 hover:bg-serve-green-50 px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+              className="inline-flex items-center justify-center bg-white text-serve-green-700 hover:bg-serve-green-50 px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
-              <PhoneIcon className="w-6 h-6 mr-3" />
+              <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
               Call: 01933 315555
             </a>
             <Link
               href="/contact"
-              className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
+              className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/30"
             >
               Send a Message
-              <ArrowRightIcon className="ml-3 h-5 w-5" />
+              <ArrowRightIcon className="ml-2 sm:ml-3 h-5 w-5" />
             </Link>
           </div>
         </div>
