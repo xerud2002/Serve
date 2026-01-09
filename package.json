@@ -47,12 +47,24 @@
     "tailwindcss": "^4.1.12",
     "typescript": "^5.9.3"
   },
-  "browserslist": [
-    "last 2 Chrome versions",
-    "last 2 Firefox versions",
-    "last 2 Safari versions",
-    "last 2 Edge versions",
-    "not dead",
-    "not ie 11"
-  ]
+  "browserslist": {
+    "production": [
+      ">0.3%",
+      "Chrome >= 87",
+      "Firefox >= 78",
+      "Safari >= 14",
+      "Edge >= 88",
+      "iOS >= 14",
+      "Android >= 10",
+      "Samsung >= 14",
+      "Opera >= 75",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
 }
