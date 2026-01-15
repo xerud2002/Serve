@@ -253,6 +253,12 @@ export default function Footer() {
               >
                 Accessibility
               </Link>
+              <Link 
+                href="/complaints" 
+                className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
+              >
+                Complaints
+              </Link>
             </div>
           </div>
         </div>

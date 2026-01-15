@@ -251,6 +251,63 @@ export default function SupportersPage() {
         </div>
       </section>
 
+      {/* Grant-Making Trusts Section */}
+      <section className="py-20 lg:py-28 bg-linear-to-br from-purple-50 via-white to-blue-50 relative overflow-hidden">
+        {/* Decorative elements */}
+        <div className="absolute top-0 right-0 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
+        <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
+        
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-blue-50 text-purple-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
+              🏛️ Our Partners in Care
+            </div>
+            
+            <h2 className="text-4xl md:text-5xl font-bold mb-6">
+              <span className="bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Grant-Making Trusts</span>
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              We are deeply grateful to the following trusts and foundations who have supported SERVE generously over many years
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {[
+              { name: "Francis Winham Foundation", color: "from-purple-500 to-purple-600" },
+              { name: "Eric Stanton Northampton Trust", color: "from-blue-500 to-blue-600" },
+              { name: "Constance Travis Charitable Trust", color: "from-indigo-500 to-indigo-600" },
+              { name: "Garfield Weston Foundation", color: "from-violet-500 to-violet-600" },
+              { name: "Clothworkers' Foundation", color: "from-purple-600 to-blue-600" },
+              { name: "Wolfson Foundation", color: "from-blue-600 to-indigo-600" }
+            ].map((trust, index) => (
+              <div
+                key={index}
+                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-purple-100"
+              >
+                <div className={`bg-linear-to-br ${trust.color} rounded-xl p-4 w-fit mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
+                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
+                  </svg>
+                </div>
+                <h3 className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
+                  {trust.name}
+                </h3>
+              </div>
+            ))}
+          </div>
+
+          <div className="mt-12 text-center">
+            <div className="bg-linear-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-100 max-w-3xl mx-auto">
+              <p className="text-lg text-gray-700 leading-relaxed">
+                The generous support from these trusts has enabled us to enhance our services, invest in our facilities, 
+                and expand our reach across Northamptonshire. Their commitment to our mission has been instrumental in 
+                helping us provide high-quality care and support to those who need it most.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Community Appeal */}
       <section className="py-20 lg:py-24 bg-linear-to-br from-slate-50 via-white to-rose-50 relative overflow-hidden">
         {/* Decorative elements */}

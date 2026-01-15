@@ -25,7 +25,7 @@ const teamMembers = [
     name: 'Tony Gibbs',
     role: 'Chief Executive Officer',
     image: '/images/team/Tony2.webp',
-    description: 'Leading organizational strategy and operations'
+    description: 'Leading organisational strategy and operations'
   }
 ]
 
@@ -33,37 +33,37 @@ const managementTeam = [
   {
     name: 'Louise Wiltshire',
     role: 'Executive Assistant',
-    image: '' // Add photo path: '/images/team/louise.webp'
+    image: '/images/team/Louise.webp'
   },
   {
     name: 'Sam Horne',
     role: 'Registered Care Manager',
-    image: '' // Add photo path: '/images/team/sam.webp'
+    image: '/images/team/Sam.webp'
   },
   {
     name: 'Cheryl Smith',
     role: 'Befriending Manager',
-    image: '' // Add photo path: '/images/team/cheryl.webp'
+    image: '/images/team/Cheryl.webp'
   },
   {
     name: 'Mario Brown',
     role: 'Policy and Compliance Manager',
-    image: '' // Add photo path: '/images/team/mario.webp'
+    image: '/images/team/Mario.webp'
   },
   {
     name: 'Emily Lennox',
     role: 'Finance Manager',
-    image: '' // Add photo path: '/images/team/emily.webp'
+    image: '/images/team/Emily.webp'
   },
   {
     name: 'Sean Silver',
     role: 'Project Manager',
-    image: '' // Add photo path: '/images/team/sean.webp'
+    image: '/images/team/Sean.webp'
   },
   {
     name: 'Kerry Redman',
     role: 'Deputy Care Manager',
-    image: '' // Add photo path: '/images/team/kerry.webp'
+    image: '/images/team/Kerry.webp'
   }
 ]
 
@@ -622,6 +622,49 @@ export default function AboutPage() {
             <p className="text-gray-700 mb-8">
               In the interests of transparency and accountability, we publish details of our trustee board meetings.
             </p>
+
+            {/* 2025 Meetings Archive */}
+            <div className="mb-8">
+              <h4 className="text-lg font-bold text-gray-900 mb-4 flex items-center gap-2">
+                <svg className="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                </svg>
+                2025 Board Meetings
+              </h4>
+              <div className="bg-gray-50 rounded-xl p-6 border border-gray-200">
+                <div className="space-y-4">
+                  {/* November 2025 */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2">November 2025</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">Attendees:</span> Anita Harvey, Tony Gibbs, Zara Cunliffe, Maureen Core, Mike Hulands, Jimmy James, Louise Wiltshire</p>
+                  </div>
+
+                  {/* September 2025 */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2">September 2025</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">Attendees:</span> Anita Harvey, Tony Gibbs, Jess Bermudez, Mike Hulands, Jimmy James, Simon Partridge, Rachel Wilson, Louise Wiltshire</p>
+                  </div>
+
+                  {/* May 2025 */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2">May 2025</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">Attendees:</span> Anita Harvey, Tony Gibbs, Mike Hulands, Jimmy James, Rachel Wilson, Louise Wiltshire</p>
+                  </div>
+
+                  {/* March 2025 */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2">March 2025</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">Attendees:</span> Anita Harvey, Tony Gibbs, Jimmy James, Simon Partridge, Louise Wiltshire</p>
+                  </div>
+
+                  {/* January 2025 */}
+                  <div className="bg-white rounded-lg p-4 shadow-sm">
+                    <p className="font-semibold text-gray-900 mb-2">January 2025</p>
+                    <p className="text-sm text-gray-600"><span className="font-medium">Attendees:</span> Anita Harvey, Tony Gibbs, Zara Cunliffe, Jimmy James, Simon Partridge, Rachel Wilson</p>
+                  </div>
+                </div>
+              </div>
+            </div>
 
             {/* Upcoming Meetings */}
             <div className="mb-8">
