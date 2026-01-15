@@ -493,13 +493,14 @@ export default function AboutPage() {
                 {managementTeam.map((member, index) => (
                   <div key={index} className="flex items-center gap-4 py-4 px-4 rounded-2xl bg-linear-to-r from-slate-50 to-serve-blue-50/30 hover:shadow-md transition-all duration-300 border border-serve-blue-100/50">
                     {member.image ? (
-                      <Image
-                        src={member.image}
-                        alt={member.name}
-                        width={56}
-                        height={56}
-                        className="w-14 h-14 rounded-xl object-cover shadow-md"
-                      />
+                      <div className="w-14 h-14 shrink-0 relative">
+                        <Image
+                          src={member.image}
+                          alt={member.name}
+                          fill
+                          className="rounded-xl object-cover shadow-md"
+                        />
+                      </div>
                     ) : (
                       <div className="w-14 h-14 rounded-xl bg-linear-to-r from-serve-blue-500 to-cyan-500 flex items-center justify-center shrink-0 shadow-md">
                         <span className="text-white font-bold text-lg">
