@@ -13,11 +13,26 @@ export default function InstallPrompt() {
   const [showPrompt, setShowPrompt] = useState(false)
   const [isIOS, setIsIOS] = useState(false)
   const [isStandalone, setIsStandalone] = useState(false)
+  const [isMobileOrTablet, setIsMobileOrTablet] = useState(false)
 
   useEffect(() => {
     // Check if already installed as standalone
     const standalone = window.matchMedia('(display-mode: standalone)').matches
     setIsStandalone(standalone)
+
+    // Check if mobile or tablet (not desktop)
+    // Using both user agent and screen size for robust detection
+    const userAgent = navigator.userAgent.toLowerCase()
+    const isMobileUA = /android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini|mobile|tablet/i.test(userAgent)
+    const isSmallScreen = window.innerWidth <= 1024 // Tablets typically <= 1024px
+    const isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0
+    
+    // Consider it mobile/tablet if: mobile user agent OR (small screen AND touch device)
+    const mobileOrTablet = isMobileUA || (isSmallScreen && isTouchDevice)
+    setIsMobileOrTablet(mobileOrTablet)
+
+    // Don't proceed if desktop
+    if (!mobileOrTablet) return
 
     // Check if iOS
     const iOS = /iPad|iPhone|iPod/.test(navigator.userAgent)
@@ -69,8 +84,8 @@ export default function InstallPrompt() {
     localStorage.setItem('installPromptDismissed', new Date().toISOString())
   }
 
-  // Don't show if already installed or no prompt available
-  if (isStandalone || !showPrompt) return null
+  // Don't show if desktop, already installed, or no prompt available
+  if (!isMobileOrTablet || isStandalone || !showPrompt) return null
 
   return (
     <div className="fixed bottom-20 left-4 right-4 sm:left-auto sm:right-4 sm:max-w-sm z-50 animate-slide-up">

@@ -123,9 +123,9 @@ export default function RootLayout({
         {/* Critical CSS - Inline for faster render */}
         <style dangerouslySetInnerHTML={{__html: `
           *,::after,::before{box-sizing:border-box}
-          body{margin:0;font-family:system-ui,-apple-system,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased}
+          body{margin:0;font-family:system-ui,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;line-height:1.5;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
           img,video{max-width:100%;height:auto}
-          .antialiased{-webkit-font-smoothing:antialiased}
+          .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
           /* Critical hero styles */
           .min-h-\\[90vh\\]{min-height:90vh}
           .relative{position:relative}
@@ -134,10 +134,10 @@ export default function RootLayout({
           .overflow-hidden{overflow:hidden}
           .text-white{color:#fff}
           .text-center{text-align:center}
-          .flex{display:flex}
-          .grid{display:grid}
-          .items-center{align-items:center}
-          .justify-center{justify-content:center}
+          .flex{display:-webkit-box;display:-ms-flexbox;display:flex}
+          .grid{display:-ms-grid;display:grid}
+          .items-center{-webkit-box-align:center;-ms-flex-align:center;align-items:center}
+          .justify-center{-webkit-box-pack:center;-ms-flex-pack:center;justify-content:center}
           .gap-4{gap:1rem}
           .px-4{padding-left:1rem;padding-right:1rem}
           .py-16{padding-top:4rem;padding-bottom:4rem}
@@ -153,6 +153,12 @@ export default function RootLayout({
           @media(min-width:640px){.sm\\:text-5xl{font-size:3rem;line-height:1}}
           @media(min-width:1024px){.lg\\:grid-cols-2{grid-template-columns:repeat(2,minmax(0,1fr));}.lg\\:text-left{text-align:left}}
         `}} />
+        
+        {/* Browser Compatibility Meta Tags */}
+        <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+        <meta name="HandheldFriendly" content="true" />
+        <meta name="MobileOptimized" content="width" />
         
         {/* Performance optimizations - Preconnect to required origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />

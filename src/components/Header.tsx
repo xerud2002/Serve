@@ -160,7 +160,7 @@ export default function Header() {
                     alt="SERVE - Supporting Independence"
                     width={228}
                     height={114}
-                    className={`w-auto transition-all duration-300 ${isScrolled ? 'h-[3rem] sm:h-[3.85rem]' : 'h-[3.85rem] sm:h-[5.4rem]'}`}
+                    className={`w-auto transition-all duration-300 ${isScrolled ? 'h-12 sm:h-[3.85rem]' : 'h-[3.85rem] sm:h-[5.4rem]'}`}
                     priority
                     sizes="(max-width: 640px) 98px, 154px"
                   />

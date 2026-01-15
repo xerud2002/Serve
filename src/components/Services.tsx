@@ -133,8 +133,8 @@ export default function Services() {
                       alt={service.title}
                       fill
                       className="object-cover rounded-2xl group-hover:scale-110 transition-transform duration-700"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                      quality={70}
+                      sizes="(max-width: 640px) 90vw, (max-width: 1024px) 45vw, 384px"
+                      quality={75}
                       loading={service.priority ? "eager" : "lazy"}
                       priority={service.priority}
                     />
