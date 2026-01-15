@@ -1,5 +1,6 @@
 import React from "react";
 import FriendsOfServe from "@/components/FriendsOfServe";
+import TrackedLink from "@/components/TrackedLink";
 import { HeartIcon, PhoneIcon, ArrowRightIcon, CheckCircleIcon, SparklesIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
@@ -62,17 +63,17 @@ export default function DonatePage() {
           </div>
           
           {/* Primary CTA */}
-          <a
+          <TrackedLink
             href="https://www.justgiving.com/campaign/serve-community-appeal"
-            target="_blank"
-            rel="noopener noreferrer"
+            trackAs="donate"
+            label="JustGiving Hero"
             className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-8 py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 rounded-2xl text-lg md:text-xl lg:text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
-            aria-label="Donate to SERVE via JustGiving (opens in new tab)"
+            ariaLabel="Donate to SERVE via JustGiving (opens in new tab)"
           >
             <HeartIcon className="w-6 h-6 md:w-7 md:h-7 lg:w-8 lg:h-8" aria-hidden="true" />
             <span>Donate via JustGiving</span>
             <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
-          </a>
+          </TrackedLink>
         </div>
       </section>
 

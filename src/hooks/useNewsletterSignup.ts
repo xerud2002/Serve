@@ -1,6 +1,7 @@
 'use client'
 
 import { useState } from 'react'
+import { analytics } from '@/components/GoogleAnalytics'
 
 interface NewsletterFormData {
   email: string
@@ -90,6 +91,9 @@ export function useNewsletterSignup(apiEndpoint: string) {
         throw new Error(data.error || 'Failed to subscribe')
       }
 
+      // Track successful newsletter signup
+      analytics.trackNewsletterSignup('footer')
+      
       setIsSubmitted(true)
       
       // Clear form on success

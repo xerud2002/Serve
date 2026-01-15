@@ -32,6 +32,15 @@ export function trackEvent(eventName: string, eventParams?: Record<string, strin
   window.gtag('event', eventName, eventParams)
 }
 
+// Google Ads conversion tracking
+export function trackGoogleAdsConversion() {
+  if (typeof window === 'undefined' || !window.gtag) return
+  
+  window.gtag('event', 'conversion_event_page_view', {
+    'event_timeout': 2000,
+  })
+}
+
 // Predefined event tracking functions
 export const analytics = {
   // Contact form submission
@@ -41,6 +50,8 @@ export const analytics = {
       label: formType,
       value: formType === 'assessment' ? 25 : undefined, // £25 assessment value
     })
+    // Also fire Google Ads conversion
+    trackGoogleAdsConversion()
   },
 
   // Phone number clicks
@@ -50,6 +61,8 @@ export const analytics = {
       label: location, // e.g., 'header', 'footer', 'hero'
       phone_number: phoneNumber,
     })
+    // Also fire Google Ads conversion
+    trackGoogleAdsConversion()
   },
 
   // Newsletter signup
@@ -66,6 +79,8 @@ export const analytics = {
       category: 'Donation',
       value: amount,
     })
+    // Also fire Google Ads conversion
+    trackGoogleAdsConversion()
   },
 
   // Service page views

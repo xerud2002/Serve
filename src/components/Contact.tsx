@@ -20,6 +20,7 @@ import {
 } from '@heroicons/react/24/outline'
 import { CheckBadgeIcon } from '@heroicons/react/24/solid'
 import { validateForm, contactFormRules, type ValidationError } from '@/utils/validation'
+import { analytics } from '@/components/GoogleAnalytics'
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -137,6 +138,9 @@ export default function Contact() {
         throw new Error(data.error || 'Failed to send message')
       }
       
+      // Track successful form submission
+      analytics.trackContactForm('contact')
+      
       // Success - clear form and show success message
       setIsSubmitted(true)
       setFormData({
@@ -199,7 +203,11 @@ export default function Contact() {
               </p>
               <div className="bg-white/10 rounded-2xl p-6 mb-10 max-w-md mx-auto">
                 <p className="text-lg mb-2">For urgent matters, please call us at</p>
-                <a href="tel:01933315555" className="text-2xl font-bold text-serve-green-300 hover:text-serve-green-200 transition-colors">01933 315555</a>
+                <a 
+                  href="tel:01933315555" 
+                  className="text-2xl font-bold text-serve-green-300 hover:text-serve-green-200 transition-colors"
+                  onClick={() => analytics.trackPhoneClick('01933315555', 'contact-success')}
+                >01933 315555</a>
                 <p className="text-sm opacity-75 mt-2">Office hours: Monday - Friday, 9:00 AM - 5:00 PM</p>
               </div>
               <button
@@ -335,7 +343,11 @@ export default function Contact() {
                     <div>
                       <h4 className="font-semibold mb-2 text-serve-green-300">Phone</h4>
                       <p>
-                        <a href="tel:01933315555" className="text-xl font-bold hover:text-serve-green-300 transition-colors">
+                        <a 
+                          href="tel:01933315555" 
+                          className="text-xl font-bold hover:text-serve-green-300 transition-colors"
+                          onClick={() => analytics.trackPhoneClick('01933315555', 'contact-info')}
+                        >
                           01933 315555
                         </a>
                       </p>

@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import { useContactForm } from './useContactForm'
 import { validateForm, volunteerFormRules, type ValidationError } from '@/utils/validation'
+import { analytics } from '@/components/GoogleAnalytics'
 
 interface VolunteerFormData {
   firstName: string
@@ -109,6 +110,9 @@ export function useVolunteerForm(formspreeEndpoint: string) {
     
     const success = await submitForm(submissionData)
     if (success) {
+      // Track successful volunteer form submission
+      analytics.trackContactForm('volunteer')
+      
       // Clear form
       setFormData({
         firstName: '',

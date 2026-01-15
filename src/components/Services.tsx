@@ -7,6 +7,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
+import { analytics } from '@/components/GoogleAnalytics'
 
 export default function Services() {
   const { isMobile } = useIsMobile()
@@ -168,6 +169,7 @@ export default function Services() {
                       isMobile ? 'w-full px-4 py-3.5 text-base' : 'px-6 py-3.5 transform hover:scale-105'
                     }`}
                     aria-label={`Learn more about ${service.title}`}
+                    onClick={() => analytics.trackServiceView(service.title)}
                   >
                     {isMobile ? service.title : `Explore ${service.title}`}
                     <svg className={`${isMobile ? 'ml-2 h-5 w-5' : 'ml-2 h-5 w-5 group-hover/btn:translate-x-1 transition-transform'}`} fill="none" stroke="currentColor" viewBox="0 0 24 24">

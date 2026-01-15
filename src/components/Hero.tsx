@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import Link from 'next/link'
+import { analytics } from '@/components/GoogleAnalytics'
 
 export default function Hero() {
   return (
@@ -71,6 +72,7 @@ export default function Hero() {
                 href="/donate"
                 className="group relative bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-rose-600/25 hover:shadow-rose-600/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
                 aria-label="Donate to SERVE charity"
+                onClick={() => analytics.trackDonateClick()}
               >
                 <div className="absolute inset-0 bg-linear-to-r from-rose-500/0 via-white/10 to-rose-500/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <svg className="relative w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
@@ -82,6 +84,7 @@ export default function Hero() {
               <Link
                 href="/volunteer"
                 className="group relative bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
+                onClick={() => analytics.trackCTAClick('Volunteer', '/volunteer')}
               >
                 <div className="absolute inset-0 bg-linear-to-r from-amber-400/0 via-white/20 to-amber-400/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <svg className="relative w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
@@ -93,6 +96,7 @@ export default function Hero() {
               <Link
                 href="/services"
                 className="group relative bg-serve-green-600 hover:bg-serve-green-700 text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-serve-green-600/25 hover:shadow-serve-green-600/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
+                onClick={() => analytics.trackCTAClick('Get Care Support', '/services')}
               >
                 <div className="absolute inset-0 bg-linear-to-r from-serve-green-500/0 via-white/10 to-serve-green-500/0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                 <svg className="relative w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
