@@ -2,9 +2,10 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { Metadata } from 'next'
 import MajorTitle from '@/components/MajorTitle'
-import { 
-  HeartIcon, 
-  SparklesIcon, 
+import OptimizedImage from '@/components/OptimizedImage'
+import {
+  HeartIcon,
+  SparklesIcon,
   CheckCircleIcon,
   HomeModernIcon,
   UserGroupIcon,
@@ -187,27 +188,27 @@ export default function SupportersPage() {
 
         {/* Subtle pattern overlay */}
         <div className="absolute inset-0 opacity-5">
-          <div 
-            className="absolute inset-0" 
+          <div
+            className="absolute inset-0"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-            }} 
+            }}
           />
         </div>
 
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="inline-flex items-center px-5 py-2.5 rounded-full text-sm font-semibold bg-linear-to-r from-rose-400 via-pink-400 to-rose-500 text-white shadow-lg shadow-rose-500/25 mb-8">
             <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+              <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
             </svg>
             Thank You to Our Amazing Community
           </div>
-          
+
           <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
             <span className="bg-linear-to-r from-white via-blue-100 to-white bg-clip-text text-transparent">Our</span>{' '}
             <span className="bg-linear-to-r from-rose-300 via-rose-400 to-rose-300 bg-clip-text text-transparent">Supporters</span>
           </h1>
-          
+
           <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-blue-100/90 max-w-4xl mx-auto leading-relaxed">
             A heartfelt thank you to everyone who has supported SERVE over the years. Your generosity, time, and dedication make our work possible.
           </p>
@@ -219,26 +220,26 @@ export default function SupportersPage() {
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-rose-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-amber-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center bg-linear-to-r from-rose-100 to-pink-50 text-rose-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
             💝 From Our Hearts
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold mb-8">
             <span className="bg-linear-to-r from-rose-600 to-pink-500 bg-clip-text text-transparent">A Warm Welcome</span>
           </h2>
-          
+
           <div className="bg-linear-to-br from-rose-50 via-white to-amber-50 rounded-3xl p-8 md:p-12 shadow-xl border border-rose-100">
             <div className="space-y-6 text-lg text-gray-600 leading-relaxed">
               <p>
-                For over 40 years, SERVE has been fortunate to receive incredible support from individuals, 
-                businesses, and organisations across Northamptonshire and beyond. Your contributions have helped 
+                For over 40 years, SERVE has been fortunate to receive incredible support from individuals,
+                businesses, and organisations across Northamptonshire and beyond. Your contributions have helped
                 us provide essential care services to older people, adults with disabilities and their carers.
               </p>
               <p>
-                Every donation, every volunteer hour, every event attended, and every kind word shared has made 
-                a real difference in the lives of those we support. This page is a celebration of YOU – our 
+                Every donation, every volunteer hour, every event attended, and every kind word shared has made
+                a real difference in the lives of those we support. This page is a celebration of YOU – our
                 supporters who make it all possible.
               </p>
               <p className="text-2xl font-bold pt-4">
@@ -256,13 +257,13 @@ export default function SupportersPage() {
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-72 h-72 bg-purple-100/50 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-blue-100/50 rounded-full blur-3xl -translate-x-1/2 translate-y-1/2" />
-        
+
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
             <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-blue-50 text-purple-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
               🏛️ Our Partners in Care
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-linear-to-r from-purple-600 to-blue-600 bg-clip-text text-transparent">Grant-Making Trusts</span>
             </h2>
@@ -273,24 +274,27 @@ export default function SupportersPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
-              { name: "Francis Winham Foundation", color: "from-purple-500 to-purple-600" },
-              { name: "Eric Stanton Northampton Trust", color: "from-blue-500 to-blue-600" },
-              { name: "Constance Travis Charitable Trust", color: "from-indigo-500 to-indigo-600" },
-              { name: "Garfield Weston Foundation", color: "from-violet-500 to-violet-600" },
-              { name: "Clothworkers' Foundation", color: "from-purple-600 to-blue-600" },
-              { name: "Wolfson Foundation", color: "from-blue-600 to-indigo-600" }
-            ].map((trust, index) => (
+              "Benham Charitable Settlement",
+              "Clothworkers' Foundation",
+              "Constance Travis Charitable Trust",
+              "Douglas Arter Foundation",
+              "Douglas Compton James Charitable Trust",
+              "Eric Stanton Northampton Trust",
+              "Francis Winham Foundation",
+              "Garfield Weston Foundation",
+              "Margaret Giffen Charitable Trust",
+              "Marsh Charitable Trust",
+              "Provincial Grand Charity of Northamptonshire & Huntingdonshire",
+              "Sir Derek Greenaway Foundation",
+              "The W O Street Charitable Foundation",
+              "Wolfson Foundation"
+            ].map((name, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-6 shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border border-purple-100"
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-purple-50 flex items-center justify-center min-h-[100px]"
               >
-                <div className={`bg-linear-to-br ${trust.color} rounded-xl p-4 w-fit mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300`}>
-                  <svg className="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4M7.835 4.697a3.42 3.42 0 001.946-.806 3.42 3.42 0 014.438 0 3.42 3.42 0 001.946.806 3.42 3.42 0 013.138 3.138 3.42 3.42 0 00.806 1.946 3.42 3.42 0 010 4.438 3.42 3.42 0 00-.806 1.946 3.42 3.42 0 01-3.138 3.138 3.42 3.42 0 00-1.946.806 3.42 3.42 0 01-4.438 0 3.42 3.42 0 00-1.946-.806 3.42 3.42 0 01-3.138-3.138 3.42 3.42 0 00-.806-1.946 3.42 3.42 0 010-4.438 3.42 3.42 0 00.806-1.946 3.42 3.42 0 013.138-3.138z" />
-                  </svg>
-                </div>
-                <h3 className="text-lg font-bold text-gray-900 group-hover:text-purple-600 transition-colors">
-                  {trust.name}
+                <h3 className="text-lg font-bold text-gray-800 group-hover:text-purple-600 transition-colors text-center">
+                  {name}
                 </h3>
               </div>
             ))}
@@ -299,8 +303,8 @@ export default function SupportersPage() {
           <div className="mt-12 text-center">
             <div className="bg-linear-to-br from-purple-50 to-blue-50 rounded-2xl p-8 border border-purple-100 max-w-3xl mx-auto">
               <p className="text-lg text-gray-700 leading-relaxed">
-                The generous support from these trusts has enabled us to enhance our services, invest in our facilities, 
-                and expand our reach across Northamptonshire. Their commitment to our mission has been instrumental in 
+                The generous support from these trusts has enabled us to enhance our services, invest in our facilities,
+                and expand our reach across Northamptonshire. Their commitment to our mission has been instrumental in
                 helping us provide high-quality care and support to those who need it most.
               </p>
             </div>
@@ -313,7 +317,7 @@ export default function SupportersPage() {
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-72 h-72 bg-rose-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-12">
             <div className="inline-flex items-center bg-rose-100 text-rose-900 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-rose-200">
@@ -428,13 +432,13 @@ export default function SupportersPage() {
         {/* Decorative elements */}
         <div className="absolute top-1/2 left-0 w-80 h-80 bg-purple-100/40 rounded-full blur-3xl -translate-x-1/2" />
         <div className="absolute top-1/4 right-0 w-72 h-72 bg-amber-100/40 rounded-full blur-3xl translate-x-1/2" />
-        
+
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
             <div className="inline-flex items-center bg-linear-to-r from-purple-100 to-violet-50 text-purple-800 px-5 py-2.5 rounded-full text-sm font-semibold mb-6 shadow-sm">
               📸 Memories & Milestones
             </div>
-            
+
             <h2 className="text-4xl md:text-5xl font-bold mb-6">
               <span className="bg-linear-to-r from-purple-600 to-violet-500 bg-clip-text text-transparent">Our Journey</span>{' '}
               <span className="bg-linear-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">Together</span>
@@ -455,9 +459,9 @@ export default function SupportersPage() {
                 { border: 'border-teal-200', hoverText: 'text-teal-600' },
               ]
               const colors = gradients[index % gradients.length]
-              
+
               return (
-                <div 
+                <div
                   key={index}
                   className={`group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 border ${colors.border}`}
                 >
@@ -492,17 +496,17 @@ export default function SupportersPage() {
         <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2 animate-pulse" />
         <div className="absolute bottom-0 right-0 w-80 h-80 bg-purple-400/20 rounded-full blur-3xl translate-x-1/3 translate-y-1/3 animate-pulse" style={{ animationDelay: '1s' }} />
         <div className="absolute top-1/2 left-1/4 w-64 h-64 bg-rose-300/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
-        
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="inline-flex items-center bg-white/20 backdrop-blur-sm px-5 py-2.5 rounded-full text-sm font-semibold mb-6">
             ✨ Be Part of Something Special
           </div>
-          
+
           <h2 className="text-4xl md:text-5xl font-bold mb-6">
             Join Our Community of <span className="text-rose-200">Supporters</span>
           </h2>
           <p className="text-xl text-blue-100 mb-10 leading-relaxed max-w-2xl mx-auto">
-            Whether through donations, volunteering, or attending our events, there are many ways to support SERVE 
+            Whether through donations, volunteering, or attending our events, there are many ways to support SERVE
             and make a difference in your community.
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
@@ -532,7 +536,7 @@ export default function SupportersPage() {
       <section className="py-20 lg:py-28 bg-linear-to-br from-amber-50 via-white to-rose-50 relative overflow-hidden">
         {/* Decorative elements */}
         <div className="absolute top-0 right-0 w-64 h-64 bg-amber-100/50 rounded-full blur-3xl translate-x-1/2 -translate-y-1/2" />
-        
+
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative">
           <div className="bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-amber-100">
             <div className="bg-linear-to-r from-amber-500 to-orange-500 rounded-2xl p-4 w-fit mx-auto mb-6 shadow-lg">
@@ -541,17 +545,17 @@ export default function SupportersPage() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 13a3 3 0 11-6 0 3 3 0 016 0z" />
               </svg>
             </div>
-            
+
             <h3 className="text-2xl font-bold mb-4">
               <span className="bg-linear-to-r from-amber-600 to-orange-500 bg-clip-text text-transparent">Share Your Memories</span>
             </h3>
-            
+
             <p className="text-lg text-gray-700 leading-relaxed mb-6">
-              This is just the beginning of our supporters gallery. We&apos;ll be adding more photos and stories 
-              celebrating our community&apos;s generosity and spirit. If you have photos from SERVE events or 
+              This is just the beginning of our supporters gallery. We&apos;ll be adding more photos and stories
+              celebrating our community&apos;s generosity and spirit. If you have photos from SERVE events or
               fundraising activities, we&apos;d love to feature them here!
             </p>
-            
+
             <a
               href="mailto:info@serve.org.uk"
               className="inline-flex items-center bg-linear-to-r from-amber-500 to-orange-500 text-white px-6 py-3 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 transform hover:scale-105"

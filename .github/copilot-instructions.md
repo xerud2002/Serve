@@ -16,6 +16,12 @@ Default to Server Components. Add `"use client"` ONLY for hooks/events/browser A
 
 **Server components**: Page components (`src/app/*/page.tsx`), `Footer`, `MajorTitle`, `Breadcrumb`, `StructuredData`
 
+### Next.js Configuration (next.config.js)
+- **PWA**: @ducanh2912/next-pwa with workbox caching (disabled in dev)
+- **Image optimization**: AVIF-first, 6 device sizes (640-1920px), 1-year cache TTL
+- **Deployment**: Vercel London (lhr1) region with security headers
+- **Compression**: Enabled via `compress: true` + custom headers in vercel.json
+
 ### API Routes Pattern (`src/app/api/*/route.ts`)
 ALL routes MUST follow this structure:
 ```typescript
@@ -72,6 +78,24 @@ if (!db) return getFallbackData()  // Firebase may not be configured - NEVER cra
 const auth = await getAuthLazy()
 ```
 
+**Critical**: Firebase config validates on initialization - `db`, `storage` may be `null` if env vars missing. Always check before use to prevent crashes during builds/deploys.
+
+---
+
+## Data Flow & External Services
+
+### Email Service (Resend)
+- **Pattern**: ALL API routes check `if (!resend)` before sending emails
+- **Graceful degradation**: Log to console in dev/build when RESEND_API_KEY unavailable
+- **Templates**: HTML email templates in `src/lib/emails/contact-templates.ts`
+- **Rate limiting**: Applied BEFORE email sending (see API Routes Pattern)
+
+### Firebase Integration
+- **Firestore**: Admin dashboards (`/admin/*`) for bookings, events, newsletter, posts
+- **Storage**: User-uploaded files (admin only)
+- **Auth**: Lazy-loaded via `getAuthLazy()` to reduce bundle size on public pages
+- **Config files**: `firestore.rules`, `firestore.indexes.json`, `storage.rules`, `firebase.json`
+
 ---
 
 ## Styling
@@ -80,6 +104,8 @@ const auth = await getAuthLazy()
 - Primary: `serve-blue-600` | Success: `serve-green-600` | Alerts: `serve-red-600`
 - Warnings: `serve-orange-600` | Accents: `serve-teal-600` | All palettes: 50-950 scale
 - Social: `facebook` (#1877f2), `linkedin` (#0a66c2)
+- **Defined in**: `src/app/globals.css` @theme block (Tailwind v4 custom properties)
+- **Never use**: Generic Tailwind colors (blue-500, green-600) - always prefix `serve-`
 
 ### Components
 ```tsx
@@ -89,6 +115,12 @@ const auth = await getAuthLazy()
 - Icons: `@heroicons/react/24/outline` - import individually
 - Touch targets: `min-h-[44px] min-w-[44px]` on ALL interactive elements
 - Utility: `clsx` for conditional class names
+
+### Image Optimization
+- **Required wrapper**: `<OptimizedImage>` (never raw `<Image>`)
+- **Built-in features**: Loading states, error fallbacks, blur placeholders
+- **Validation**: Auto-returns null if `src` or `alt` missing
+- **Organization**: Images in `public/images/{category}/` (awards, care, community, etc.)
 
 ---
 
@@ -100,6 +132,12 @@ npm run test:all         # MUST pass before commit (test:forms + test:compatibil
 npm run deploy:prepare   # lint → build → test:all (pre-deployment validation)
 npm run lint             # ESLint check
 ```
+
+### Testing Scripts (scripts/)
+- `test-forms.js`: Validates all contact/volunteer/newsletter forms
+- `test-compatibility.js`: Browser compatibility checks (Chrome 87+, Safari 14+, Firefox 78+)
+- `test-booking-system.js`: Booking flow integration tests
+- **Pre-commit**: Always run `npm run test:all` - catches validation errors, accessibility issues
 
 ---
 
