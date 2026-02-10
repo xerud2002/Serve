@@ -26,6 +26,10 @@ export default function AdminEventsPage() {
   const [editingEvent, setEditingEvent] = useState<EventData | null>(null)
   const [showForm, setShowForm] = useState(false)
 
+  // Raw values for the date/time inputs (YYYY-MM-DD and HH:MM format)
+  const [rawDate, setRawDate] = useState('')
+  const [rawTime, setRawTime] = useState('')
+
   const [formData, setFormData] = useState<Omit<EventData, 'id'>>({
     title: '',
     date: '',
@@ -39,6 +43,26 @@ export default function AdminEventsPage() {
     badge: '',
     order: 0
   })
+
+  // Helper: format a YYYY-MM-DD string into a human-readable date
+  const formatDate = (isoDate: string): string => {
+    const date = new Date(isoDate + 'T00:00:00')
+    return date.toLocaleDateString('en-GB', {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    })
+  }
+
+  // Helper: format a HH:MM string into 12-hour AM/PM
+  const formatTime = (time24: string): string => {
+    const [hours, minutes] = time24.split(':')
+    const hour = parseInt(hours)
+    const ampm = hour >= 12 ? 'PM' : 'AM'
+    const hour12 = hour % 12 || 12
+    return `${hour12}:${minutes} ${ampm}`
+  }
 
   const gradientOptions = [
     { label: 'Blue', value: 'from-serve-blue-500 to-serve-blue-700' },
@@ -82,16 +106,23 @@ export default function AdminEventsPage() {
     e.preventDefault()
     if (!db) return
 
+    // Format the date and time for storage
+    const dataToSave = {
+      ...formData,
+      date: rawDate ? formatDate(rawDate) : formData.date,
+      time: rawTime ? formatTime(rawTime) : formData.time,
+    }
+
     try {
       if (editingEvent?.id) {
         // Update existing event
         const eventRef = doc(db, 'events', editingEvent.id)
-        await updateDoc(eventRef, formData)
+        await updateDoc(eventRef, dataToSave)
       } else {
         // Add new event
-        await addDoc(collection(db, 'events'), formData)
+        await addDoc(collection(db, 'events'), dataToSave)
       }
-      
+
       loadEvents()
       resetForm()
     } catch (error) {
@@ -115,6 +146,9 @@ export default function AdminEventsPage() {
       badge: event.badge || '',
       order: event.order
     })
+    // Reset raw values — the user will need to re-pick date/time when editing
+    setRawDate('')
+    setRawTime('')
     setShowForm(true)
   }
 
@@ -144,6 +178,8 @@ export default function AdminEventsPage() {
       badge: '',
       order: events.length
     })
+    setRawDate('')
+    setRawTime('')
     setEditingEvent(null)
     setShowForm(false)
   }
@@ -193,7 +229,7 @@ export default function AdminEventsPage() {
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
                 </div>
-                
+
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Tag *</label>
                   <input
@@ -210,38 +246,28 @@ export default function AdminEventsPage() {
                   <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
                   <input
                     type="date"
-                    required
-                    value={formData.date}
-                    onChange={(e) => {
-                      const date = new Date(e.target.value)
-                      const formatted = date.toLocaleDateString('en-GB', { 
-                        weekday: 'long', 
-                        year: 'numeric', 
-                        month: 'long', 
-                        day: 'numeric' 
-                      })
-                      setFormData({ ...formData, date: formatted })
-                    }}
+                    required={!editingEvent}
+                    value={rawDate}
+                    onChange={(e) => setRawDate(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
+                  {editingEvent && !rawDate && formData.date && (
+                    <p className="text-xs text-gray-500 mt-1">Current: {formData.date}</p>
+                  )}
                 </div>
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">Time *</label>
                   <input
                     type="time"
-                    required
-                    value={formData.time}
-                    onChange={(e) => {
-                      const [hours, minutes] = e.target.value.split(':')
-                      const hour = parseInt(hours)
-                      const ampm = hour >= 12 ? 'PM' : 'AM'
-                      const hour12 = hour % 12 || 12
-                      const formatted = `${hour12}:${minutes} ${ampm}`
-                      setFormData({ ...formData, time: formatted })
-                    }}
+                    required={!editingEvent}
+                    value={rawTime}
+                    onChange={(e) => setRawTime(e.target.value)}
                     className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
                   />
+                  {editingEvent && !rawTime && formData.time && (
+                    <p className="text-xs text-gray-500 mt-1">Current: {formData.time}</p>
+                  )}
                 </div>
 
                 <div>
