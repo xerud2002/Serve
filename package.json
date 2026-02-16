@@ -15,7 +15,9 @@
     "export": "next build && next export",
     "audit:performance": "lighthouse http://localhost:3000 --output json --output html --output-path ./reports/",
     "deploy:vercel": "vercel --prod",
-    "deploy:prepare": "npm run lint && npm run build && npm run test:all"
+    "deploy:prepare": "npm run lint && npm run build && npm run test:all",
+    "deploy:vps": "powershell -ExecutionPolicy Bypass -File ./deploy-vps.ps1",
+    "deploy:vps:skip-tests": "powershell -ExecutionPolicy Bypass -File ./deploy-vps.ps1 -SkipTests"
   },
   "dependencies": {
     "@ducanh2912/next-pwa": "^10.2.9",
