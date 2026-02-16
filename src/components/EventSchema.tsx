@@ -5,6 +5,7 @@ interface EventSchemaProps {
     id: string
     title: string
     date: string
+    endDate?: string
     time: string
     location: string
     description: string
@@ -21,9 +22,17 @@ export default function EventSchema({ events }: EventSchemaProps) {
     // Parse date and time
     const eventDate = parseEventDateTime(event.date, event.time)
 
-    // Calculate end time (add 2 hours by default)
-    const endDate = new Date(eventDate)
-    endDate.setHours(endDate.getHours() + 2)
+    // Calculate end time
+    let endDate: Date
+    if (event.endDate) {
+      // If there's an end date, use it and add event duration (2 hours)
+      endDate = parseEventDateTime(event.endDate, event.time)
+      endDate.setHours(endDate.getHours() + 2)
+    } else {
+      // Default: add 2 hours to start time
+      endDate = new Date(eventDate)
+      endDate.setHours(endDate.getHours() + 2)
+    }
 
     const schema = {
       "@context": "https://schema.org",

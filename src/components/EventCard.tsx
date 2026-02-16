@@ -17,6 +17,7 @@ interface EventCardProps {
   id: string
   title: string
   date: string
+  endDate?: string
   time: string
   location: string
   description: string
@@ -31,6 +32,7 @@ export default function EventCard({
   id,
   title,
   date,
+  endDate,
   time,
   location,
   description,
@@ -46,7 +48,20 @@ export default function EventCard({
   // Generate ICS calendar file
   const generateICS = () => {
     const startDate = parseEventDateTime(date, time)
-    const formattedDate = startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    const formattedStartDate = startDate.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    
+    // If there's an end date, use it; otherwise add 2 hours to start
+    let formattedEndDate: string
+    if (endDate) {
+      const endDateTime = parseEventDateTime(endDate, time)
+      // Add 2 hours to the end date time as well
+      endDateTime.setHours(endDateTime.getHours() + 2)
+      formattedEndDate = endDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    } else {
+      const endDateTime = new Date(startDate)
+      endDateTime.setHours(endDateTime.getHours() + 2)
+      formattedEndDate = endDateTime.toISOString().replace(/[-:]/g, '').split('.')[0] + 'Z'
+    }
     
     const icsContent = [
       'BEGIN:VCALENDAR',
@@ -54,8 +69,9 @@ export default function EventCard({
       'PRODID:-//SERVE//Events//EN',
       'BEGIN:VEVENT',
       `UID:${id}@serve.org.uk`,
-      `DTSTAMP:${formattedDate}`,
-      `DTSTART:${formattedDate}`,
+      `DTSTAMP:${formattedStartDate}`,
+      `DTSTART:${formattedStartDate}`,
+      `DTEND:${formattedEndDate}`,
       `SUMMARY:${title}`,
       `DESCRIPTION:${description}`,
       `LOCATION:${location}`,
@@ -126,7 +142,17 @@ export default function EventCard({
                 aria-hidden="true"
               />
               <div>
-                <p className="font-semibold text-gray-900 text-sm">{date}</p>
+                <p className="font-semibold text-gray-900 text-sm">
+                  {endDate ? (
+                    <>
+                      {date}
+                      <span className="text-gray-500 mx-1">→</span>
+                      {endDate}
+                    </>
+                  ) : (
+                    date
+                  )}
+                </p>
               </div>
             </div>
             
@@ -305,11 +331,21 @@ export default function EventCard({
             <div className="p-8 space-y-6">
               {/* Event Details Grid */}
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="flex items-start gap-3 p-4 bg-gray-50 rounded-xl">
+                <div className={`flex items-start gap-3 p-4 bg-gray-50 rounded-xl ${endDate ? 'md:col-span-2' : ''}`}>
                   <CalendarDaysIcon className="w-6 h-6 text-serve-blue-600 shrink-0 mt-0.5" aria-hidden="true" />
                   <div>
-                    <p className="text-xs font-semibold text-gray-500 uppercase mb-1">Date</p>
-                    <p className="font-bold text-gray-900">{date}</p>
+                    <p className="text-xs font-semibold text-gray-500 uppercase mb-1">{endDate ? 'Dates' : 'Date'}</p>
+                    <p className="font-bold text-gray-900">
+                      {endDate ? (
+                        <>
+                          {date}
+                          <span className="block text-sm text-gray-600 my-1">to</span>
+                          {endDate}
+                        </>
+                      ) : (
+                        date
+                      )}
+                    </p>
                   </div>
                 </div>
                 

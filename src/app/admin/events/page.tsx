@@ -9,6 +9,7 @@ interface EventData {
   id?: string
   title: string
   date: string
+  endDate?: string
   time: string
   location: string
   description: string
@@ -18,6 +19,9 @@ interface EventData {
   image?: string
   badge?: string
   order: number
+  capacity?: number
+  registered?: number
+  registrationLink?: string
 }
 
 export default function AdminEventsPage() {
@@ -28,11 +32,14 @@ export default function AdminEventsPage() {
 
   // Raw values for the date/time inputs (YYYY-MM-DD and HH:MM format)
   const [rawDate, setRawDate] = useState('')
+  const [rawEndDate, setRawEndDate] = useState('')
   const [rawTime, setRawTime] = useState('')
+  const [isDateRange, setIsDateRange] = useState(false)
 
   const [formData, setFormData] = useState<Omit<EventData, 'id'>>({
     title: '',
     date: '',
+    endDate: '',
     time: '',
     location: '',
     description: '',
@@ -41,7 +48,10 @@ export default function AdminEventsPage() {
     type: 'upcoming',
     image: '',
     badge: '',
-    order: 0
+    order: 0,
+    capacity: undefined,
+    registered: undefined,
+    registrationLink: ''
   })
 
   // Helper: format a YYYY-MM-DD string into a human-readable date
@@ -110,7 +120,11 @@ export default function AdminEventsPage() {
     const dataToSave = {
       ...formData,
       date: rawDate ? formatDate(rawDate) : formData.date,
+      endDate: rawEndDate ? formatDate(rawEndDate) : (isDateRange ? formData.endDate : undefined),
       time: rawTime ? formatTime(rawTime) : formData.time,
+      capacity: formData.capacity || undefined,
+      registered: formData.registered || undefined,
+      registrationLink: formData.registrationLink || undefined
     }
 
     try {
@@ -136,6 +150,7 @@ export default function AdminEventsPage() {
     setFormData({
       title: event.title,
       date: event.date,
+      endDate: event.endDate || '',
       time: event.time,
       location: event.location,
       description: event.description,
@@ -144,11 +159,16 @@ export default function AdminEventsPage() {
       type: event.type,
       image: event.image || '',
       badge: event.badge || '',
-      order: event.order
+      order: event.order,
+      capacity: event.capacity,
+      registered: event.registered,
+      registrationLink: event.registrationLink || ''
     })
     // Reset raw values — the user will need to re-pick date/time when editing
     setRawDate('')
+    setRawEndDate('')
     setRawTime('')
+    setIsDateRange(!!event.endDate)
     setShowForm(true)
   }
 
@@ -168,6 +188,7 @@ export default function AdminEventsPage() {
     setFormData({
       title: '',
       date: '',
+      endDate: '',
       time: '',
       location: '',
       description: '',
@@ -176,10 +197,15 @@ export default function AdminEventsPage() {
       type: 'upcoming',
       image: '',
       badge: '',
-      order: events.length
+      order: events.length,
+      capacity: undefined,
+      registered: undefined,
+      registrationLink: ''
     })
     setRawDate('')
+    setRawEndDate('')
     setRawTime('')
+    setIsDateRange(false)
     setEditingEvent(null)
     setShowForm(false)
   }
@@ -242,18 +268,56 @@ export default function AdminEventsPage() {
                   />
                 </div>
 
-                <div>
-                  <label className="block text-sm font-medium text-gray-700 mb-1">Date *</label>
-                  <input
-                    type="date"
-                    required={!editingEvent}
-                    value={rawDate}
-                    onChange={(e) => setRawDate(e.target.value)}
-                    className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
-                  />
-                  {editingEvent && !rawDate && formData.date && (
-                    <p className="text-xs text-gray-500 mt-1">Current: {formData.date}</p>
-                  )}
+                <div className="md:col-span-2">
+                  <div className="flex items-center gap-3 mb-2">
+                    <label className="block text-sm font-medium text-gray-700">Event Date(s) *</label>
+                    <label className="flex items-center gap-2 text-sm text-gray-600">
+                      <input
+                        type="checkbox"
+                        checked={isDateRange}
+                        onChange={(e) => {
+                          setIsDateRange(e.target.checked)
+                          if (!e.target.checked) {
+                            setRawEndDate('')
+                            setFormData({ ...formData, endDate: '' })
+                          }
+                        }}
+                        className="rounded border-gray-300 text-serve-blue-600 focus:ring-serve-blue-500"
+                      />
+                      Multi-day event
+                    </label>
+                  </div>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                    <div>
+                      <label className="block text-xs font-medium text-gray-500 mb-1">{isDateRange ? 'Start Date' : 'Date'}</label>
+                      <input
+                        type="date"
+                        required={!editingEvent}
+                        value={rawDate}
+                        onChange={(e) => setRawDate(e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
+                      />
+                      {editingEvent && !rawDate && formData.date && (
+                        <p className="text-xs text-gray-500 mt-1">Current: {formData.date}</p>
+                      )}
+                    </div>
+                    {isDateRange && (
+                      <div>
+                        <label className="block text-xs font-medium text-gray-500 mb-1">End Date</label>
+                        <input
+                          type="date"
+                          required={isDateRange && !editingEvent}
+                          value={rawEndDate}
+                          onChange={(e) => setRawEndDate(e.target.value)}
+                          min={rawDate}
+                          className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
+                        />
+                        {editingEvent && !rawEndDate && formData.endDate && (
+                          <p className="text-xs text-gray-500 mt-1">Current: {formData.endDate}</p>
+                        )}
+                      </div>
+                    )}
+                  </div>
                 </div>
 
                 <div>
@@ -317,6 +381,49 @@ export default function AdminEventsPage() {
                   />
                 </div>
               </div>
+
+              {/* Event Capacity & Registration */}
+              {formData.type === 'upcoming' && (
+                <div className="bg-gray-50 rounded-lg p-4 border border-gray-200">
+                  <h3 className="text-sm font-semibold text-gray-700 mb-3">Registration Settings (Optional)</h3>
+                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Capacity</label>
+                      <input
+                        type="number"
+                        min="0"
+                        placeholder="Max attendees"
+                        value={formData.capacity || ''}
+                        onChange={(e) => setFormData({ ...formData, capacity: e.target.value ? parseInt(e.target.value) : undefined })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Registered</label>
+                      <input
+                        type="number"
+                        min="0"
+                        placeholder="Current count"
+                        value={formData.registered || ''}
+                        onChange={(e) => setFormData({ ...formData, registered: e.target.value ? parseInt(e.target.value) : undefined })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
+                      />
+                    </div>
+
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-1">Registration Link</label>
+                      <input
+                        type="url"
+                        placeholder="https://..."
+                        value={formData.registrationLink || ''}
+                        onChange={(e) => setFormData({ ...formData, registrationLink: e.target.value })}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-serve-blue-500 focus:border-transparent text-gray-900 bg-white"
+                      />
+                    </div>
+                  </div>
+                </div>
+              )}
 
               {formData.type === 'past' && (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -385,10 +492,24 @@ export default function AdminEventsPage() {
                   <h3 className="text-lg font-bold mt-2">{event.title}</h3>
                 </div>
                 <div className="p-4 space-y-2">
-                  <p className="text-sm text-gray-600"><CalendarIcon className="w-4 h-4 inline mr-1" />{event.date}</p>
+                  <p className="text-sm text-gray-600">
+                    <CalendarIcon className="w-4 h-4 inline mr-1" />
+                    {event.endDate ? (
+                      <>
+                        {event.date} <span className="text-gray-400">→</span> {event.endDate}
+                      </>
+                    ) : (
+                      event.date
+                    )}
+                  </p>
                   <p className="text-sm text-gray-600">{event.time}</p>
                   <p className="text-sm text-gray-600">{event.location}</p>
-                  <p className="text-sm text-gray-700 pt-2 border-t">{event.description}</p>
+                  {event.capacity && (
+                    <p className="text-sm text-gray-600 font-semibold">
+                      Capacity: {event.registered || 0} / {event.capacity}
+                    </p>
+                  )}
+                  <p className="text-sm text-gray-700 pt-2 border-t line-clamp-2">{event.description}</p>
                   <div className="flex gap-2 pt-4">
                     <button
                       onClick={() => handleEdit(event)}
