@@ -62,7 +62,7 @@ git pull origin main
 ### 4. Install Dependencies
 
 ```bash
-npm ci --production
+npm ci
 ```
 
 ### 5. Build Next.js

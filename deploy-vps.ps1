@@ -82,7 +82,7 @@ if ($method -eq "1") {
     Write-Host ""
     Write-Host "Deploying via Git Pull..." -ForegroundColor Cyan
     
-    $cmd = "cd $DEPLOY_PATH && git stash && git pull origin main && npm ci --production && npm run build && pm2 restart serve-website"
+    $cmd = "cd $DEPLOY_PATH && git stash && git pull origin main && npm ci && npm run build && pm2 restart serve-website"
     
     Write-Host "Connecting to $VPS_USER@$VPS_IP..." -ForegroundColor Gray
     ssh "$VPS_USER@$VPS_IP" $cmd
