@@ -14,8 +14,8 @@ import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 import dynamic from 'next/dynamic'
 import { db } from '@/lib/firebase'
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore'
-import EventCard from '@/components/EventCard'
 import EventSchema from '@/components/EventSchema'
+import EventsGrid from '@/components/EventsGrid'
 
 const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
   loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
@@ -147,30 +147,24 @@ export default async function NewsPage() {
             )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Upcoming events">
-            {upcomingEvents.length > 0 ? (
-              upcomingEvents.map((event) => (
-                <div key={event.id} role="listitem">
-                  <EventCard {...event} />
-                </div>
-              ))
-            ) : (
-              <div className="col-span-full text-center py-16 bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300" role="status">
-                <CalendarDaysIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" aria-hidden="true" />
-                <p className="text-gray-600 text-lg mb-6">No upcoming events at the moment. Check back soon!</p>
-                <div className="space-y-3">
-                  <p className="text-sm text-gray-500">Would you like to stay informed?</p>
-                  <Link
-                    href="/contact"
-                    className="inline-flex items-center gap-2 bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 min-h-11"
-                  >
-                    <HeartIcon className="w-5 h-5" aria-hidden="true" />
-                    Subscribe to Updates
-                  </Link>
-                </div>
+          {upcomingEvents.length > 0 ? (
+            <EventsGrid events={upcomingEvents} initialDisplayCount={6} />
+          ) : (
+            <div className="text-center py-16 bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300" role="status">
+              <CalendarDaysIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" aria-hidden="true" />
+              <p className="text-gray-600 text-lg mb-6">No upcoming events at the moment. Check back soon!</p>
+              <div className="space-y-3">
+                <p className="text-sm text-gray-500">Would you like to stay informed?</p>
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 min-h-11"
+                >
+                  <HeartIcon className="w-5 h-5" aria-hidden="true" />
+                  Subscribe to Updates
+                </Link>
               </div>
-            )}
-          </div>
+            </div>
+          )}
         </div>
       </section>
 
