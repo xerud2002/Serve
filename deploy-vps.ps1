@@ -1,7 +1,7 @@
 # SERVE Website - VPS Deployment Script
 param(
     [string]$VPS_IP = "92.205.108.255",
-    [string]$VPS_USER = "root",
+    [string]$VPS_USER = "webadmin",
     [string]$DEPLOY_PATH = "/var/www/serve",
     [switch]$SkipTests = $false
 )
