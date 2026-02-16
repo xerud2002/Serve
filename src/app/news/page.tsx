@@ -5,18 +5,17 @@ import {
   HeartIcon,
   ArrowRightIcon,
   CalendarDaysIcon,
-  ClockIcon,
-  BuildingOffice2Icon,
-  TagIcon,
   SparklesIcon,
   NewspaperIcon,
-  StarIcon
+  UserGroupIcon
 } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
 import dynamic from 'next/dynamic'
 import { db } from '@/lib/firebase'
 import { collection, getDocs, query, orderBy, where } from 'firebase/firestore'
+import EventCard from '@/components/EventCard'
+import EventSchema from '@/components/EventSchema'
 
 const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
   loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
@@ -63,6 +62,8 @@ export default async function NewsPage() {
 
   return (
     <div className="min-h-screen bg-white">
+      {/* Event Structured Data */}
+      {upcomingEvents.length > 0 && <EventSchema events={upcomingEvents} />}
       {/* Hero Section */}
       <section className="relative py-24 lg:py-32 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white overflow-hidden">
         {/* Animated gradient orbs */}
@@ -125,8 +126,8 @@ export default async function NewsPage() {
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
           <div className="text-center mb-16">
-            <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-serve-teal-100 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-serve-blue-200">
-              <CalendarDaysIcon className="w-4 h-4 mr-2" />
+            <div className="inline-flex items-center bg-linear-to-r from-serve-blue-100 to-serve-teal-100 text-serve-blue-800 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-serve-blue-200" role="status">
+              <CalendarDaysIcon className="w-4 h-4 mr-2" aria-hidden="true" />
               Coming Soon
             </div>
             
@@ -137,54 +138,36 @@ export default async function NewsPage() {
             <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
               Join us at our upcoming events and activities - everyone is welcome!
             </p>
+            
+            {upcomingEvents.length > 0 && (
+              <div className="mt-4 inline-flex items-center gap-2 text-gray-600" role="status" aria-live="polite">
+                <UserGroupIcon className="w-5 h-5" aria-hidden="true" />
+                <span className="font-semibold">{upcomingEvents.length} {upcomingEvents.length === 1 ? 'event' : 'events'} coming up</span>
+              </div>
+            )}
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8" role="list" aria-label="Upcoming events">
             {upcomingEvents.length > 0 ? (
               upcomingEvents.map((event) => (
-                <div key={event.id} className="group relative h-full flex">
-                  <div className="absolute -inset-0.5 bg-linear-to-r from-serve-blue-400 to-serve-teal-400 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur" />
-                  <div className="relative bg-white rounded-3xl overflow-hidden shadow-xl hover:shadow-2xl transition-all duration-500 flex flex-col w-full">
-                    <div className={`bg-linear-to-r ${event.gradient} p-6 text-white`}>
-                      <span className="inline-block bg-white/20 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold mb-3">
-                        {event.tag}
-                      </span>
-                      <h3 className="text-xl font-black">{event.title}</h3>
-                    </div>
-                    
-                    <div className="p-6 space-y-4 grow">
-                      <div className="flex items-start gap-3">
-                        <CalendarDaysIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                        <div>
-                          <p className="font-semibold text-gray-900">{event.date}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-3">
-                        <ClockIcon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-gray-700">{event.time}</p>
-                        </div>
-                      </div>
-                      
-                      <div className="flex items-start gap-3">
-                        <BuildingOffice2Icon className="w-5 h-5 text-serve-blue-600 shrink-0 mt-0.5" />
-                        <div>
-                          <p className="text-gray-700">{event.location}</p>
-                        </div>
-                      </div>
-                      
-                      <p className="text-gray-600 leading-relaxed pt-2 border-t border-gray-200 min-h-[4.5rem]">
-                        {event.description}
-                      </p>
-                    </div>
-                  </div>
+                <div key={event.id} role="listitem">
+                  <EventCard {...event} />
                 </div>
               ))
             ) : (
-              <div className="col-span-full text-center py-12 bg-white rounded-3xl shadow-lg">
-                <CalendarDaysIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-                <p className="text-gray-600 text-lg">No upcoming events at the moment. Check back soon!</p>
+              <div className="col-span-full text-center py-16 bg-white rounded-3xl shadow-lg border-2 border-dashed border-gray-300" role="status">
+                <CalendarDaysIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" aria-hidden="true" />
+                <p className="text-gray-600 text-lg mb-6">No upcoming events at the moment. Check back soon!</p>
+                <div className="space-y-3">
+                  <p className="text-sm text-gray-500">Would you like to stay informed?</p>
+                  <Link
+                    href="/contact"
+                    className="inline-flex items-center gap-2 bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 min-h-11"
+                  >
+                    <HeartIcon className="w-5 h-5" aria-hidden="true" />
+                    Subscribe to Updates
+                  </Link>
+                </div>
               </div>
             )}
           </div>
