@@ -58,24 +58,27 @@ export default function EventSchema({ events }: EventSchemaProps) {
         "name": "SERVE",
         "url": "https://serve.org.uk"
       },
-      ...(event.image && {
-        "image": `https://serve.org.uk${event.image}`
-      }),
+      "performer": {
+        "@type": "Organization",
+        "name": "SERVE",
+        "url": "https://serve.org.uk"
+      },
+      "image": event.image
+        ? `https://serve.org.uk${event.image}`
+        : "https://serve.org.uk/images/serve.webp",
+      "offers": {
+        "@type": "Offer",
+        "url": event.registrationLink || "https://serve.org.uk/news/",
+        "price": "0",
+        "priceCurrency": "GBP",
+        "availability": event.capacity && event.registered && event.registered >= event.capacity
+          ? "https://schema.org/SoldOut"
+          : "https://schema.org/InStock",
+        "validFrom": eventDate.toISOString()
+      },
       ...(event.capacity && {
         "maximumAttendeeCapacity": event.capacity,
         "remainingAttendeeCapacity": event.capacity - (event.registered || 0)
-      }),
-      ...(event.registrationLink && {
-        "offers": {
-          "@type": "Offer",
-          "url": event.registrationLink,
-          "price": "0",
-          "priceCurrency": "GBP",
-          "availability": event.capacity && event.registered && event.registered >= event.capacity
-            ? "https://schema.org/SoldOut"
-            : "https://schema.org/InStock",
-          "validFrom": new Date().toISOString()
-        }
       })
     }
 

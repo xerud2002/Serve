@@ -8,13 +8,12 @@ Disallow: /_next/image/
 Disallow: /sw.js
 
 # Block tracking parameter URLs (duplicates)
-Disallow: /*?fbclid=
-Disallow: /*?gclid=
-Disallow: /*?utm_source=
-Disallow: /*?utm_medium=
-Disallow: /*?utm_campaign=
-Disallow: /*?ref=
-Disallow: /*?_ga=
+Disallow: /*?fbclid
+Disallow: /*?gclid
+Disallow: /*?utm_source
+Disallow: /*?utm_medium
+Disallow: /*?utm_campaign
+Disallow: /*?_ga
 
 User-agent: Googlebot
 Allow: /
@@ -27,4 +26,3 @@ Disallow: /api/
 Disallow: /admin/
 
 Sitemap: https://serve.org.uk/sitemap.xml
-Host: https://serve.org.uk
