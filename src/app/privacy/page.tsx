@@ -131,7 +131,7 @@ export default function PrivacyPolicyPage() {
                 <li><strong>Analytical/Performance Cookies:</strong> Help us improve the website by tracking user behaviour.</li>
                 <li><strong>Functional Cookies:</strong> Used to recognise you when you return to our website, improving your user experience.</li>
               </ul>
-              <p>For more details, refer to our <Link href="/cookies" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Cookie Policy</Link>.</p>
+              <p>For more details, refer to our <Link href="/cookies/" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Cookie Policy</Link>.</p>
             </div>
           </article>
 

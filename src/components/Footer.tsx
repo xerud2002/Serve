@@ -13,13 +13,13 @@ import { ARIA_LABELS } from '@/lib/accessibility'
 
 export default function Footer() {
   const quickLinks = [
-    { name: 'Our Services', href: '/services', color: 'from-blue-400 to-cyan-400' },
-    { name: 'About Us', href: '/about', color: 'from-purple-400 to-pink-400' },
-    { name: 'Get Involved', href: '/volunteer', color: 'from-green-400 to-emerald-400' },
-    { name: 'Corporate Fundraising', href: '/corporate-fundraising', color: 'from-amber-400 to-yellow-400' },
-    { name: 'News & Events', href: '/news', color: 'from-orange-400 to-amber-400' },
-    { name: 'Our Supporters', href: '/supporters', color: 'from-teal-400 to-cyan-400' },
-    { name: 'Contact', href: '/contact', color: 'from-rose-400 to-red-400' },
+    { name: 'Our Services', href: '/services/', color: 'from-blue-400 to-cyan-400' },
+    { name: 'About Us', href: '/about/', color: 'from-purple-400 to-pink-400' },
+    { name: 'Get Involved', href: '/volunteer/', color: 'from-green-400 to-emerald-400' },
+    { name: 'Corporate Fundraising', href: '/corporate-fundraising/', color: 'from-amber-400 to-yellow-400' },
+    { name: 'News & Events', href: '/news/', color: 'from-orange-400 to-amber-400' },
+    { name: 'Our Supporters', href: '/supporters/', color: 'from-teal-400 to-cyan-400' },
+    { name: 'Contact', href: '/contact/', color: 'from-rose-400 to-red-400' },
     { name: 'CQC Report', href: 'https://www.cqc.org.uk/location/1-2165219210', external: true, color: 'from-indigo-400 to-blue-400' },
   ]
 
@@ -230,31 +230,31 @@ export default function Footer() {
             </p>
             <div className="flex flex-wrap justify-center gap-6">
               <Link 
-                href="/privacy" 
+                href="/privacy/" 
                 className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
               >
                 Privacy
               </Link>
               <Link 
-                href="/cookies" 
+                href="/cookies/" 
                 className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
               >
                 Cookies
               </Link>
               <Link 
-                href="/terms" 
+                href="/terms/" 
                 className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
               >
                 Terms
               </Link>
               <Link 
-                href="/accessibility" 
+                href="/accessibility/" 
                 className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
               >
                 Accessibility
               </Link>
               <Link 
-                href="/complaints" 
+                href="/complaints/" 
                 className="text-gray-500 hover:text-white text-sm transition-colors duration-300"
               >
                 Complaints

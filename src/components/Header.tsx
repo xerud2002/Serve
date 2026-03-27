@@ -58,12 +58,12 @@ export default function Header() {
   }, [mobileMenuOpen])
 
   const navigation = [
-    { name: 'Services', href: '/services', color: 'from-blue-500 to-cyan-500' },
-    { name: 'About Us', href: '/about', color: 'from-purple-500 to-pink-500' },
-    { name: 'Get Involved', href: '/volunteer', color: 'from-green-500 to-emerald-500' },
-    { name: 'News', href: '/news', color: 'from-orange-500 to-amber-500' },
-    { name: 'Our Supporters', href: '/supporters', color: 'from-teal-500 to-cyan-500' },
-    { name: 'Contact', href: '/contact', color: 'from-rose-500 to-red-500' },
+    { name: 'Services', href: '/services/', color: 'from-blue-500 to-cyan-500' },
+    { name: 'About Us', href: '/about/', color: 'from-purple-500 to-pink-500' },
+    { name: 'Get Involved', href: '/volunteer/', color: 'from-green-500 to-emerald-500' },
+    { name: 'News', href: '/news/', color: 'from-orange-500 to-amber-500' },
+    { name: 'Our Supporters', href: '/supporters/', color: 'from-teal-500 to-cyan-500' },
+    { name: 'Contact', href: '/contact/', color: 'from-rose-500 to-red-500' },
   ]
 
   return (
@@ -131,7 +131,7 @@ export default function Header() {
                   </svg>
                 </a>
                 <Link
-                  href="/donate"
+                  href="/donate/"
                   className={`group flex items-center gap-2 py-2 px-4 rounded-full bg-linear-to-r from-rose-500 via-red-500 to-rose-600 hover:from-rose-600 hover:via-red-600 hover:to-rose-700 text-white font-bold text-sm shadow-lg hover:shadow-xl hover:shadow-red-500/30 hover:scale-105 transition-all duration-300 min-h-11 ${FOCUS_STYLES.link}`}
                   aria-label="Donate to SERVE"
                   onClick={() => analytics.trackDonateClick()}
@@ -268,7 +268,7 @@ export default function Header() {
                   Call Now
                 </a>
                 <Link
-                  href="/donate"
+                  href="/donate/"
                   className={`flex items-center justify-center gap-3 bg-linear-to-r from-rose-500 via-red-500 to-rose-600 hover:from-rose-600 hover:via-red-600 hover:to-rose-700 text-white px-6 py-4 rounded-2xl font-bold text-lg shadow-lg hover:shadow-xl transition-all duration-300 ${MOBILE_CLASSES.touchTarget}`}
                   onClick={() => setMobileMenuOpen(false)}
                 >

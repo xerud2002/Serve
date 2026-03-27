@@ -286,7 +286,7 @@ export default function TermsPage() {
           {/* Section 18 */}
           <article>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">18. Entire Agreement</h2>
-            <p className="text-gray-700 leading-relaxed">18.1 Subject to Section 12.1, these terms and conditions, together with our <Link href="/privacy" className="text-serve-blue-600 hover:text-serve-blue-700 underline">privacy policy</Link>, shall constitute the entire agreement between you and us in relation to your use of our website and shall supersede all previous agreements between you and us in relation to your use of our website.</p>
+            <p className="text-gray-700 leading-relaxed">18.1 Subject to Section 12.1, these terms and conditions, together with our <Link href="/privacy/" className="text-serve-blue-600 hover:text-serve-blue-700 underline">privacy policy</Link>, shall constitute the entire agreement between you and us in relation to your use of our website and shall supersede all previous agreements between you and us in relation to your use of our website.</p>
           </article>
 
           {/* Section 19 */}
@@ -308,7 +308,7 @@ export default function TermsPage() {
               <p>20.4 You can contact us:</p>
               <ul className="list-[lower-alpha] pl-6 space-y-2">
                 <li>by post, to the postal address given above;</li>
-                <li>using our <Link href="/contact" className="text-serve-blue-600 hover:text-serve-blue-700 underline">website contact form</Link>;</li>
+                <li>using our <Link href="/contact/" className="text-serve-blue-600 hover:text-serve-blue-700 underline">website contact form</Link>;</li>
                 <li>by telephone, on <a href="tel:01933315555" className="text-serve-blue-600 hover:text-serve-blue-700 underline">01933 315555</a>; or</li>
                 <li>by email, at <a href="mailto:info@serve.org.uk" className="text-serve-blue-600 hover:text-serve-blue-700 underline">info@serve.org.uk</a>.</li>
               </ul>

@@ -275,7 +275,7 @@ export default function ServicesPage() {
                     Call: 01933 315555
                   </a>
                   <Link
-                    href="/contact"
+                    href="/contact/"
                     className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-blue-900 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 border border-white/20"
                   >
                     Send Message

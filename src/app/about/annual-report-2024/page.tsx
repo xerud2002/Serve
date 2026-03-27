@@ -27,7 +27,7 @@ export default function AnnualReport2024Page() {
       <div className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
-            href="/about" 
+            href="/about/" 
             className="inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5" />
@@ -539,13 +539,13 @@ export default function AnnualReport2024Page() {
           </p>
           <div className="inline-flex flex-col sm:flex-row gap-4">
             <Link 
-              href="/volunteer"
+              href="/volunteer/"
               className="bg-white text-serve-blue-600 px-8 py-4 rounded-xl font-bold hover:bg-gray-100 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Volunteer With Us
             </Link>
             <Link 
-              href="/donate"
+              href="/donate/"
               className="bg-serve-green-600 text-white px-8 py-4 rounded-xl font-bold hover:bg-serve-green-700 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
               Donate

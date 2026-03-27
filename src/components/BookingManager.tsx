@@ -141,7 +141,7 @@ export default function BookingManager() {
               <p className="text-gray-600">Manage home care assessment appointments</p>
             </div>
             <a
-              href="/admin/posts"
+              href="/admin/posts/"
               className="inline-flex items-center bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
             >
               <PhotoIcon className="w-5 h-5 mr-2" />

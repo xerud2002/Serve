@@ -3,9 +3,18 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
-Disallow: /*.json$
+Disallow: /_next/static/
+Disallow: /_next/image/
 Disallow: /sw.js
+
+# Block tracking parameter URLs (duplicates)
+Disallow: /*?fbclid=
+Disallow: /*?gclid=
+Disallow: /*?utm_source=
+Disallow: /*?utm_medium=
+Disallow: /*?utm_campaign=
+Disallow: /*?ref=
+Disallow: /*?_ga=
 
 User-agent: Googlebot
 Allow: /

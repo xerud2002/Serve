@@ -145,7 +145,7 @@ export default function CallToActionSection() {
               {/* CTA Button */}
               <div className="pt-2">
                 <Link 
-                  href="/contact"
+                  href="/contact/"
                   className="group/btn relative inline-flex items-center gap-3 bg-white hover:bg-green-50 text-serve-green-700 font-bold px-8 md:px-10 py-4 md:py-5 text-base md:text-lg shadow-2xl hover:shadow-white/20 transform hover:scale-[1.02] hover:-translate-y-0.5 transition-all duration-300 rounded-2xl overflow-hidden"
                 >
                   {/* Button shimmer effect */}

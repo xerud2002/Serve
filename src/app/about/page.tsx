@@ -602,7 +602,7 @@ export default function AboutPage() {
             </div>
             <div className="text-center">
               <Link 
-                href="/about/annual-report-2024"
+                href="/about/annual-report-2024/"
                 className="inline-flex items-center gap-2 bg-serve-blue-600 text-white px-6 py-3 rounded-xl font-semibold hover:bg-serve-blue-700 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <DocumentTextIcon className="w-5 h-5" />
@@ -801,7 +801,7 @@ export default function AboutPage() {
               01933 315555
             </a>
             <Link
-              href="/contact"
+              href="/contact/"
               className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Contact Us

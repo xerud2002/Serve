@@ -39,7 +39,7 @@ export default function GreatBritishCareAwardsPage() {
       <div className="bg-white border-b border-gray-200 sticky top-0 z-10 shadow-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
           <Link 
-            href="/news" 
+            href="/news/" 
             className="inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold transition-all hover:gap-3"
           >
             <ArrowLeftIcon className="w-5 h-5" />
@@ -312,7 +312,7 @@ export default function GreatBritishCareAwardsPage() {
             
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link 
-                href="/contact"
+                href="/contact/"
                 className="group inline-flex items-center gap-3 bg-white text-serve-blue-600 px-10 py-5 rounded-2xl font-black text-lg hover:bg-gray-100 transition-all duration-300 shadow-xl hover:shadow-2xl hover:scale-105"
               >
                 <UsersIcon className="w-6 h-6" />
@@ -337,7 +337,7 @@ export default function GreatBritishCareAwardsPage() {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 pb-16">
         <div className="text-center">
           <Link 
-            href="/news" 
+            href="/news/" 
             className="inline-flex items-center gap-2 text-serve-blue-600 hover:text-serve-blue-700 font-semibold text-lg transition-colors"
           >
             <ArrowLeftIcon className="w-5 h-5" />

@@ -206,7 +206,7 @@ export default function AdminLayout({
               Newsletter
             </a>
             <a
-              href="/admin/posts"
+              href="/admin/posts/"
               className="px-4 py-2 text-sm font-semibold text-gray-700 hover:text-gray-900 hover:bg-gray-100 rounded-lg transition-colors"
             >
               Posts

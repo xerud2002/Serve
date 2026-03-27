@@ -273,7 +273,7 @@ export default function AdminDashboard() {
               <ExclamationTriangleIcon className="w-12 h-12 text-gray-300 mx-auto mb-3" />
               <p className="text-gray-500">No recent activity</p>
               <Link 
-                href="/admin/posts" 
+                href="/admin/posts/" 
                 className="text-blue-600 hover:text-blue-800 text-sm mt-2 inline-block"
               >
                 Add your first post →

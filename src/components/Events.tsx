@@ -15,7 +15,7 @@ export default function Events() {
       excerpt: 'SERVE has been crowned the best homecare team in the East Midlands, recognised for our exceptional dedication to care excellence and community service.',
       category: 'Award',
       icon: TrophyIcon,
-      link: '/news/great-british-care-awards',
+      link: '/news/great-british-care-awards/',
       featured: true,
       image: 'award-ceremony.webp',
       color: 'from-yellow-400 via-amber-500 to-orange-500'
@@ -168,7 +168,7 @@ export default function Events() {
         {/* View All News CTA */}
         <div className="text-center">
           <a
-            href="/news"
+            href="/news/"
             className="group inline-flex items-center gap-3 bg-white hover:bg-gray-50 text-gray-900 px-8 py-4 rounded-2xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl border border-gray-200 hover:border-gray-300"
           >
             <NewspaperIcon className="w-5 h-5 text-serve-blue-600" />

@@ -407,7 +407,7 @@ export default function Contact() {
                     Donate via JustGiving
                   </a>
                   <Link
-                    href="/volunteer"
+                    href="/volunteer/"
                     className="group bg-linear-to-r from-serve-green-500 to-emerald-500 hover:from-serve-green-600 hover:to-emerald-600 text-white px-6 py-4 rounded-2xl font-bold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg shadow-green-500/20"
                   >
                     <UserPlusIcon className="w-5 h-5 mr-2" />
@@ -594,7 +594,7 @@ export default function Contact() {
                       required
                     />
                     <label htmlFor="privacy" className="ml-3 text-sm text-gray-600 leading-relaxed">
-                      I agree to SERVE&apos;s <Link href="/privacy" className="text-serve-blue-600 hover:underline font-medium">privacy policy</Link> and consent to my personal data being processed 
+                      I agree to SERVE&apos;s <Link href="/privacy/" className="text-serve-blue-600 hover:underline font-medium">privacy policy</Link> and consent to my personal data being processed 
                       to respond to my enquiry. *
                     </label>
                   </div>
@@ -659,7 +659,7 @@ export default function Contact() {
               Regional finalists for care excellence and community impact
             </p>
             <Link 
-              href="/news/great-british-care-awards"
+              href="/news/great-british-care-awards/"
               className="inline-flex items-center text-amber-300 hover:text-white text-sm mt-3 group/link font-medium"
             >
               See Our Awards
@@ -678,7 +678,7 @@ export default function Contact() {
               Trusted by the community since the 1980s, registered charity 1043321
             </p>
             <Link 
-              href="/about"
+              href="/about/"
               className="inline-flex items-center text-rose-300 hover:text-white text-sm mt-3 group/link font-medium"
             >
               Our Story

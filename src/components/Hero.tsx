@@ -69,7 +69,7 @@ export default function Hero() {
             {/* Action Buttons - Modern with glass effect */}
             <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 pt-2 justify-center lg:justify-start">
               <Link
-                href="/donate"
+                href="/donate/"
                 className="group relative bg-rose-600 hover:bg-rose-700 text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-rose-600/25 hover:shadow-rose-600/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
                 aria-label="Donate to SERVE charity"
                 onClick={() => analytics.trackDonateClick()}
@@ -82,7 +82,7 @@ export default function Hero() {
               </Link>
               
               <Link
-                href="/volunteer"
+                href="/volunteer/"
                 className="group relative bg-amber-500 hover:bg-amber-600 text-amber-950 font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-amber-500/25 hover:shadow-amber-500/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
                 onClick={() => analytics.trackCTAClick('Volunteer', '/volunteer')}
               >
@@ -94,7 +94,7 @@ export default function Hero() {
               </Link>
               
               <Link
-                href="/services"
+                href="/services/"
                 className="group relative bg-serve-green-600 hover:bg-serve-green-700 text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-xl shadow-xl shadow-serve-green-600/25 hover:shadow-serve-green-600/40 transition-all duration-300 transform hover:scale-[1.02] hover:-translate-y-0.5 flex items-center justify-center gap-2 sm:gap-3"
                 onClick={() => analytics.trackCTAClick('Get Care Support', '/services')}
               >

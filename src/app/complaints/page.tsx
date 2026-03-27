@@ -311,19 +311,19 @@ export default function ComplaintsPage() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Related Information</h3>
           <div className="grid sm:grid-cols-3 gap-4">
             <Link 
-              href="/privacy" 
+              href="/privacy/" 
               className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
             >
               Privacy Policy →
             </Link>
             <Link 
-              href="/accessibility" 
+              href="/accessibility/" 
               className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
             >
               Accessibility →
             </Link>
             <Link 
-              href="/contact" 
+              href="/contact/" 
               className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
             >
               Contact Us →

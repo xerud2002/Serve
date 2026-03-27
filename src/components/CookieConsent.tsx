@@ -132,7 +132,7 @@ export default function CookieConsent() {
 
             {/* Privacy Link */}
             <p className="text-center mt-5 text-xs text-gray-500">
-              <Link href="/privacy" className="text-serve-blue-600 hover:text-serve-blue-700 underline underline-offset-2 font-medium">
+              <Link href="/privacy/" className="text-serve-blue-600 hover:text-serve-blue-700 underline underline-offset-2 font-medium">
                 Learn more in our Privacy Policy
               </Link>
             </p>

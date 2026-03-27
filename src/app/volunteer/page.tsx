@@ -553,7 +553,7 @@ export default function VolunteerPage() {
               Call: 01933 315555
             </a>
             <Link
-              href="/contact"
+              href="/contact/"
               className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/30"
             >
               Send a Message

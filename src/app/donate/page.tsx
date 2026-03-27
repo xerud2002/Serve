@@ -199,7 +199,7 @@ export default function DonatePage() {
               Call: 01933 315555
             </a>
             <Link
-              href="/contact"
+              href="/contact/"
               className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Contact Us

@@ -344,7 +344,7 @@ export default function CarersSupportPage() {
               Call Now: 01933 315555
             </a>
             <Link
-              href="/contact"
+              href="/contact/"
               className="inline-flex items-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl font-bold text-lg transition-all duration-300 border border-white/30"
             >
               Request Carer Support
@@ -354,7 +354,7 @@ export default function CarersSupportPage() {
 
           <div className="mt-12 pt-8 border-t border-white/20">
             <Link
-              href="/services"
+              href="/services/"
               className="inline-flex items-center text-white/80 hover:text-white transition-colors group"
             >
               <ArrowLeftIcon className="w-5 h-5 mr-2 group-hover:-translate-x-1 transition-transform" />

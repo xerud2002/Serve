@@ -174,7 +174,7 @@ export default function CookiePolicyPage() {
             SERVE | Charity Number: 1043321 | Company Number: 2951827
           </p>
           <p className="text-sm text-gray-500">
-            See also: <Link href="/privacy" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Privacy Policy</Link> | <Link href="/terms" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Terms &amp; Conditions</Link>
+            See also: <Link href="/privacy/" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Privacy Policy</Link> | <Link href="/terms/" className="text-serve-blue-600 hover:text-serve-blue-700 underline">Terms &amp; Conditions</Link>
           </p>
         </div>
       </div>

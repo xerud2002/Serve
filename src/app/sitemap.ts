@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://serve.org.uk'
-  const currentDate = new Date('2026-01-07')
+  const currentDate = new Date('2026-03-26')
   
   return [
     // Homepage - highest priority
@@ -147,6 +147,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified: new Date('2024-09-01'),
       changeFrequency: 'yearly',
       priority: 0.4,
+    },
+    {
+      url: `${baseUrl}/complaints/`,
+      lastModified: new Date('2024-09-01'),
+      changeFrequency: 'yearly',
+      priority: 0.3,
     },
   ]
 }

@@ -183,6 +183,109 @@ const nextConfig = {
     return config
   },
   
+  // 301 Redirects: Old WordPress URLs → new Next.js routes
+  // Fixes Google Search Console 404 errors
+  async redirects() {
+    return [
+      // ─── Main page redirects ───
+      { source: '/community-events/', destination: '/news/', permanent: true },
+      { source: '/community-events', destination: '/news/', permanent: true },
+      { source: '/news-and-events/', destination: '/news/', permanent: true },
+      { source: '/news-and-events', destination: '/news/', permanent: true },
+      { source: '/index.html', destination: '/', permanent: true },
+      { source: '/happy-to-serve/', destination: '/', permanent: true },
+      { source: '/happy-to-serve', destination: '/', permanent: true },
+      
+      // ─── Service page redirects ───
+      { source: '/personal-and-domestic-care/', destination: '/services/personal-care/', permanent: true },
+      { source: '/personal-and-domestic-care', destination: '/services/personal-care/', permanent: true },
+      { source: '/community-transport/', destination: '/services/transport/', permanent: true },
+      { source: '/community-transport', destination: '/services/transport/', permanent: true },
+      { source: '/countywide-befriending/', destination: '/services/befriending/', permanent: true },
+      { source: '/countywide-befriending', destination: '/services/befriending/', permanent: true },
+      { source: '/day-trips/', destination: '/services/day-care/', permanent: true },
+      { source: '/day-trips', destination: '/services/day-care/', permanent: true },
+      { source: '/our-services/', destination: '/services/', permanent: true },
+      { source: '/our-services', destination: '/services/', permanent: true },
+      { source: '/about-our-services/', destination: '/services/', permanent: true },
+      { source: '/carers-needs-aspirations/', destination: '/services/carers-support/', permanent: true },
+      { source: '/carers-needs-aspirations', destination: '/services/carers-support/', permanent: true },
+      { source: '/community/support/services/', destination: '/services/community-services/', permanent: true },
+      { source: '/community/support/services', destination: '/services/community-services/', permanent: true },
+      { source: '/services/community', destination: '/services/community-services/', permanent: true },
+      { source: '/meals/quick-servicing/', destination: '/services/', permanent: true },
+      { source: '/keeping-safe-servicing/', destination: '/services/', permanent: true },
+      
+      // ─── Get involved redirects ───
+      { source: '/get-involved/', destination: '/volunteer/', permanent: true },
+      { source: '/get-involved', destination: '/volunteer/', permanent: true },
+      { source: '/get-involved/boards-of-trustees/', destination: '/volunteer/', permanent: true },
+      { source: '/get-involved/:path*', destination: '/volunteer/', permanent: true },
+      { source: '/serve-voluntary-services/', destination: '/about/', permanent: true },
+      { source: '/serve-voluntary-services', destination: '/about/', permanent: true },
+      
+      // ─── Fundraising ───
+      { source: '/community-fundraising/', destination: '/corporate-fundraising/', permanent: true },
+      { source: '/community-fundraising', destination: '/corporate-fundraising/', permanent: true },
+      
+      // ─── Legal pages ───
+      { source: '/cookie-policy/', destination: '/cookies/', permanent: true },
+      { source: '/cookie-policy', destination: '/cookies/', permanent: true },
+      { source: '/privacy-policy/', destination: '/privacy/', permanent: true },
+      { source: '/privacy-policy', destination: '/privacy/', permanent: true },
+      { source: '/terms-and-conditions/', destination: '/terms/', permanent: true },
+      { source: '/terms-and-conditions', destination: '/terms/', permanent: true },
+      
+      // ─── Old event/blog post redirects → /news/ ───
+      { source: '/happy-to-serve-march-2025-event/', destination: '/news/', permanent: true },
+      { source: '/serve-fun-day-2024/', destination: '/news/', permanent: true },
+      { source: '/serve-fun-day-2024/', destination: '/news/', permanent: true },
+      { source: '/an-evening-with-grainne-cliffe-of-serve-event/', destination: '/news/', permanent: true },
+      { source: '/an-evening-with-grainne-cliffe-of-serve-event', destination: '/news/', permanent: true },
+      { source: '/an-evening-with-grainne-cliffe-of-wet-end-end/', destination: '/news/', permanent: true },
+      { source: '/day-trip-day-spring-with-serve/', destination: '/news/', permanent: true },
+      { source: '/happy-to-serve-lunch-update', destination: '/news/', permanent: true },
+      { source: '/happy-to-serve-lunch-update/', destination: '/news/', permanent: true },
+      { source: '/home-of-our-previous-events/', destination: '/news/', permanent: true },
+      { source: '/corner-of-our-previous-events/', destination: '/news/', permanent: true },
+      { source: '/stepping-into-spring-in-ch/', destination: '/news/', permanent: true },
+      { source: '/community/events/', destination: '/news/', permanent: true },
+      { source: '/community/events', destination: '/news/', permanent: true },
+      
+      // ─── Care awards specific redirects ───
+      { source: '/finalists-at-the-great-british-care-awards/', destination: '/news/great-british-care-awards/', permanent: true },
+      { source: '/finalists-barrington-care-formerly-ctp/', destination: '/news/great-british-care-awards/', permanent: true },
+      { source: '/we-are-a-finalist-at-the-great-british-care-awards-for-2024/', destination: '/news/great-british-care-awards/', permanent: true },
+      
+      // ─── Serve care booklet redirects ───
+      { source: '/serve-care-booklet-june-23/', destination: '/about/', permanent: true },
+      { source: '/serve-care-booklet/:path*', destination: '/about/', permanent: true },
+      
+      // ─── About/misc redirects ───
+      { source: '/equity-for-serve/', destination: '/about/', permanent: true },
+      { source: '/embed/', destination: '/', permanent: true },
+      
+      // ─── WordPress artifacts (wp-content, wp-login, wp-cron) ───
+      { source: '/wp-content/uploads/:path*', destination: '/about/', permanent: true },
+      { source: '/wp-content/:path*', destination: '/', permanent: true },
+      { source: '/wp-login.php', destination: '/', permanent: true },
+      { source: '/wp-login.php/:path*', destination: '/', permanent: true },
+      { source: '/wp-cron.php', destination: '/', permanent: true },
+      
+      // ─── Content path pattern redirects (old CMS patterns) ───
+      { source: '/content/items-display-option/:path*', destination: '/news/', permanent: true },
+      { source: '/content/arm-ops/:path*', destination: '/news/', permanent: true },
+      { source: '/content/usci/:path*', destination: '/news/', permanent: true },
+      { source: '/content/:path*', destination: '/', permanent: true },
+      
+      // ─── Miscellaneous old paths ───
+      { source: '/village/:path*', destination: '/', permanent: true },
+      { source: '/us/:path*', destination: '/', permanent: true },
+      { source: '/rest/:path*', destination: '/', permanent: true },
+      { source: '/stream%25-careers', destination: '/', permanent: true },
+    ]
+  },
+
   // HTTP Headers for performance and security
   async headers() {
     return [

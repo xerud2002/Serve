@@ -511,7 +511,7 @@ export default function SupportersPage() {
           </p>
           <div className="flex flex-col sm:flex-row gap-6 justify-center">
             <a
-              href="/donate"
+              href="/donate/"
               className="inline-flex items-center justify-center bg-white text-serve-blue-700 hover:bg-rose-50 px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <svg className="w-6 h-6 mr-3 text-rose-500" fill="currentColor" viewBox="0 0 24 24">
@@ -520,7 +520,7 @@ export default function SupportersPage() {
               Donate Now
             </a>
             <a
-              href="/volunteer"
+              href="/volunteer/"
               className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-2xl text-lg font-bold transition-all duration-300 border border-white/30"
             >
               <svg className="w-6 h-6 mr-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
