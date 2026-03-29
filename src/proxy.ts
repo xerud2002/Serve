@@ -7,7 +7,7 @@ import type { NextRequest } from 'next/server'
  * 2. Redirect http → https (via header check)
  * 3. Strip tracking query params (fbclid, utm_*, gclid, etc.) to prevent duplicate pages
  */
-export function middleware(request: NextRequest) {
+export default function proxy(request: NextRequest) {
   const url = request.nextUrl.clone()
   const hostname = url.hostname
   let shouldRedirect = false
