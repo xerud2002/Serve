@@ -24,7 +24,7 @@ Write-Host "Creating archive of .next folder..." -ForegroundColor Yellow
 if (Test-Path "next-build.tar.gz") {
     Remove-Item "next-build.tar.gz"
 }
-tar -czf next-build.tar.gz .next
+tar -czf next-build.tar.gz .next package.json package-lock.json next.config.js public
 
 Write-Host "Archive created!" -ForegroundColor Green
 Write-Host ""
@@ -39,14 +39,7 @@ if ($LASTEXITCODE -eq 0) {
     
     # Extract and restart on VPS
     Write-Host "Extracting and restarting on VPS..." -ForegroundColor Yellow
-    ssh webadmin@92.205.108.255 @"
-cd /var/www/serve && 
-rm -rf .next && 
-tar -xzf /tmp/next-build.tar.gz && 
-rm /tmp/next-build.tar.gz && 
-pm2 restart serve-website && 
-echo 'Deployment complete!'
-"@
+    ssh webadmin@92.205.108.255 "cd /var/www/serve && rm -rf .next && tar -xzf /tmp/next-build.tar.gz && rm /tmp/next-build.tar.gz && npm install --legacy-peer-deps && pm2 restart serve-website && echo 'Deployment complete!'"
     
     if ($LASTEXITCODE -eq 0) {
         Write-Host ""

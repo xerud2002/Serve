@@ -31,7 +31,9 @@ if (isConfigValid) {
     db = getFirestore(app)
     storage = getStorage(app)
   } catch (error) {
-    console.error('Firebase initialization error:', error)
+    if (typeof window !== 'undefined') {
+      console.error('Firebase initialization error:', error)
+    }
     app = null
     db = null
     storage = null
