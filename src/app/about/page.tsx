@@ -37,7 +37,7 @@ const managementTeam = [
   },
   {
     name: 'Sam Horne',
-    role: 'Registered Care Manager',
+    role: 'Head of Care Services',
     image: '/images/team/Sam.webp'
   },
   {
@@ -46,23 +46,18 @@ const managementTeam = [
     image: '/images/team/Cheryl.webp'
   },
   {
-    name: 'Mario Brown',
-    role: 'Policy and Compliance Manager',
-    image: '/images/team/Mario.webp'
-  },
-  {
-    name: 'Emily Lennox',
+    name: 'Carl Medlin',
     role: 'Finance Manager',
-    image: '/images/team/Emily.webp'
+    image: '/images/team/Carl.jpg'
   },
   {
     name: 'Sean Silver',
-    role: 'Project Manager',
+    role: 'Project Officer',
     image: '/images/team/Sean.webp'
   },
   {
     name: 'Kerry Redman',
-    role: 'Deputy Care Manager',
+    role: 'Care Manager',
     image: '/images/team/Kerry.webp'
   }
 ]

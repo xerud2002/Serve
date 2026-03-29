@@ -9,86 +9,86 @@ import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { FOCUS_STYLES } from '@/lib/accessibility'
 import { analytics } from '@/components/GoogleAnalytics'
 
+const services = [
+  {
+    id: 'personal-care',
+    title: 'Personal & Domestic Care',
+    description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
+    image: '/images/care/care1.webp',
+    link: '/services/personal-care/',
+    featured: true,
+    highlights: ['CQC Registered', 'Award Winning', 'Trained Carers', 'Tailored Plans'],
+    gradient: 'from-rose-500 to-red-600',
+    bgGradient: 'from-rose-50 to-red-50',
+    iconBg: 'bg-rose-100',
+    iconColor: 'text-rose-600'
+  },
+  {
+    id: 'day-care',
+    title: 'Day Care & Meals on Wheels',
+    description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
+    image: '/images/daycenter/day-center4.webp',
+    link: '/services/day-care/',
+    highlights: ['Social Activities', 'Nutritious Meals', 'Transport can be provided', 'Friendly Staff'],
+    loading: 'eager' as const,
+    priority: true,
+    gradient: 'from-amber-500 to-orange-600',
+    bgGradient: 'from-amber-50 to-orange-50',
+    iconBg: 'bg-amber-100',
+    iconColor: 'text-amber-600'
+  },
+  {
+    id: 'transport',
+    title: 'Community Transport',
+    description: 'Reliable, affordable transport to medical appointments and hospital visits. Our drivers understand the needs of older people and those with mobility challenges.',
+    image: '/images/transport/community-transport1.webp',
+    link: '/services/transport/',
+    highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates'],
+    gradient: 'from-serve-blue-500 to-serve-blue-700',
+    bgGradient: 'from-blue-50 to-indigo-50',
+    iconBg: 'bg-blue-100',
+    iconColor: 'text-blue-600'
+  },
+  {
+    id: 'befriending',
+    title: 'Countywide Befriending',
+    description: 'Combat loneliness with our friendly befriending service. We provide Regular Contact companionship and emotional support to vulnerable adults across all of Northamptonshire.',
+    image: '/images/befriending/befriending1.webp',
+    link: '/services/befriending/',
+    highlights: ['Combat Loneliness', 'Regular Contact', 'Emotional Support', 'Countywide Coverage'],
+    gradient: 'from-purple-500 to-violet-600',
+    bgGradient: 'from-purple-50 to-violet-50',
+    iconBg: 'bg-purple-100',
+    iconColor: 'text-purple-600'
+  },
+  {
+    id: 'carers',
+    title: 'Support for family carers',
+    description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
+    image: '/images/care/care2.webp',
+    link: '/services/carers-support/',
+    highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training'],
+    gradient: 'from-teal-500 to-cyan-600',
+    bgGradient: 'from-teal-50 to-cyan-50',
+    iconBg: 'bg-teal-100',
+    iconColor: 'text-teal-600'
+  },
+  {
+    id: 'community',
+    title: 'Community Services',
+    description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
+    image: '/images/fundraising/fundraising.webp',
+    link: '/services/community-services/',
+    highlights: ['Hearing Aid Service', 'DBS Checks', 'Community Events', 'Information Service'],
+    gradient: 'from-serve-green-500 to-emerald-600',
+    bgGradient: 'from-green-50 to-emerald-50',
+    iconBg: 'bg-green-100',
+    iconColor: 'text-green-600'
+  },
+]
+
 export default function Services() {
   const { isMobile } = useIsMobile()
-  
-  const services = [
-    {
-      id: 'personal-care',
-      title: 'Personal & Domestic Care',
-      description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
-      image: '/images/care/care1.webp',
-      link: '/services/personal-care/',
-      featured: true,
-      highlights: ['CQC Registered', 'Award Winning', 'Trained Carers', 'Tailored Plans'],
-      gradient: 'from-rose-500 to-red-600',
-      bgGradient: 'from-rose-50 to-red-50',
-      iconBg: 'bg-rose-100',
-      iconColor: 'text-rose-600'
-    },
-    {
-      id: 'day-care',
-      title: 'Day Care & Meals on Wheels',
-      description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
-      image: '/images/daycenter/day-center4.webp',
-      link: '/services/day-care/',
-      highlights: ['Social Activities', 'Nutritious Meals', 'Transport can be provided', 'Friendly Staff'],
-      loading: 'eager' as const,
-      priority: true,
-      gradient: 'from-amber-500 to-orange-600',
-      bgGradient: 'from-amber-50 to-orange-50',
-      iconBg: 'bg-amber-100',
-      iconColor: 'text-amber-600'
-    },
-    {
-      id: 'transport',
-      title: 'Community Transport',
-      description: 'Reliable, affordable transport to medical appointments and hospital visits. Our drivers understand the needs of older people and those with mobility challenges.',
-      image: '/images/transport/community-transport1.webp',
-      link: '/services/transport/',
-      highlights: ['Medical Appointments', 'Hospital Visits', 'Trained Drivers', 'Affordable Rates'],
-      gradient: 'from-serve-blue-500 to-serve-blue-700',
-      bgGradient: 'from-blue-50 to-indigo-50',
-      iconBg: 'bg-blue-100',
-      iconColor: 'text-blue-600'
-    },
-    {
-      id: 'befriending',
-      title: 'Countywide Befriending',
-      description: 'Combat loneliness with our friendly befriending service. We provide Regular Contact companionship and emotional support to vulnerable adults across all of Northamptonshire.',
-      image: '/images/befriending/befriending1.webp',
-      link: '/services/befriending/',
-      highlights: ['Combat Loneliness', 'Regular Contact', 'Emotional Support', 'Countywide Coverage'],
-      gradient: 'from-purple-500 to-violet-600',
-      bgGradient: 'from-purple-50 to-violet-50',
-      iconBg: 'bg-purple-100',
-      iconColor: 'text-purple-600'
-    },
-    {
-      id: 'carers',
-      title: 'Support for family carers',
-      description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
-      image: '/images/care/care2.webp',
-      link: '/services/carers-support/',
-      highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training'],
-      gradient: 'from-teal-500 to-cyan-600',
-      bgGradient: 'from-teal-50 to-cyan-50',
-      iconBg: 'bg-teal-100',
-      iconColor: 'text-teal-600'
-    },
-    {
-      id: 'community',
-      title: 'Community Services',
-      description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
-      image: '/images/fundraising/fundraising.webp',
-      link: '/services/community-services/',
-      highlights: ['Hearing Aid Service', 'DBS Checks', 'Community Events', 'Information Service'],
-      gradient: 'from-serve-green-500 to-emerald-600',
-      bgGradient: 'from-green-50 to-emerald-50',
-      iconBg: 'bg-green-100',
-      iconColor: 'text-green-600'
-    },
-  ]
 
   return (
     <section id="services" className={`${isMobile ? 'py-12' : 'py-24'} bg-linear-to-br from-slate-50 via-white to-slate-50 relative overflow-hidden`}>
