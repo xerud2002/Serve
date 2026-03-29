@@ -26,9 +26,16 @@ let db: Firestore | null = null
 let storage: FirebaseStorage | null = null
 
 if (isConfigValid) {
-  app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
-  db = getFirestore(app)
-  storage = getStorage(app)
+  try {
+    app = getApps().length === 0 ? initializeApp(firebaseConfig) : getApps()[0]
+    db = getFirestore(app)
+    storage = getStorage(app)
+  } catch (error) {
+    console.error('Firebase initialization error:', error)
+    app = null
+    db = null
+    storage = null
+  }
 }
 
 // Lazy load auth only when needed (admin pages)
