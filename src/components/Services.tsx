@@ -13,7 +13,7 @@ const services = [
   {
     id: 'personal-care',
     title: 'Personal & Domestic Care',
-    description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home.',
+    description: 'Award-winning CQC registered homecare services. We provide compassionate personal care, medication management, meal preparation, and domestic support to help you stay safe and comfortable at home. Our teams are trained and experienced in supporting people living with dementia.',
     image: '/images/care/care1.webp',
     link: '/services/personal-care/',
     featured: true,

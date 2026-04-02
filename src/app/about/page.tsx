@@ -57,7 +57,7 @@ const managementTeam = [
   },
   {
     name: 'Kerry Redman',
-    role: 'Care Manager',
+    role: 'Registered Care Manager',
     image: '/images/team/Kerry.webp'
   }
 ]
@@ -84,13 +84,7 @@ const trustees = [
     dateAppointed: 'July 2019',
     expertise: 'Heritage & Community'
   },
-  {
-    name: 'Mike Huland',
-    role: 'Director / Trustee',
-    image: '', // Add photo path: '/images/trustees/mike.webp'
-    dateAppointed: 'September 2025',
-    expertise: 'Strategic Development'
-  },
+
   {
     name: 'Jimmy James',
     role: 'Director / Trustee',

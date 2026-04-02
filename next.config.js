@@ -129,9 +129,6 @@ const nextConfig = {
   experimental: {
     optimizePackageImports: [
       '@heroicons/react',
-      'firebase/app',
-      'firebase/auth', 
-      'firebase/firestore',
       'clsx',
       'resend',
       'nodemailer',
