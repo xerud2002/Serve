@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import { db } from '@/lib/firebase'
-import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy } from 'firebase/firestore'
+import { collection, addDoc, getDocs, deleteDoc, doc, updateDoc, query, orderBy, deleteField } from 'firebase/firestore'
 import { PlusIcon, TrashIcon, PencilIcon, CalendarIcon } from '@heroicons/react/24/outline'
 
 interface EventData {
@@ -117,7 +117,7 @@ export default function AdminEventsPage() {
     if (!db) return
 
     // Format the date and time for storage
-    const dataToSave = {
+    const baseDataToSave = {
       ...formData,
       date: rawDate ? formatDate(rawDate) : formData.date,
       endDate: rawEndDate ? formatDate(rawEndDate) : (isDateRange ? formData.endDate : undefined),
@@ -130,11 +130,17 @@ export default function AdminEventsPage() {
     try {
       if (editingEvent?.id) {
         // Update existing event
+        const dataForUpdate = Object.fromEntries(
+          Object.entries(baseDataToSave).map(([k, v]) => [k, v === undefined ? deleteField() : v])
+        )
         const eventRef = doc(db, 'events', editingEvent.id)
-        await updateDoc(eventRef, dataToSave)
+        await updateDoc(eventRef, dataForUpdate)
       } else {
         // Add new event
-        await addDoc(collection(db, 'events'), dataToSave)
+        const dataForAdd = Object.fromEntries(
+          Object.entries(baseDataToSave).filter(([_, v]) => v !== undefined)
+        )
+        await addDoc(collection(db, 'events'), dataForAdd)
       }
 
       loadEvents()
