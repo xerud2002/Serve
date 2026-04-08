@@ -122,9 +122,9 @@ export default function AdminEventsPage() {
       date: rawDate ? formatDate(rawDate) : formData.date,
       endDate: rawEndDate ? formatDate(rawEndDate) : (isDateRange ? formData.endDate : undefined),
       time: rawTime ? formatTime(rawTime) : formData.time,
-      capacity: formData.capacity || undefined,
-      registered: formData.registered || undefined,
-      registrationLink: formData.registrationLink || undefined
+      capacity: formData.capacity !== undefined ? formData.capacity : undefined,
+      registered: formData.registered !== undefined ? formData.registered : undefined,
+      registrationLink: formData.registrationLink === '' ? undefined : formData.registrationLink
     }
 
     try {
@@ -145,9 +145,9 @@ export default function AdminEventsPage() {
 
       loadEvents()
       resetForm()
-    } catch (error) {
+    } catch (error: any) {
       console.error('Error saving event:', error)
-      alert('Failed to save event')
+      alert(`Failed to save event: ${error?.message || 'Unknown error. Check console.'}`)
     }
   }
 
