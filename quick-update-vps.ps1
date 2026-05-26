@@ -19,19 +19,20 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host "Build successful!" -ForegroundColor Green
 Write-Host ""
 
-# Create archive
-Write-Host "Creating archive of .next folder..." -ForegroundColor Yellow
+# Create archive (exclude .next/cache - build cache not needed at runtime, shrinks tar by ~60%)
+Write-Host "Creating archive of .next folder (excluding build cache)..." -ForegroundColor Yellow
 if (Test-Path "next-build.tar.gz") {
     Remove-Item "next-build.tar.gz"
 }
-tar -czf next-build.tar.gz .next package.json package-lock.json next.config.js public
+tar --exclude='.next/cache' -czf next-build.tar.gz .next package.json package-lock.json next.config.js public
 
-Write-Host "Archive created!" -ForegroundColor Green
+$archiveSize = [math]::Round((Get-Item next-build.tar.gz).Length / 1MB, 1)
+Write-Host "Archive created! Size: ${archiveSize} MB" -ForegroundColor Green
 Write-Host ""
 
-# Upload via SCP
+# Upload via SCP with keepalive + bandwidth limit to survive flaky connections
 Write-Host "Uploading to VPS (you'll need to enter password)..." -ForegroundColor Yellow
-scp next-build.tar.gz webadmin@92.205.108.255:/tmp/
+scp -o ServerAliveInterval=30 -o ServerAliveCountMax=20 -o TCPKeepAlive=yes -o ConnectTimeout=30 -o Compression=no -l 8000 next-build.tar.gz webadmin@92.205.108.255:/tmp/
 
 if ($LASTEXITCODE -eq 0) {
     Write-Host "Upload successful!" -ForegroundColor Green
