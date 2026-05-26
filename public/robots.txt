@@ -40,5 +40,4 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
-Host: https://serve.org.uk
 Sitemap: https://serve.org.uk/sitemap.xml

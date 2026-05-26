@@ -272,7 +272,7 @@ export default function VolunteerForm() {
                   </label>
                   <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-2 sm:gap-3">
                     {['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday', 'Flexible'].map((day) => (
-                      <label key={day} className="flex items-center bg-gray-50 hover:bg-serve-green-50 border-2 border-gray-200 hover:border-serve-green-300 rounded-xl px-3 sm:px-4 py-3 min-h-[48px] cursor-pointer transition-all duration-200 shadow-sm hover:shadow">
+                      <label key={day} className="flex items-center bg-gray-50 hover:bg-serve-green-50 border-2 border-gray-200 hover:border-serve-green-300 rounded-xl px-3 sm:px-4 py-3 min-h-12 cursor-pointer transition-all duration-200 shadow-sm hover:shadow">
                         <input
                           type="checkbox"
                           name="availability"

@@ -43,7 +43,7 @@
     "dotenv": "^17.3.1",
     "eslint-config-next": "^16.2.1",
     "lighthouse": "^13.0.3",
-    "postcss": "^8.5.8",
+    "postcss": "^8.5.10",
     "sharp": "^0.34.5",
     "tailwindcss": "^4.2.2",
     "typescript": "^5.9.3"
@@ -69,6 +69,9 @@
     ]
   },
   "overrides": {
-    "serialize-javascript": "^7.0.5"
+    "serialize-javascript": "^7.0.5",
+    "next": {
+      "postcss": "^8.5.10"
+    }
   }
 }
