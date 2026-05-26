@@ -7,6 +7,10 @@ Disallow: /_next/static/
 Disallow: /_next/image/
 Disallow: /sw.js
 
+# Block discontinued service URLs (redirected via next.config.js)
+Disallow: /services/carers-support
+Disallow: /carers-needs-aspirations
+
 # Block tracking parameter URLs (duplicates)
 Disallow: /*?fbclid
 Disallow: /*?gclid
@@ -25,4 +29,5 @@ Allow: /
 Disallow: /api/
 Disallow: /admin/
 
+Host: https://serve.org.uk
 Sitemap: https://serve.org.uk/sitemap.xml

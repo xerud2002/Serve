@@ -58,7 +58,6 @@ const volunteerOpportunities = [
     description: 'Join our wonderful team at Serve\'s Day Centre in Higham Ferrers! We\'re looking for kind, reliable volunteers to help make a real difference in people\'s lives.',
     tasks: [
       'Volunteer Minibus Drivers – A current MIDAS certificate would be fantastic!',
-      'Meals on Wheels Drivers – Delivering not just meals but smiles and companionship',
       'Day Centre Volunteers – Be part of our warm, welcoming team supporting older people'
     ],
     commitment: 'Our Day Centre is a truly special place, full of laughter, friendship, and care. Volunteers are at the heart of it all.'

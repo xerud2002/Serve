@@ -2,7 +2,7 @@ import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://serve.org.uk'
-  const currentDate = new Date('2026-03-26')
+  const currentDate = new Date('2026-05-26')
   
   return [
     // Homepage - highest priority
@@ -47,13 +47,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/community-services/`,
+      url: `${baseUrl}/services/home-help/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,
     },
     {
-      url: `${baseUrl}/services/carers-support/`,
+      url: `${baseUrl}/services/community-services/`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.85,

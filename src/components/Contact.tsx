@@ -41,7 +41,7 @@ export default function Contact() {
   const faqs = [
     {
       question: "What services does SERVE provide?",
-      answer: "We offer personal care, day care services, community transport, befriending, carers support, and meals on wheels across Northamptonshire."
+      answer: "We offer personal care, day care services, community transport, befriending, and community services across Northamptonshire."
     },
     {
       question: "How do I arrange a care assessment?",
@@ -543,8 +543,8 @@ export default function Contact() {
                   >
                     <option value="">Please select a topic</option>
                     <option value="Care Services Information">Care Services Information</option>
-                    <option value="Family Carer Support">Family Carer Support</option>
-                    <option value="Day Care & Meals on Wheels">Day Care & Meals on Wheels</option>
+                    <option value="Home Help Service">Home Help Service</option>
+                    <option value="Day Care Centre">Day Care Centre</option>
                     <option value="Community Transport">Community Transport</option>
                     <option value="Befriending Service">Befriending Service</option>
                     <option value="Volunteering Opportunities">Volunteering Opportunities</option>

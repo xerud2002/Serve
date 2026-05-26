@@ -154,7 +154,7 @@ export default function DonatePage() {
                     <SparklesIcon className="w-6 h-6 text-white" />
                   </div>
                   <div>
-                    <h4 className="text-lg font-bold text-gray-900 mb-2">Day Care & Meals</h4>
+                    <h4 className="text-lg font-bold text-gray-900 mb-2">Day Care Centre</h4>
                     <p className="text-gray-600">Social activities and nutritious meals for vulnerable adults</p>
                   </div>
                 </div>

@@ -25,8 +25,8 @@ const services = [
   },
   {
     id: 'day-care',
-    title: 'Day Care & Meals on Wheels',
-    description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals delivered to your door.',
+    title: 'Day Care Centre',
+    description: 'The Ron Manning Day and Activity Centre offers a warm, welcoming environment with engaging activities, social interaction, and nutritious two-course meals served on-site.',
     image: '/images/daycenter/day-center4.webp',
     link: '/services/day-care/',
     highlights: ['Social Activities', 'Nutritious Meals', 'Transport can be provided', 'Friendly Staff'],
@@ -62,12 +62,12 @@ const services = [
     iconColor: 'text-purple-600'
   },
   {
-    id: 'carers',
-    title: 'Support for family carers',
-    description: 'Supporting those who care for family members with respite services, practical advice, and emotional support. Because carers need care too.',
+    id: 'home-help',
+    title: 'Home Help Service',
+    description: 'Practical, reliable support with day to day tasks - light housework, meals, prescription collection, errands and companionship. Less stress, more you.',
     image: '/images/care/care2.webp',
-    link: '/services/carers-support/',
-    highlights: ['Respite Care', 'Practical Advice', 'Emotional Support', 'Carer Training'],
+    link: '/services/home-help/',
+    highlights: ['Light Housework', 'Meal Preparation', 'Prescription Collection', 'Companionship & Outings'],
     gradient: 'from-teal-500 to-cyan-600',
     bgGradient: 'from-teal-50 to-cyan-50',
     iconBg: 'bg-teal-100',

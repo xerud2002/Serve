@@ -4,7 +4,7 @@ import {
   TruckIcon, 
   UserGroupIcon, 
   SunIcon,
-  HandRaisedIcon 
+  SparklesIcon
 } from '@heroicons/react/24/outline'
 
 export interface RelatedServiceItem {
@@ -21,6 +21,12 @@ export const allServices: RelatedServiceItem[] = [
     description: 'Professional, compassionate care in the comfort of your own home. CQC registered support for daily living.',
     href: '/services/personal-care/',
     icon: <HeartIcon className="w-full h-full" />,
+  },
+  {
+    title: 'Home Help Service',
+    description: 'Practical, flexible help around the home - housework, meals, prescriptions, errands and companionship.',
+    href: '/services/home-help/',
+    icon: <SparklesIcon className="w-full h-full" />,
   },
   {
     title: 'Countywide Befriending',
@@ -41,12 +47,6 @@ export const allServices: RelatedServiceItem[] = [
     icon: <TruckIcon className="w-full h-full" />,
   },
   {
-    title: 'Support for Family Carers',
-    description: 'Practical support, respite care, and guidance for those caring for loved ones. You\'re not alone.',
-    href: '/services/carers-support/',
-    icon: <HandRaisedIcon className="w-full h-full" />,
-  },
-  {
     title: 'Community Services',
     description: 'DBS checks, hearing aid service, and community events. Supporting independence and wellbeing.',
     href: '/services/community-services/',
@@ -57,13 +57,18 @@ export const allServices: RelatedServiceItem[] = [
 // Predefined related services for each service page
 export const relatedServicesMap: Record<string, RelatedServiceItem[]> = {
   '/services/personal-care/': [
+    allServices.find(s => s.href === '/services/home-help/')!,
     allServices.find(s => s.href === '/services/day-care/')!,
+    allServices.find(s => s.href === '/services/befriending/')!,
+  ],
+  '/services/home-help/': [
+    allServices.find(s => s.href === '/services/personal-care/')!,
+    allServices.find(s => s.href === '/services/befriending/')!,
     allServices.find(s => s.href === '/services/transport/')!,
-    allServices.find(s => s.href === '/services/carers-support/')!,
   ],
   '/services/befriending/': [
+    allServices.find(s => s.href === '/services/home-help/')!,
     allServices.find(s => s.href === '/services/day-care/')!,
-    allServices.find(s => s.href === '/services/transport/')!,
     allServices.find(s => s.href === '/services/community-services/')!,
   ],
   '/services/day-care/': [
@@ -74,16 +79,11 @@ export const relatedServicesMap: Record<string, RelatedServiceItem[]> = {
   '/services/transport/': [
     allServices.find(s => s.href === '/services/personal-care/')!,
     allServices.find(s => s.href === '/services/day-care/')!,
-    allServices.find(s => s.href === '/services/befriending/')!,
-  ],
-  '/services/carers-support/': [
-    allServices.find(s => s.href === '/services/personal-care/')!,
-    allServices.find(s => s.href === '/services/befriending/')!,
-    allServices.find(s => s.href === '/services/day-care/')!,
+    allServices.find(s => s.href === '/services/home-help/')!,
   ],
   '/services/community-services/': [
+    allServices.find(s => s.href === '/services/home-help/')!,
     allServices.find(s => s.href === '/services/befriending/')!,
     allServices.find(s => s.href === '/services/day-care/')!,
-    allServices.find(s => s.href === '/services/transport/')!,
   ],
 }

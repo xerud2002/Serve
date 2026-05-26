@@ -21,9 +21,9 @@ import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
 
 export const metadata: Metadata = {
-  title: 'Day Care & Meals on Wheels - SERVE | Ron Manning Day Centre Northamptonshire',
+  title: 'Day Care Centre - SERVE | Ron Manning Day Centre Northamptonshire',
   description: 'Enjoy social activities, nutritious meals, and professional care at our friendly day centre. Transport included. Book your visit: 01933 315555.',
-  keywords: 'day care, meals on wheels, day centre, social activities, community care, Northamptonshire, elderly care',
+  keywords: 'day care, day centre, social activities, community care, Northamptonshire, elderly care',
   alternates: {
     canonical: '/services/day-care/',
   },
@@ -84,7 +84,7 @@ export default function DayCarePage() {
             items={[
               { label: 'Home', href: '/' },
               { label: 'Services', href: '/services' },
-              { label: 'Day Care & Meals on Wheels' }
+              { label: 'Day Care Centre' }
             ]}
           />
         </div>
@@ -119,12 +119,12 @@ export default function DayCarePage() {
               </div>
 
               <h1 className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-bold mb-6 leading-tight">
-                <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Day Care &</span>{' '}
-                <span className="bg-linear-to-r from-amber-300 via-orange-400 to-amber-300 bg-clip-text text-transparent">Meals on Wheels</span>
+                <span className="bg-linear-to-r from-white via-green-100 to-white bg-clip-text text-transparent">Day Care</span>{' '}
+                <span className="bg-linear-to-r from-amber-300 via-orange-400 to-amber-300 bg-clip-text text-transparent">Centre</span>
               </h1>
               
               <p className="text-base md:text-lg lg:text-xl xl:text-2xl opacity-90 mb-8 leading-relaxed">
-                A welcoming space where older adults can enjoy meaningful activities, good company, and friendly support. We also operate a meals on wheels service from the centre to local residents.
+                A welcoming space where older adults can enjoy meaningful activities, good company, and friendly support at our Ron Manning Day and Activity Centre.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4">
