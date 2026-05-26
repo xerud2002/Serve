@@ -3,9 +3,20 @@ User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/static/
-Disallow: /_next/image/
+Disallow: /_next/
 Disallow: /sw.js
+Disallow: /workbox-*
+Disallow: /wp-content/
+Disallow: /wp-admin/
+Disallow: /wp-includes/
+Disallow: /wp-json/
+Disallow: /xmlrpc.php
+Disallow: /feed
+Disallow: /*/feed
+Disallow: /comments/feed
+Disallow: /category/
+Disallow: /tag/
+Disallow: /author/
 
 # Block discontinued service URLs (redirected via next.config.js)
 Disallow: /services/carers-support

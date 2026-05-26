@@ -283,6 +283,13 @@ const nextConfig = {
       { source: '/rest/:path*', destination: '/', permanent: true },
       { source: '/stream%25-careers', destination: '/', permanent: true },
 
+      // ─── Discontinued / renamed legacy pages ───
+      { source: '/disclosure-barring-service-formerly-crb', destination: '/volunteer/', permanent: true },
+      { source: '/disclosure-barring-service-formerly-crb/', destination: '/volunteer/', permanent: true },
+      { source: '/wp-content/uploads/Serve-Voluntary-Services.pdf', destination: '/about/', permanent: true },
+      { source: '/wp-content/uploads/:path*', destination: '/', permanent: true },
+      { source: '/wp-content/:path*', destination: '/', permanent: true },
+
       // ─── WordPress feeds, taxonomy, pagination, comments ───
       { source: '/feed/', destination: '/news/', permanent: true },
       { source: '/feed', destination: '/news/', permanent: true },
