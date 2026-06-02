@@ -291,7 +291,7 @@ export default function SupportersPage() {
             ].map((name, index) => (
               <div
                 key={index}
-                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-purple-50 flex items-center justify-center min-h-[100px]"
+                className="group bg-white rounded-2xl p-6 shadow-sm hover:shadow-md transition-all duration-300 border border-purple-50 flex items-center justify-center min-h-25"
               >
                 <h3 className="text-lg font-bold text-gray-800 group-hover:text-purple-600 transition-colors text-center">
                   {name}
