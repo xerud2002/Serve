@@ -397,7 +397,7 @@ export default function Contact() {
                 </h4>
                 <div className="grid grid-cols-1 gap-4">
                   <a
-                    href="https://www.justgiving.com/campaign/serve-community-appeal"
+                    href="https://www.justgiving.com/charity/serve-jg"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="group bg-linear-to-r from-rose-500 to-pink-500 hover:from-rose-600 hover:to-pink-600 text-white px-6 py-4 rounded-2xl font-bold text-center transition-all duration-300 hover:scale-105 flex items-center justify-center shadow-lg shadow-rose-500/20"

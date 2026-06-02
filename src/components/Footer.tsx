@@ -201,7 +201,7 @@ export default function Footer() {
             
             {/* Donate Button */}
             <a
-              href="https://www.justgiving.com/campaign/serve-community-appeal"
+              href="https://www.justgiving.com/charity/serve-jg"
               target="_blank"
               rel="noopener noreferrer"
               className="group relative inline-flex items-center gap-2 bg-linear-to-r from-serve-green-500 to-emerald-600 hover:from-serve-green-600 hover:to-emerald-700 text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-green-500/25 overflow-hidden min-h-11"

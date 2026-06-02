@@ -378,7 +378,7 @@ export default function SupportersPage() {
                   </div>
 
                   <a
-                    href="https://www.justgiving.com/campaign/serve-community-appeal"
+                    href="https://www.justgiving.com/charity/serve-jg"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="inline-flex items-center gap-3 bg-linear-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-rose-500/30"

@@ -64,7 +64,7 @@ export default function DonatePage() {
           
           {/* Primary CTA */}
           <TrackedLink
-            href="https://www.justgiving.com/campaign/serve-community-appeal"
+            href="https://www.justgiving.com/charity/serve-jg"
             trackAs="donate"
             label="JustGiving Hero"
             className="inline-flex items-center bg-white text-red-600 hover:bg-rose-50 font-extrabold px-8 py-4 md:px-10 md:py-5 lg:px-12 lg:py-6 rounded-2xl text-lg md:text-xl lg:text-2xl shadow-2xl hover:shadow-rose-900/50 transition-all duration-300 transform hover:scale-105 gap-3"
@@ -74,6 +74,25 @@ export default function DonatePage() {
             <span>Donate via JustGiving</span>
             <ArrowRightIcon className="w-5 h-5 md:w-6 md:h-6" aria-hidden="true" />
           </TrackedLink>
+
+          {/* PayPal Donate Button */}
+          <div className="mt-6 flex flex-col items-center gap-3">
+            <span className="text-sm font-semibold text-rose-50/90">or</span>
+            <TrackedLink
+              href="https://www.paypal.com/ncp/payment/9KA5E252HQM2N"
+              trackAs="donate"
+              label="PayPal Hero"
+              className="inline-flex items-center justify-center bg-[#FFC439] hover:bg-[#f0b72e] px-12 py-3.5 rounded-full shadow-2xl hover:shadow-amber-900/50 transition-all duration-300 transform hover:scale-105 min-h-11 min-w-46.5"
+              ariaLabel="Donate to SERVE via PayPal (opens in new tab)"
+            >
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="https://www.paypalobjects.com/paypal-ui/logos/svg/paypal-wordmark-color.svg"
+                alt="PayPal"
+                className="h-6"
+              />
+            </TrackedLink>
+          </div>
         </div>
       </section>
 

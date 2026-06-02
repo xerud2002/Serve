@@ -87,7 +87,7 @@ export default function FriendsOfServe() {
       </div>
 
       <a
-        href="https://www.justgiving.com/campaign/serve-community-appeal"
+        href="https://www.justgiving.com/charity/serve-jg"
         target="_blank"
         rel="noopener noreferrer"
         className="block w-full text-center bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded-xl transition-colors"
