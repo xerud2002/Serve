@@ -666,56 +666,62 @@ export default function AboutPage() {
               </h4>
               <div className="bg-serve-blue-50 rounded-xl p-6 border border-serve-blue-200">
                 <div className="space-y-6">
-                  {/* Board of Directors / Trustees Meetings */}
-                  <div>
-                    <h5 className="font-bold text-gray-900 mb-4">Board of Directors / Trustees Meeting</h5>
-                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 26th January 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 30th March 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 26th May 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 27th July 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 28th September 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                      <div className="bg-white rounded-lg p-4 shadow-sm">
-                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 30th November 2026</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
-                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
-                      </div>
-                    </div>
-                  </div>
-
                   {/* Annual General Meeting */}
                   <div>
-                    <h5 className="font-bold text-gray-900 mb-4">Annual General Meeting</h5>
+                    <h5 className="font-bold text-gray-900 mb-4">Board of Directors AGM</h5>
                     <div className="bg-white rounded-lg p-4 shadow-sm border-2 border-serve-blue-200">
                       <div className="flex items-start justify-between">
                         <div>
-                          <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> 10th September 2026</p>
-                          <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> All day</p>
+                          <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Monday 29th June 2026</p>
+                          <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
                           <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
                         </div>
                         <span className="text-xs bg-amber-100 text-amber-700 px-3 py-1 rounded-full font-semibold">
                           AGM
                         </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  {/* Board of Directors Monthly Meetings */}
+                  <div>
+                    <h5 className="font-bold text-gray-900 mb-4">Board of Directors Monthly Meetings</h5>
+                    <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 30th July 2026</p>
+                        <p className="text-xs text-gray-500 italic">(previously Monday 27th July)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 27th August 2026</p>
+                        <p className="text-xs text-serve-green-600 font-medium">(new date)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 24th September 2026</p>
+                        <p className="text-xs text-gray-500 italic">(previously Monday 28th September)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 22nd October 2026</p>
+                        <p className="text-xs text-serve-green-600 font-medium">(new date)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 19th November 2026</p>
+                        <p className="text-xs text-gray-500 italic">(previously Monday 30th November)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
+                      </div>
+                      <div className="bg-white rounded-lg p-4 shadow-sm">
+                        <p className="text-sm text-gray-600"><span className="font-medium">Date:</span> Thursday 17th December 2026</p>
+                        <p className="text-xs text-serve-green-600 font-medium">(new date)</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Time:</span> 19:00 – 20:30</p>
+                        <p className="text-sm text-gray-600"><span className="font-medium">Location:</span> Serve, Rushden</p>
                       </div>
                     </div>
                   </div>

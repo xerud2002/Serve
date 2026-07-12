@@ -1,17 +1,7 @@
 import Image from 'next/image'
-import Link from 'next/link'
 import { Metadata } from 'next'
 import MajorTitle from '@/components/MajorTitle'
 import OptimizedImage from '@/components/OptimizedImage'
-import {
-  HeartIcon,
-  SparklesIcon,
-  CheckCircleIcon,
-  HomeModernIcon,
-  UserGroupIcon,
-  StarIcon,
-  ArrowRightIcon
-} from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
   title: 'Our Supporters & Donors | Thank You | SERVE Charity',
@@ -274,6 +264,7 @@ export default function SupportersPage() {
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
+              "ADDL",
               "Benham Charitable Settlement",
               "Clothworkers' Foundation",
               "Constance Travis Charitable Trust",
@@ -281,11 +272,15 @@ export default function SupportersPage() {
               "Douglas Compton James Charitable Trust",
               "Eric Stanton Northampton Trust",
               "Francis Winham Foundation",
+              "Frederick & Phyllis Cann Trust",
               "Garfield Weston Foundation",
               "Margaret Giffen Charitable Trust",
               "Marsh Charitable Trust",
+              "Michael Guest Charitable Foundation",
+              "Parochial Church Council - Parish Church of St John the Baptist Chelveston",
               "Provincial Grand Charity of Northamptonshire & Huntingdonshire",
               "Sir Derek Greenaway Foundation",
+              "Strangward Trust",
               "The W O Street Charitable Foundation",
               "Wolfson Foundation"
             ].map((name, index) => (
@@ -307,121 +302,6 @@ export default function SupportersPage() {
                 and expand our reach across Northamptonshire. Their commitment to our mission has been instrumental in
                 helping us provide high-quality care and support to those who need it most.
               </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Community Appeal */}
-      <section className="py-20 lg:py-24 bg-linear-to-br from-slate-50 via-white to-rose-50 relative overflow-hidden">
-        {/* Decorative elements */}
-        <div className="absolute top-0 left-0 w-72 h-72 bg-rose-100/50 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-pink-100/50 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
-
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center bg-rose-100 text-rose-900 px-5 py-2.5 rounded-full text-sm font-bold mb-6 shadow-sm border border-rose-200">
-              <HeartIcon className="w-4 h-4 mr-2" />
-              Get Involved
-            </div>
-            <h2 className="text-4xl md:text-5xl font-black mb-4">
-              <span className="bg-linear-to-r from-rose-600 via-pink-600 to-rose-600 bg-clip-text text-transparent">Support Our Community</span>
-            </h2>
-          </div>
-
-          <div className="relative">
-            <div className="absolute -inset-1 bg-linear-to-r from-rose-500 via-pink-500 to-rose-500 rounded-3xl blur-xl opacity-30" />
-            <div className="relative bg-white rounded-3xl p-8 lg:p-12 shadow-2xl border border-gray-100">
-              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
-                {/* Left side - Appeal info */}
-                <div>
-                  <div className="inline-flex items-center bg-rose-50 text-rose-700 px-4 py-2 rounded-full text-sm font-bold mb-6 border border-rose-200">
-                    <SparklesIcon className="w-4 h-4 mr-2" />
-                    Active Campaign
-                  </div>
-
-                  <h3 className="text-3xl lg:text-4xl font-black mb-6 text-gray-900">
-                    SERVE Community Appeal
-                  </h3>
-
-                  <div className="bg-linear-to-br from-rose-50 to-pink-50 rounded-2xl p-6 mb-6 border border-rose-100">
-                    <div className="flex items-baseline gap-2 mb-2">
-                      <span className="text-5xl font-black text-rose-600">£25,000</span>
-                      <span className="text-gray-600 font-semibold">Target</span>
-                    </div>
-                    <div className="text-gray-700">Help us enhance our community services</div>
-                  </div>
-
-                  <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                    Support our Community Appeal to enhance day centre services, expand community programmes, and create more opportunities for connection and care across Northamptonshire.
-                  </p>
-
-                  <div className="space-y-3 mb-8">
-                    <div className="flex items-center gap-3">
-                      <div className="bg-rose-100 rounded-lg p-2">
-                        <SparklesIcon className="w-5 h-5 text-rose-600" />
-                      </div>
-                      <span className="text-gray-700">Campaign runs until <strong className="text-gray-900">April 2026</strong></span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="bg-rose-100 rounded-lg p-2">
-                        <HeartIcon className="w-5 h-5 text-rose-600" />
-                      </div>
-                      <span className="text-gray-700">Donate anytime, any amount helps</span>
-                    </div>
-                    <div className="flex items-center gap-3">
-                      <div className="bg-rose-100 rounded-lg p-2">
-                        <CheckCircleIcon className="w-5 h-5 text-rose-600" />
-                      </div>
-                      <span className="text-gray-700">Secure online donations via JustGiving</span>
-                    </div>
-                  </div>
-
-                  <a
-                    href="https://www.justgiving.com/charity/serve-jg"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-3 bg-linear-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white px-8 py-4 rounded-2xl font-bold text-lg transition-all duration-300 transform hover:scale-105 shadow-xl shadow-rose-500/30"
-                  >
-                    <HeartIcon className="w-6 h-6" />
-                    Donate on JustGiving
-                    <ArrowRightIcon className="w-5 h-5" />
-                  </a>
-                </div>
-
-                {/* Right side - Impact */}
-                <div className="space-y-4">
-                  <div className="bg-linear-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="bg-linear-to-br from-blue-500 to-cyan-500 rounded-xl p-3 shadow-lg">
-                        <HomeModernIcon className="w-7 h-7 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900">Enhanced Day Care</h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">More activities, better facilities, and expanded services for our day centre members</p>
-                  </div>
-
-                  <div className="bg-linear-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="bg-linear-to-br from-green-500 to-emerald-500 rounded-xl p-3 shadow-lg">
-                        <UserGroupIcon className="w-7 h-7 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900">Community Programmes</h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">Reach more people with befriending, support groups, and social activities</p>
-                  </div>
-
-                  <div className="bg-linear-to-br from-amber-50 to-orange-50 rounded-2xl p-6 border border-amber-100 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                    <div className="flex items-center gap-4 mb-3">
-                      <div className="bg-linear-to-br from-amber-500 to-orange-500 rounded-xl p-3 shadow-lg">
-                        <StarIcon className="w-7 h-7 text-white" />
-                      </div>
-                      <h4 className="text-xl font-bold text-gray-900">Quality Services</h4>
-                    </div>
-                    <p className="text-gray-700 leading-relaxed">Continue our award-winning care with modern equipment and training</p>
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </div>

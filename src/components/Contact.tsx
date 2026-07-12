@@ -61,7 +61,7 @@ export default function Contact() {
     },
     {
       question: "Do you accept donations?",
-      answer: "Yes! You can donate via JustGiving through our Community Appeal or contact us about other ways to support our work."
+      answer: "Yes! You can donate via JustGiving or contact us about other ways to support our work."
     }
   ]
 

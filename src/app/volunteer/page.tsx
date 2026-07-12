@@ -298,19 +298,18 @@ export default function VolunteerPage() {
               <h3 className="text-2xl md:text-3xl font-bold mb-2">
                 <span className="bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent">Overall Social Impact</span>
               </h3>
-              <p className="text-lg text-gray-600">April – October 2025</p>
+              <p className="text-lg text-gray-600">1st June 2025 - 31st May 2026</p>
             </div>
 
             {/* Key Stats */}
             <div className="grid md:grid-cols-2 gap-6 mb-10">
               <div className="group bg-linear-to-br from-serve-blue-50 via-white to-cyan-50 rounded-3xl p-8 text-center border border-serve-blue-100 hover:shadow-lg transition-all">
                 <div className="text-sm font-semibold text-serve-blue-600 mb-2">✨ Total Volunteer Hours</div>
-                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">11,815.5</div>
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-blue-600 to-cyan-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">17,273.1</div>
               </div>
               <div className="group bg-linear-to-br from-serve-green-50 via-white to-emerald-50 rounded-3xl p-8 text-center border border-serve-green-100 hover:shadow-lg transition-all">
                 <div className="text-sm font-semibold text-serve-green-600 mb-2">✨ Total Social Value Generated</div>
-                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">£144,268</div>
-                <div className="text-sm text-gray-500 mt-1">(approx.)</div>
+                <div className="text-5xl md:text-6xl font-bold bg-linear-to-r from-serve-green-600 to-emerald-500 bg-clip-text text-transparent group-hover:scale-110 transition-transform inline-block">£210,904.76</div>
               </div>
             </div>
 
@@ -319,28 +318,24 @@ export default function VolunteerPage() {
               <h4 className="text-lg font-bold text-gray-900 mb-6 text-center">Breakdown by Service</h4>
               <div className="grid grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4">
                 <div className="bg-linear-to-r from-serve-blue-600 to-serve-blue-700 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">58.1%</div>
-                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community Transport Scheme</div>
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">48%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community Transport</div>
                 </div>
                 <div className="bg-linear-to-r from-rose-500 to-red-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">31.5%</div>
-                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Befriending Service</div>
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">34%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Befriending</div>
                 </div>
                 <div className="bg-linear-to-r from-serve-green-500 to-emerald-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">7.62%</div>
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">14%</div>
                   <div className="text-xs sm:text-sm opacity-90 leading-tight">Day Centre</div>
                 </div>
                 <div className="bg-linear-to-r from-teal-500 to-cyan-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">1.46%</div>
-                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Trustees & Strategic</div>
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">2%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Trustees and Strategic Guidance</div>
                 </div>
-                <div className="bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">0.88%</div>
-                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Fundraising Events</div>
-                </div>
-                <div className="bg-linear-to-r from-orange-500 to-red-500 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all">
-                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">0.44%</div>
-                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community Events</div>
+                <div className="bg-linear-to-r from-amber-500 to-orange-600 text-white rounded-xl sm:rounded-2xl p-4 sm:p-6 text-center hover:shadow-lg hover:-translate-y-1 transition-all col-span-2 md:col-span-1">
+                  <div className="text-2xl sm:text-4xl font-bold mb-1 sm:mb-2">2%</div>
+                  <div className="text-xs sm:text-sm opacity-90 leading-tight">Community and Fundraising Events</div>
                 </div>
               </div>
             </div>
