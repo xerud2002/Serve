@@ -228,14 +228,14 @@ export default function VolunteerPage() {
               <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
                 <a
                   href="tel:01933315555"
-                  className="inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
+                  className="inline-flex items-center justify-center bg-serve-blue-600 hover:bg-serve-blue-700 text-white px-6 sm:px-8 py-4 min-h-13 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105"
                 >
                   <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
                   Call: 01933 315555
                 </a>
                 <Link
                   href="#volunteer-form"
-                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-green-900 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/20"
+                  className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white hover:text-serve-green-900 text-white px-6 sm:px-8 py-4 min-h-13 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/20"
                 >
                   Apply to Volunteer
                   <ArrowRightIcon className="ml-2 sm:ml-3 h-5 w-5" />
@@ -541,14 +541,14 @@ export default function VolunteerPage() {
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center px-4 sm:px-0">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center justify-center bg-white text-serve-green-700 hover:bg-serve-green-50 px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+              className="inline-flex items-center justify-center bg-white text-serve-green-700 hover:bg-serve-green-50 px-6 sm:px-8 py-4 min-h-13 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
             >
               <PhoneIcon className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3" />
               Call: 01933 315555
             </a>
             <Link
               href="/contact/"
-              className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-4 min-h-[52px] rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/30"
+              className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-6 sm:px-8 py-4 min-h-13 rounded-xl font-bold text-base sm:text-lg transition-all duration-300 border border-white/30"
             >
               Send a Message
               <ArrowRightIcon className="ml-2 sm:ml-3 h-5 w-5" />
