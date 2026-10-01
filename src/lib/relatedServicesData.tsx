@@ -4,7 +4,9 @@ import {
   TruckIcon, 
   UserGroupIcon, 
   SunIcon,
-  SparklesIcon
+  SparklesIcon,
+  ArchiveBoxIcon,
+  PuzzlePieceIcon
 } from '@heroicons/react/24/outline'
 
 export interface RelatedServiceItem {
@@ -27,6 +29,18 @@ export const allServices: RelatedServiceItem[] = [
     description: 'Practical, flexible help around the home - housework, meals, prescriptions, errands and companionship.',
     href: '/services/home-help/',
     icon: <SparklesIcon className="w-full h-full" />,
+  },
+  {
+    title: 'House to Home',
+    description: 'Specialist deep cleaning, decluttering and hoarding support to create a safe, healthy and comfortable home.',
+    href: '/services/house-to-home/',
+    icon: <ArchiveBoxIcon className="w-full h-full" />,
+  },
+  {
+    title: 'Activities at Home',
+    description: 'One-to-one companionship and activity-based support to help you stay active and connected at home.',
+    href: '/services/activities-at-home/',
+    icon: <PuzzlePieceIcon className="w-full h-full" />,
   },
   {
     title: 'Countywide Befriending',
@@ -63,11 +77,21 @@ export const relatedServicesMap: Record<string, RelatedServiceItem[]> = {
   ],
   '/services/home-help/': [
     allServices.find(s => s.href === '/services/personal-care/')!,
-    allServices.find(s => s.href === '/services/befriending/')!,
+    allServices.find(s => s.href === '/services/house-to-home/')!,
     allServices.find(s => s.href === '/services/transport/')!,
   ],
-  '/services/befriending/': [
+  '/services/house-to-home/': [
     allServices.find(s => s.href === '/services/home-help/')!,
+    allServices.find(s => s.href === '/services/personal-care/')!,
+    allServices.find(s => s.href === '/services/community-services/')!,
+  ],
+  '/services/activities-at-home/': [
+    allServices.find(s => s.href === '/services/befriending/')!,
+    allServices.find(s => s.href === '/services/day-care/')!,
+    allServices.find(s => s.href === '/services/home-help/')!,
+  ],
+  '/services/befriending/': [
+    allServices.find(s => s.href === '/services/activities-at-home/')!,
     allServices.find(s => s.href === '/services/day-care/')!,
     allServices.find(s => s.href === '/services/community-services/')!,
   ],

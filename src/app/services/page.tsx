@@ -11,7 +11,9 @@ import {
   ArrowRightIcon,
   StarIcon,
   ShieldCheckIcon,
-  SparklesIcon
+  SparklesIcon,
+  ArchiveBoxIcon,
+  PuzzlePieceIcon
 } from '@heroicons/react/24/outline'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
@@ -85,6 +87,32 @@ const services = [
     iconColor: 'text-teal-600'
   },
   {
+    id: 'house-to-home',
+    title: 'House to Home',
+    subtitle: 'Specialist home restoration service',
+    description: 'Practical, non-judgemental support with deep cleaning, decluttering and hoarding situations to help create a safe, healthy and comfortable home.',
+    icon: ArchiveBoxIcon,
+    features: ['Specialist deep cleaning', 'Decluttering support', 'Hoarding support', 'Hospital discharge preparation', 'Home safety & independence'],
+    href: '/services/house-to-home',
+    badge: 'New Service',
+    gradient: 'from-serve-orange-500 to-serve-orange-700',
+    bgGradient: 'from-serve-orange-50 to-amber-50',
+    iconColor: 'text-serve-orange-600'
+  },
+  {
+    id: 'activities-at-home',
+    title: 'Activities at Home',
+    subtitle: 'Companionship and activity support',
+    description: 'Meaningful companionship and activity-based support to help people remain active, stimulated and connected in their own home.',
+    icon: PuzzlePieceIcon,
+    features: ['One-to-one activity support', 'Home-based activities', 'Cognitive stimulation', 'Social connection', 'Flexible personalised support'],
+    href: '/services/activities-at-home',
+    badge: 'New Service',
+    gradient: 'from-serve-green-500 to-serve-teal-600',
+    bgGradient: 'from-serve-green-50 to-serve-teal-50',
+    iconColor: 'text-serve-green-600'
+  },
+  {
     id: 'community-services',
     title: 'Community Services',
     subtitle: 'Additional community support',
@@ -101,7 +129,7 @@ const services = [
 
 const stats = [
   { label: 'Years of Service', value: '40+', gradient: 'from-serve-green-400 to-emerald-500' },
-  { label: 'Services Offered', value: '6', gradient: 'from-purple-400 to-violet-500' },
+  { label: 'Services Offered', value: '8', gradient: 'from-purple-400 to-violet-500' },
   { label: 'CQC Rating', value: 'Good', gradient: 'from-amber-400 to-orange-500' },
   { label: 'Award Winner', value: '2024', gradient: 'from-rose-400 to-red-500' },
 ]
@@ -197,16 +225,16 @@ export default function ServicesPage() {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-16 items-stretch">
             {services.map((service) => {
               const IconComponent = service.icon
               return (
                 <div
                   key={service.id}
-                  className="group relative bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2"
+                  className="group relative flex h-full flex-col bg-white rounded-3xl shadow-lg hover:shadow-2xl transition-all duration-500 overflow-hidden border border-gray-100 hover:-translate-y-2"
                 >
                   {/* Header with gradient */}
-                  <div className={`bg-linear-to-r ${service.gradient} p-6 lg:p-8 text-white relative overflow-hidden`}>
+                  <div className={`bg-linear-to-r ${service.gradient} p-6 lg:p-8 text-white relative overflow-hidden shrink-0`}>
                     {/* Decorative shapes */}
                     <div className="absolute top-0 right-0 w-32 h-32 bg-white/10 rounded-full -translate-y-1/2 translate-x-1/2" />
                     <div className="absolute bottom-0 left-0 w-24 h-24 bg-white/10 rounded-full translate-y-1/2 -translate-x-1/2" />
@@ -225,8 +253,9 @@ export default function ServicesPage() {
                   </div>
 
                   {/* Content */}
-                  <div className="p-6 lg:p-8">
-                    <p className="text-gray-600 mb-6 leading-relaxed">{service.description}</p>
+                  <div className="flex flex-1 flex-col p-6 lg:p-8">
+                    {/* Fixed height keeps "Key Features" aligned across cards */}
+                    <p className="text-gray-600 mb-6 leading-relaxed lg:min-h-21">{service.description}</p>
                     
                     <h4 className="text-sm font-bold text-gray-900 mb-4 uppercase tracking-wide">Key Features:</h4>
                     <ul className="space-y-2 mb-8">
@@ -240,7 +269,7 @@ export default function ServicesPage() {
 
                     <Link
                       href={service.href}
-                      className={`group/btn inline-flex items-center justify-center w-full bg-linear-to-r ${service.gradient} text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg`}
+                      className={`group/btn mt-auto inline-flex items-center justify-center w-full bg-linear-to-r ${service.gradient} text-white px-6 py-4 rounded-xl font-bold transition-all duration-300 transform hover:scale-105 shadow-lg`}
                     >
                       Learn More About This Service
                       <ArrowRightIcon className="ml-3 h-5 w-5 group-hover/btn:translate-x-1 transition-transform" />

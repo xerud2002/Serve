@@ -74,6 +74,30 @@ const services = [
     iconColor: 'text-teal-600'
   },
   {
+    id: 'house-to-home',
+    title: 'House to Home',
+    description: 'Specialist home restoration for people whose living environment has become unmanageable. Deep cleaning, decluttering and hoarding support delivered with compassion and without judgement.',
+    image: '/images/care/care1.webp',
+    link: '/services/house-to-home/',
+    highlights: ['Deep Cleaning', 'Decluttering', 'Hoarding Support', 'Hospital Discharge'],
+    gradient: 'from-serve-orange-500 to-serve-orange-700',
+    bgGradient: 'from-serve-orange-50 to-amber-50',
+    iconBg: 'bg-serve-orange-100',
+    iconColor: 'text-serve-orange-600'
+  },
+  {
+    id: 'activities-at-home',
+    title: 'Activities at Home',
+    description: 'Meaningful companionship and activity-based support for people who cannot easily get out. Hobbies, cognitive stimulation and social connection in a familiar environment.',
+    image: '/images/community/bigchat2.webp',
+    link: '/services/activities-at-home/',
+    highlights: ['One-to-One Support', 'Hobbies & Crafts', 'Cognitive Stimulation', 'Social Connection'],
+    gradient: 'from-serve-green-500 to-serve-teal-600',
+    bgGradient: 'from-serve-green-50 to-serve-teal-50',
+    iconBg: 'bg-serve-green-100',
+    iconColor: 'text-serve-green-600'
+  },
+  {
     id: 'community',
     title: 'Community Services',
     description: 'A range of community support including hearing aid servicing, DBS checks, and other services that help maintain independence and community connections.',
@@ -116,11 +140,12 @@ export default function Services() {
           </p>
         </div>
 
-        <div className={`grid grid-cols-1 ${isMobile ? 'gap-6' : 'md:grid-cols-2 lg:grid-cols-3 gap-8'}`}>
+        {/* Negative-margin gutters let the final row centre when the card count is not a multiple of three */}
+        <div className={`flex flex-col ${isMobile ? 'gap-6' : 'md:flex-row md:flex-wrap md:justify-center md:-mx-4 md:-mb-8'}`}>
           {services.map((service) => (
-            <div key={service.id} className="group relative h-full">
+            <div key={service.id} className={`group relative flex flex-col ${isMobile ? '' : 'md:w-1/2 lg:w-1/3 md:px-4 md:pb-8'}`}>
               {/* Card with gradient border on hover */}
-              <div className={`relative bg-white rounded-3xl overflow-hidden shadow-lg transition-all duration-500 h-full flex flex-col ${!isMobile ? 'hover:shadow-2xl hover:-translate-y-2' : ''}`}>
+              <div className={`relative bg-white rounded-3xl overflow-hidden shadow-lg transition-all duration-500 flex-1 flex flex-col ${!isMobile ? 'hover:shadow-2xl hover:-translate-y-2' : ''}`}>
                 {/* Gradient border effect */}
                 <div className={`absolute inset-0 bg-linear-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl`} />
                 <div className="absolute inset-0.5 bg-white rounded-3xl" />
