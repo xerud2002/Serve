@@ -1,9 +1,9 @@
 # https://www.robotstxt.org/robotstxt.html
+# Plain-language summary of this site for AI assistants: https://serve.org.uk/llms.txt
 User-agent: *
 Allow: /
 Disallow: /api/
 Disallow: /admin/
-Disallow: /_next/
 Disallow: /sw.js
 Disallow: /workbox-*
 Disallow: /wp-content/
@@ -36,6 +36,26 @@ Disallow: /api/
 Disallow: /admin/
 
 User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+
+# AI search and assistant crawlers may read and cite all public pages
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: Amazonbot
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+User-agent: Meta-ExternalAgent
+User-agent: CCBot
 Allow: /
 Disallow: /api/
 Disallow: /admin/

@@ -9,9 +9,9 @@ export default function Hero() {
     <section className="relative min-h-[90vh] bg-linear-to-br from-serve-blue-950 via-serve-blue-900 to-slate-900 text-white overflow-hidden">
       {/* Modern mesh gradient background - hidden on mobile for performance */}
       <div className="absolute inset-0 overflow-hidden hidden sm:block">
-        <div className="absolute top-0 left-1/4 w-[800px] h-[800px] bg-serve-green-500/10 rounded-full blur-[128px]" />
-        <div className="absolute bottom-0 right-1/4 w-[600px] h-[600px] bg-cyan-500/10 rounded-full blur-[128px]" />
-        <div className="absolute top-1/3 right-1/3 w-[500px] h-[500px] bg-amber-400/5 rounded-full blur-[100px]" />
+        <div className="absolute top-0 left-1/4 w-200 h-200 bg-serve-green-500/10 rounded-full blur-[128px]" />
+        <div className="absolute bottom-0 right-1/4 w-150 h-150 bg-cyan-500/10 rounded-full blur-[128px]" />
+        <div className="absolute top-1/3 right-1/3 w-125 h-125 bg-amber-400/5 rounded-full blur-[100px]" />
       </div>
 
       {/* Simplified background for mobile */}

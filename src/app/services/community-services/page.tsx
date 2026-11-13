@@ -8,7 +8,6 @@ import {
   UserGroupIcon,
   WrenchScrewdriverIcon
 } from '@heroicons/react/24/outline'
-import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQSchema from '@/components/FAQSchema'
 import RelatedServices from '@/components/RelatedServices'
@@ -94,7 +93,7 @@ const benefits = [
 const faqs = [
   {
     question: "What is the hearing aid service?",
-    answer: "Our free hearing aid servicing clinic provides battery replacements, cleaning, minor repairs, and maintenance checks. We hold regular sessions at our day center and can advise on further support if needed."
+    answer: "Our free hearing aid servicing clinic provides battery replacements, cleaning, minor repairs, and maintenance checks. We hold regular sessions at our day centre and can advise on further support if needed."
   },
   {
     question: "How do DBS checks work?",

@@ -20,9 +20,9 @@ export const metadata: Metadata = {
     type: 'article',
     publishedTime: '2024-10-15T00:00:00.000Z',
     images: [{
-      url: '/images/awards/Great-British-Care-Awards-East-Midlands-scaled.webp',
-      width: 1200,
-      height: 630,
+      url: '/images/awards/regional-winner.webp',
+      width: 1920,
+      height: 1280,
       alt: 'SERVE team at Great British Care Awards 2024',
     }],
   },
@@ -134,14 +134,14 @@ export default function GreatBritishCareAwardsPage() {
           <div className="absolute -inset-4 bg-linear-to-r from-yellow-100 via-amber-50 to-orange-100 rounded-3xl blur-2xl opacity-30" />
           <div className="relative bg-white rounded-3xl shadow-2xl p-8 md:p-12 border border-gray-100">
             <p className="text-2xl md:text-3xl text-gray-900 leading-relaxed mb-8 font-semibold">
-              We are absolutely thrilled and deeply honored to announce that SERVE has been awarded{' '}
+              We are absolutely thrilled and deeply honoured to announce that SERVE has been awarded{' '}
               <span className="bg-linear-to-r from-serve-blue-600 to-cyan-600 bg-clip-text text-transparent font-black">Best Homecare Team, East Midlands</span> at the prestigious{' '}
               <span className="bg-linear-to-r from-yellow-600 to-amber-600 bg-clip-text text-transparent font-black">Great British Care Awards 2024</span>.
             </p>
             
             <p className="text-lg md:text-xl text-gray-700 leading-relaxed">
               This incredible achievement is a testament to the dedication, compassion, and professionalism of our 
-              entire team. Every day, our care workers go above and beyond to provide exceptional, person-centered 
+              entire team. Every day, our care workers go above and beyond to provide exceptional, person-centred 
               care to older people and adults with disabilities across Northamptonshire.
             </p>
           </div>
@@ -225,7 +225,7 @@ export default function GreatBritishCareAwardsPage() {
             <div className="space-y-6 text-gray-700 text-lg leading-relaxed">
               <p>
                 Since 1983, SERVE has been providing compassionate care and support to our local community. This 
-                award represents decades of commitment to person-centered care, continuous improvement, and putting 
+                award represents decades of commitment to person-centred care, continuous improvement, and putting 
                 the needs of our clients first.
               </p>
               

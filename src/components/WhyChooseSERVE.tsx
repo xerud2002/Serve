@@ -153,7 +153,7 @@ export default function WhyChooseSERVE() {
 
           {/* Large Image with floating badge */}
           <div className="relative">
-            <div className="relative h-full min-h-[400px] lg:min-h-[550px] rounded-3xl overflow-hidden shadow-2xl">
+            <div className="relative h-full min-h-100 lg:min-h-137.5 rounded-3xl overflow-hidden shadow-2xl">
               <Image
                 src="/images/community/bigchat5.webp"
                 alt="SERVE team providing compassionate care"

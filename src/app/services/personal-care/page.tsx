@@ -15,20 +15,18 @@ import {
   HandRaisedIcon,
   BeakerIcon
 } from '@heroicons/react/24/outline'
-import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
 import FAQSchema from '@/components/FAQSchema'
 import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Personal & Domestic Care - SERVE | Award-Winning Homecare in Northamptonshire',
   description: 'Award-winning CQC registered personal care helping you stay independent at home with dignity. Call 01933 315555 for a free assessment today.',
-  keywords: 'personal care, homecare, domestic care, CQC registered, Northamptonshire, award winning, home support',
-  alternates: {
-    canonical: '/services/personal-care/',
-  },
-}
+  keywords: ['personal care', 'homecare', 'domestic care', 'CQC registered', 'award winning', 'home support'],
+  canonicalUrl: '/services/personal-care/',
+})
 
 const careServices = [
   {
@@ -85,7 +83,7 @@ const benefits = [
   'CQC registered and regulated',
   'Fully trained and vetted staff',
   'Flexible care packages',
-  'Person-centered approach',
+  'Person-centred approach',
   'Regular quality monitoring',
   'Emergency support available',
   'Award-winning service'
@@ -94,7 +92,7 @@ const benefits = [
 const faqs = [
   {
     question: "What is included in personal care services?",
-    answer: "Our personal care includes assistance with washing, bathing, dressing, mobility, toileting, and medication support. We provide person-centered care tailored to your individual needs and preferences."
+    answer: "Our personal care includes assistance with washing, bathing, dressing, mobility, toileting, and medication support. We provide person-centred care tailored to your individual needs and preferences."
   },
   {
     question: "Are SERVE's care services regulated?",
@@ -106,7 +104,7 @@ const faqs = [
   },
   {
     question: "What qualifications do your carers have?",
-    answer: "All our care staff are fully trained, DBS checked, and regularly supervised. They receive ongoing training in personal care, health and safety, and person-centered care approaches."
+    answer: "All our care staff are fully trained, DBS checked, and regularly supervised. They receive ongoing training in personal care, health and safety, and person-centred care approaches."
   },
   {
     question: "Can care packages be flexible?",
@@ -215,7 +213,7 @@ export default function PersonalCarePage() {
                 </div>
                 <div className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-center">
                   <HeartIcon className="w-12 h-12 mx-auto mb-4 text-serve-blue-200" />
-                  <div className="font-bold text-lg mb-2">Person-Centered</div>
+                  <div className="font-bold text-lg mb-2">Person-Centred</div>
                   <div className="text-sm opacity-80">Care tailored to you</div>
                 </div>
               </div>

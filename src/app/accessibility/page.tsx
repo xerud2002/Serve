@@ -1,13 +1,12 @@
 import MajorTitle from '@/components/MajorTitle'
 import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Accessibility Statement | SERVE',
   description: 'Accessibility commitment for SERVE charity website: standards, testing methods, known limitations, and feedback channels.',
-  alternates: {
-    canonical: '/accessibility/',
-  },
-}
+  canonicalUrl: '/accessibility/',
+})
 
 export default function AccessibilityStatementPage() {
   return (

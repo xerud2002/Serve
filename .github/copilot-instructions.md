@@ -3,7 +3,7 @@
 ## Project Overview
 Next.js 16 + React 19 charity website for SERVE (Charity #1043321). **Accessibility-first** for elderly/disabled users in Northamptonshire.
 
-**Stack**: Tailwind v4, TypeScript 5.9, Resend email, Firebase Firestore | **Deploy**: Vercel (lhr1 London)
+**Stack**: Tailwind v4, TypeScript 5.9, Resend email, Firebase Firestore | **Deploy**: own VPS (nginx → pm2 → `next start`), via GitHub Actions on push to `main`. See `DEPLOY.md`.
 
 ---
 
@@ -12,15 +12,16 @@ Next.js 16 + React 19 charity website for SERVE (Charity #1043321). **Accessibil
 ### Server vs Client Components
 Default to Server Components. Add `"use client"` ONLY for hooks/events/browser APIs.
 
-**Client components**: `Header`, `Hero`, `Contact`, `OptimizedImage`, `FacebookFeed`, `BookingManager`, `VolunteerForm`, `TransportBooking`, `Services`, `ScrollReveal`, `RelatedServices`, `NewsletterSignup`, `LayoutWrapper`, `FriendsOfServe`, `GoogleAnalytics`, `ErrorBoundary`, `CookieConsent`, `InstallPrompt`, `WebVitals`, `AhrefsAnalytics`
+**Client components**: `Header`, `Hero`, `Contact`, `OptimizedImage`, `FacebookFeed`, `BookingManager`, `VolunteerForm`, `Services`, `ScrollReveal`, `RelatedServices`, `NewsletterSignup`, `LayoutWrapper`, `GoogleAnalytics`, `ErrorBoundary`, `CookieConsent`, `InstallPrompt`
 
 **Server components**: Page components (`src/app/*/page.tsx`), `Footer`, `MajorTitle`, `Breadcrumb`, `StructuredData`
 
 ### Next.js Configuration (next.config.js)
-- **PWA**: @ducanh2912/next-pwa with workbox caching (disabled in dev)
+- **Build**: Turbopack (Next.js 16 default). No webpack config and no PWA plugin; `public/sw.js` only removes the old service worker
 - **Image optimization**: AVIF-first, 6 device sizes (640-1920px), 1-year cache TTL
-- **Deployment**: Vercel London (lhr1) region with security headers
-- **Compression**: Enabled via `compress: true` + custom headers in vercel.json
+- **Deployment**: built on GitHub Actions and uploaded to the VPS; redirects and security headers live in `next.config.js` (there is no `vercel.json`)
+- **Hosting behind nginx**: in `src/proxy.ts` and `src/lib/rateLimit.ts` read the host and client IP from headers nginx sets, not from `request.nextUrl`
+- **Compression**: Enabled via `compress: true` (nginx also gzips)
 
 ### API Routes Pattern (`src/app/api/*/route.ts`)
 ALL routes MUST follow this structure:
@@ -56,7 +57,7 @@ aria-label={ARIA_LABELS.phoneNumber}  // Predefined labels in accessibility.tsx
 
 ### Forms - Use Existing Hooks (NEVER rebuild)
 ```tsx
-import { useContactForm } from '@/hooks/useContactForm'  // Also: useVolunteerForm, useNewsletterSignup, useAssessmentBooking
+import { useContactForm } from '@/hooks/useContactForm'  // Also: useVolunteerForm, useNewsletterSignup
 import { validateForm, contactFormRules } from '@/utils/validation'
 
 const { isSubmitting, isSubmitted, error, submitForm, resetForm } = useContactForm('/api/contact')
@@ -87,7 +88,7 @@ const auth = await getAuthLazy()
 ### Email Service (Resend)
 - **Pattern**: ALL API routes check `if (!resend)` before sending emails
 - **Graceful degradation**: Log to console in dev/build when RESEND_API_KEY unavailable
-- **Templates**: HTML email templates in `src/lib/emails/contact-templates.ts`
+- **Templates**: HTML email templates are inline in each API route (`src/app/api/*/route.ts`)
 - **Rate limiting**: Applied BEFORE email sending (see API Routes Pattern)
 
 ### Firebase Integration
@@ -131,6 +132,7 @@ npm run build            # Production build
 npm run test:all         # MUST pass before commit (test:forms + test:compatibility + test:booking)
 npm run deploy:prepare   # lint → build → test:all (pre-deployment validation)
 npm run lint             # ESLint check
+npm run deploy:vps       # Direct deploy to the VPS (pushing to main deploys automatically)
 ```
 
 ### Testing Scripts (scripts/)
@@ -147,7 +149,7 @@ npm run lint             # ESLint check
 2. **Touch Targets**: All buttons/links ≥44px (`min-h-[44px] min-w-[44px]`)
 3. **Graceful Failures**: Never crash UI - always return fallback data when Firebase/Resend unavailable
 4. **Brand Colors**: Only `serve-*` from globals.css `@theme` - never raw Tailwind colors
-5. **Forms**: Use existing hooks (`useContactForm`, `useVolunteerForm`, `useNewsletterSignup`, `useAssessmentBooking`)
+5. **Forms**: Use existing hooks (`useContactForm`, `useVolunteerForm`, `useNewsletterSignup`)
 6. **Images**: Always `<OptimizedImage>` with meaningful `alt` text - never raw `<Image>`
 7. **British English**: UK spelling (colour, organisation, favour, centre)
 8. **Rate Limiting**: ALL API routes use `checkRateLimit()` with `rateLimiters.contact|.newsletter|.api`
@@ -166,7 +168,9 @@ npm run lint             # ESLint check
 | Rate limiting | `src/lib/rateLimit.ts` |
 | Firebase config | `src/lib/firebase.ts` |
 | Brand colours | `src/app/globals.css` (@theme block) |
-| Email templates | `src/lib/emails/contact-templates.ts` |
+| Email templates | `src/app/api/*/route.ts` (inline) |
+| Structured data (JSON-LD) | `src/components/StructuredData.tsx`, `FAQSchema.tsx`, `Breadcrumb.tsx` |
+| AI crawler summary | `public/llms.txt` (keep in sync with services and contact details) |
 
 ---
 

@@ -21,17 +21,36 @@ interface FacebookPost {
   postType?: 'News' | 'Event'
 }
 
+function getFallbackPosts(): FacebookPost[] {
+  return [
+    { 
+      id: '239416516576684_1259528296206219', 
+      message: 'We\'re excited to announce that Lago Lounge Rushden Lakes have chosen SERVE as their December charity. They\'ve got a whole month of festive fun planned, with every event helping raise funds to support older people, adults with disabilities and their carers in our community. 🎄✨',
+      created_time: '2025-11-23T12:52:16+0000',
+      permalink_url: 'https://www.facebook.com/1250260380466344/posts/1259528296206219' 
+    },
+    { 
+      id: '239416516576684_1257799823045733', 
+      message: 'We\'re sending a very big THANK YOU to Gill Mercer and David Carver for their kindness.❤️ The Day Centre has just received the first items from our wish list and we\'re so excited. Your generosity means so much to us and will make a real difference for everyone who visits.',
+      created_time: '2025-11-21T09:14:29+0000',
+      permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257799823045733' 
+    },
+    { 
+      id: '239416516576684_1257027946456254', 
+      message: '🎄A UNIQUE CHRISTMAS GIFT WHILST ALSO SUPPORTING YOUR COMMUNITY🎄 This isn\'t just a present - it\'s a professionally written and recorded personalised song, created just for you. With a suggested minimum donation of £50, your unforgettable gift also supports our community services.',
+      created_time: '2025-11-20T10:44:24+0000',
+      permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257027946456254' 
+    },
+  ]
+}
+
 export default function FacebookFeed() {
   const [posts, setPosts] = useState<FacebookPost[]>([])
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [isLoading, setIsLoading] = useState(true)
 
   useEffect(() => {
     let cancelled = false
     const fetchPosts = async () => {
       try {
-        setIsLoading(true)
-        
         // Check if Firebase is configured
         if (!db) {
           console.warn('Firebase not configured, using fallback posts')
@@ -65,7 +84,6 @@ export default function FacebookFeed() {
         if (!cancelled) {
           // If we have posts from Firestore, use them; otherwise show fallback
           setPosts(firestorePosts.length > 0 ? firestorePosts : getFallbackPosts())
-          setIsLoading(false)
           
           if (process.env.NODE_ENV === 'development') {
             console.log('[FacebookFeed] Loaded', firestorePosts.length, 'posts from Firestore')
@@ -77,7 +95,6 @@ export default function FacebookFeed() {
         }
         if (!cancelled) {
           setPosts(getFallbackPosts())
-          setIsLoading(false)
         }
       }
     }
@@ -93,29 +110,6 @@ export default function FacebookFeed() {
       clearInterval(interval)
     }
   }, [])
-
-  const getFallbackPosts = (): FacebookPost[] => {
-    return [
-      { 
-        id: '239416516576684_1259528296206219', 
-        message: 'We\'re excited to announce that Lago Lounge Rushden Lakes have chosen SERVE as their December charity. They\'ve got a whole month of festive fun planned, with every event helping raise funds to support older people, adults with disabilities and their carers in our community. 🎄✨',
-        created_time: '2025-11-23T12:52:16+0000',
-        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1259528296206219' 
-      },
-      { 
-        id: '239416516576684_1257799823045733', 
-        message: 'We\'re sending a very big THANK YOU to Gill Mercer and David Carver for their kindness.❤️ The Day Centre has just received the first items from our wish list and we\'re so excited. Your generosity means so much to us and will make a real difference for everyone who visits.',
-        created_time: '2025-11-21T09:14:29+0000',
-        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257799823045733' 
-      },
-      { 
-        id: '239416516576684_1257027946456254', 
-        message: '🎄A UNIQUE CHRISTMAS GIFT WHILST ALSO SUPPORTING YOUR COMMUNITY🎄 This isn\'t just a present - it\'s a professionally written and recorded personalised song, created just for you. With a suggested minimum donation of £50, your unforgettable gift also supports our community services.',
-        created_time: '2025-11-20T10:44:24+0000',
-        permalink_url: 'https://www.facebook.com/1250260380466344/posts/1257027946456254' 
-      },
-    ]
-  }
 
   const formatDate = (dateString?: string) => {
     if (!dateString) return 'Recent'

@@ -38,8 +38,8 @@ export function generateSEOMetadata(config: SEOConfig): Metadata {
   const seoImages = images.length > 0 ? images : [
     {
       url: defaultImage,
-      width: 1200,
-      height: 630,
+      width: 1024,
+      height: 1024,
       alt: 'SERVE Charity Logo - Supporting Independence',
     }
   ]

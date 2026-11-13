@@ -73,55 +73,6 @@ export function ExternalLink({
 
 import React from 'react'
 
-// Accessible button component
-export const AccessibleButton = React.forwardRef<
-  HTMLButtonElement,
-  {
-    children: React.ReactNode
-    onClick?: () => void
-    className?: string
-    ariaLabel?: string
-    ariaExpanded?: boolean
-    ariaControls?: string
-    disabled?: boolean
-    type?: 'button' | 'submit' | 'reset'
-  }
->(({
-  children,
-  onClick,
-  className = '',
-  ariaLabel,
-  ariaExpanded,
-  ariaControls,
-  disabled = false,
-  type = 'button'
-}, ref) => {
-  return (
-    <button
-      ref={ref}
-      type={type}
-      onClick={onClick}
-      className={`${className} ${FOCUS_STYLES.button} ${disabled ? 'opacity-50 cursor-not-allowed' : ''}`}
-      aria-label={ariaLabel}
-      aria-expanded={ariaExpanded}
-      aria-controls={ariaControls}
-      disabled={disabled}
-    >
-      {children}
-    </button>
-  )
-})
-
-AccessibleButton.displayName = 'AccessibleButton'
-
-// Color contrast checker (for development)
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-export function getContrastRatio(_color1: string, _color2: string): number {
-  // This is a simplified version - in production, you'd use a proper color contrast library
-  // Returns a ratio that should be >= 4.5 for AA compliance, >= 7 for AAA
-  return 4.5 // Placeholder - implement proper calculation if needed
-}
-
 // Keyboard navigation helpers
 export const KEYBOARD_KEYS = {
   ENTER: 'Enter',

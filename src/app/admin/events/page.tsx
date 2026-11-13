@@ -138,16 +138,16 @@ export default function AdminEventsPage() {
       } else {
         // Add new event
         const dataForAdd = Object.fromEntries(
-          Object.entries(baseDataToSave).filter(([_, v]) => v !== undefined)
+          Object.entries(baseDataToSave).filter(([, v]) => v !== undefined)
         )
         await addDoc(collection(db, 'events'), dataForAdd)
       }
 
       loadEvents()
       resetForm()
-    } catch (error: any) {
+    } catch (error) {
       console.error('Error saving event:', error)
-      alert(`Failed to save event: ${error?.message || 'Unknown error. Check console.'}`)
+      alert(`Failed to save event: ${error instanceof Error ? error.message : 'Unknown error. Check console.'}`)
     }
   }
 
@@ -580,7 +580,7 @@ export default function AdminEventsPage() {
           {events.length === 0 && (
             <div className="text-center py-12 bg-gray-50 rounded-lg">
               <CalendarIcon className="w-16 h-16 text-gray-400 mx-auto mb-4" />
-              <p className="text-gray-600 text-lg">No events yet. Click "Add Event" to create your first event.</p>
+              <p className="text-gray-600 text-lg">No events yet. Click &quot;Add Event&quot; to create your first event.</p>
             </div>
           )}
         </div>

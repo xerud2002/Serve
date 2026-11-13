@@ -1,35 +1,26 @@
 import { Metadata } from 'next'
 import Link from 'next/link'
 import MajorTitle from '@/components/MajorTitle'
+import { generateSEOMetadata } from '@/lib/seo'
+import { FOCUS_STYLES, ARIA_LABELS } from '@/lib/accessibility'
 import { 
   PhoneIcon,
   EnvelopeIcon,
   ClockIcon,
   CheckCircleIcon,
   ShieldCheckIcon,
-  DocumentTextIcon,
   ChatBubbleLeftRightIcon,
   SparklesIcon,
   HandThumbUpIcon,
   BuildingOfficeIcon
 } from '@heroicons/react/24/outline'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Compliments & Complaints | Feedback | SERVE Charity',
   description: 'SERVE\'s compliments and complaints procedure: 3-stage process, response timeframes, and how to provide feedback. We take all comments seriously.',
   keywords: ['complaints procedure', 'SERVE complaints', 'compliments', 'care service feedback', 'charity complaints', 'Care Ombudsman', 'raise a concern'],
-  alternates: {
-    canonical: '/complaints/',
-  },
-  openGraph: {
-    title: 'Compliments & Complaints | SERVE Charity',
-    description: 'How to provide feedback, compliments or raise concerns about SERVE services',
-    url: 'https://serve.org.uk/complaints',
-    siteName: 'SERVE - Supporting Independence',
-    locale: 'en_GB',
-    type: 'website',
-  },
-}
+  canonicalUrl: '/complaints/',
+})
 
 export default function ComplaintsPage() {
   return (
@@ -56,7 +47,7 @@ export default function ComplaintsPage() {
             dark
           />
           <p className="text-xl text-blue-100 leading-relaxed max-w-3xl mx-auto">
-            Your feedback helps us recognise what we're doing well and improve where needed.
+            Your feedback helps us recognise what we&apos;re doing well and improve where needed.
           </p>
         </div>
       </section>
@@ -75,11 +66,11 @@ export default function ComplaintsPage() {
           <div className="prose prose-lg max-w-none text-gray-700">
             <p>
               At SERVE, we are committed to providing high-quality, person-centred services for older people 
-              and adults with disabilities. Your feedback helps us recognise what we're doing well and improve 
+              and adults with disabilities. Your feedback helps us recognise what we&apos;re doing well and improve 
               where needed.
             </p>
             <p className="mb-0">
-              If something hasn't gone as expected, we encourage you to let us know. We take all concerns 
+              If something hasn&apos;t gone as expected, we encourage you to let us know. We take all concerns 
               seriously and aim to resolve issues quickly, fairly and confidentially.
             </p>
           </div>
@@ -130,7 +121,7 @@ export default function ComplaintsPage() {
                 <div className="flex-1 bg-linear-to-br from-green-50 to-white rounded-2xl p-6 border border-green-100">
                   <h3 className="text-2xl font-bold text-gray-900 mb-3">Stage 2 – Review by the CEO</h3>
                   <p className="text-gray-700 mb-4 leading-relaxed">
-                    If you're not satisfied with the outcome, you can escalate your complaint to our Chief Executive 
+                    If you&apos;re not satisfied with the outcome, you can escalate your complaint to our Chief Executive 
                     Officer. You will receive an acknowledgement within <strong className="text-serve-green-700">7 working days</strong> and 
                     a further response within <strong className="text-serve-green-700">21 working days</strong>.
                   </p>
@@ -139,8 +130,8 @@ export default function ComplaintsPage() {
                       <strong className="text-amber-700">For domiciliary (personal) care complaints:</strong>
                     </p>
                     <p className="text-sm text-gray-600">
-                      The CEO's decision is final. If you remain dissatisfied, you can contact the <strong>Care Ombudsman</strong> on{' '}
-                      <a href="tel:03300611614" className="text-serve-blue-600 hover:text-serve-blue-700 font-semibold">0330 061 1614</a>.
+                      The CEO&apos;s decision is final. If you remain dissatisfied, you can contact the <strong>Care Ombudsman</strong> on{' '}
+                      <a href="tel:03300611614" className={`inline-flex items-center min-h-11 text-serve-blue-600 hover:text-serve-blue-700 font-semibold ${FOCUS_STYLES.link}`}>0330 061 1614</a>.
                     </p>
                   </div>
                 </div>
@@ -206,7 +197,7 @@ export default function ComplaintsPage() {
             <div className="flex items-start gap-4 mb-4">
               <HandThumbUpIcon className="w-8 h-8 text-amber-600 shrink-0 mt-1" />
               <p className="text-gray-700 leading-relaxed text-lg">
-                If you've had a positive experience with a member of our team or one of our services, we'd love to 
+                If you&apos;ve had a positive experience with a member of our team or one of our services, we&apos;d love to 
                 hear from you. Compliments help us celebrate our staff and volunteers and share good practice across 
                 the organisation.
               </p>
@@ -232,7 +223,8 @@ export default function ComplaintsPage() {
               <h3 className="text-lg font-bold text-gray-900 mb-2">Phone</h3>
               <a 
                 href="tel:01933315555" 
-                className="text-2xl font-bold text-serve-blue-600 hover:text-serve-blue-700 transition-colors"
+                aria-label={ARIA_LABELS.phoneNumber}
+                className={`inline-flex items-center justify-center min-h-11 min-w-11 text-2xl font-bold text-serve-blue-600 hover:text-serve-blue-700 transition-colors ${FOCUS_STYLES.link}`}
               >
                 01933 315555
               </a>
@@ -246,7 +238,8 @@ export default function ComplaintsPage() {
               <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
               <a 
                 href="mailto:info@serve.org.uk" 
-                className="text-lg font-bold text-purple-600 hover:text-purple-700 transition-colors break-all"
+                aria-label={ARIA_LABELS.emailAddress}
+                className={`inline-flex items-center justify-center min-h-11 min-w-11 text-lg font-bold text-purple-600 hover:text-purple-700 transition-colors break-all ${FOCUS_STYLES.link}`}
               >
                 info@serve.org.uk
               </a>
@@ -284,21 +277,21 @@ export default function ComplaintsPage() {
 
         {/* Contact CTA */}
         <div className="bg-linear-to-br from-serve-blue-600 to-purple-700 rounded-2xl p-8 text-white text-center">
-          <h2 className="text-3xl font-bold mb-4">We're Here to Listen</h2>
+          <h2 className="text-3xl font-bold mb-4">We&apos;re Here to Listen</h2>
           <p className="text-blue-100 mb-6 text-lg max-w-2xl mx-auto">
             Whether you want to share a compliment or raise a concern, our team is ready to help.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href="tel:01933315555"
-              className="inline-flex items-center justify-center bg-white text-serve-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg min-h-11 min-w-11"
+              className={`inline-flex items-center justify-center bg-white text-serve-blue-700 hover:bg-blue-50 px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 shadow-lg min-h-11 min-w-11 ${FOCUS_STYLES.button}`}
             >
               <PhoneIcon className="w-6 h-6 mr-2" />
               Call 01933 315555
             </a>
             <a
               href="mailto:info@serve.org.uk"
-              className="inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 border border-white/30 min-h-11 min-w-11"
+              className={`inline-flex items-center justify-center bg-white/10 backdrop-blur-sm hover:bg-white/20 text-white px-8 py-4 rounded-xl text-lg font-bold transition-all duration-300 border border-white/30 min-h-11 min-w-11 ${FOCUS_STYLES.button}`}
             >
               <EnvelopeIcon className="w-6 h-6 mr-2" />
               Email Us
@@ -312,19 +305,19 @@ export default function ComplaintsPage() {
           <div className="grid sm:grid-cols-3 gap-4">
             <Link 
               href="/privacy/" 
-              className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
+              className={`inline-flex items-center min-h-11 text-serve-blue-600 hover:text-serve-blue-700 hover:underline ${FOCUS_STYLES.link}`}
             >
               Privacy Policy →
             </Link>
             <Link 
               href="/accessibility/" 
-              className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
+              className={`inline-flex items-center min-h-11 text-serve-blue-600 hover:text-serve-blue-700 hover:underline ${FOCUS_STYLES.link}`}
             >
               Accessibility →
             </Link>
             <Link 
               href="/contact/" 
-              className="text-serve-blue-600 hover:text-serve-blue-700 hover:underline"
+              className={`inline-flex items-center min-h-11 text-serve-blue-600 hover:text-serve-blue-700 hover:underline ${FOCUS_STYLES.link}`}
             >
               Contact Us →
             </Link>

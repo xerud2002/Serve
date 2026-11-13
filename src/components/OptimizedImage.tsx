@@ -81,25 +81,3 @@ export default function OptimizedImage({
   // eslint-disable-next-line jsx-a11y/alt-text -- alt is passed via imageProps.alt
   return <Image {...imageProps} />
 }
-
-// Predefined image configurations for SERVE website
-export const SERVE_IMAGES = {
-  award: {
-    src: '/pics/regional-winner.webp',
-    alt: 'SERVE wins Best Homecare Team East Midlands - Great British Care Awards 2024',
-    width: 400,
-    height: 300
-  },
-  logo: {
-    src: '/images/serve.webp',
-    alt: 'SERVE charity logo - Supporting Independence',
-    width: 400,
-    height: 200
-  },
-  serveLogo: {
-    src: '/pics/Serve-Logo.webp',
-    alt: 'SERVE charity logo',
-    width: 480,
-    height: 240
-  }
-}

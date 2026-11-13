@@ -18,7 +18,6 @@ import {
   ShoppingBagIcon,
   BeakerIcon
 } from '@heroicons/react/24/outline'
-import MajorTitle from '@/components/MajorTitle'
 
 const transportServices = [
   {
@@ -67,15 +66,6 @@ const serviceAreas = [
   { name: 'Corby', coverage: 'Limited coverage' },
   { name: 'Northampton', coverage: 'Major hospitals only' },
   { name: 'Surrounding villages', coverage: 'On request' }
-]
-
-// Pricing data - retained for potential future use
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-const pricing = [
-  { service: 'Local journeys (up to 5 miles)', price: 'From £8', description: 'Perfect for local shopping and appointments' },
-  { service: 'Medium journeys (5-15 miles)', price: 'From £15', description: 'Ideal for hospital visits and family trips' },
-  { service: 'Long journeys (15+ miles)', price: 'From £25', description: 'For specialist appointments and distant destinations' },
-  { service: 'Return journeys', price: '10% discount', description: 'Save when booking return transport' }
 ]
 
 export default function TransportPage() {

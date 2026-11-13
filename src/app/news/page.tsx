@@ -6,7 +6,6 @@ import {
   ArrowRightIcon,
   CalendarDaysIcon,
   SparklesIcon,
-  NewspaperIcon,
   UserGroupIcon
 } from '@heroicons/react/24/outline'
 import { StarIcon as StarIconSolid } from '@heroicons/react/24/solid'
@@ -18,7 +17,7 @@ import EventSchema from '@/components/EventSchema'
 import EventsGrid from '@/components/EventsGrid'
 
 const FacebookFeed = dynamic(() => import('@/components/FacebookFeed'), {
-  loading: () => <div className="min-h-[500px] bg-gray-50 animate-pulse" />
+  loading: () => <div className="min-h-125 bg-gray-50 animate-pulse" />
 })
 
 export const metadata = generateSEOMetadata(seoConfigs.news)
@@ -68,7 +67,7 @@ export default async function NewsPage() {
       <section className="relative py-24 lg:py-32 bg-linear-to-br from-serve-blue-900 via-serve-blue-800 to-serve-blue-900 text-white overflow-hidden">
         {/* Animated gradient orbs */}
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-yellow-400/20 rounded-full blur-3xl animate-pulse" />
+          <div className="absolute -top-40 -right-40 w-125 h-125 bg-yellow-400/20 rounded-full blur-3xl animate-pulse" />
           <div className="absolute top-1/2 -left-40 w-96 h-96 bg-purple-400/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
           <div className="absolute -bottom-20 right-1/3 w-80 h-80 bg-pink-400/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
         </div>

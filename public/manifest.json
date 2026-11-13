@@ -62,42 +62,26 @@
       "purpose": "any maskable"
     }
   ],
-  "screenshots": [
-    {
-      "src": "/screenshots/desktop-home.png",
-      "sizes": "1920x1080",
-      "type": "image/png",
-      "form_factor": "wide",
-      "label": "SERVE Homepage"
-    },
-    {
-      "src": "/screenshots/mobile-home.png",
-      "sizes": "390x844",
-      "type": "image/png",
-      "form_factor": "narrow",
-      "label": "SERVE Mobile View"
-    }
-  ],
   "shortcuts": [
     {
       "name": "Contact SERVE",
       "short_name": "Contact",
       "description": "Get in touch with SERVE",
-      "url": "/contact",
+      "url": "/contact/",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     },
     {
       "name": "Donate",
       "short_name": "Donate",
       "description": "Support SERVE with a donation",
-      "url": "/donate",
+      "url": "/donate/",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     },
     {
       "name": "Volunteer",
       "short_name": "Volunteer",
       "description": "Join our team of volunteers",
-      "url": "/volunteer",
+      "url": "/volunteer/",
       "icons": [{ "src": "/icons/icon-96x96.png", "sizes": "96x96" }]
     }
   ]

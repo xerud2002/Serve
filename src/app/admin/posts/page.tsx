@@ -6,7 +6,7 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { db, storage } from '@/lib/firebase'
 import { collection, addDoc, updateDoc, deleteDoc, doc, getDocs, orderBy, query } from 'firebase/firestore'
-import { ref, uploadBytes, getDownloadURL, deleteObject } from 'firebase/storage'
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage'
 
 interface FacebookPost {
   id?: string // Firestore document ID

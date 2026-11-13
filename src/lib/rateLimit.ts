@@ -85,29 +85,27 @@ export function checkRateLimit(ip: string, config: RateLimitConfig): RateLimitRe
 }
 
 /**
- * Get client IP from request headers
- * Works with Vercel, Cloudflare, and direct connections
+ * Get client IP from request headers.
+ *
+ * The site runs behind nginx. Only values nginx writes itself can be trusted:
+ * X-Real-IP, or the last entry of X-Forwarded-For (nginx appends the connecting
+ * address). Earlier X-Forwarded-For entries are supplied by the client and
+ * would let anyone dodge the rate limit by sending a made-up address.
  */
 export function getClientIP(request: Request): string {
-  // Vercel
-  const forwarded = request.headers.get('x-forwarded-for')
-  if (forwarded) {
-    return forwarded.split(',')[0].trim()
-  }
-
-  // Cloudflare
-  const cfIP = request.headers.get('cf-connecting-ip')
-  if (cfIP) {
-    return cfIP
-  }
-
-  // Real IP header
-  const realIP = request.headers.get('x-real-ip')
+  const realIP = request.headers.get('x-real-ip')?.trim()
   if (realIP) {
     return realIP
   }
 
-  // Fallback
+  const forwarded = request.headers.get('x-forwarded-for')
+  if (forwarded) {
+    const entries = forwarded.split(',').map(entry => entry.trim()).filter(Boolean)
+    if (entries.length > 0) {
+      return entries[entries.length - 1]
+    }
+  }
+
   return 'unknown'
 }
 

@@ -19,6 +19,7 @@ import {
   ChevronDownIcon
 } from '@heroicons/react/24/outline'
 import { CheckBadgeIcon } from '@heroicons/react/24/solid'
+import FAQSchema from '@/components/FAQSchema'
 import { validateForm, contactFormRules, type ValidationError } from '@/utils/validation'
 import { analytics } from '@/components/GoogleAnalytics'
 
@@ -41,7 +42,7 @@ export default function Contact() {
   const faqs = [
     {
       question: "What services does SERVE provide?",
-      answer: "We offer personal care, day care services, community transport, befriending, and community services across Northamptonshire."
+      answer: "We offer personal and domestic care, home help, House to Home deep cleaning and decluttering, activities at home, befriending, day care, community transport, and community services across Northamptonshire."
     },
     {
       question: "How do I arrange a care assessment?",
@@ -635,7 +636,7 @@ export default function Contact() {
             </div>
             <h4 className="text-xl font-bold mb-2">CQC Registered</h4>
             <p className="text-blue-100/80 text-sm leading-relaxed">
-              Regulated by the Care Quality Commission with a 'Good' rating
+              Regulated by the Care Quality Commission with a &apos;Good&apos; rating
             </p>
             <a 
               href="https://www.cqc.org.uk/location/1-2165219210"
@@ -700,10 +701,11 @@ export default function Contact() {
               <span className="bg-linear-to-r from-white to-blue-100 bg-clip-text text-transparent">Quick Answers</span>
             </h2>
             <p className="text-base md:text-lg lg:text-xl text-blue-100/90 max-w-3xl mx-auto">
-              Find answers to common questions about SERVE's services
+              Find answers to common questions about SERVE&apos;s services
             </p>
           </div>
 
+          <FAQSchema faqs={faqs} />
           <div className="max-w-4xl mx-auto space-y-4">
             {faqs.map((faq, index) => (
               <div 
@@ -714,6 +716,7 @@ export default function Contact() {
                   onClick={() => setOpenFaqIndex(openFaqIndex === index ? null : index)}
                   className="w-full px-8 py-6 flex items-center justify-between text-left focus:outline-none focus:ring-2 focus:ring-serve-green-400 focus:ring-inset"
                   aria-expanded={openFaqIndex === index}
+                  aria-controls={`contact-faq-${index}`}
                 >
                   <span className="text-lg font-bold pr-8">{faq.question}</span>
                   <ChevronDownIcon 
@@ -722,11 +725,10 @@ export default function Contact() {
                     }`}
                   />
                 </button>
-                {openFaqIndex === index && (
-                  <div className="px-8 pb-6 pt-2">
-                    <p className="text-blue-100/90 leading-relaxed">{faq.answer}</p>
-                  </div>
-                )}
+                {/* Always rendered so the answers are in the HTML for search engines and AI crawlers */}
+                <div id={`contact-faq-${index}`} hidden={openFaqIndex !== index} className="px-8 pb-6 pt-2">
+                  <p className="text-blue-100/90 leading-relaxed">{faq.answer}</p>
+                </div>
               </div>
             ))}
           </div>

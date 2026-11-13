@@ -1,59 +1,55 @@
 import { NextResponse } from 'next/server'
 import type { NextRequest } from 'next/server'
 
+const CANONICAL_HOST = 'serve.org.uk'
+
+const TRACKING_PARAMS = [
+  'fbclid',
+  'gclid',
+  'utm_source',
+  'utm_medium',
+  'utm_campaign',
+  'utm_term',
+  'utm_content',
+  'ref',
+  '_ga',
+  'mc_cid',
+  'mc_eid',
+]
+
 /**
  * Middleware to handle SEO canonicalization:
  * 1. Redirect www → non-www
- * 2. Redirect http → https (via header check)
- * 3. Strip tracking query params (fbclid, utm_*, gclid, etc.) to prevent duplicate pages
+ * 2. Strip tracking query params (fbclid, utm_*, gclid, etc.) to prevent duplicate pages
+ *
+ * http → https is done by nginx / the hosting platform. It must not be repeated here:
+ * the X-Forwarded-Proto value set by the reverse proxy is not reliable and a wrong
+ * value would cause a redirect loop.
  */
 export default function proxy(request: NextRequest) {
   const url = request.nextUrl.clone()
-  const hostname = url.hostname
-  let shouldRedirect = false
 
-  // 1. Redirect www.serve.org.uk → serve.org.uk
-  if (hostname === 'www.serve.org.uk') {
-    url.hostname = 'serve.org.uk'
-    shouldRedirect = true
-  }
-
-  // 2. Redirect http → https (check X-Forwarded-Proto header)
-  const proto = request.headers.get('x-forwarded-proto')
-  if (proto === 'http' && hostname.includes('serve.org.uk')) {
-    url.protocol = 'https'
-    shouldRedirect = true
-  }
-
-  // 3. Strip tracking query parameters that create duplicate pages
-  const trackingParams = [
-    'fbclid',
-    'gclid',
-    'utm_source',
-    'utm_medium',
-    'utm_campaign',
-    'utm_term',
-    'utm_content',
-    'ref',
-    '_ga',
-    'mc_cid',
-    'mc_eid',
-  ]
+  // Behind a reverse proxy `request.nextUrl` carries the internal origin (localhost:3000),
+  // so the public hostname has to be read from the forwarded Host header.
+  const host = (request.headers.get('x-forwarded-host') ?? request.headers.get('host') ?? '')
+    .split(',')[0]
+    .trim()
+    .toLowerCase()
+    .replace(/:\d+$/, '')
 
   let hasTrackingParams = false
-  for (const param of trackingParams) {
+  for (const param of TRACKING_PARAMS) {
     if (url.searchParams.has(param)) {
       url.searchParams.delete(param)
       hasTrackingParams = true
     }
   }
 
-  // Only redirect if there are no other query params left, or if tracking params were the only ones
-  if (hasTrackingParams) {
-    shouldRedirect = true
+  if (host === `www.${CANONICAL_HOST}`) {
+    return NextResponse.redirect(new URL(`${url.pathname}${url.search}`, `https://${CANONICAL_HOST}`), 301)
   }
 
-  if (shouldRedirect) {
+  if (hasTrackingParams) {
     return NextResponse.redirect(url, 301)
   }
 

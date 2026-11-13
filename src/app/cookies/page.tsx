@@ -1,14 +1,13 @@
 import MajorTitle from '@/components/MajorTitle'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Cookie Policy | SERVE',
   description: 'Information about how SERVE uses cookies and similar technologies on our website, including cookie types, consent management and your rights.',
-  alternates: {
-    canonical: '/cookies/',
-  },
-}
+  canonicalUrl: '/cookies/',
+})
 
 export default function CookiePolicyPage() {
   return (

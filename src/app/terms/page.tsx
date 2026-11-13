@@ -1,14 +1,13 @@
 import MajorTitle from '@/components/MajorTitle'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Terms & Conditions | SERVE',
   description: 'Terms and conditions of use for the SERVE charity website, including acceptable use, copyright, liability limitations and user rights.',
-  alternates: {
-    canonical: '/terms/',
-  },
-}
+  canonicalUrl: '/terms/',
+})
 
 export default function TermsPage() {
   return (

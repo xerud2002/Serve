@@ -1,286 +1,99 @@
-# VPS Deployment Guide
+# Deploying SERVE to the VPS
 
-This guide explains how to deploy updates to the SERVE website VPS at `92.205.108.255`.
+The site runs as `next start` under pm2 (process `serve-website`) in `/var/www/serve`
+on the VPS (`webadmin@92.205.108.255`), behind nginx. The server never builds the
+site: a finished build is uploaded and switched in.
 
-## Quick Deploy
+There are two ways to deploy. Both end with the same script on the server,
+`scripts/vps-activate.sh`.
 
-Run the automated deployment script:
+## 1. Automatic: push to `main`
 
-```bash
-npm run deploy:vps
+Every push to `main` runs `.github/workflows/deploy.yml` on GitHub: install, lint,
+test, build, upload to the VPS, activate, then check <https://serve.org.uk> responds.
+Pushes that only change Markdown files do not deploy.
+
+### One-time setup
+
+```powershell
+npm run deploy:setup
 ```
 
-Or skip tests (not recommended):
+Run this yourself on your own machine. It:
 
-```bash
-npm run deploy:vps:skip-tests
+1. creates an SSH key used only for deploys (`~/.ssh/serve_deploy_ed25519`, outside the repo),
+2. adds the public half to the VPS (you type the VPS password once),
+3. stores the private half as the GitHub Actions secret `VPS_SSH_KEY`,
+4. copies the `NEXT_PUBLIC_*` values from `.env.local` to GitHub Actions variables
+   (they are compiled into the build, so GitHub needs them),
+5. sets `VPS_DEPLOY_ENABLED=true`, which switches the workflow on.
+
+`npm run deploy:setup -- -DryRun` shows each step without changing anything.
+Until setup has been run, the workflow is skipped.
+
+### Day to day
+
+```powershell
+git push origin main          # deploys
+gh run watch                  # follow the deploy
+gh workflow run deploy.yml    # deploy again without pushing
+gh variable set VPS_DEPLOY_ENABLED --body false   # pause automatic deploys
 ```
 
-## What the Script Does
+## 2. Direct: from your machine
 
-1. **Pre-deployment Checks**:
-   - Runs ESLint to check code quality
-   - Runs all test suites (forms, compatibility, booking)
-   - Builds project locally to verify no errors
-
-2. **Git Commit & Push**:
-   - Shows current changes
-   - Prompts for commit message
-   - Pushes to `main` branch
-
-3. **VPS Deployment** (choose one method):
-   - **Git Pull**: Automatically pulls changes on VPS and rebuilds
-   - **Manual SSH**: Provides commands to run manually
-   - **Instructions**: Shows full deployment guide
-
-4. **Post-deployment**:
-   - Verifies website is responding
-   - Shows useful monitoring commands
-
-## Manual Deployment Steps
-
-If you prefer to deploy manually:
-
-### 1. SSH into VPS
-
-```bash
-ssh root@92.205.108.255
+```powershell
+npm run deploy:vps               # lint, test, build, upload, activate
+npm run deploy:vps:skip-checks   # same, without lint and tests
 ```
 
-### 2. Navigate to Project
+This builds locally using `.env.local` and asks for the VPS password (or uses your
+SSH key). Use it to deploy without pushing, or if GitHub is unavailable.
+
+## What happens on the server
+
+`scripts/vps-activate.sh`:
+
+1. unpacks the upload into a staging folder and checks it is complete,
+2. runs `npm install --omit=dev` only if `package.json` or `package-lock.json` changed,
+3. swaps in `.next`, `public` and `next.config.js`, then restarts pm2,
+4. waits for the site to answer on port 3000,
+5. if it does not answer, puts the previous build back and reports failure.
+
+The previous build is kept in `/var/www/serve/.release-previous` until the next deploy.
+`public` is replaced as a whole, so files deleted from the repo disappear from the server.
+
+### Manual rollback
 
 ```bash
+ssh webadmin@92.205.108.255
 cd /var/www/serve
-```
-
-### 3. Pull Latest Changes
-
-```bash
-git pull origin main
-```
-
-### 4. Install Dependencies
-
-```bash
-npm ci
-```
-
-### 5. Build Next.js
-
-```bash
-npm run build
-```
-
-### 6. Restart Service
-
-If using PM2:
-```bash
+rm -rf .next public next.config.js
+mv .release-previous/.next .release-previous/public .release-previous/next.config.js .
 pm2 restart serve-website
 ```
 
-If using systemd:
-```bash
-sudo systemctl restart serve-website
-```
+If the failed release also changed dependencies, copy `package.json` and
+`package-lock.json` back from `.release-previous` and run
+`npm install --omit=dev --legacy-peer-deps` before restarting.
 
-Manual restart:
-```bash
-pkill -f 'next start'
-nohup npm run start > /dev/null 2>&1 &
-```
+## Environment variables
 
-## PM2 Setup (Recommended)
+| Where | What |
+|-------|------|
+| GitHub Actions variables (or local `.env.local` for direct deploys) | `NEXT_PUBLIC_FIREBASE_*`, `NEXT_PUBLIC_GA_MEASUREMENT_ID` - compiled into the build |
+| `/var/www/serve/.env.local` on the VPS | `RESEND_API_KEY` - read at runtime, never uploaded by a deploy |
 
-### Initial Setup
+After editing `.env.local` on the VPS, run `pm2 restart serve-website --update-env`.
 
-1. Copy `ecosystem.config.js` to VPS:
+## Server reference
 
 ```bash
-scp ecosystem.config.js root@92.205.108.255:/var/www/serve/
-```
-
-2. Start with PM2 on VPS:
-
-```bash
-ssh root@92.205.108.255
-cd /var/www/serve
-pm2 start ecosystem.config.js
-pm2 save
-pm2 startup
-```
-
-### PM2 Commands
-
-```bash
-# Check status
 pm2 status
-
-# View logs
-pm2 logs serve-website
-
-# View last 50 lines
-pm2 logs serve-website --lines 50
-
-# Real-time monitoring
-pm2 monit
-
-# Restart application
-pm2 restart serve-website
-
-# Stop application
-pm2 stop serve-website
-
-# Delete from PM2
-pm2 delete serve-website
-```
-
-## Systemd Service Setup (Alternative)
-
-Create `/etc/systemd/system/serve-website.service`:
-
-```ini
-[Unit]
-Description=SERVE Next.js Website
-After=network.target
-
-[Service]
-Type=simple
-User=www-data
-WorkingDirectory=/var/www/serve
-ExecStart=/usr/bin/npm start
-Restart=on-failure
-Environment=NODE_ENV=production
-Environment=PORT=3000
-
-[Install]
-WantedBy=multi-user.target
-```
-
-Enable and start:
-
-```bash
-sudo systemctl daemon-reload
-sudo systemctl enable serve-website
-sudo systemctl start serve-website
-```
-
-## Nginx Configuration
-
-The nginx config at `/etc/nginx/sites-available/default` should already be configured to proxy to port 3000.
-
-If you need to update it:
-
-```bash
-sudo nano /etc/nginx/sites-available/default
-sudo nginx -t
-sudo systemctl reload nginx
-```
-
-## Troubleshooting
-
-### Website not responding after deployment
-
-1. Check if Next.js is running:
-```bash
-ssh root@92.205.108.255
-pm2 status
-# OR
-ps aux | grep 'next start'
-```
-
-2. View logs for errors:
-```bash
 pm2 logs serve-website --lines 100
-# OR
-tail -f /var/www/serve/logs/err.log
-```
-
-3. Check port 3000:
-```bash
-curl http://localhost:3000
-```
-
-4. Check nginx:
-```bash
-sudo systemctl status nginx
-sudo nginx -t
-```
-
-### Build fails on VPS
-
-If VPS has limited RAM, build locally and deploy the `.next` folder:
-
-```bash
-# On local machine
-npm run build
-scp -r .next root@92.205.108.255:/var/www/serve/
-
-# On VPS
-ssh root@92.205.108.255
-cd /var/www/serve
 pm2 restart serve-website
+sudo nginx -t && sudo systemctl reload nginx
 ```
 
-### Permission issues
-
-```bash
-ssh root@92.205.108.255
-cd /var/www/serve
-sudo chown -R www-data:www-data .
-sudo chmod -R 755 .
-```
-
-## Environment Variables
-
-Ensure `.env.local` is properly configured on VPS:
-
-```bash
-ssh root@92.205.108.255
-cd /var/www/serve
-nano .env.local
-```
-
-Required variables:
-- `NEXT_PUBLIC_FIREBASE_*` (Firebase config)
-- `RESEND_API_KEY` (Email service)
-- `CONTACT_EMAIL` (Contact form recipient)
-
-After updating `.env.local`, restart the service:
-```bash
-pm2 restart serve-website
-```
-
-## Monitoring & Logs
-
-### View real-time logs
-```bash
-ssh root@92.205.108.255 "pm2 logs serve-website"
-```
-
-### Check memory usage
-```bash
-ssh root@92.205.108.255 "pm2 monit"
-```
-
-### Check website response time
-```bash
-curl -o /dev/null -s -w 'Response time: %{time_total}s\n' http://92.205.108.255
-```
-
-## Automated Deployments (Future)
-
-Consider setting up GitHub Actions for automatic deployments:
-
-1. Add VPS SSH key to GitHub Secrets
-2. Create `.github/workflows/deploy.yml`
-3. Auto-deploy on push to `main` branch
-
-Would you like me to create a GitHub Actions workflow for this?
-
-## Support
-
-If deployment fails:
-1. Check the error message in the script output
-2. View VPS logs: `ssh root@92.205.108.255 "pm2 logs serve-website --lines 50"`
-3. Verify VPS has enough disk space: `ssh root@92.205.108.255 "df -h"`
-4. Check if all services are running: `ssh root@92.205.108.255 "systemctl status nginx"`
+`ecosystem.config.cjs` is the pm2 definition (`pm2 start ecosystem.config.cjs && pm2 save`).
+`nginx-default.conf` is a reference copy of the proxy configuration.

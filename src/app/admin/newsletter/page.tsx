@@ -500,7 +500,7 @@ export default function NewsletterAdmin() {
                       <td className="px-4 py-3">
                         <div className="flex items-center">
                           <EnvelopeIcon className="w-4 h-4 text-gray-400 mr-2 hidden sm:block" />
-                          <span className="text-sm text-gray-900 truncate max-w-[200px]">{subscriber.email}</span>
+                          <span className="text-sm text-gray-900 truncate max-w-50">{subscriber.email}</span>
                         </div>
                       </td>
                       <td className="px-4 py-3 text-sm text-gray-600 hidden sm:table-cell">

@@ -1,7 +1,5 @@
 import Image from 'next/image'
 import { Metadata } from 'next'
-import MajorTitle from '@/components/MajorTitle'
-import OptimizedImage from '@/components/OptimizedImage'
 
 export const metadata: Metadata = {
   title: 'Our Supporters & Donors | Thank You | SERVE Charity',
@@ -17,10 +15,12 @@ export const metadata: Metadata = {
     siteName: 'SERVE - Supporting Independence',
     locale: 'en_GB',
     type: 'website',
+    images: [{ url: '/images/serve.webp', width: 1024, height: 1024, alt: 'SERVE Charity Logo - Supporting Independence' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@serve_charity',
+    images: ['/images/serve.webp'],
   },
 }
 

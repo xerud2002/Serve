@@ -174,7 +174,7 @@ export default function AdminAuthGate({
             <div className="flex items-center justify-between sm:justify-end gap-3 sm:gap-4">
               <div className="flex items-center gap-2">
                 <div className="w-2 h-2 bg-green-500 rounded-full"></div>
-                <span className="text-xs sm:text-sm text-gray-600 truncate max-w-[150px] sm:max-w-none">{email}</span>
+                <span className="text-xs sm:text-sm text-gray-600 truncate max-w-37.5 sm:max-w-none">{email}</span>
               </div>
               <button
                 onClick={handleLogout}

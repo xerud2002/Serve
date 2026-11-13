@@ -11,14 +11,13 @@ import {
 } from '@heroicons/react/24/outline'
 import type { Metadata } from 'next'
 import MajorTitle from '@/components/MajorTitle'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Annual Report 2023-2024 | SERVE',
-  description: 'SERVE annual report and audited financial statements for the year ending March 31, 2024.',
-  alternates: {
-    canonical: '/about/annual-report-2024/',
-  },
-}
+  description: 'SERVE annual report and audited financial statements for the year ending 31 March 2024.',
+  canonicalUrl: '/about/annual-report-2024/',
+})
 
 export default function AnnualReport2024Page() {
   return (
@@ -166,7 +165,7 @@ export default function AnnualReport2024Page() {
                 </div>
                 <div>
                   <div className="font-bold text-gray-900 mb-1">Wellbeing Activities</div>
-                  <div className="text-sm text-gray-600">Day center programs and activities</div>
+                  <div className="text-sm text-gray-600">Day centre programmes and activities</div>
                 </div>
               </div>
               <div className="flex items-start gap-3">
@@ -333,8 +332,8 @@ export default function AnnualReport2024Page() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Wellbeing Services</h3>
               <ul className="space-y-2 text-gray-700 text-sm">
-                <li>• Day center activities</li>
-                <li>• Social programs and events</li>
+                <li>• Day centre activities</li>
+                <li>• Social programmes and events</li>
                 <li>• Reduced isolation and improved quality of life</li>
               </ul>
             </div>
@@ -476,7 +475,7 @@ export default function AnnualReport2024Page() {
                 <span className="text-purple-600 font-bold text-xl">4</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Volunteer Engagement</h3>
-              <p className="text-sm text-gray-700">Enhance recruitment, training, and retention programs</p>
+              <p className="text-sm text-gray-700">Enhance recruitment, training, and retention programmes</p>
             </div>
 
             <div className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100">
@@ -492,7 +491,7 @@ export default function AnnualReport2024Page() {
                 <span className="text-indigo-600 font-bold text-xl">6</span>
               </div>
               <h3 className="text-lg font-bold text-gray-900 mb-2">Service Growth</h3>
-              <p className="text-sm text-gray-700">Meet growing community needs with expanded programs</p>
+              <p className="text-sm text-gray-700">Meet growing community needs with expanded programmes</p>
             </div>
           </div>
         </div>

@@ -15,6 +15,7 @@ import {
   UserGroupIcon
 } from '@heroicons/react/24/outline'
 import Breadcrumb from '@/components/Breadcrumb'
+import FAQSchema from '@/components/FAQSchema'
 import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
 
@@ -179,6 +180,7 @@ export default function HomeHelpPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <FAQSchema faqs={faqs} />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

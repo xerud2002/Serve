@@ -15,19 +15,17 @@ import {
   CakeIcon,
   FaceSmileIcon
 } from '@heroicons/react/24/outline'
-import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
 import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Day Care Centre - SERVE | Ron Manning Day Centre Northamptonshire',
   description: 'Enjoy social activities, nutritious meals, and professional care at our friendly day centre. Transport included. Book your visit: 01933 315555.',
-  keywords: 'day care, day centre, social activities, community care, Northamptonshire, elderly care',
-  alternates: {
-    canonical: '/services/day-care/',
-  },
-}
+  keywords: ['day care', 'day centre', 'social activities', 'community care', 'elderly care'],
+  canonicalUrl: '/services/day-care/',
+})
 
 const activities = [
   {

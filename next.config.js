@@ -1,74 +1,7 @@
-import withPWAInit from '@ducanh2912/next-pwa'
+import path from 'node:path'
+import { fileURLToPath } from 'node:url'
 
-const withPWA = withPWAInit({
-  dest: 'public',
-  register: true,
-  skipWaiting: true,
-  disable: process.env.NODE_ENV === 'development',
-  cacheOnFrontEndNav: true,
-  reloadOnOnline: true,
-  workboxOptions: {
-    runtimeCaching: [
-      {
-        urlPattern: /^https:\/\/fonts\.(?:googleapis|gstatic)\.com\/.*/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'google-fonts',
-          expiration: {
-            maxEntries: 4,
-            maxAgeSeconds: 365 * 24 * 60 * 60 // 1 year
-          }
-        }
-      },
-      {
-        urlPattern: /^https:\/\/graph\.facebook\.com\/.*/i,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'facebook-api',
-          expiration: {
-            maxEntries: 32,
-            maxAgeSeconds: 24 * 60 * 60 // 1 day
-          },
-          networkTimeoutSeconds: 10
-        }
-      },
-      {
-        urlPattern: /\.(?:jpg|jpeg|gif|png|svg|ico|webp|avif)$/i,
-        handler: 'CacheFirst',
-        options: {
-          cacheName: 'static-images',
-          expiration: {
-            maxEntries: 64,
-            maxAgeSeconds: 30 * 24 * 60 * 60 // 30 days
-          }
-        }
-      },
-      {
-        urlPattern: /\.(?:js|css)$/i,
-        handler: 'StaleWhileRevalidate',
-        options: {
-          cacheName: 'static-resources',
-          expiration: {
-            maxEntries: 32,
-            maxAgeSeconds: 24 * 60 * 60 // 1 day
-          }
-        }
-      },
-      {
-        urlPattern: /^https?.*/,
-        handler: 'NetworkFirst',
-        options: {
-          cacheName: 'others',
-          expiration: {
-            maxEntries: 32,
-            maxAgeSeconds: 24 * 60 * 60 // 1 day
-          },
-          networkTimeoutSeconds: 10
-        }
-      }
-    ]
-  }
-})
+const projectRoot = path.dirname(fileURLToPath(import.meta.url))
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
@@ -101,10 +34,6 @@ const nextConfig = {
         protocol: 'https',
         hostname: '**.fbcdn.net',
       },
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
     ],
   },
   
@@ -122,62 +51,16 @@ const nextConfig = {
     } : false,
   },
   
-  // Turbopack configuration (Next.js 16 default)
-  turbopack: {}, // Empty config to acknowledge Turbopack while keeping webpack config
+  // Pin the workspace root so a lockfile in a parent folder is not picked up instead
+  turbopack: { root: projectRoot },
   
   // Experimental features for better performance
   experimental: {
     optimizePackageImports: [
       '@heroicons/react',
       'clsx',
-      'resend',
-      'nodemailer',
-      'web-vitals'
+      'resend'
     ],
-    // optimizeCss disabled - causes MIME type issues with CSS loading
-    webpackBuildWorker: true, // Faster builds
-  },
-  
-  // Webpack optimizations to reduce bundle size
-  webpack: (config, { isServer }) => {
-    if (!isServer) {
-      // Optimize chunk splitting for better caching and smaller initial load
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          default: false,
-          vendors: false,
-          // Framework chunk (React, Next.js)
-          framework: {
-            name: 'framework',
-            chunks: 'all',
-            test: /[\\/]node_modules[\\/](react|react-dom|scheduler|next)[\\/]/,
-            priority: 40,
-            enforce: true,
-          },
-          // Vendor chunk for other npm packages
-          vendor: {
-            name: 'vendor',
-            chunks: 'all',
-            test: /[\\/]node_modules[\\/]/,
-            priority: 20,
-            minChunks: 1,
-            maxSize: 50000, // Further split vendor bundles to 50KB
-          },
-          // Common chunk for shared code
-          common: {
-            name: 'common',
-            minChunks: 2,
-            chunks: 'all',
-            priority: 10,
-            reuseExistingChunk: true,
-            enforce: true,
-          },
-        },
-      }
-    }
-    
-    return config
   },
   
   // 301 Redirects: Old WordPress URLs → new Next.js routes
@@ -283,6 +166,38 @@ const nextConfig = {
       { source: '/rest/:path*', destination: '/', permanent: true },
       { source: '/stream%25-careers', destination: '/', permanent: true },
 
+      // ─── Previous-site URLs that still returned 404 (live on the old site 2021-2025) ───
+      // "&" pages were published as "%26"; both spellings are matched.
+      { source: '/contact-us/', destination: '/contact/', permanent: true },
+      { source: '/personal-care/', destination: '/services/personal-care/', permanent: true },
+      { source: '/personal-care-1/', destination: '/services/personal-care/', permanent: true },
+      { source: '/arranging-your-care/', destination: '/services/personal-care/', permanent: true },
+      { source: '/direct-payment-faqs/', destination: '/services/personal-care/', permanent: true },
+      { source: '/day-care/', destination: '/services/day-care/', permanent: true },
+      { source: '/day-care-and-mows-1/', destination: '/services/day-care/', permanent: true },
+      { source: '/cleaning-(&|%26)-shopping/', destination: '/services/home-help/', permanent: true },
+      { source: '/cleaning-(&|%26)-shopping-1/', destination: '/services/home-help/', permanent: true },
+      { source: '/shopping-membership/', destination: '/services/home-help/', permanent: true },
+      { source: '/dbs/', destination: '/services/community-services/', permanent: true },
+      { source: '/hearing-aids/', destination: '/services/community-services/', permanent: true },
+      { source: '/community-support-service/', destination: '/services/community-services/', permanent: true },
+      { source: '/carers-needs-(&|%26)-aspiration/', destination: '/services/', permanent: true },
+      { source: '/carecall/', destination: '/services/', permanent: true },
+      { source: '/holisfit/', destination: '/services/', permanent: true },
+      { source: '/wellbeing/', destination: '/services/', permanent: true },
+      { source: '/mobility-shop/', destination: '/services/', permanent: true },
+      { source: '/servescape-gardening/', destination: '/services/', permanent: true },
+      { source: '/volunteers-(&|%26)-careers/', destination: '/volunteer/', permanent: true },
+      { source: '/fundraise-for-us/', destination: '/donate/', permanent: true },
+      { source: '/awards-(&|%26)-reviews/', destination: '/about/', permanent: true },
+      { source: '/news-(&|%26)-events/', destination: '/news/', permanent: true },
+      { source: '/news-(&|%26)-fundraising-events/', destination: '/news/', permanent: true },
+      { source: '/coronavirus-latest/', destination: '/news/', permanent: true },
+      { source: '/swing-for-serve/', destination: '/news/', permanent: true },
+      { source: '/60km-for-60-years/', destination: '/news/', permanent: true },
+      { source: '/an-evening-with-graeme-duffin-of-wet-wet-wet/', destination: '/news/', permanent: true },
+      { source: '/serve-best-homecare-team-in-the-east-midlands/', destination: '/news/great-british-care-awards/', permanent: true },
+
       // ─── Discontinued / renamed legacy pages ───
       { source: '/disclosure-barring-service-formerly-crb', destination: '/volunteer/', permanent: true },
       { source: '/disclosure-barring-service-formerly-crb/', destination: '/volunteer/', permanent: true },
@@ -320,44 +235,10 @@ const nextConfig = {
   // HTTP Headers for performance and security
   async headers() {
     return [
-      {
-        source: '/_next/static/css/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static/chunks/:path*',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
+      // Next.js already sends immutable one-year caching for /_next/static and
+      // long-lived caching for /_next/image; overriding them here breaks dev mode.
       {
         source: '/:all*(svg|jpg|jpeg|png|webp|avif|gif|ico)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/image(.*)',
-        headers: [
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-        ],
-      },
-      {
-        source: '/_next/static(.*)',
         headers: [
           {
             key: 'Cache-Control',
@@ -372,16 +253,16 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.ahrefs.com https://va.vercel-scripts.com https://vercel.live https://apis.google.com https://*.googleapis.com https://www.gstatic.com https://www.paypal.com https://www.paypalobjects.com",
+              "script-src 'self' 'unsafe-eval' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://*.google-analytics.com https://apis.google.com https://*.googleapis.com https://www.gstatic.com",
               "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
               "font-src 'self' https://fonts.gstatic.com data:",
               "img-src 'self' data: https: blob:",
               "media-src 'self' https:",
-              "connect-src 'self' https://graph.facebook.com https://www.google-analytics.com https://*.google-analytics.com https://analytics.ahrefs.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://*.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.google.com https://www.paypal.com https://www.sandbox.paypal.com",
-              "frame-src 'self' https://www.facebook.com https://*.firebaseapp.com https://accounts.google.com https://www.google.com https://vercel.live https://www.paypal.com https://www.sandbox.paypal.com",
+              "connect-src 'self' https://www.google-analytics.com https://*.google-analytics.com https://*.googleapis.com https://*.firebaseio.com https://firestore.googleapis.com https://identitytoolkit.googleapis.com https://www.google.com",
+              "frame-src 'self' https://www.facebook.com https://*.firebaseapp.com https://accounts.google.com https://www.google.com",
               "worker-src 'self' blob:",
               "manifest-src 'self'",
-              "form-action 'self' https://www.paypal.com",
+              "form-action 'self'",
               "base-uri 'self'",
               "upgrade-insecure-requests"
             ].join('; ')
@@ -412,5 +293,4 @@ const nextConfig = {
   },
 }
 
-// Wrap with PWA configuration
-export default withPWA(nextConfig)
+export default nextConfig

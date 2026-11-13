@@ -1,39 +1,20 @@
 'use client'
 
 import Script from 'next/script'
-import { usePathname, useSearchParams } from 'next/navigation'
-import { useEffect } from 'react'
 
 interface GoogleAnalyticsProps {
   measurementId?: string
 }
 
-// Track page views
-export function useGoogleAnalytics(measurementId: string | undefined) {
-  const pathname = usePathname()
-  const searchParams = useSearchParams()
-
-  useEffect(() => {
-    if (!measurementId || typeof window === 'undefined') return
-
-    const url = pathname + searchParams.toString()
-    
-    // Send pageview with custom parameters
-    window.gtag?.('config', measurementId, {
-      page_path: url,
-    })
-  }, [pathname, searchParams, measurementId])
-}
-
 // Track conversion events
-export function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | undefined>) {
+function trackEvent(eventName: string, eventParams?: Record<string, string | number | boolean | undefined>) {
   if (typeof window === 'undefined' || !window.gtag) return
   
   window.gtag('event', eventName, eventParams)
 }
 
 // Google Ads conversion tracking
-export function trackGoogleAdsConversion() {
+function trackGoogleAdsConversion() {
   if (typeof window === 'undefined' || !window.gtag) return
   
   window.gtag('event', 'conversion_event_page_view', {
@@ -44,11 +25,10 @@ export function trackGoogleAdsConversion() {
 // Predefined event tracking functions
 export const analytics = {
   // Contact form submission
-  trackContactForm: (formType: 'contact' | 'volunteer' | 'assessment') => {
+  trackContactForm: (formType: 'contact' | 'volunteer') => {
     trackEvent('generate_lead', {
       category: 'Form',
       label: formType,
-      value: formType === 'assessment' ? 25 : undefined, // £25 assessment value
     })
     // Also fire Google Ads conversion
     trackGoogleAdsConversion()
@@ -106,23 +86,6 @@ export const analytics = {
       category: 'Outbound',
       label: linkName,
       url: url,
-    })
-  },
-
-  // Transport booking
-  trackTransportBooking: () => {
-    trackEvent('transport_booking', {
-      category: 'Booking',
-      label: 'transport',
-    })
-  },
-
-  // Assessment booking
-  trackAssessmentBooking: () => {
-    trackEvent('assessment_booking', {
-      category: 'Booking',
-      label: 'assessment',
-      value: 25, // £25 fee
     })
   },
 }

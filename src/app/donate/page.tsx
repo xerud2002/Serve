@@ -1,5 +1,3 @@
-import React from "react";
-import FriendsOfServe from "@/components/FriendsOfServe";
 import TrackedLink from "@/components/TrackedLink";
 import { HeartIcon, PhoneIcon, ArrowRightIcon, CheckCircleIcon, SparklesIcon } from "@heroicons/react/24/solid";
 import Link from "next/link";

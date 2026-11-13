@@ -1,14 +1,13 @@
 import MajorTitle from '@/components/MajorTitle'
 import Link from 'next/link'
 import type { Metadata } from 'next'
+import { generateSEOMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
+export const metadata: Metadata = generateSEOMetadata({
   title: 'Privacy Policy | SERVE',
   description: 'How SERVE collects, uses, stores and protects personal data. GDPR and UK data protection rights for service users, supporters and volunteers.',
-  alternates: {
-    canonical: '/privacy/',
-  },
-}
+  canonicalUrl: '/privacy/',
+})
 
 export default function PrivacyPolicyPage() {
   return (
@@ -156,7 +155,7 @@ export default function PrivacyPolicyPage() {
           {/* Section 10 */}
           <article>
             <h2 className="text-xl font-semibold text-gray-900 mb-3">10. Data Security</h2>
-            <p className="text-gray-700 leading-relaxed">We use appropriate technical and organizational security measures to protect your personal data. These include encryption, firewalls, and secure servers. However, no method of transmission over the internet is 100% secure, and we cannot guarantee the absolute security of your data.</p>
+            <p className="text-gray-700 leading-relaxed">We use appropriate technical and organisational security measures to protect your personal data. These include encryption, firewalls, and secure servers. However, no method of transmission over the internet is 100% secure, and we cannot guarantee the absolute security of your data.</p>
           </article>
 
           {/* Section 11 */}

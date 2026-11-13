@@ -12,8 +12,8 @@ import {
   HandRaisedIcon,
   SparklesIcon
 } from '@heroicons/react/24/outline'
-import MajorTitle from '@/components/MajorTitle'
 import Breadcrumb from '@/components/Breadcrumb'
+import FAQSchema from '@/components/FAQSchema'
 import RelatedServices from '@/components/RelatedServices'
 import { relatedServicesMap } from '@/lib/relatedServicesData'
 
@@ -103,7 +103,7 @@ const benefits = [
   'Fully trained volunteers',
   'Free confidential service',
   'Flexible arrangements',
-  'Person-centered approach'
+  'Person-centred approach'
 ]
 
 const faqs = [
@@ -173,6 +173,7 @@ export default function BefriendingPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
+      <FAQSchema faqs={faqs} />
       {/* Breadcrumb */}
       <nav className="bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">

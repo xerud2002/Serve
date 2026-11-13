@@ -9,7 +9,6 @@ import {
   ArrowRightIcon,
   ChartBarIcon,
   MegaphoneIcon,
-  AcademicCapIcon,
   GiftIcon,
   DocumentTextIcon,
   CalendarDaysIcon,
@@ -23,17 +22,14 @@ import {
   UsersIcon,
   BriefcaseIcon,
   ChatBubbleLeftRightIcon,
-  PhotoIcon,
   BookOpenIcon,
-  TicketIcon,
   TagIcon
 } from '@heroicons/react/24/outline'
-import { CheckIcon } from '@heroicons/react/24/solid'
 
 export const metadata: Metadata = {
   title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
-  description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement. CSR programs, sponsorship, and cause-related marketing in Northamptonshire.',
-  keywords: ['corporate fundraising Northamptonshire', 'business charity partnership', 'CSR programs', 'corporate social responsibility', 'charity sponsorship', 'cause-related marketing', 'employee volunteering', 'community engagement', 'business philanthropy', 'corporate giving'],
+  description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement. CSR programmes, sponsorship, and cause-related marketing in Northamptonshire.',
+  keywords: ['corporate fundraising Northamptonshire', 'business charity partnership', 'CSR programmes', 'corporate social responsibility', 'charity sponsorship', 'cause-related marketing', 'employee volunteering', 'community engagement', 'business philanthropy', 'corporate giving'],
   alternates: {
     canonical: '/corporate-fundraising/',
   },
@@ -44,12 +40,14 @@ export const metadata: Metadata = {
     siteName: 'SERVE - Supporting Independence',
     locale: 'en_GB',
     type: 'website',
+    images: [{ url: '/images/serve.webp', width: 1024, height: 1024, alt: 'SERVE Charity Logo - Supporting Independence' }],
   },
   twitter: {
     card: 'summary_large_image',
     site: '@serve_charity',
     title: 'Corporate Fundraising & Business Partnerships | SERVE Charity',
     description: 'Partner with SERVE for corporate fundraising. Boost brand loyalty, employee morale, and community engagement.',
+    images: ['/images/serve.webp'],
   },
 }
 

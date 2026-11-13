@@ -2,8 +2,6 @@ import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
 import StructuredData from '@/components/StructuredData'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
 import CookieConsent from '@/components/CookieConsent'
 import GoogleAnalytics from '@/components/GoogleAnalytics'
 import LayoutWrapper from '@/components/LayoutWrapper'
@@ -19,10 +17,7 @@ const inter = Inter({
 })
 
 export const metadata: Metadata = {
-  title: {
-    default: 'SERVE | Supporting Independence in Northamptonshire',
-    template: '%s | SERVE Charity'
-  },
+  title: 'SERVE | Supporting Independence in Northamptonshire',
   description: 'SERVE is an award-winning charity providing care services to older people and adults with disabilities in Northamptonshire. Winner of Best Homecare Team, East Midlands 2024. CQC registered with 40+ years of trusted service.',
   keywords: [
     'charity',
@@ -72,10 +67,10 @@ export const metadata: Metadata = {
     images: [
       {
         url: '/images/serve.webp',
-        width: 800,
-        height: 400,
+        width: 1024,
+        height: 1024,
         alt: 'SERVE Charity Logo - Supporting Independence',
-        type: 'image/png',
+        type: 'image/webp',
       },
     ],
   },
@@ -162,7 +157,6 @@ export default function RootLayout({
         {/* Performance optimizations - Preconnect to required origins */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="dns-prefetch" href="https://graph.facebook.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         
         {/* Preload critical hero image for faster LCP - smaller size for mobile */}
@@ -183,7 +177,7 @@ export default function RootLayout({
         <meta name="mobile-web-app-capable" content="yes" />
         <meta name="theme-color" content="#1664de" />
         
-        <StructuredData type="local-business" />
+        <StructuredData />
       </head>
       <body className={`${inter.className} antialiased`}>
         <GoogleAnalytics measurementId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />

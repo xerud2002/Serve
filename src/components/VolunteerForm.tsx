@@ -6,8 +6,6 @@ import { useVolunteerForm } from '@/hooks/useVolunteerForm'
 export default function VolunteerForm() {
   const {
     formData,
-    // eslint-disable-next-line @typescript-eslint/no-unused-vars
-    validationErrors,
     isSubmitting,
     isSubmitted,
     error,
@@ -46,7 +44,7 @@ export default function VolunteerForm() {
               </div>
               <button
                 onClick={clearForm}
-                className="w-full sm:w-auto bg-serve-green-600 hover:bg-serve-green-700 text-white py-4 px-6 sm:px-8 min-h-[52px] rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
+                className="w-full sm:w-auto bg-serve-green-600 hover:bg-serve-green-700 text-white py-4 px-6 sm:px-8 min-h-13 rounded-xl text-base sm:text-lg font-semibold transition-all duration-300 transform hover:scale-105"
               >
                 Submit Another Application
               </button>
@@ -362,7 +360,7 @@ export default function VolunteerForm() {
                 <button
                   type="submit"
                   disabled={isSubmitting}
-                  className="w-full bg-linear-to-r from-serve-green-600 to-emerald-600 hover:from-serve-green-700 hover:to-emerald-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-4 sm:py-5 min-h-[52px] rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
+                  className="w-full bg-linear-to-r from-serve-green-600 to-emerald-600 hover:from-serve-green-700 hover:to-emerald-700 disabled:from-gray-400 disabled:to-gray-500 disabled:cursor-not-allowed text-white px-6 sm:px-8 py-4 sm:py-5 min-h-13 rounded-xl sm:rounded-2xl text-base sm:text-lg font-bold transition-all duration-300 transform hover:scale-105 shadow-xl hover:shadow-2xl"
                 >
                   {isSubmitting ? (
                     <span className="flex items-center justify-center">

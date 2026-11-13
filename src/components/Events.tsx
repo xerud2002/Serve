@@ -4,7 +4,6 @@ import {
   SparklesIcon,
   NewspaperIcon
 } from '@heroicons/react/24/outline'
-import { StarIcon } from '@heroicons/react/24/solid'
 import Image from 'next/image'
 
 export default function Events() {

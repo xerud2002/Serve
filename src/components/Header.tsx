@@ -4,8 +4,8 @@ import { useState, useEffect, useRef } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Bars3Icon, XMarkIcon, PhoneIcon, EnvelopeIcon, ChevronRightIcon } from '@heroicons/react/24/outline'
-import { HeartIcon, SparklesIcon } from '@heroicons/react/24/solid'
-import { ARIA_LABELS, FOCUS_STYLES, AccessibleButton, handleKeyboardNavigation, KEYBOARD_KEYS } from '@/lib/accessibility'
+import { HeartIcon } from '@heroicons/react/24/solid'
+import { ARIA_LABELS, FOCUS_STYLES, handleKeyboardNavigation, KEYBOARD_KEYS } from '@/lib/accessibility'
 import { useIsMobile, MOBILE_CLASSES } from '@/lib/mobile'
 import { analytics } from '@/components/GoogleAnalytics'
 
@@ -221,7 +221,7 @@ export default function Header() {
             {/* Mobile Menu */}
             <nav 
               ref={mobileMenuRef}
-              className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${mobileMenuOpen ? 'max-h-[600px] opacity-100' : 'max-h-0 opacity-0'}`}
+              className={`lg:hidden overflow-hidden transition-all duration-500 ease-out ${mobileMenuOpen ? 'max-h-150 opacity-100' : 'max-h-0 opacity-0'}`}
               id="mobile-menu"
               aria-label={ARIA_LABELS.mainNavigation}
             >

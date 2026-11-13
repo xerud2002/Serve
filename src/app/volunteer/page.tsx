@@ -13,13 +13,10 @@ import {
   AcademicCapIcon,
   ShieldCheckIcon,
   FaceSmileIcon,
-  BuildingOfficeIcon,
-  HomeModernIcon,
-  SparklesIcon
+  HomeModernIcon
 } from '@heroicons/react/24/outline'
 
 import { generateSEOMetadata, seoConfigs } from '@/lib/seo'
-import MajorTitle from '@/components/MajorTitle'
 
 export const metadata = generateSEOMetadata(seoConfigs.volunteer)
 
